@@ -1,4 +1,4 @@
-#include "pathfind.h"
+#include "Editogia/pathfind.h"
 #include "Editogia/rng.h"
 #include "Editogia/window.h"
 #include <math.h>

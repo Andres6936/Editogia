@@ -2,15 +2,15 @@
 #include "Editogia/window.h"
 #include "Editogia/cuss.h"
 #include "Editogia/city.h"
-#include "player_city.h"
+#include "Editogia/player_city.h"
 #include "Editogia/stringfunc.h"
 #include "Editogia/keys.h"
-#include "building.h"
-#include "animal.h"
+#include "Editogia/building.h"
+#include "Editogia/animal.h"
 #include "Editogia/rng.h"
 #include "Editogia/globals.h"
 #include "Editogia/files.h"
-#include "help.h"
+#include "Editogia/help.h"
 #include <sstream>
 #include <fstream>
 #include <cstdarg> // For the variadic function below
