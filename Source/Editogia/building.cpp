@@ -1401,7 +1401,7 @@ const std::string Building_datum::toJSON() const noexcept
 	doc["destroy-cost"] = destroy_cost;
 
 	char output[1024];
-	ArduinoJson::serializeJsonPretty(doc, output);
+	ArduinoJson::serializeJson(doc, output);
 	return output;
 }
 
