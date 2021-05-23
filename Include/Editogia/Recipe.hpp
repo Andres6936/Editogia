@@ -41,6 +41,8 @@ struct Recipe
 
 	std::vector<Resource_amount> resource_ingredients;
 	std::vector<Mineral_amount> mineral_ingredients;
+
+	const std::string toJSON() const noexcept;
 };
 
 #endif //EDITOGIA_RECIPE_HPP

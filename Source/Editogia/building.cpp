@@ -1285,7 +1285,6 @@ const std::string Building_datum::toJSON() const noexcept
 	doc["DestroyCost"] = destroy_cost;
 
 	JsonArray buildCostsObject = doc.createNestedArray("Costs");
-
 	for(const auto& cost : build_costs)
 	{
 		if (cost.amount <= 0) continue;
@@ -1296,6 +1295,12 @@ const std::string Building_datum::toJSON() const noexcept
 
 	JsonObject jobsObject = doc.createNestedObject("Jobs");
 	jobsObject[toString(jobs.type)] = jobs.amount;
+
+	JsonArray recipesObject = doc.createNestedArray("Recipes");
+	for(const auto& recipe: recipes)
+	{
+		recipesObject.add(serialized(recipe.toJSON()));
+	}
 
 	char output[2048];
 	serializeJsonPretty(doc, output);

@@ -3,6 +3,7 @@
 #include <sstream>
 #include "Editogia/window.h"
 #include "Editogia/Recipe.hpp"
+#include "ArduinoJson/ArduinoJson.hpp"
 
 
 // R defaults to RES_NULL, A defaults to 1
@@ -121,5 +122,19 @@ std::string Recipe::get_name()
 Resource Recipe::get_resource()
 {
 	return result.type;
+}
+
+const std::string Recipe::toJSON() const noexcept
+{
+	using namespace ArduinoJson;
+	DynamicJsonDocument doc(2048);
+
+	doc["Name"] = name;
+	doc["MaxDeficit"] = max_deficit;
+	doc["UnitsPerDay"] = units_per_day;
+
+	char output[2048];
+	serializeJsonPretty(doc, output);
+	return output;
 }
 
