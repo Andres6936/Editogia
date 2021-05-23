@@ -72,6 +72,12 @@ FILE(COPY ${CMAKE_CURRENT_SOURCE_DIR}/art.txt DESTINATION ${CMAKE_CURRENT_BINARY
 FILE(COPY ${CMAKE_CURRENT_SOURCE_DIR}/motd.txt DESTINATION ${CMAKE_CURRENT_BINARY_DIR}/)
 FILE(COPY ${CMAKE_CURRENT_SOURCE_DIR}/new_food.txt DESTINATION ${CMAKE_CURRENT_BINARY_DIR}/)
 
+#[[ Set CURSES_NEED_NCURSES to TRUE before the find_package(Curses) call if
+ NCurses functionality is required. Set CURSES_NEED_WIDE to TRUE before the
+ find_package(Curses) call if unicode functionality is required. ]]#
+SET(CURSES_NEED_NCURSES TRUE)
+SET(CURSES_NEED_WIDE TRUE)
+
 FIND_PACKAGE(Curses)
 
 IF (CURSES_FOUND)
