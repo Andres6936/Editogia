@@ -1,6 +1,9 @@
 CMAKE_MINIMUM_REQUIRED(VERSION 3.14)
 PROJECT(Editogia)
 
+# Used for find resources from the root path of project
+SET(EDITOGIA_ROOT_DIR ${CMAKE_CURRENT_SOURCE_DIR})
+
 ADD_SUBDIRECTORY(Source/Common)
 ADD_SUBDIRECTORY(Source/App/Cuss)
 ADD_SUBDIRECTORY(Source/Editogia)
