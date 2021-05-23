@@ -1,4 +1,4 @@
-#include "resource.h"
+#include "Editogia/resource.h"
 
 Resource_datum* Resource_data[RES_MAX];
 Crop_datum* Crop_data[CROP_MAX];

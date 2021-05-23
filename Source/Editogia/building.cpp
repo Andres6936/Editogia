@@ -2,9 +2,9 @@
 #include "Editogia/resource.h"
 #include "Editogia/city.h" // Needed in Building::amount_built()
 #include "Editogia/window.h" // For debugmsg
-#include "stringfunc.h" // Needed in lookup_building_category()
-#include "player_city.h"  // For close()
-#include "rng.h"
+#include "Editogia/stringfunc.h" // Needed in lookup_building_category()
+#include "Editogia/player_city.h"  // For close()
+#include "Editogia/rng.h"
 #include <sstream>
 
 // R defaults to RES_NULL, A defaults to 1

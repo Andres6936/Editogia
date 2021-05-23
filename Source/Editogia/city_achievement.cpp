@@ -1,6 +1,6 @@
-#include "city_achievement.h"
-#include "citizen.h"    // For citizen_type_name()
-#include "stringfunc.h" // For capitalize()
+#include "Editogia/city_achievement.h"
+#include "Editogia/citizen.h"    // For citizen_type_name()
+#include "Editogia/stringfunc.h" // For capitalize()
 #include <sstream>
 
 City_achievement_type lookup_city_achievement_type(std::string name)

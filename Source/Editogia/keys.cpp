@@ -1,4 +1,4 @@
-#include "keys.h"
+#include "Editogia/keys.h"
 #include <ncurses.h>  // for KEY_ macros
 
 Point input_direction(long ch, bool accept_capitals)

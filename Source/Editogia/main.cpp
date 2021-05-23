@@ -1,13 +1,13 @@
 #include "Editogia/player_city.h"
 #include "Editogia/rng.h"
-#include "window.h"
-#include "world.h"
-#include "interface.h"
-#include "game.h"
-#include "init.h"
-#include "files.h"  // For file_exists()
-#include "kingdom.h"  // For init_kingdoms()
-#include "globals.h"
+#include "Editogia/window.h"
+#include "Editogia/world.h"
+#include "Editogia/interface.h"
+#include "Editogia/game.h"
+#include "Editogia/init.h"
+#include "Editogia/files.h"  // For file_exists()
+#include "Editogia/kingdom.h"  // For init_kingdoms()
+#include "Editogia/globals.h"
 
 void check_world_resources(World_map* world);
 

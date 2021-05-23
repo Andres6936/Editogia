@@ -3,7 +3,7 @@
 #include "Editogia/window.h" // For debugmsg()
 #include "Editogia/geometry.h" // For rl_dist()
 #include "Editogia/ai_city.h"
-#include "globals.h"
+#include "Editogia/globals.h"
 #include <sstream>
 
 Kingdom::Kingdom()

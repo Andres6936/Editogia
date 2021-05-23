@@ -1,5 +1,5 @@
-#include "combat.h"
-#include "rng.h"
+#include "Editogia/combat.h"
+#include "Editogia/rng.h"
 
 // max_attacks defaults to 0 (no maximum)
 Battle_result quick_battle(int attacker_number, int attacker_strength,

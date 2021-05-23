@@ -1,12 +1,12 @@
 #include "Editogia/game.h"
 #include "Editogia/city.h"
 #include "player_city.h"
-#include "stringfunc.h"
-#include "world.h"
-#include "kingdom.h"
-#include "rng.h"
-#include "globals.h"
-#include "files.h"
+#include "Editogia/stringfunc.h"
+#include "Editogia/world.h"
+#include "Editogia/kingdom.h"
+#include "Editogia/rng.h"
+#include "Editogia/globals.h"
+#include "Editogia/files.h"
 #include <fstream>
 
 Game::Game()

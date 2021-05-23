@@ -1,6 +1,6 @@
 #include "pathfind.h"
-#include "rng.h"
-#include "window.h"
+#include "Editogia/rng.h"
+#include "Editogia/window.h"
 #include <math.h>
 #include <algorithm>
 #include <sstream>    // For Generic_map::save_data()

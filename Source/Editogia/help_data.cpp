@@ -2,8 +2,8 @@
 #include "Editogia/globals.h"
 #include "Editogia/area.h"
 #include "Editogia/building.h"
-#include "race.h"
-#include "stringfunc.h" // For capitalize()
+#include "Editogia/race.h"
+#include "Editogia/stringfunc.h" // For capitalize()
 #include <sstream>
 
 #define _article(n) \
