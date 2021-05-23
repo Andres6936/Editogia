@@ -87,6 +87,36 @@ const char* toString(const Resource resource) noexcept
 	return "Unknown";
 }
 
+const char* toString(Mineral type) noexcept
+{
+	switch (type)
+	{
+
+	case MINERAL_NULL:
+		return "Null";
+	case MINERAL_STONE:
+		return "Stone";
+	case MINERAL_TIN:
+		return "Tin";
+	case MINERAL_COPPER:
+		return "Copper";
+	case MINERAL_IRON:
+		return "Iron";
+	case MINERAL_SALT:
+		return "Salt";
+	case MINERAL_GEMS:
+		return "Gems";
+	case MINERAL_GOLD:
+		return "Gold";
+	case MINERAL_COAL:
+		return "Coal";
+	case MINERAL_MAX:
+		return "Max";
+	}
+
+	return "Null";
+}
+
 bool Resource_amount::is_infinite()
 {
 	return (amount == INFINITE_RESOURCE);

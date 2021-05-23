@@ -219,6 +219,8 @@ enum Mineral
 	MINERAL_MAX
 };
 
+const char* toString(Mineral type) noexcept;
+
 struct Crop_datum
 {
 	Crop_datum()
