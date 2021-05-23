@@ -6,13 +6,15 @@
 
 struct Military_unit
 {
-  Military_unit();
-  ~Military_unit();
+	Military_unit();
 
-  std::string save_data();
-  bool load_data(std::istream& data);
+	~Military_unit();
 
-  int count;
+	std::string save_data();
+
+	bool load_data(std::istream& data);
+
+	int count;
 };
 
 #endif

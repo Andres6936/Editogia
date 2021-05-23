@@ -13,31 +13,31 @@
 // tile for World_map.
 enum Map_type
 {
-  MAP_NULL = 0,
+	MAP_NULL = 0,
 
-  MAP_TUNDRA,       // Mostly tundra, some forest
+	MAP_TUNDRA,       // Mostly tundra, some forest
 
-  MAP_DESERT,       // Mostly desert
-  MAP_WASTELAND,    // Mostly rocky and hills
-  MAP_PLAINS,       // Mostly field and rocky
-  MAP_FOREST,       // Mostly forest and plains
-  MAP_SWAMP,        // Mostly swamp
-  MAP_JUNGLE,       // Jungle, forest and swamp.
+	MAP_DESERT,       // Mostly desert
+	MAP_WASTELAND,    // Mostly rocky and hills
+	MAP_PLAINS,       // Mostly field and rocky
+	MAP_FOREST,       // Mostly forest and plains
+	MAP_SWAMP,        // Mostly swamp
+	MAP_JUNGLE,       // Jungle, forest and swamp.
 
-  MAP_FOOTHILLS,    // Mostly hills and mountains
-  MAP_ICY_FOOTHILLS,// Frozen hills and mountains
-  MAP_MOUNTAINOUS,  // Almost all mountains
-  MAP_ICY_MOUNTAIN, // The most forbidding of all terrains!
+	MAP_FOOTHILLS,    // Mostly hills and mountains
+	MAP_ICY_FOOTHILLS,// Frozen hills and mountains
+	MAP_MOUNTAINOUS,  // Almost all mountains
+	MAP_ICY_MOUNTAIN, // The most forbidding of all terrains!
 
-  MAP_BASIN,        // River, then fields and swamp
-  MAP_CANYON,       // River, then mountains and hills
-  MAP_GLACIER,      // Frozen river
+	MAP_BASIN,        // River, then fields and swamp
+	MAP_CANYON,       // River, then mountains and hills
+	MAP_GLACIER,      // Frozen river
 
-  MAP_COASTAL,      // Ocean along one side
-  MAP_OCEAN,        // Almost all ocean, occasional island
-  MAP_ICECAP,       // Frozen ocean
+	MAP_COASTAL,      // Ocean along one side
+	MAP_OCEAN,        // Almost all ocean, occasional island
+	MAP_ICECAP,       // Frozen ocean
 
-  MAP_MAX
+	MAP_MAX
 };
 
 #endif

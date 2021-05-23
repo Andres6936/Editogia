@@ -3,7 +3,7 @@
 
 Military_unit::Military_unit()
 {
-  count = 0;
+	count = 0;
 }
 
 Military_unit::~Military_unit()
@@ -12,15 +12,15 @@ Military_unit::~Military_unit()
 
 std::string Military_unit::save_data()
 {
-  std::stringstream ret;
-  ret << count << " ";
+	std::stringstream ret;
+	ret << count << " ";
 
-  return ret.str();
+	return ret.str();
 }
 
 bool Military_unit::load_data(std::istream& data)
 {
-  data >> count;
+	data >> count;
 
-  return true;
+	return true;
 }

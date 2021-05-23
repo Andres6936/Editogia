@@ -3,28 +3,30 @@
 
 enum Combat_result
 {
-  COMBAT_RES_NULL = 0,
+	COMBAT_RES_NULL = 0,
 
-  COMBAT_RES_ATTACKER_WON,
-  COMBAT_RES_DEFENDER_WON,
+	COMBAT_RES_ATTACKER_WON,
+	COMBAT_RES_DEFENDER_WON,
 
-  COMBAT_RES_ATTACKER_FLED,
-  COMBAT_RES_DEFENDER_FLED,
+	COMBAT_RES_ATTACKER_FLED,
+	COMBAT_RES_DEFENDER_FLED,
 
-  COMBAT_RES_BOTH_DEAD,
-  COMBAT_RES_DRAW,  // A draw for any other reason
+	COMBAT_RES_BOTH_DEAD,
+	COMBAT_RES_DRAW,  // A draw for any other reason
 
-  COMBAT_RES_MAX
+	COMBAT_RES_MAX
 };
 
 struct Battle_result
 {
-  Battle_result(Combat_result R = COMBAT_RES_NULL, int AD = 0, int DD = 0) :
-    result (R), attackers_dead (AD), defenders_dead (DD) {}
+	Battle_result(Combat_result R = COMBAT_RES_NULL, int AD = 0, int DD = 0) :
+			result(R), attackers_dead(AD), defenders_dead(DD)
+	{
+	}
 
-  Combat_result result;
-  int attackers_dead;
-  int defenders_dead;
+	Combat_result result;
+	int attackers_dead;
+	int defenders_dead;
 };
 
 /* quick_battle returns a positive number of defenders killed, or a negative
@@ -35,9 +37,9 @@ struct Battle_result
  * overwhelming) advantage of having bigger numbers.
  */
 Battle_result quick_battle(int attacker_number, int attacker_strength,
-                           int attacker_hp,
-                           int defender_number, int defender_strength,
-                           int defender_hp,
-                           int max_attacks = 0);
+		int attacker_hp,
+		int defender_number, int defender_strength,
+		int defender_hp,
+		int max_attacks = 0);
 
 #endif

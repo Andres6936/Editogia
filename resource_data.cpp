@@ -1,8 +1,8 @@
 #include "resource.h"
 
-Resource_datum* Resource_data [RES_MAX];
-Crop_datum*     Crop_data     [CROP_MAX];
-Mineral_datum*  Mineral_data  [MINERAL_MAX];
+Resource_datum* Resource_data[RES_MAX];
+Crop_datum* Crop_data[CROP_MAX];
+Mineral_datum* Mineral_data[MINERAL_MAX];
 
 // RESOURCE MACROS
 #define _resource(n) \
@@ -69,28 +69,31 @@ Mineral_datum*  Mineral_data  [MINERAL_MAX];
 
 void init_resource_data()
 {
-  for (int i = 0; i < RES_MAX; i++) {
-    Resource_data[i] = new Resource_datum();
-  }
-  for (int i = 0; i < CROP_MAX; i++) {
-    Crop_data[i] = new Crop_datum();
-  }
-  for (int i = 0; i < MINERAL_MAX; i++) {
-    Mineral_data[i] = new Mineral_datum();
-  }
+	for (int i = 0; i < RES_MAX; i++)
+	{
+		Resource_data[i] = new Resource_datum();
+	}
+	for (int i = 0; i < CROP_MAX; i++)
+	{
+		Crop_data[i] = new Crop_datum();
+	}
+	for (int i = 0; i < MINERAL_MAX; i++)
+	{
+		Mineral_data[i] = new Mineral_datum();
+	}
 
 
-  int cur_id = 0;
+	int cur_id = 0;
 
-  _resource(RES_NULL);
-    _rname("any resource");
-    _rcolor(c_dkgray);
+	_resource(RES_NULL);
+	_rname("any resource");
+	_rcolor(c_dkgray);
 
-  _resource(RES_GOLD);
-    _rname("gold");
-    _rvalue(100);
-    _rcolor(c_yellow);
-    _description("\
+	_resource(RES_GOLD);
+	_rname("gold");
+	_rvalue(100);
+	_rcolor(c_yellow);
+	_description("\
 Gold is the universally accepted currency of Edigotia.  This is its processed \
 form, as opposed to the <link=mineral>ore</link> mined out of the ground \
 (which can be <link=smeltery>smelted</link> to make usable gold).  While gold \
@@ -101,11 +104,11 @@ of workers.  Gold can be acquired from your citizens via <link=taxes>taxation\
 </link>.\
 ");
 
-  _resource(RES_FOOD);
-    _rname("food");
-    _rvalue(20);
-    _rcolor(c_green);
-    _description("\
+	_resource(RES_FOOD);
+	_rname("food");
+	_rvalue(20);
+	_rcolor(c_green);
+	_description("\
 Food is one of the most basic needs for a <link=city>city</link> to thrive.  \
 Without an adequate and continuous supply of food, your <link=citizens>citizens\
 </link> will go hungry, their health will suffer, and eventually they will die \
@@ -117,11 +120,11 @@ relatively inexpensive, even a modest economy can <link=trade>trade</link> for \
 it.\
 ");
 
-  _resource(RES_WOOD);
-    _rname("wood");
-    _rvalue(30);
-    _rcolor(c_ltred);
-    _description("\
+	_resource(RES_WOOD);
+	_rname("wood");
+	_rvalue(30);
+	_rcolor(c_ltred);
+	_description("\
 Wood is an important building material, and most new <link=city>cities</link> \
 start with a considerable supply of it.  Both <link=area>areas</link> and \
 <link=building>buildings</link> frequently require wood to be built.  Once \
@@ -136,11 +139,11 @@ Wood can also be used in a <link=woodworking shop>woodworking shop</link> to \
 craft a variety of goods, including several <link=luxuries>luxuries</link>.\
 ");
 
-  _resource(RES_STONE);
-    _rname("stone");
-    _rvalue(10);
-    _rcolor(c_ltgray);
-    _description("\
+	_resource(RES_STONE);
+	_rname("stone");
+	_rvalue(10);
+	_rcolor(c_ltgray);
+	_description("\
 Stone is an important building material, and most new <link=city>cities</link> \
 start with a considerable supply of it.  Both <link=area>areas</link> and \
 <link=building>buildings</link> frequently require stone to be built.  Once \
@@ -153,11 +156,11 @@ essentially-infinite amounts in <link=hill (terrain)>hills</link> and \
 to cut it into usable blocks at a <link=masonry>masonry</link>.\
 ");
 
-  _resource(RES_TIN);
-    _rname("tin");
-    _rvalue(15);
-    _rcolor(c_ltcyan);
-    _description("\
+	_resource(RES_TIN);
+	_rname("tin");
+	_rvalue(15);
+	_rcolor(c_ltcyan);
+	_description("\
 Tin is the most common and least valuable metal.  It can be <link=mining>mined\
 </link> from the ground in the form of <link=tin ore>tin ore</link>, and then \
 <link=smeltery>smelted</link> into this usable form.  Tin is too soft to be \
@@ -165,11 +168,11 @@ used for <link=weapon>weapons</link>, but can be made into various \
 <link=luxury>luxuries</link> at a <link=smith>smith</link>.\
 ");
 
-  _resource(RES_COPPER);
-    _rname("copper");
-    _rvalue(30);
-    _rcolor(c_ltred);
-    _description("\
+	_resource(RES_COPPER);
+	_rname("copper");
+	_rvalue(30);
+	_rcolor(c_ltred);
+	_description("\
 Copper is a shiny red metal which is relatively common.  It can be \
 <link=mining>mined</link> from the ground in the form of \
 <link=copper ore>copper ore</link>, then <link=smeltery>smelted</link> into \
@@ -179,11 +182,11 @@ be fashioned into a variety of <link=luxury>luxuries</link> at a \
 <link=smith>smith</link>.\
 ");
 
-  _resource(RES_IRON);
-    _rname("iron");
-    _rvalue(50);
-    _rcolor(c_cyan);
-    _description("\
+	_resource(RES_IRON);
+	_rname("iron");
+	_rvalue(50);
+	_rcolor(c_cyan);
+	_description("\
 Iron is a hard, gray metal with a wide variety of uses.  It can be \
 <link=mining>mined</link> from the gorund in the form of \
 <link=iron ore>iron ore</link>, and then <link=smeltery>smelted</link> into \
@@ -193,11 +196,11 @@ also be made into a variety of <link=luxury>luxuries</link> at a \
 <link=smith>smith</link>.\
 ");
 
-  _resource(RES_FIBER);
-    _rname("fiber");
-    _rvalue(14);
-    _rcolor(c_ltgray);
-    _description("\
+	_resource(RES_FIBER);
+	_rname("fiber");
+	_rvalue(14);
+	_rcolor(c_ltgray);
+	_description("\
 Fiber refers to any of a variety of materials suitable for making \
 <link=clothing>clothing</link>.  Some <link=crops>crops</link> such as \
 <link=hemp>hemp</link> provide a source of fiber, and some \
@@ -207,11 +210,11 @@ can be sewn into clothing at a <link=tailor>tailor</link>, or used to make \
 paper for <link=book>books</link> at a <link=scribery>scribery</link>.\
 ");
 
-  _resource(RES_FUR);
-    _rname("fur");
-    _rvalue(16);
-    _rcolor(c_brown);
-    _description("\
+	_resource(RES_FUR);
+	_rname("fur");
+	_rvalue(16);
+	_rcolor(c_brown);
+	_description("\
 Fur is the fine, long-haired pelt of any of a variety of <link=animal>animals\
 </link>.  Fur cannot be harvested without killing the animal, either in a \
 <link=hunting>hunt</link> or by slaughtering <link=livestock>livestock\
@@ -219,11 +222,11 @@ Fur is the fine, long-haired pelt of any of a variety of <link=animal>animals\
 <link=tailor>tailor</link>.\
 ");
 
-  _resource(RES_LEATHER);
-    _rname("leather");
-    _rvalue(16);
-    _rcolor(c_brown);
-    _description("\
+	_resource(RES_LEATHER);
+	_rname("leather");
+	_rvalue(16);
+	_rcolor(c_brown);
+	_description("\
 Leather is the tough, hairless pelt of any of a variety of <link=animal>animals\
 </link>.  Leather cannot be harvested without killing the animal, either in a \
 <link=hunting>hunt</link> or by slaughtering <link=livestock>livestock\
@@ -232,11 +235,11 @@ a <link=tailor>tailor</link>, and can also be used to make light \
 <link=armor>leather armor</link>.\
 ");
 
-  _resource(RES_UNICORN_HORN);
-    _rname("unicorn horn");
-    _rvalue(5000);
-    _rcolor(c_pink);
-    _description("\
+	_resource(RES_UNICORN_HORN);
+	_rname("unicorn horn");
+	_rvalue(5000);
+	_rcolor(c_pink);
+	_description("\
 Unicorn horns are extremely rare and valuable.  They can only be obtained by \
 killing a <link=unicorn>unicorn</link>, one of the rarest <link=animal>beasts\
 </link> in all the land.  As killing a unicorn is considered a sin by many \
@@ -246,14 +249,14 @@ status symbol.  Unicorn horns are a vital component in a variety of \
 </link> of <link=life magic>life</link> and <link=death magic>death</link>.\
 ");
 
-  _resource(RES_SALT);
-    _rname("salt");
-    _rvalue(35);
-    _rcolor(c_white);
-    _luxury(LUX_NULL);  // Salt's technical a spice, but it's universally wanted
-    _demand(150);
-    _morale(8);
-    _description("\
+	_resource(RES_SALT);
+	_rname("salt");
+	_rvalue(35);
+	_rcolor(c_white);
+	_luxury(LUX_NULL);  // Salt's technical a spice, but it's universally wanted
+	_demand(150);
+	_morale(8);
+	_description("\
 Salt is an extremely popular spice and an excellent preservative.  Its \
 universal appeal means that it is demanded by every citizen, and does not \
 compete with other spice <link=luxury>luxuries</link>.  It is the only luxury \
@@ -263,14 +266,14 @@ it is brought to the surface in a coarse form, mixed with other minerals, and \
 must be processed in a <link=kitchen>kitchen</link> prior to being eaten.\
 ");
 
-  _resource(RES_PEPPER);
-    _rname("pepper");
-    _rvalue(28);
-    _rcolor(c_dkgray);
-    _luxury(LUX_SPICE);
-    _demand(80);
-    _morale(5);
-    _description("\
+	_resource(RES_PEPPER);
+	_rname("pepper");
+	_rvalue(28);
+	_rcolor(c_dkgray);
+	_luxury(LUX_SPICE);
+	_demand(80);
+	_morale(5);
+	_description("\
 <c=magenta>For the crop, see <link=pepper>pepper</link><c=magenta>.<c=/>\n\
 \n\
 Pepper is a small fruit, dried and crushed for use as a slightly-hot \
@@ -280,14 +283,14 @@ competes for popularity with <link=cinnamon (resource)>cinnamon</link>, \
 </link>.\
 ");
 
-  _resource(RES_CINNAMON);
-    _rname("cinnamon");
-    _rvalue(26);
-    _rcolor(c_brown);
-    _luxury(LUX_SPICE);
-    _demand(40);
-    _morale(3);
-    _description("\
+	_resource(RES_CINNAMON);
+	_rname("cinnamon");
+	_rvalue(26);
+	_rcolor(c_brown);
+	_luxury(LUX_SPICE);
+	_demand(40);
+	_morale(3);
+	_description("\
 <c=magenta>For the crop, see <link=cinnamon>cinnamon</link><c=magenta>.<c=/>\n\
 \n\
 Cinnamon is a <link=luxury>spice</link> obtained by drying the inner bark of \
@@ -297,14 +300,14 @@ a spice, it competes for popularity with <link=pepper (resource)>pepper\
 <link=paprika (resource)>paprika</link>.\
 ");
 
-  _resource(RES_CUMIN);
-    _rname("cumin");
-    _rvalue(45);
-    _rcolor(c_brown);
-    _luxury(LUX_SPICE);
-    _demand(35);
-    _morale(5);
-    _description("\
+	_resource(RES_CUMIN);
+	_rname("cumin");
+	_rvalue(45);
+	_rcolor(c_brown);
+	_luxury(LUX_SPICE);
+	_demand(35);
+	_morale(5);
+	_description("\
 <c=magenta>For the crop, see <link=cumin>cumin</link><c=magenta>.<c=/>\n\
 \n\
 Cumin is a <link=luxury>spice</link> made by drying and crushing the seeds of \
@@ -315,14 +318,14 @@ popularity with <link=pepper (resource)>pepper</link>, \
 </link>.\
 ");
 
-  _resource(RES_PAPRIKA);
-    _rname("paprika");
-    _rvalue(20);
-    _rcolor(c_ltred);
-    _luxury(LUX_SPICE);
-    _demand(60);
-    _morale(3);
-    _description("\
+	_resource(RES_PAPRIKA);
+	_rname("paprika");
+	_rvalue(20);
+	_rcolor(c_ltred);
+	_luxury(LUX_SPICE);
+	_demand(60);
+	_morale(3);
+	_description("\
 <c=magenta>For the crop, see <link=paprika>paprika</link><c=magenta>.<c=/>\n\
 \n\
 Paprika is a <link=luxury>spice</link> which is made by drying a red pepper \
@@ -333,14 +336,14 @@ for popularity with <link=pepper (resource)>pepper</link>, \
 </link>.\
 ");
 
-  _resource(RES_TOBACCO);
-    _rname("tobacco");
-    _rvalue(25);
-    _rcolor(c_brown);
-    _luxury(LUX_SMOKABLE);
-    _demand(75);
-    _morale(4);
-    _description("\
+	_resource(RES_TOBACCO);
+	_rname("tobacco");
+	_rvalue(25);
+	_rcolor(c_brown);
+	_luxury(LUX_SMOKABLE);
+	_demand(75);
+	_morale(4);
+	_description("\
 <c=magenta>For the crop, see <link=tobacco>tobacco</link><c=magenta>.<c=/>\n\
 \n\
 Tobacco (the <link=luxury>luxury</link> good) is the dried leaves of the \
@@ -349,14 +352,14 @@ pleasant sense of relaxation.  It is widely popular.  As a casually-smoked \
 drug, it competes for popularity with <link=cannabis>cannabis</link>.\
 ");
 
-  _resource(RES_CANNABIS);
-    _rname("cannabis");
-    _rvalue(38);
-    _rcolor(c_green);
-    _luxury(LUX_SMOKABLE);
-    _demand(40);
-    _morale(5);
-    _description("\
+	_resource(RES_CANNABIS);
+	_rname("cannabis");
+	_rvalue(38);
+	_rcolor(c_green);
+	_luxury(LUX_SMOKABLE);
+	_demand(40);
+	_morale(5);
+	_description("\
 Cannabis is a <link=luxury>smokable drug</link> made up of the flower buds of \
 the <link=hemp>hemp</link> plant.  When smoked, it gives the user a sense of \
 relaxation and expanded thoughts.  It is usually highly enjoyable, but due to \
@@ -365,14 +368,14 @@ casually-smoked drug, it competes for popularity with \
 <link=tobacco (resource)>tobacco</link>.\
 ");
 
-  _resource(RES_AMANITAS);
-    _rname("amanitas");
-    _rvalue(75);
-    _rcolor(c_magenta);
-    _luxury(LUX_HALLUCINOGEN);
-    _demand(5);
-    _morale(3);
-    _description("\
+	_resource(RES_AMANITAS);
+	_rname("amanitas");
+	_rvalue(75);
+	_rcolor(c_magenta);
+	_luxury(LUX_HALLUCINOGEN);
+	_demand(5);
+	_morale(3);
+	_description("\
 <c=magenta>For the crop, see <link=amanitas>amanitas</link><c=magenta>.<c=/>\n\
 \n\
 Amanitas is a <link=luxury>hallucinogenic</link> mushroom.  It belongs to a \
@@ -385,14 +388,14 @@ highly enhanced.  As a hallucinogen, it competes for popularity with \
 <link=spicereed (resource)>spicereed</link>.\
 ");
 
-  _resource(RES_AYAHUASCA);
-    _rname("ayahuasca");
-    _rvalue(80);
-    _rcolor(c_magenta);
-    _luxury(LUX_HALLUCINOGEN);
-    _demand(4);
-    _morale(3);
-    _description("\
+	_resource(RES_AYAHUASCA);
+	_rname("ayahuasca");
+	_rvalue(80);
+	_rcolor(c_magenta);
+	_luxury(LUX_HALLUCINOGEN);
+	_demand(4);
+	_morale(3);
+	_description("\
 <c=magenta>For the crop, see <link=ayahuasca>ayahuasca</link><c=magenta>.\
 <c=/>\n\
 \n\
@@ -405,14 +408,14 @@ for popularity with <link=amanitas (resource)>amanitas</link> and \
 <link=spicereed (resource)>spicereed</link>.\
 ");
 
-  _resource(RES_SPICEREED);
-    _rname("spicereed");
-    _rvalue(45);
-    _rcolor(c_magenta);
-    _luxury(LUX_HALLUCINOGEN);
-    _demand(30);
-    _morale(4);
-    _description("\
+	_resource(RES_SPICEREED);
+	_rname("spicereed");
+	_rvalue(45);
+	_rcolor(c_magenta);
+	_luxury(LUX_HALLUCINOGEN);
+	_demand(30);
+	_morale(4);
+	_description("\
 <c=magenta>For the crop, see <link=spicereed>spicereed</link><c=magenta>.\
 <c=/>\n\
 \n\
@@ -425,66 +428,66 @@ joyful energy.  As a hallucinogen, it competes for popularity with \
 <link=ayahuasca (resource)>ayahuasca</link>.\
 ");
 
-  _resource(RES_CLOTHING);
-    _rname("clothing");
-    _rvalue(35);
-    _rcolor(c_white);
-    _demand(15);
-    _morale(2);
-    _description("\
+	_resource(RES_CLOTHING);
+	_rname("clothing");
+	_rvalue(35);
+	_rcolor(c_white);
+	_demand(15);
+	_morale(2);
+	_description("\
 While <link=citizens>citizens</link> can make do with home-sewn clothing made \
 from fabric scraps, they greatly prefer finer clothing made by a \
 <link=tailor>tailor</link>.  For those with even finer taste, \
 <link=couture>couture</link> is available.\
 ");
 
-  _resource(RES_COUTURE);
-    _rname("couture");
-    _rvalue(38);
-    _rcolor(c_white);
-    _demand(12);
-    _morale(2);
-    _description("\
+	_resource(RES_COUTURE);
+	_rname("couture");
+	_rvalue(38);
+	_rcolor(c_white);
+	_demand(12);
+	_morale(2);
+	_description("\
 A level above regular <link=clothing>clothing</link>, couture is elegant \
 clothing made from the finest materials, including <link=fiber>fiber</link>, \
 <link=fur>fur</link> and <link=leather>leather</link>.\
 ");
 
-  _resource(RES_FUR_COATS);
-    _rname("fur coats");
-    _rvalue(60);
-    _rcolor(c_brown);
-    _luxury(LUX_COATS);
-    _demand(10);
-    _morale(3);
-    _description("\
+	_resource(RES_FUR_COATS);
+	_rname("fur coats");
+	_rvalue(60);
+	_rcolor(c_brown);
+	_luxury(LUX_COATS);
+	_demand(10);
+	_morale(3);
+	_description("\
 Fur coats are an elegant option to be worn over <link=clothing>clothing\
 </link>.  They are durably made, and do not need to be replaced very often.  \
 As a coat, they compete with <link=leather coats>leather coats</link> for \
 popularity.\
 ");
 
-  _resource(RES_LEATHER_COATS);
-    _rname("leather coats");
-    _rvalue(65);
-    _rcolor(c_brown);
-    _luxury(LUX_COATS);
-    _demand(8);
-    _morale(3);
-    _description("\
+	_resource(RES_LEATHER_COATS);
+	_rname("leather coats");
+	_rvalue(65);
+	_rcolor(c_brown);
+	_luxury(LUX_COATS);
+	_demand(8);
+	_morale(3);
+	_description("\
 Leather coats are an elegant option to be worn over <link=clothing>clothing\
 </link>.  They are very durably made, and rarely need to be replaced.  As a \
 coat, they compete with <link=fur coats>fur coats</link> for popularity.\
 ");
 
-  _resource(RES_WOOD_HOUSEWARES);
-    _rname("wood housewares");
-    _rvalue(70);
-    _rcolor(c_ltred);
-    _luxury(LUX_HOUSEWARES);
-    _demand(10);
-    _morale(4);
-    _description("\
+	_resource(RES_WOOD_HOUSEWARES);
+	_rname("wood housewares");
+	_rvalue(70);
+	_rcolor(c_ltred);
+	_luxury(LUX_HOUSEWARES);
+	_demand(10);
+	_morale(4);
+	_description("\
 Housewares are a <link=luxury>luxury item</link> consisting of a variety of \
 home goods; cookware, dining utensils, cups, plates, etc.  These housewares \
 are made from <link=wood>wood</link>, but they can be made from a variety of \
@@ -494,14 +497,14 @@ wood housewares are in competition with housewares made from \
 <link=iron housewares>iron</link>.\
 ");
 
-  _resource(RES_TIN_HOUSEWARES);
-    _rname("tin housewares");
-    _rvalue(85);
-    _rcolor(c_ltcyan);
-    _luxury(LUX_HOUSEWARES);
-    _demand(10);
-    _morale(5);
-    _description("\
+	_resource(RES_TIN_HOUSEWARES);
+	_rname("tin housewares");
+	_rvalue(85);
+	_rcolor(c_ltcyan);
+	_luxury(LUX_HOUSEWARES);
+	_demand(10);
+	_morale(5);
+	_description("\
 Housewares are a <link=luxury>luxury item</link> consisting of a variety of \
 home goods; cookware, dining utensils, cups, plates, etc.  These housewares \
 are made from <link=tin>tin</link>, but they can be made from a variety of \
@@ -511,14 +514,14 @@ tin housewares are in competition with housewares made from \
 <link=iron housewares>iron</link>.\
 ");
 
-  _resource(RES_COPPER_HOUSEWARES);
-    _rname("copper housewares");
-    _rvalue(90);
-    _rcolor(c_ltred);
-    _luxury(LUX_HOUSEWARES);
-    _demand(10);
-    _morale(6);
-    _description("\
+	_resource(RES_COPPER_HOUSEWARES);
+	_rname("copper housewares");
+	_rvalue(90);
+	_rcolor(c_ltred);
+	_luxury(LUX_HOUSEWARES);
+	_demand(10);
+	_morale(6);
+	_description("\
 Housewares are a <link=luxury>luxury item</link> consisting of a variety of \
 home goods; cookware, dining utensils, cups, plates, etc.  These housewares \
 are made from <link=copper>copper</link>, but they can be made from a variety \
@@ -528,14 +531,14 @@ copper housewares are in competition with housewares made from \
 <link=iron housewares>iron</link>.\
 ");
 
-  _resource(RES_IRON_HOUSEWARES);
-    _rname("iron housewares");
-    _rvalue(110);
-    _rcolor(c_cyan);
-    _luxury(LUX_HOUSEWARES);
-    _demand(10);
-    _morale(7);
-    _description("\
+	_resource(RES_IRON_HOUSEWARES);
+	_rname("iron housewares");
+	_rvalue(110);
+	_rcolor(c_cyan);
+	_luxury(LUX_HOUSEWARES);
+	_demand(10);
+	_morale(7);
+	_description("\
 Housewares are a <link=luxury>luxury item</link> consisting of a variety of \
 home goods; cookware, dining utensils, cups, plates, etc.  These housewares \
 are made from <link=iron>iron</link>, but they can be made from a variety of \
@@ -545,13 +548,13 @@ iron housewares are in competition with housewares made from \
 <link=copper housewares>copper</link>.\
 ");
 
-  _resource(RES_FURNITURE);
-    _rname("furniture");
-    _rvalue(130);
-    _rcolor(c_ltred);
-    _demand(8);
-    _morale(8);
-    _description("\
+	_resource(RES_FURNITURE);
+	_rname("furniture");
+	_rvalue(130);
+	_rcolor(c_ltred);
+	_demand(8);
+	_morale(8);
+	_description("\
 Furniture is a <link=luxury>luxury good</link> consisting of tables, chairs, \
 and other common household furniture.  It can be made from wood at a \
 <link=woodworking shop>woodworking shop</link>.  It greatly improves the \
@@ -560,13 +563,13 @@ needs to be replaced; these qualities combine to give furniture a very high \
 cost.\
 ");
 
-  _resource(RES_JEWELRY);
-    _rname("jewelry");
-    _rvalue(200);
-    _rcolor(c_magenta);
-    _demand(5);
-    _morale(12);
-    _description("\
+	_resource(RES_JEWELRY);
+	_rname("jewelry");
+	_rvalue(200);
+	_rcolor(c_magenta);
+	_demand(5);
+	_morale(12);
+	_description("\
 Jewelry takes the form of necklaces, rings, earrings, and other fine bodily \
 accessories.  It is a very valuable <link=luxury>luxury</link> made at a \
 <link=smith>smith</link> from <link=tin>tin</link>, <link=copper>copper</link> \
@@ -574,266 +577,266 @@ and <link=gems>gems</link>.  It provides a very high boost to \
 <link=morale>morale</link> but rarely needs to be replaced.\
 ");
 
-  _resource(RES_BLANK_BOOK);
-    _rname("blank book");
-    _rvalue(50);
-    _rcolor(c_white);
+	_resource(RES_BLANK_BOOK);
+	_rname("blank book");
+	_rvalue(50);
+	_rcolor(c_white);
 
-  _resource(RES_FARMING);
-    _rname("farming");
-    _rcolor(c_magenta);
-    _meta();
+	_resource(RES_FARMING);
+	_rname("farming");
+	_rcolor(c_magenta);
+	_meta();
 
-  _resource(RES_MINING);
-    _rname("mining");
-    _rcolor(c_magenta);
-    _meta();
+	_resource(RES_MINING);
+	_rname("mining");
+	_rcolor(c_magenta);
+	_meta();
 
-  _resource(RES_HUNTING);
-    _rname("hunting");
-    _rcolor(c_magenta);
-    _meta();
+	_resource(RES_HUNTING);
+	_rname("hunting");
+	_rcolor(c_magenta);
+	_meta();
 
-  _resource(RES_LOGGING);
-    _rname("logging");
-    _rcolor(c_magenta);
-    _meta();
+	_resource(RES_LOGGING);
+	_rname("logging");
+	_rcolor(c_magenta);
+	_meta();
 
 // _food() is per 100 units of the crop!
-  _crop(CROP_NULL);
-    _cname("any crop");
+	_crop(CROP_NULL);
+	_cname("any crop");
 
-  _crop(CROP_WHEAT);
-    _cname("wheat");
-    _cpercent(90);
-    _temperature(25, 90);
-    _altitude(0, 90);
-    _rainfall(10, 70);
-    _type(CROPTYPE_FOOD);
-    _food(100);
+	_crop(CROP_WHEAT);
+	_cname("wheat");
+	_cpercent(90);
+	_temperature(25, 90);
+	_altitude(0, 90);
+	_rainfall(10, 70);
+	_type(CROPTYPE_FOOD);
+	_food(100);
 
-  _crop(CROP_CABBAGE);
-    _cname("cabbage");
-    _cpercent(70);
-    _temperature(10, 75);
-    _altitude(0, 80);
-    _rainfall(5, 100);
-    _type(CROPTYPE_FOOD);
-    _food(120);
+	_crop(CROP_CABBAGE);
+	_cname("cabbage");
+	_cpercent(70);
+	_temperature(10, 75);
+	_altitude(0, 80);
+	_rainfall(5, 100);
+	_type(CROPTYPE_FOOD);
+	_food(120);
 
-  _crop(CROP_GRAPES);
-    _cname("grapes");
-    _cpercent(30);
-    _temperature(30, 70);
-    _altitude(15, 90);
-    _rainfall(15, 60);
-    _type(CROPTYPE_FOOD);
-    _food(50);
+	_crop(CROP_GRAPES);
+	_cname("grapes");
+	_cpercent(30);
+	_temperature(30, 70);
+	_altitude(15, 90);
+	_rainfall(15, 60);
+	_type(CROPTYPE_FOOD);
+	_food(50);
 
-  _crop(CROP_MELON);
-    _cname("melon");
-    _cpercent(40);
-    _temperature(35, 90);
-    _altitude(0, 60);
-    _rainfall(20, 100);
-    _type(CROPTYPE_FOOD);
-    _food(80);
+	_crop(CROP_MELON);
+	_cname("melon");
+	_cpercent(40);
+	_temperature(35, 90);
+	_altitude(0, 60);
+	_rainfall(20, 100);
+	_type(CROPTYPE_FOOD);
+	_food(80);
 
-  _crop(CROP_RICE);
-    _cname("rice");
-    _cpercent(90);
-    _temperature(50, 100);
-    _altitude(0, 45);
-    _rainfall(45, 100);
-    _type(CROPTYPE_FOOD);
-    _food(110);
+	_crop(CROP_RICE);
+	_cname("rice");
+	_cpercent(90);
+	_temperature(50, 100);
+	_altitude(0, 45);
+	_rainfall(45, 100);
+	_type(CROPTYPE_FOOD);
+	_food(110);
 
-  _crop(CROP_CACTUS);
-    _cname("cactus");
-    _cpercent(90);
-    _temperature(60, 100);
-    _altitude(0, 80);
-    _rainfall(0, 15);
-    _type(CROPTYPE_FOOD);
-    _food(60);
-    _bonus(RES_FIBER, 20);
+	_crop(CROP_CACTUS);
+	_cname("cactus");
+	_cpercent(90);
+	_temperature(60, 100);
+	_altitude(0, 80);
+	_rainfall(0, 15);
+	_type(CROPTYPE_FOOD);
+	_food(60);
+	_bonus(RES_FIBER, 20);
 
-  _crop(CROP_PEPPER);
-    _cname("pepper");
-    _cpercent(40);
-    _temperature(60, 90);
-    _altitude(0, 60);
-    _rainfall(10, 60);
-    _type(CROPTYPE_SPICE);
-    _food(15);
-    _bonus(RES_PEPPER, 90);
+	_crop(CROP_PEPPER);
+	_cname("pepper");
+	_cpercent(40);
+	_temperature(60, 90);
+	_altitude(0, 60);
+	_rainfall(10, 60);
+	_type(CROPTYPE_SPICE);
+	_food(15);
+	_bonus(RES_PEPPER, 90);
 
-  _crop(CROP_CINNAMON);
-    _cname("cinnamon");
-    _cpercent(20);
-    _temperature(65, 90);
-    _altitude(15, 80);
-    _rainfall(10, 60);
-    _type(CROPTYPE_SPICE);
-    _bonus(RES_CINNAMON, 100);
+	_crop(CROP_CINNAMON);
+	_cname("cinnamon");
+	_cpercent(20);
+	_temperature(65, 90);
+	_altitude(15, 80);
+	_rainfall(10, 60);
+	_type(CROPTYPE_SPICE);
+	_bonus(RES_CINNAMON, 100);
 
-  _crop(CROP_CUMIN);
-    _cname("cumin");
-    _cpercent(8);
-    _temperature(70, 100);
-    _altitude(10, 65);
-    _rainfall(40, 100);
-    _type(CROPTYPE_SPICE);
-    _bonus(RES_CUMIN, 80);
+	_crop(CROP_CUMIN);
+	_cname("cumin");
+	_cpercent(8);
+	_temperature(70, 100);
+	_altitude(10, 65);
+	_rainfall(40, 100);
+	_type(CROPTYPE_SPICE);
+	_bonus(RES_CUMIN, 80);
 
-  _crop(CROP_PAPRIKA);
-    _cname("paprika");
-    _cpercent(45);
-    _temperature(40, 70);
-    _altitude(0, 50);
-    _rainfall(20, 60);
-    _type(CROPTYPE_SPICE);
-    _bonus(RES_PAPRIKA, 100);
+	_crop(CROP_PAPRIKA);
+	_cname("paprika");
+	_cpercent(45);
+	_temperature(40, 70);
+	_altitude(0, 50);
+	_rainfall(20, 60);
+	_type(CROPTYPE_SPICE);
+	_bonus(RES_PAPRIKA, 100);
 
-  _crop(CROP_TOBACCO);
-    _cname("tobacco");
-    _cpercent(30);
-    _temperature(50, 85);
-    _altitude(0, 50);
-    _rainfall(20, 50);
-    _type(CROPTYPE_DRUG);
-    _bonus(RES_TOBACCO, 100);
+	_crop(CROP_TOBACCO);
+	_cname("tobacco");
+	_cpercent(30);
+	_temperature(50, 85);
+	_altitude(0, 50);
+	_rainfall(20, 50);
+	_type(CROPTYPE_DRUG);
+	_bonus(RES_TOBACCO, 100);
 
-  _crop(CROP_AMANITAS);
-    _cname("amanitas");
-    _cpercent(10);
-    _temperature(0, 40);
-    _altitude(0, 70);
-    _rainfall(20, 100);
-    _type(CROPTYPE_DRUG);
-    _bonus(RES_AMANITAS, 100);
+	_crop(CROP_AMANITAS);
+	_cname("amanitas");
+	_cpercent(10);
+	_temperature(0, 40);
+	_altitude(0, 70);
+	_rainfall(20, 100);
+	_type(CROPTYPE_DRUG);
+	_bonus(RES_AMANITAS, 100);
 
-  _crop(CROP_AYAHUASCA);
-    _cname("ayahuasca");
-    _cpercent(10);
-    _temperature(65, 100);
-    _altitude(20, 70);
-    _rainfall(60, 100);
-    _type(CROPTYPE_DRUG);
-    _bonus(RES_AYAHUASCA, 100);
+	_crop(CROP_AYAHUASCA);
+	_cname("ayahuasca");
+	_cpercent(10);
+	_temperature(65, 100);
+	_altitude(20, 70);
+	_rainfall(60, 100);
+	_type(CROPTYPE_DRUG);
+	_bonus(RES_AYAHUASCA, 100);
 
-  _crop(CROP_SPICEREED);
-    _cname("spicereed");
-    _cpercent(8);
-    _temperature(70, 100);
-    _altitude(0, 30);
-    _rainfall(0, 15);
-    _type(CROPTYPE_DRUG);
-    _bonus(RES_SPICEREED, 100);
+	_crop(CROP_SPICEREED);
+	_cname("spicereed");
+	_cpercent(8);
+	_temperature(70, 100);
+	_altitude(0, 30);
+	_rainfall(0, 15);
+	_type(CROPTYPE_DRUG);
+	_bonus(RES_SPICEREED, 100);
 
-  _crop(CROP_DEATHCAP);
-    _cname("deathcap");
-    _cpercent(7);
-    _temperature(20, 70);
-    _altitude(0, 70);
-    _rainfall(45, 100);
-    _type(CROPTYPE_POISON);
+	_crop(CROP_DEATHCAP);
+	_cname("deathcap");
+	_cpercent(7);
+	_temperature(20, 70);
+	_altitude(0, 70);
+	_rainfall(45, 100);
+	_type(CROPTYPE_POISON);
 
-  _crop(CROP_VIPERVINE);
-    _cname("vipervine");
-    _cpercent(10);
-    _temperature(65, 100);
-    _altitude(20, 70);
-    _rainfall(40, 100);
-    _type(CROPTYPE_POISON);
+	_crop(CROP_VIPERVINE);
+	_cname("vipervine");
+	_cpercent(10);
+	_temperature(65, 100);
+	_altitude(20, 70);
+	_rainfall(40, 100);
+	_type(CROPTYPE_POISON);
 
-  _crop(CROP_SCORPICON);
-    _cname("scorpicon");
-    _cpercent(7);
-    _temperature(60, 100);
-    _altitude(0, 70);
-    _rainfall(0, 10);
-    _type(CROPTYPE_POISON);
+	_crop(CROP_SCORPICON);
+	_cname("scorpicon");
+	_cpercent(7);
+	_temperature(60, 100);
+	_altitude(0, 70);
+	_rainfall(0, 10);
+	_type(CROPTYPE_POISON);
 
-  _crop(CROP_COTTON);
-    _cname("cotton");
-    _cpercent(70);
-    _temperature(60, 90);
-    _altitude(0, 80);
-    _rainfall(10, 50);
-    _type(CROPTYPE_FIBER);
-    _bonus(RES_FIBER, 100);
+	_crop(CROP_COTTON);
+	_cname("cotton");
+	_cpercent(70);
+	_temperature(60, 90);
+	_altitude(0, 80);
+	_rainfall(10, 50);
+	_type(CROPTYPE_FIBER);
+	_bonus(RES_FIBER, 100);
 
-  _crop(CROP_HEMP);
-    _cname("hemp");
-    _cpercent(60);
-    _temperature(25, 90);
-    _altitude(0, 100);
-    _rainfall(5, 100);
-    _type(CROPTYPE_FIBER);
-    _bonus(RES_FIBER, 80);
-    _bonus(RES_CANNABIS, 20);
+	_crop(CROP_HEMP);
+	_cname("hemp");
+	_cpercent(60);
+	_temperature(25, 90);
+	_altitude(0, 100);
+	_rainfall(5, 100);
+	_type(CROPTYPE_FIBER);
+	_bonus(RES_FIBER, 80);
+	_bonus(RES_CANNABIS, 20);
 
 // Minerals
 
-  _mineral(MINERAL_NULL);
-    _mname("any mineral");
-    _mcolor(c_dkgray);
+	_mineral(MINERAL_NULL);
+	_mname("any mineral");
+	_mcolor(c_dkgray);
 
-  _mineral(MINERAL_STONE);
-    _mname("stone");
-    _mpercent(98);
-    _mvalue(5);
-    _mcolor(c_white);
+	_mineral(MINERAL_STONE);
+	_mname("stone");
+	_mpercent(98);
+	_mvalue(5);
+	_mcolor(c_white);
 
-  _mineral(MINERAL_TIN);
-    _mname("tin ore");
-    _mpercent(70);
-    _mvalue(5);
-    _mcolor(c_ltcyan);
-    _mhidden();
+	_mineral(MINERAL_TIN);
+	_mname("tin ore");
+	_mpercent(70);
+	_mvalue(5);
+	_mcolor(c_ltcyan);
+	_mhidden();
 
-  _mineral(MINERAL_COPPER);
-    _mname("copper ore");
-    _mpercent(50);
-    _mvalue(10);
-    _mcolor(c_ltred);
-    _mhidden();
+	_mineral(MINERAL_COPPER);
+	_mname("copper ore");
+	_mpercent(50);
+	_mvalue(10);
+	_mcolor(c_ltred);
+	_mhidden();
 
-  _mineral(MINERAL_IRON);
-    _mname("iron ore");
-    _mpercent(70);
-    _mvalue(30);
-    _mcolor(c_cyan);
-    _mhidden();
+	_mineral(MINERAL_IRON);
+	_mname("iron ore");
+	_mpercent(70);
+	_mvalue(30);
+	_mcolor(c_cyan);
+	_mhidden();
 
-  _mineral(MINERAL_SALT);
-    _mname("salt");
-    _mpercent(50);
-    _mvalue(28);
-    _mcolor(c_white);
-    _mhidden();
+	_mineral(MINERAL_SALT);
+	_mname("salt");
+	_mpercent(50);
+	_mvalue(28);
+	_mcolor(c_white);
+	_mhidden();
 
-  _mineral(MINERAL_GEMS);
-    _mname("gems");
-    _mpercent(3);
-    _mvalue(100);
-    _mcolor(c_pink);
-    _mhidden();
+	_mineral(MINERAL_GEMS);
+	_mname("gems");
+	_mpercent(3);
+	_mvalue(100);
+	_mcolor(c_pink);
+	_mhidden();
 
 // The value of gold is less than 100 because it takes labor and fuel to
 // convert it into spendable currency!
-  _mineral(MINERAL_GOLD);
-    _mname("gold");
-    _mpercent(4);
-    _mvalue(80);
-    _mcolor(c_yellow);
-    _mhidden();
+	_mineral(MINERAL_GOLD);
+	_mname("gold");
+	_mpercent(4);
+	_mvalue(80);
+	_mcolor(c_yellow);
+	_mhidden();
 
-  _mineral(MINERAL_COAL);
-    _mname("coal");
-    _mpercent(20);
-    _mvalue(50);
-    _mcolor(c_dkgray);
-    _mhidden();
+	_mineral(MINERAL_COAL);
+	_mname("coal");
+	_mpercent(20);
+	_mvalue(50);
+	_mcolor(c_dkgray);
+	_mhidden();
 }

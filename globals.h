@@ -4,6 +4,7 @@
 #include <string>
 
 class Game;
+
 class Help_database;
 
 extern Game* GAME;

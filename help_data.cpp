@@ -88,13 +88,13 @@
 
 void init_help()
 {
-  Help_article* cur_article;
+	Help_article* cur_article;
 
 // Start with articles that AREN'T based on game data; these are all manual.
 
-  _article("City");
-  _type("Game Concept");
-  _text("\
+	_article("City");
+	_type("Game Concept");
+	_text("\
 A city is an area where people live and work together.  A large part of \
 Edigotia lies in managing your city and helping it to grow.\n\
 \n\
@@ -107,9 +107,9 @@ Inside the cities there is a number of <link=citizens>citizens</link>, \
 </link> and <link=military>armies</link>.\
 ");
 
-  _article("Kingdom");
-  _type("Game Concept");
-  _text("\
+	_article("Kingdom");
+	_type("Game Concept");
+	_text("\
 Kingdoms are loosely affiliated sets of <link=city>cities</link>.  Usually, \
 kingdoms are tied to <link=race>races</link>; each race has one kingdom \
 associated with it, and a kingdom is made up entirely of that race.  This \
@@ -161,15 +161,15 @@ expected to cut off all trade with each other, and may be asked to contribute \
 soldiers to the war effort.\
 ");
 
-  _article("Queen");
-  _redirect("Monarch");
+	_article("Queen");
+	_redirect("Monarch");
 
-  _article("King");
-  _redirect("Monarch");
+	_article("King");
+	_redirect("Monarch");
 
-  _article("Monarch");
-  _type("Game Concept");
-  _text("\
+	_article("Monarch");
+	_type("Game Concept");
+	_text("\
 The monarch (king or queen) is a <link=nobles>noble</link> who rules over a \
 <link=kingdom>kingdom</link>.  This honor is generally passed on from \
 generation to generation; when the current ruler passes away, their eldest \
@@ -204,15 +204,15 @@ to defend their city, and a strong <link=city guard>city guard</link> to \
 thwart assassins.\
 ");
 
-  _article("Duke");
-  _redirect("Duchy");
+	_article("Duke");
+	_redirect("Duchy");
 
-  _article("Duchess");
-  _redirect("Duchy");
+	_article("Duchess");
+	_redirect("Duchy");
 
-  _article("Duchy");
-  _type("Game Concept");
-  _text("\
+	_article("Duchy");
+	_type("Game Concept");
+	_text("\
 A duchy is a district of a <link=kingdom>kingdom</link> under the rule of a \
 <c=ltgreen>duke or duchess<c=/>.  A duchy consists of several <link=city>cities\
 </link>, one of which is home to and ruled by the duke, known as the \
@@ -237,9 +237,9 @@ choice of ruler.  Finally, dukes are in danger of assassination by nobles who \
 aspire to seize control of the duchy.\
 ");
 
-  _article("Nobles");
-  _type("Game Concept");
-  _text("\
+	_article("Nobles");
+	_type("Game Concept");
+	_text("\
 Nobles are members of the ruling class in Edigotia.  At the start of a new \
 game, you control a single noble of your design, who acts as the ruler of your \
 <link=city>city</link>.  This noble <c=white>is<c=/> you!  If they die, and \
@@ -279,9 +279,9 @@ family.  If the parents are related (second cousins or closer), then there is \
 a chance that the child will receive a random <c=ltred>bad<c=/> trait!\
 ");
 
-  _article("Race");
-  _type("Game Concept");
-  _text("\
+	_article("Race");
+	_type("Game Concept");
+	_text("\
 <c=magenta>For a list of races, see <link=list of races>list of races.</link>\n\
 \n\
 The world of Edigotia is populated by various races.  Members of each race \
@@ -312,9 +312,9 @@ differ as well, as well as the citizens' <link=morale>morale</link> demands \
 and acceptable <link=taxes>tax rates</link>.\
 ");
 
-  _article("Area");
-  _type("Game Concept");
-  _text("\
+	_article("Area");
+	_type("Game Concept");
+	_text("\
 Areas are city improvements which are placed on the <link=city map>city \
 map</link>.  They function similarly to <link=building>buildings</link>; they \
 can employ <link=citizens>citizens</link> and may produce <link=resources>\
@@ -361,9 +361,9 @@ certain <link=unlockables>unlock conditions</link> in order to build a certain \
 area.\
 ");
 
-  _article("Building");
-  _type("Game Concept");
-  _text("\
+	_article("Building");
+	_type("Game Concept");
+	_text("\
 Buildings are a core part of your <link=city>city</link>.  Adding buildings to \
 your city allow you to create new resources, improve various areas of city \
 administration, and train special <link=citizens>citizens</link>.\n\
@@ -401,9 +401,9 @@ meet certain <link=unlockables>unlock conditions</link> in order to build a \
 certain building.\
 ");
 
-  _article("World Map");
-  _type("Game Concept");
-  _text("\
+	_article("World Map");
+	_type("Game Concept");
+	_text("\
 <c=magenta>For a list of <link=map type>map types</link><c=magenta> and world \
 map terrain, see <link=list of map types>list of map types.</link>\n\
 \n\
@@ -462,9 +462,9 @@ enter them.  But if these challenges can be overcome, there is almost always a \
 valuable treasure or magical effect to win!\
 ");
 
-  _article("City Map");
-  _type("Game Concept");
-  _text("\
+	_article("City Map");
+	_type("Game Concept");
+	_text("\
 The city map is a 9 x 9 set of <link=city map tile>terrain tiles</link> which \
 represents the land your <link=city>city</link> is built on.  The terrain \
 found in your city map is largely dependent on what <link=world map>world map \
@@ -486,9 +486,9 @@ You can turn off the grayed-out coloring in the main screen; you can also \
 toggle the display of areas versus only showing terrain.\
 ");
 
-  _article("Citizens");
-  _type("Game Concept");
-  _text("\
+	_article("Citizens");
+	_type("Game Concept");
+	_text("\
 The people who live in your <link=city>city</link> are known as your \
 citizens.  They are divided into three main classes: <link=peasants>peasants\
 </link>, <link=merchants>merchants</link> and <link=burghers>burghers</link>.  \
@@ -539,12 +539,12 @@ every burgher.  Addtionally, a class's morale must be above a certain level \
 for the class above it to be born; this level depends on your race as well.\
 ");
 
-  _article("Peasant");
-  _redirect("Peasants");
+	_article("Peasant");
+	_redirect("Peasants");
 
-  _article("Peasants");
-  _type("Citizen Type");
-  _text("\
+	_article("Peasants");
+	_type("Citizen Type");
+	_text("\
 Peasants are the lowest class of <link=citizens>citizen</link>.  They live in \
 the cheapest <link=housing>housing</link>, eat the least <link=food>food\
 </link>, and most importantly, do all the mindless physical labor.  \
@@ -574,12 +574,12 @@ assigned job, they produce <c=green>0.3 gold<c=/> apiece each day; this income \
 may be taxed.\
 ");
 
-  _article("Merchant");
-  _redirect("Merchants");
+	_article("Merchant");
+	_redirect("Merchants");
 
-  _article("Merchants");
-  _type("Citizen Type");
-  _text("\
+	_article("Merchants");
+	_type("Citizen Type");
+	_text("\
 Merchants are the middle class of Edigotia.  Counting several merchants among \
 its <link=citizens>citizens</link> is what turns a small town into a proper \
 <link=city>city</link>.  Merchants are your town's craftsmen and artisans, \
@@ -612,12 +612,12 @@ assigned job, they produce <c=green>0.8 gold<c=/> apiece each day; this income \
 may be taxed.\
 ");
 
-  _article("Burgher");
-  _redirect("Burghers");
+	_article("Burgher");
+	_redirect("Burghers");
 
-  _article("Burghers");
-  _type("Citizen Type");
-  _text("\
+	_article("Burghers");
+	_type("Citizen Type");
+	_text("\
 Burghers are the highest class of <link=citizens>citizen</link> (not counting \
 <link=noble>nobles</link>, of course).  They demand high-cost, low-density \
 <link=housing>housing</link>, large amounts of <link=food>food</link>, and the \
@@ -643,12 +643,12 @@ assigned job, they produce <c=green>25 gold<c=/> apiece each day; this income \
 may be taxed.\
 ");
 
-  _article("Slave");
-  _redirect("Slaves");
+	_article("Slave");
+	_redirect("Slaves");
 
-  _article("Slaves");
-  _type("Citizen Type");
-  _text("\
+	_article("Slaves");
+	_type("Citizen Type");
+	_text("\
 Slaves are a special type of <link=citizens>citizen</link>, kept in your \
 <link=city>city</link> against their will.  They can perform all the same jobs \
 as <link=peasants>peasants</link>, but are paid no wages.  Unlike peasants or \
@@ -678,12 +678,12 @@ may opt to join your city as free peasants.\n\
 Slaves consume <c=green>0.5 food<c=/> apiece each day.\
 ");
 
-  _article("Homesteader");
-  _redirect("Homesteaders");
+	_article("Homesteader");
+	_redirect("Homesteaders");
 
-  _article("Homesteaders");
-  _type("Game Concept");
-  _text("\
+	_article("Homesteaders");
+	_type("Game Concept");
+	_text("\
 Homesteaders are men and women who live beyond the borders of any \
 <link=city>city</link>.  They are generally considered to be \
 <link=citizen>citizens</link> of whichever <link=duchy>duchy</link> and \
@@ -710,9 +710,9 @@ loving homesteaders!).  Highly restrictive <link=laws>laws</link> will be very \
 offputting to homesteaders.\
 ");
 
-  _article("Housing");
-  _type("Game Concept");
-  _text("\
+	_article("Housing");
+	_type("Game Concept");
+	_text("\
 All <link=citizens>citizens</link> (with the exception of <link=slaves>slaves\
 </link) require housing.  Citizens without a home will be unable to work or \
 produce income, and essentially exist only as a burden on your <link=city>city\
@@ -732,14 +732,14 @@ build <link=hovels>hovels</link> for <link=peasants>peasants</link>, \
 <link=manor>manors</link> for <link=burghers>burghers</link>.\
 ");
 
-  _article("Resource");
-  _redirect("Resources");
+	_article("Resource");
+	_redirect("Resources");
 
 // TODO:  This article states "no city can survive without food," which won't be
 //        true if golems are added.
-  _article("Resources");
-  _type("Game Concept");
-  _text("\
+	_article("Resources");
+	_type("Game Concept");
+	_text("\
 <c=magenta>See the article <link=List of Resources>List of Resources</link> \
 <c=magenta>for a list of all resources in the game.<c=/>\n\
 \n\
@@ -785,14 +785,14 @@ areas and may lead to other resources being acquired.  These metaresources \
 include farming, mining, hunting, and <link=logging>logging</link>.\
 ");
 
-  _article("Luxury");
-  _redirect("Luxuries");
+	_article("Luxury");
+	_redirect("Luxuries");
 
 // TODO:  Include information in this article about some of the negative effects
 //        of drugs, like addiction, health effects, or effects on labor output
-  _article("Luxuries");
-  _type("Game Concept");
-  _text("\
+	_article("Luxuries");
+	_type("Game Concept");
+	_text("\
 Luxuries are a type of <link=resources>resource</link> which may be consumed \
 by your <link=citizens>citizens</link> to improve their <link=morale>morale\
 </link>.  Luxuries may be a natural product, like <link=salt>salt</link>, or a \
@@ -835,9 +835,9 @@ A full list of luxury categories may be seen at \
 // TODO:  This includes a hard-coded list of world improvements.  Clearly not
 //        desirable.  Alter this to auto-generate, or add another article
 //        ("List of World Map Improvements") which is auto-generated.
-  _article("World Map Improvements");
-  _type("Game Concept");
-  _text("\
+	_article("World Map Improvements");
+	_type("Game Concept");
+	_text("\
 <c=magenta>See the bottom of this article for a list of improvements.<c=/>\n\
 \n\
 The <link=world map>world map</link> is mostly static, but it can be changed \
@@ -887,111 +887,124 @@ hard to pass, so you can place walls in the gaps between mountains.\
 // Automatically populated articles
 
 // List of Resources
-  _article("List of Resources");
-  _type("Index");
-  std::stringstream ss_resources;
-  for (int i = 1; i < RES_MAX; i++) {
-    Resource_datum* res_dat = Resource_data[i];
-    ss_resources << "<link=" << res_dat->name << ">" <<
-                    capitalize_all_words( res_dat->name ) << "</link>";
-    if (res_dat->meta) {
-      for (int n = 0; n < 24 - res_dat->name.length(); n++) {
-        ss_resources << " ";
-      }
-      ss_resources << "<c=magenta>(Non-physical metaresource)<c=/>";
-    } else if (res_dat->morale > 0) {
-      for (int n = 0; n < 24 - res_dat->name.length(); n++) {
-        ss_resources << " ";
-      }
-      ss_resources << "<c=ltgreen>(Luxury)<c=/>";
-    }
-    ss_resources << "\n";
-  }
-  _text( ss_resources.str() );
+	_article("List of Resources");
+	_type("Index");
+	std::stringstream ss_resources;
+	for (int i = 1; i < RES_MAX; i++)
+	{
+		Resource_datum* res_dat = Resource_data[i];
+		ss_resources << "<link=" << res_dat->name << ">" <<
+					 capitalize_all_words(res_dat->name) << "</link>";
+		if (res_dat->meta)
+		{
+			for (int n = 0; n < 24 - res_dat->name.length(); n++)
+			{
+				ss_resources << " ";
+			}
+			ss_resources << "<c=magenta>(Non-physical metaresource)<c=/>";
+		}
+		else if (res_dat->morale > 0)
+		{
+			for (int n = 0; n < 24 - res_dat->name.length(); n++)
+			{
+				ss_resources << " ";
+			}
+			ss_resources << "<c=ltgreen>(Luxury)<c=/>";
+		}
+		ss_resources << "\n";
+	}
+	_text(ss_resources.str());
 
 // List of Luxury Categories
-  _article("Luxury Type");
-  _redirect("List of Luxury Categories");
+	_article("Luxury Type");
+	_redirect("List of Luxury Categories");
 
-  _article("Luxury Types");
-  _redirect("List of Luxury Categories");
+	_article("Luxury Types");
+	_redirect("List of Luxury Categories");
 
-  _article("List of Luxury Types");
-  _redirect("List of Luxury Categories");
+	_article("List of Luxury Types");
+	_redirect("List of Luxury Categories");
 
-  _article("Luxury Category");
-  _redirect("List of Luxury Categories");
+	_article("Luxury Category");
+	_redirect("List of Luxury Categories");
 
-  _article("Luxury Categories");
-  _redirect("List of Luxury Categories");
+	_article("Luxury Categories");
+	_redirect("List of Luxury Categories");
 
-  std::stringstream ss_luxcat;
-  ss_luxcat << "This is a list of all the categories of " <<
-               "<link=luxury>luxuries</link> in the game.  For an " <<
-               "explaination of what this means, please see the Luxury " <<
-               "article." << std::endl << std::endl;
+	std::stringstream ss_luxcat;
+	ss_luxcat << "This is a list of all the categories of " <<
+			  "<link=luxury>luxuries</link> in the game.  For an " <<
+			  "explaination of what this means, please see the Luxury " <<
+			  "article." << std::endl << std::endl;
 
-  for (int i = 1; i < LUX_MAX; i++) {
-    Luxury_type lux_type = Luxury_type(i);
-    std::string type_name = capitalize_all_words( luxury_type_name(lux_type) );
-    ss_luxcat << type_name << std::endl;
+	for (int i = 1; i < LUX_MAX; i++)
+	{
+		Luxury_type lux_type = Luxury_type(i);
+		std::string type_name = capitalize_all_words(luxury_type_name(lux_type));
+		ss_luxcat << type_name << std::endl;
 // Make the name of each luxury category redirect to "Luxury"
-    _article( type_name );
-    _redirect("Luxury");
-  }
-  _article("List of Luxury Categories");
-  _type("Index");
-  _text( ss_luxcat.str() );
+		_article(type_name);
+		_redirect("Luxury");
+	}
+	_article("List of Luxury Categories");
+	_type("Index");
+	_text(ss_luxcat.str());
 
 // Add all Area_datums to the help database!
-  for (int i = 1; i < AREA_MAX; i++) {
-    Area_datum* area_dat = Area_data[i];
-    _article( capitalize( area_dat->name ) );
-    _type("Area");
-    _text( area_dat->generate_help_text() );
-  }
+	for (int i = 1; i < AREA_MAX; i++)
+	{
+		Area_datum* area_dat = Area_data[i];
+		_article(capitalize(area_dat->name));
+		_type("Area");
+		_text(area_dat->generate_help_text());
+	}
 
 // Add all non-area Building_datums to the help database!
-  for (int i = 1; i < BUILD_MAX; i++) {
-    Building_datum* build_dat = Building_data[i];
-    if (build_dat->category != BUILDCAT_NULL) { // i.e. it's not an area
-      _article( capitalize( build_dat->name ) );
-      _type("Building");
-      _text( build_dat->generate_help_text() );
-    }
-  }
+	for (int i = 1; i < BUILD_MAX; i++)
+	{
+		Building_datum* build_dat = Building_data[i];
+		if (build_dat->category != BUILDCAT_NULL)
+		{ // i.e. it's not an area
+			_article(capitalize(build_dat->name));
+			_type("Building");
+			_text(build_dat->generate_help_text());
+		}
+	}
 
 // Add all races to the help database!
 // Also, start writing the text of the "List of Races" article.
-  std::stringstream race_list_text;
-  race_list_text << "The following is a list of all <link=race>races</link> " <<
-                    "to be found in the world:" << std::endl << std::endl;
+	std::stringstream race_list_text;
+	race_list_text << "The following is a list of all <link=race>races</link> " <<
+				   "to be found in the world:" << std::endl << std::endl;
 
-  for (int i = 1; i < RACE_MAX; i++) {
-    Race_datum* race_dat = Race_data[i];
+	for (int i = 1; i < RACE_MAX; i++)
+	{
+		Race_datum* race_dat = Race_data[i];
 
-    std::string proper_name = capitalize( race_dat->plural_name );
-    race_list_text << "<link=" << proper_name << ">" << proper_name << 
-                      "</link>" << std::endl;
+		std::string proper_name = capitalize(race_dat->plural_name);
+		race_list_text << "<link=" << proper_name << ">" << proper_name <<
+					   "</link>" << std::endl;
 
-    _article( proper_name );
-    _type("Race");
-    _text( race_dat->generate_help_text() );
+		_article(proper_name);
+		_type("Race");
+		_text(race_dat->generate_help_text());
 // Redirect other forms of their name to this article.
 // The if statements are to check that the name isn't the same as the plural/adj
-    if (!HELP->get_article( race_dat->name )) {
-      _article(  capitalize( race_dat->name        ) );
-      _redirect( capitalize( race_dat->plural_name ) );
-    }
-    if (!HELP->get_article( race_dat->adjective )) {
-      _article(  capitalize( race_dat->adjective   ) );
-      _redirect( capitalize( race_dat->plural_name ) );
-    }
-  }
+		if (!HELP->get_article(race_dat->name))
+		{
+			_article(capitalize(race_dat->name));
+			_redirect(capitalize(race_dat->plural_name));
+		}
+		if (!HELP->get_article(race_dat->adjective))
+		{
+			_article(capitalize(race_dat->adjective));
+			_redirect(capitalize(race_dat->plural_name));
+		}
+	}
 
-  _article("List of Races");
-  _type("Index");
-  _text( race_list_text.str() );
+	_article("List of Races");
+	_type("Index");
+	_text(race_list_text.str());
 
-  HELP->process_categories();
+	HELP->process_categories();
 }

@@ -102,112 +102,113 @@ Race_datum* Race_data[RACE_MAX];
 
 void init_races()
 {
-  for (int i = 0; i < RACE_MAX; i++) {
-    Race_data[i] = new Race_datum();
-    Race_data[i]->uid = i;
-  }
+	for (int i = 0; i < RACE_MAX; i++)
+	{
+		Race_data[i] = new Race_datum();
+		Race_data[i]->uid = i;
+	}
 
-  int cur_id = 0;
+	int cur_id = 0;
 
-  _race(RACE_NULL);
-    _name("NULL");
+	_race(RACE_NULL);
+	_name("NULL");
 
-  _race(RACE_HUMAN);
-    _name("human");
-    _plural_name("humans");
-    _adjective("human");
+	_race(RACE_HUMAN);
+	_name("human");
+	_plural_name("humans");
+	_adjective("human");
 
-    _color(c_white);
-    _kingdom_color(c_ltgray);
-    _kingdom_color(c_blue);
-    _kingdom_color(c_cyan);
+	_color(c_white);
+	_kingdom_color(c_ltgray);
+	_kingdom_color(c_blue);
+	_kingdom_color(c_cyan);
 
-    _map_type(MAP_BASIN,       100);
-    _map_type(MAP_PLAINS,       90);
-    _map_type(MAP_CANYON,       50);
-    _map_type(MAP_FOREST,       40);
-    _map_type(MAP_FOOTHILLS,    10);
+	_map_type(MAP_BASIN, 100);
+	_map_type(MAP_PLAINS, 90);
+	_map_type(MAP_CANYON, 50);
+	_map_type(MAP_FOREST, 40);
+	_map_type(MAP_FOOTHILLS, 10);
 
-    _map_type(MAP_DESERT,      -40);
-    _map_type(MAP_JUNGLE,      -30);
-    _map_type(MAP_SWAMP,       -20);
-    _map_type(MAP_MOUNTAINOUS,  -5);
+	_map_type(MAP_DESERT, -40);
+	_map_type(MAP_JUNGLE, -30);
+	_map_type(MAP_SWAMP, -20);
+	_map_type(MAP_MOUNTAINOUS, -5);
 
-    _cluster_size(3, 4);
-    _city_size(CITY_TYPE_CITY,     100, 1200);
-    _city_size(CITY_TYPE_DUCHY,    800, 4000);
-    _city_size(CITY_TYPE_CAPITAL, 2000, 8000);
+	_cluster_size(3, 4);
+	_city_size(CITY_TYPE_CITY, 100, 1200);
+	_city_size(CITY_TYPE_DUCHY, 800, 4000);
+	_city_size(CITY_TYPE_CAPITAL, 2000, 8000);
 
-    _city_name_start("al", "am", "an", "bir", "birm", "cam", "can", "car",
-                     "chel", "dan", "dar", "dun", "ed", "el", "ex", "fel",
-                     "hil", "hut", "lan", "lat", "nor", "port", "quart", "ruth",
-                     "south", "tel", "wan", "wil", "wilm", "yor", "york");
+	_city_name_start("al", "am", "an", "bir", "birm", "cam", "can", "car",
+			"chel", "dan", "dar", "dun", "ed", "el", "ex", "fel",
+			"hil", "hut", "lan", "lat", "nor", "port", "quart", "ruth",
+			"south", "tel", "wan", "wil", "wilm", "yor", "york");
 
-    _city_name_middle("", "", "a", "*a", "al", "*al", "*an", "*as", "ca",
-                      "cing", "*er", "*ers", "e", "e", "es", "es", "*es",
-                      "*ial", "*iam", "*iams", "*ing", "ing", "*is", "*is",
-                      "*or", "*ow", "*os", "ser", "sing", "ter", "*um", "us");
+	_city_name_middle("", "", "a", "*a", "al", "*al", "*an", "*as", "ca",
+			"cing", "*er", "*ers", "e", "e", "es", "es", "*es",
+			"*ial", "*iam", "*iams", "*ing", "ing", "*is", "*is",
+			"*or", "*ow", "*os", "ser", "sing", "ter", "*um", "us");
 
-    _city_name_end("", "", "", "", "", "borough", "burg", "burg", "burg",
-                   "bury", "bury", "by", "by", "cas", "caster", "don", "*ers",
-                   "*ex", "field", "field", "ford", "forth", "gale", "ham",
-                   "ham", "herst", "ia", "*ia", "in", "*in", "ire", "kirk",
-                   "mouth", "or", "over", "pool", "?s", "?s", "?s", "?s",
-                   "?ston", "ter", "tin", "ton", "ton", "ton", "vale", "ville",
-                   "ville");
+	_city_name_end("", "", "", "", "", "borough", "burg", "burg", "burg",
+			"bury", "bury", "by", "by", "cas", "caster", "don", "*ers",
+			"*ex", "field", "field", "ford", "forth", "gale", "ham",
+			"ham", "herst", "ia", "*ia", "in", "*in", "ire", "kirk",
+			"mouth", "or", "over", "pool", "?s", "?s", "?s", "?s",
+			"?ston", "ter", "tin", "ton", "ton", "ton", "vale", "ville",
+			"ville");
 
-    _base_combat(10);
-    _hp(100);
-    _food_consumption(100);
-    _warlikeness(-2);
-    _life_value(3);
+	_base_combat(10);
+	_hp(100);
+	_food_consumption(100);
+	_warlikeness(-2);
+	_life_value(3);
 
-    _starting_population(CIT_PEASANT,  100);
-    _starting_resources (RES_GOLD,    5000);
-    _starting_resources (RES_WOOD,    2500);
-    _starting_resources (RES_STONE,   2500);
+	_starting_population(CIT_PEASANT, 100);
+	_starting_resources (RES_GOLD, 5000);
+	_starting_resources (RES_WOOD, 2500);
+	_starting_resources (RES_STONE, 2500);
 
-    _birth_rate         (CIT_PEASANT,  100);
-    _birth_rate         (CIT_MERCHANT,  90);
-    _birth_rate         (CIT_BURGHER,   80);
-    _citizen_ratio      (CIT_MERCHANT,  10);
-    _citizen_ratio      (CIT_BURGHER,   10);
-    _morale_requirement (CIT_MERCHANT,  50);
-    _morale_requirement (CIT_BURGHER,   70);
-    _low_tax_rate       (CIT_PEASANT,   20);
-    _low_tax_rate       (CIT_MERCHANT,  15);
-    _low_tax_rate       (CIT_BURGHER,   10);
-    _high_tax_rate      (CIT_PEASANT,   80);
-    _high_tax_rate      (CIT_MERCHANT,  65);
-    _high_tax_rate      (CIT_BURGHER,   50);
+	_birth_rate         (CIT_PEASANT, 100);
+	_birth_rate         (CIT_MERCHANT, 90);
+	_birth_rate         (CIT_BURGHER, 80);
+	_citizen_ratio      (CIT_MERCHANT, 10);
+	_citizen_ratio      (CIT_BURGHER, 10);
+	_morale_requirement (CIT_MERCHANT, 50);
+	_morale_requirement (CIT_BURGHER, 70);
+	_low_tax_rate       (CIT_PEASANT, 20);
+	_low_tax_rate       (CIT_MERCHANT, 15);
+	_low_tax_rate       (CIT_BURGHER, 10);
+	_high_tax_rate      (CIT_PEASANT, 80);
+	_high_tax_rate      (CIT_MERCHANT, 65);
+	_high_tax_rate      (CIT_BURGHER, 50);
 
-    _relations(RACE_HUMAN,    3);
-    _relations(RACE_ELF,      2);
-    _relations(RACE_DWARF,    1);
-    _relations(RACE_GOBLIN,  -1);
-    _relations(RACE_OGRE,     2);
-    _relations(RACE_TROLL,   -3);
-    _relations(RACE_HALFLING, 2);
-    _relations(RACE_RAKSHASA, 1);
-    _relations(RACE_NAGA,    -2);
+	_relations(RACE_HUMAN, 3);
+	_relations(RACE_ELF, 2);
+	_relations(RACE_DWARF, 1);
+	_relations(RACE_GOBLIN, -1);
+	_relations(RACE_OGRE, 2);
+	_relations(RACE_TROLL, -3);
+	_relations(RACE_HALFLING, 2);
+	_relations(RACE_RAKSHASA, 1);
+	_relations(RACE_NAGA, -2);
 
-    _skill(SKILL_FARMING,       4);
-    _skill(SKILL_HUNTING,       3);
-    _skill(SKILL_LIVESTOCK,     3);
-    _skill(SKILL_MINING,        3);
-    _skill(SKILL_FORESTRY,      3);
-    _skill(SKILL_CONSTRUCTION,  3);
-    _skill(SKILL_TRADE,         3);
-    _skill(SKILL_ESPIONAGE,     3);
-    _skill(SKILL_MAGIC,         2);
-    _skill(SKILL_EARTH_MAGIC,   3);
-    _skill(SKILL_WATER_MAGIC,   3);
-    _skill(SKILL_AIR_MAGIC,     3);
-    _skill(SKILL_FIRE_MAGIC,    3);
-    _skill(SKILL_LIFE_MAGIC,    3);
-    _skill(SKILL_DEATH_MAGIC,   3);
+	_skill(SKILL_FARMING, 4);
+	_skill(SKILL_HUNTING, 3);
+	_skill(SKILL_LIVESTOCK, 3);
+	_skill(SKILL_MINING, 3);
+	_skill(SKILL_FORESTRY, 3);
+	_skill(SKILL_CONSTRUCTION, 3);
+	_skill(SKILL_TRADE, 3);
+	_skill(SKILL_ESPIONAGE, 3);
+	_skill(SKILL_MAGIC, 2);
+	_skill(SKILL_EARTH_MAGIC, 3);
+	_skill(SKILL_WATER_MAGIC, 3);
+	_skill(SKILL_AIR_MAGIC, 3);
+	_skill(SKILL_FIRE_MAGIC, 3);
+	_skill(SKILL_LIFE_MAGIC, 3);
+	_skill(SKILL_DEATH_MAGIC, 3);
 
-    _description("\
+	_description("\
 Humans are a versatile <link=race>race</link>, and can inhabit almost any part \
 of the world.  They are notably average in many senses.  They give birth \
 fairly quickly, though they do not live particularly long.  They are \
@@ -226,108 +227,108 @@ and have no affinity for any particular <link=magical school>school</link>.\
 ");
 
 
-  _race(RACE_ELF);
-    _name("elf");
-    _plural_name("elves");
-    _adjective("elvish");
+	_race(RACE_ELF);
+	_name("elf");
+	_plural_name("elves");
+	_adjective("elvish");
 
-    _color(c_ltgreen);
-    _kingdom_color(c_green);
-    _kingdom_color(c_cyan);
-    _kingdom_color(c_brown);
+	_color(c_ltgreen);
+	_kingdom_color(c_green);
+	_kingdom_color(c_cyan);
+	_kingdom_color(c_brown);
 /*
     _kingdom_color(c_ltgreen);
     _kingdom_color(c_ltcyan);
 */
 
-    _map_type(MAP_FOREST,      100);
-    _map_type(MAP_JUNGLE,       45);
-    _map_type(MAP_BASIN,        30);
-    _map_type(MAP_SWAMP,        15);
-    _map_type(MAP_PLAINS,       10);
+	_map_type(MAP_FOREST, 100);
+	_map_type(MAP_JUNGLE, 45);
+	_map_type(MAP_BASIN, 30);
+	_map_type(MAP_SWAMP, 15);
+	_map_type(MAP_PLAINS, 10);
 
-    _map_type(MAP_DESERT,      -40);
-    _map_type(MAP_MOUNTAINOUS, -30);
+	_map_type(MAP_DESERT, -40);
+	_map_type(MAP_MOUNTAINOUS, -30);
 
-    _travel_cost(MAP_FOREST,      25);
-    _travel_cost(MAP_SWAMP,      100);
-    _travel_cost(MAP_JUNGLE,     100);
+	_travel_cost(MAP_FOREST, 25);
+	_travel_cost(MAP_SWAMP, 100);
+	_travel_cost(MAP_JUNGLE, 100);
 
-    _cluster_size(2, 4);
-    _city_size(CITY_TYPE_CITY,      80,  900);
-    _city_size(CITY_TYPE_DUCHY,    600, 3500);
-    _city_size(CITY_TYPE_CAPITAL, 1600, 6000);
+	_cluster_size(2, 4);
+	_city_size(CITY_TYPE_CITY, 80, 900);
+	_city_size(CITY_TYPE_DUCHY, 600, 3500);
+	_city_size(CITY_TYPE_CAPITAL, 1600, 6000);
 
 // Should end with a vowel or "lnrs"
-    _city_name_start("al", "bi", "bir", "bri", "dil", "e", "el", "en", "er",
-                     "ere", "es", "fi", "for", "il", "in", "is", "kor", "li",
-                     "lo", "me", "mi", "mir", "na", "ri", "ta", "to", "tol",
-                     "va", "val", "vi");
+	_city_name_start("al", "bi", "bir", "bri", "dil", "e", "el", "en", "er",
+			"ere", "es", "fi", "for", "il", "in", "is", "kor", "li",
+			"lo", "me", "mi", "mir", "na", "ri", "ta", "to", "tol",
+			"va", "val", "vi");
 
 // Should end with a vowel or "lnr"
-    _city_name_middle("", "", "", "", "", "", "allo", "an", "he",
-                      "i", "la", "lo", "lum", "lun", "ni", "ny", "rio", "ro",
-                      "ta", "the", "tir", "thro", "va", "ver", "ya");
+	_city_name_middle("", "", "", "", "", "", "allo", "an", "he",
+			"i", "la", "lo", "lum", "lun", "ni", "ny", "rio", "ro",
+			"ta", "the", "tir", "thro", "va", "ver", "ya");
 
-    _city_name_end("a", "bar", "bel", "dell", "dell", "dell", "dolin", "e",
-                   "ion", "le", "lest", "lin", "lin", "lo", "lon", "lond",
-                   "lond", "mar", "men", "min", "o", "on", "os", "se", "th",
-                   "the", "thon", "thrion", "thrond", "vin", "vin", "vin");
+	_city_name_end("a", "bar", "bel", "dell", "dell", "dell", "dolin", "e",
+			"ion", "le", "lest", "lin", "lin", "lo", "lon", "lond",
+			"lond", "mar", "men", "min", "o", "on", "os", "se", "th",
+			"the", "thon", "thrion", "thrond", "vin", "vin", "vin");
 
-    _base_combat(9);
-    _hp(90);
-    _food_consumption(95);
-    _warlikeness(-2);
-    _life_value(4);
+	_base_combat(9);
+	_hp(90);
+	_food_consumption(95);
+	_warlikeness(-2);
+	_life_value(4);
 
-    _starting_population(CIT_PEASANT,  100);
-    _starting_resources (RES_GOLD,    5000);
-    _starting_resources (RES_WOOD,    3000);
-    _starting_resources (RES_STONE,   2000);
+	_starting_population(CIT_PEASANT, 100);
+	_starting_resources (RES_GOLD, 5000);
+	_starting_resources (RES_WOOD, 3000);
+	_starting_resources (RES_STONE, 2000);
 
-    _birth_rate         (CIT_PEASANT,  120);
-    _birth_rate         (CIT_MERCHANT, 110);
-    _birth_rate         (CIT_BURGHER,  100);
-    _citizen_ratio      (CIT_MERCHANT,   8);
-    _citizen_ratio      (CIT_BURGHER,   12);
-    _morale_requirement (CIT_MERCHANT,  65);
-    _morale_requirement (CIT_BURGHER,   75);
-    _low_tax_rate       (CIT_PEASANT,   15);
-    _low_tax_rate       (CIT_MERCHANT,  10);
-    _low_tax_rate       (CIT_BURGHER,    5);
-    _high_tax_rate      (CIT_PEASANT,   75);
-    _high_tax_rate      (CIT_MERCHANT,  75);
-    _high_tax_rate      (CIT_BURGHER,   65);
+	_birth_rate         (CIT_PEASANT, 120);
+	_birth_rate         (CIT_MERCHANT, 110);
+	_birth_rate         (CIT_BURGHER, 100);
+	_citizen_ratio      (CIT_MERCHANT, 8);
+	_citizen_ratio      (CIT_BURGHER, 12);
+	_morale_requirement (CIT_MERCHANT, 65);
+	_morale_requirement (CIT_BURGHER, 75);
+	_low_tax_rate       (CIT_PEASANT, 15);
+	_low_tax_rate       (CIT_MERCHANT, 10);
+	_low_tax_rate       (CIT_BURGHER, 5);
+	_high_tax_rate      (CIT_PEASANT, 75);
+	_high_tax_rate      (CIT_MERCHANT, 75);
+	_high_tax_rate      (CIT_BURGHER, 65);
 
-    _relations(RACE_HUMAN,     1);
-    _relations(RACE_ELF,       3);
-    _relations(RACE_DWARF,     1);
-    _relations(RACE_ORC,      -2);
-    _relations(RACE_GOBLIN,   -2);
-    _relations(RACE_OGRE,     -1);
-    _relations(RACE_TROLL,    -3);
-    _relations(RACE_GNOME,    -1);
-    _relations(RACE_MINOTAUR, -1);
-    _relations(RACE_RAKSHASA,  2);
-    _relations(RACE_NAGA,      2);
+	_relations(RACE_HUMAN, 1);
+	_relations(RACE_ELF, 3);
+	_relations(RACE_DWARF, 1);
+	_relations(RACE_ORC, -2);
+	_relations(RACE_GOBLIN, -2);
+	_relations(RACE_OGRE, -1);
+	_relations(RACE_TROLL, -3);
+	_relations(RACE_GNOME, -1);
+	_relations(RACE_MINOTAUR, -1);
+	_relations(RACE_RAKSHASA, 2);
+	_relations(RACE_NAGA, 2);
 
-    _skill(SKILL_FARMING,       4);
-    _skill(SKILL_HUNTING,       5);
-    _skill(SKILL_LIVESTOCK,     3);
-    _skill(SKILL_MINING,        2);
-    _skill(SKILL_FORESTRY,      5);
-    _skill(SKILL_CONSTRUCTION,  2);
-    _skill(SKILL_TRADE,         2);
-    _skill(SKILL_ESPIONAGE,     4);
-    _skill(SKILL_MAGIC,         4);
-    _skill(SKILL_EARTH_MAGIC,   3);
-    _skill(SKILL_WATER_MAGIC,   3);
-    _skill(SKILL_AIR_MAGIC,     2);
-    _skill(SKILL_FIRE_MAGIC,    2);
-    _skill(SKILL_LIFE_MAGIC,    4);
-    _skill(SKILL_DEATH_MAGIC,   2);
+	_skill(SKILL_FARMING, 4);
+	_skill(SKILL_HUNTING, 5);
+	_skill(SKILL_LIVESTOCK, 3);
+	_skill(SKILL_MINING, 2);
+	_skill(SKILL_FORESTRY, 5);
+	_skill(SKILL_CONSTRUCTION, 2);
+	_skill(SKILL_TRADE, 2);
+	_skill(SKILL_ESPIONAGE, 4);
+	_skill(SKILL_MAGIC, 4);
+	_skill(SKILL_EARTH_MAGIC, 3);
+	_skill(SKILL_WATER_MAGIC, 3);
+	_skill(SKILL_AIR_MAGIC, 2);
+	_skill(SKILL_FIRE_MAGIC, 2);
+	_skill(SKILL_LIFE_MAGIC, 4);
+	_skill(SKILL_DEATH_MAGIC, 2);
 
-    _description("\
+	_description("\
 Elves are a tall, slender, nimble <link=race>race</link> of <link=forest>forest\
 </link>-dwellers.  Elves have a great affinity for plants, and fare \
 excellently in forests, <link=jungle>jungles</link> and <link=swamp>swamps\
@@ -356,132 +357,132 @@ Elves are skilled <link=magic>spellcasters</link>, particularly in the \
 ");
 
 
-  _race(RACE_DWARF);
-    _name("dwarf");
-    _plural_name("dwarves");
-    _adjective("dwarvish");
+	_race(RACE_DWARF);
+	_name("dwarf");
+	_plural_name("dwarves");
+	_adjective("dwarvish");
 
-    _color(c_brown);
-    _kingdom_color(c_ltgray);
-    _kingdom_color(c_red);
-    _kingdom_color(c_brown);
+	_color(c_brown);
+	_kingdom_color(c_ltgray);
+	_kingdom_color(c_red);
+	_kingdom_color(c_brown);
 /*
     _kingdom_color(c_ltred);
     _kingdom_color(c_yellow);
 */
 
-    _map_type(MAP_CANYON,      100);
-    _map_type(MAP_MOUNTAINOUS,  90);
-    _map_type(MAP_FOOTHILLS,    70);
-    _map_type(MAP_WASTELAND,    10);
+	_map_type(MAP_CANYON, 100);
+	_map_type(MAP_MOUNTAINOUS, 90);
+	_map_type(MAP_FOOTHILLS, 70);
+	_map_type(MAP_WASTELAND, 10);
 
-    _map_type(MAP_DESERT,      -40);
-    _map_type(MAP_JUNGLE,      -25);
-    _map_type(MAP_PLAINS,      -20);
+	_map_type(MAP_DESERT, -40);
+	_map_type(MAP_JUNGLE, -25);
+	_map_type(MAP_PLAINS, -20);
 
 // Dwarves are squat... and thus travel slower on almost all terrain!
 // However they're great at navigating rocks, hills, mountains etc.
-    _travel_cost(MAP_TUNDRA,        75);
-    _travel_cost(MAP_DESERT,        66);
-    _travel_cost(MAP_WASTELAND,     33);
-    _travel_cost(MAP_PLAINS,        33);
-    _travel_cost(MAP_FOREST,       100);
-    _travel_cost(MAP_SWAMP,        175);
-    _travel_cost(MAP_JUNGLE,       250);
-    _travel_cost(MAP_FOOTHILLS,     33);
-    _travel_cost(MAP_ICY_FOOTHILLS, 75);
-    _travel_cost(MAP_MOUNTAINOUS,  150);
-    _travel_cost(MAP_ICY_MOUNTAIN, 300);
-    _travel_cost(MAP_BASIN,         33);
-    _travel_cost(MAP_GLACIER,      100);
-    _travel_cost(MAP_COASTAL,       33);
-    _travel_cost(MAP_ICECAP,       150);
+	_travel_cost(MAP_TUNDRA, 75);
+	_travel_cost(MAP_DESERT, 66);
+	_travel_cost(MAP_WASTELAND, 33);
+	_travel_cost(MAP_PLAINS, 33);
+	_travel_cost(MAP_FOREST, 100);
+	_travel_cost(MAP_SWAMP, 175);
+	_travel_cost(MAP_JUNGLE, 250);
+	_travel_cost(MAP_FOOTHILLS, 33);
+	_travel_cost(MAP_ICY_FOOTHILLS, 75);
+	_travel_cost(MAP_MOUNTAINOUS, 150);
+	_travel_cost(MAP_ICY_MOUNTAIN, 300);
+	_travel_cost(MAP_BASIN, 33);
+	_travel_cost(MAP_GLACIER, 100);
+	_travel_cost(MAP_COASTAL, 33);
+	_travel_cost(MAP_ICECAP, 150);
 
-    _cluster_size(2, 5);
-    _city_size(CITY_TYPE_CITY,      90, 1000);
-    _city_size(CITY_TYPE_DUCHY,    650, 3800);
-    _city_size(CITY_TYPE_CAPITAL, 1800, 7200);
+	_cluster_size(2, 5);
+	_city_size(CITY_TYPE_CITY, 90, 1000);
+	_city_size(CITY_TYPE_DUCHY, 650, 3800);
+	_city_size(CITY_TYPE_CAPITAL, 1800, 7200);
 
 // Start should end with any of "ioulr"
-    _city_name_start("amo", "bel", "bil", "bor", "bur", "dai", "du",
-                     "dur", "fal", "glau", "glo", "glor", "gor", "grel", "gu",
-                     "hel", "ho", "hol", "hor", "hur", "ilu", "lor", "mon",
-                     "mor", "nar", "nau", "ni", "nir", "no", "nol", "nor", "or",
-                     "su", "tal", "thi", "tho", "thor", "tri", "tur", "ul",
-                     "ul");
+	_city_name_start("amo", "bel", "bil", "bor", "bur", "dai", "du",
+			"dur", "fal", "glau", "glo", "glor", "gor", "grel", "gu",
+			"hel", "ho", "hol", "hor", "hur", "ilu", "lor", "mon",
+			"mor", "nar", "nau", "ni", "nir", "no", "nol", "nor", "or",
+			"su", "tal", "thi", "tho", "thor", "tri", "tur", "ul",
+			"ul");
 
 // Middle should start w/ anything that follows "ioulr", end with a vowel or "r"
-    _city_name_middle("a", "ar", "be", "bi", "bor", "dar", "de", "dene", "der",
-                      "di", "dine", "do", "dor", "dore", "dostr", "du", "e",
-                      "fa", "far", "ga", "gar", "ge", "ger", "gerde", "gla",
-                      "glar", "gle", "gor", "gora", "gu", "gunde", "le", "lege",
-                      "mir", "mli", "mo", "na", "nar", "nda", "ndar", "nde",
-                      "nder", "ndi", "ndo", "ndor", "ne", "nere", "nesse",
-                      "ngi", "nlo", "nlir", "nur", "nur", "nunde", "sar", "se",
-                      "sela", "selar", "ser", "sere", "ste", "sto", "stone",
-                      "stone", "stone", "stor", "sune", "suner", "te", "ter",
-                      "tor", "tori", "tre", "tro", "ve", "vi", "vise", "vur",
-                      "vurse");
+	_city_name_middle("a", "ar", "be", "bi", "bor", "dar", "de", "dene", "der",
+			"di", "dine", "do", "dor", "dore", "dostr", "du", "e",
+			"fa", "far", "ga", "gar", "ge", "ger", "gerde", "gla",
+			"glar", "gle", "gor", "gora", "gu", "gunde", "le", "lege",
+			"mir", "mli", "mo", "na", "nar", "nda", "ndar", "nde",
+			"nder", "ndi", "ndo", "ndor", "ne", "nere", "nesse",
+			"ngi", "nlo", "nlir", "nur", "nur", "nunde", "sar", "se",
+			"sela", "selar", "ser", "sere", "ste", "sto", "stone",
+			"stone", "stone", "stor", "sune", "suner", "te", "ter",
+			"tor", "tori", "tre", "tro", "ve", "vi", "vise", "vur",
+			"vurse");
 
-    _city_name_end("", "", "", "", "", "", "", "", "", "", "", "", "der", "dom",
-                   "dom", "dom", "don", "donar", "dum", "dun", "dun", "dun",
-                   "forge", "forge", "gost", "gost",  "grad", "grod", "grod",
-                   "lan", "lind", "nar", "nar", "roth", "th", "th", "thun",
-                   "thundar");
+	_city_name_end("", "", "", "", "", "", "", "", "", "", "", "", "der", "dom",
+			"dom", "dom", "don", "donar", "dum", "dun", "dun", "dun",
+			"forge", "forge", "gost", "gost", "grad", "grod", "grod",
+			"lan", "lind", "nar", "nar", "roth", "th", "th", "thun",
+			"thundar");
 
-    _base_combat(11);
-    _hp(120);
-    _food_consumption(105);
-    _warlikeness(-1);
-    _life_value(3);
+	_base_combat(11);
+	_hp(120);
+	_food_consumption(105);
+	_warlikeness(-1);
+	_life_value(3);
 
-    _starting_population(CIT_PEASANT,  100);
-    _starting_resources (RES_GOLD,    6500);
-    _starting_resources (RES_WOOD,    2000);
-    _starting_resources (RES_STONE,   2000);
+	_starting_population(CIT_PEASANT, 100);
+	_starting_resources (RES_GOLD, 6500);
+	_starting_resources (RES_WOOD, 2000);
+	_starting_resources (RES_STONE, 2000);
 
-    _birth_rate         (CIT_PEASANT,  120);
-    _birth_rate         (CIT_MERCHANT, 110);
-    _birth_rate         (CIT_BURGHER,  100);
-    _citizen_ratio      (CIT_MERCHANT,  10);
-    _citizen_ratio      (CIT_BURGHER,   10);
-    _morale_requirement (CIT_MERCHANT,  40);
-    _morale_requirement (CIT_BURGHER,   60);
-    _low_tax_rate       (CIT_PEASANT,   25);
-    _low_tax_rate       (CIT_MERCHANT,  20);
-    _low_tax_rate       (CIT_BURGHER,   15);
-    _high_tax_rate      (CIT_PEASANT,   85);
-    _high_tax_rate      (CIT_MERCHANT,  75);
-    _high_tax_rate      (CIT_BURGHER,   65);
+	_birth_rate         (CIT_PEASANT, 120);
+	_birth_rate         (CIT_MERCHANT, 110);
+	_birth_rate         (CIT_BURGHER, 100);
+	_citizen_ratio      (CIT_MERCHANT, 10);
+	_citizen_ratio      (CIT_BURGHER, 10);
+	_morale_requirement (CIT_MERCHANT, 40);
+	_morale_requirement (CIT_BURGHER, 60);
+	_low_tax_rate       (CIT_PEASANT, 25);
+	_low_tax_rate       (CIT_MERCHANT, 20);
+	_low_tax_rate       (CIT_BURGHER, 15);
+	_high_tax_rate      (CIT_PEASANT, 85);
+	_high_tax_rate      (CIT_MERCHANT, 75);
+	_high_tax_rate      (CIT_BURGHER, 65);
 
-    _relations(RACE_HUMAN,     1);
-    _relations(RACE_ELF,       1);
-    _relations(RACE_DWARF,     1);
-    _relations(RACE_ORC,      -1);
-    _relations(RACE_TROLL,    -5);
-    _relations(RACE_HALFLING,  1);
-    _relations(RACE_GNOME,     2);
-    _relations(RACE_MINOTAUR,  2);
-    _relations(RACE_RAKSHASA,  1);
-    _relations(RACE_NAGA,     -1);
+	_relations(RACE_HUMAN, 1);
+	_relations(RACE_ELF, 1);
+	_relations(RACE_DWARF, 1);
+	_relations(RACE_ORC, -1);
+	_relations(RACE_TROLL, -5);
+	_relations(RACE_HALFLING, 1);
+	_relations(RACE_GNOME, 2);
+	_relations(RACE_MINOTAUR, 2);
+	_relations(RACE_RAKSHASA, 1);
+	_relations(RACE_NAGA, -1);
 
-    _skill(SKILL_FARMING,       2);
-    _skill(SKILL_HUNTING,       2);
-    _skill(SKILL_LIVESTOCK,     3);
-    _skill(SKILL_MINING,        5);
-    _skill(SKILL_FORESTRY,      2);
-    _skill(SKILL_CONSTRUCTION,  4);
-    _skill(SKILL_TRADE,         4);
-    _skill(SKILL_ESPIONAGE,     3);
-    _skill(SKILL_MAGIC,         2);
-    _skill(SKILL_EARTH_MAGIC,   5);
-    _skill(SKILL_WATER_MAGIC,   2);
-    _skill(SKILL_AIR_MAGIC,     1);
-    _skill(SKILL_FIRE_MAGIC,    3);
-    _skill(SKILL_LIFE_MAGIC,    2);
-    _skill(SKILL_DEATH_MAGIC,   2);
+	_skill(SKILL_FARMING, 2);
+	_skill(SKILL_HUNTING, 2);
+	_skill(SKILL_LIVESTOCK, 3);
+	_skill(SKILL_MINING, 5);
+	_skill(SKILL_FORESTRY, 2);
+	_skill(SKILL_CONSTRUCTION, 4);
+	_skill(SKILL_TRADE, 4);
+	_skill(SKILL_ESPIONAGE, 3);
+	_skill(SKILL_MAGIC, 2);
+	_skill(SKILL_EARTH_MAGIC, 5);
+	_skill(SKILL_WATER_MAGIC, 2);
+	_skill(SKILL_AIR_MAGIC, 1);
+	_skill(SKILL_FIRE_MAGIC, 3);
+	_skill(SKILL_LIFE_MAGIC, 2);
+	_skill(SKILL_DEATH_MAGIC, 2);
 
-    _description("\
+	_description("\
 Dwarves are a short, stocky <link=race>race</link>.  They have a great \
 affinity for tunnels and caverns, and their small stature helps to make them \
 excellent <link=mining>miners</link>.  Because of this, dwarves are usually \
@@ -509,119 +510,119 @@ are, are among the most powerful in the world.\
 ");
 
 
-  _race(RACE_ORC);
-    _name("orc");
-    _plural_name("orcs");
-    _adjective("orcish");
+	_race(RACE_ORC);
+	_name("orc");
+	_plural_name("orcs");
+	_adjective("orcish");
 
-    _color(c_ltred);
-    _kingdom_color(c_red);
-    _kingdom_color(c_magenta);
-    _kingdom_color(c_brown);
+	_color(c_ltred);
+	_kingdom_color(c_red);
+	_kingdom_color(c_magenta);
+	_kingdom_color(c_brown);
 /*
     _kingdom_color(c_ltred);
     _kingdom_color(c_yellow);
 */
 
-    _map_type(MAP_WASTELAND,  100);
-    _map_type(MAP_BASIN,      100);
-    _map_type(MAP_FOOTHILLS,   80);
-    _map_type(MAP_CANYON,      45);
-    _map_type(MAP_PLAINS,      40);
-    _map_type(MAP_JUNGLE,      15);
-    _map_type(MAP_MOUNTAINOUS, 10);
+	_map_type(MAP_WASTELAND, 100);
+	_map_type(MAP_BASIN, 100);
+	_map_type(MAP_FOOTHILLS, 80);
+	_map_type(MAP_CANYON, 45);
+	_map_type(MAP_PLAINS, 40);
+	_map_type(MAP_JUNGLE, 15);
+	_map_type(MAP_MOUNTAINOUS, 10);
 
-    _map_type(MAP_DESERT,     -10);
+	_map_type(MAP_DESERT, -10);
 
 // Orcs' strength and affinity for hills make them better at traversing rocky
-    _travel_cost(MAP_WASTELAND,      33);
-    _travel_cost(MAP_FOOTHILLS,      40);
-    _travel_cost(MAP_ICY_FOOTHILLS,  80);
-    _travel_cost(MAP_MOUNTAINOUS,   200);
-    _travel_cost(MAP_ICY_MOUNTAIN,  350);
-    _travel_cost(MAP_CANYON,         33);
+	_travel_cost(MAP_WASTELAND, 33);
+	_travel_cost(MAP_FOOTHILLS, 40);
+	_travel_cost(MAP_ICY_FOOTHILLS, 80);
+	_travel_cost(MAP_MOUNTAINOUS, 200);
+	_travel_cost(MAP_ICY_MOUNTAIN, 350);
+	_travel_cost(MAP_CANYON, 33);
 
-    _cluster_size(4, 6);
-    _city_size(CITY_TYPE_CITY,     100, 1800);
-    _city_size(CITY_TYPE_DUCHY,    800, 4500);
-    _city_size(CITY_TYPE_CAPITAL, 2000, 9200);
+	_cluster_size(4, 6);
+	_city_size(CITY_TYPE_CITY, 100, 1800);
+	_city_size(CITY_TYPE_DUCHY, 800, 4500);
+	_city_size(CITY_TYPE_CAPITAL, 2000, 9200);
 
-    _city_name_start("arz", "bhor", "bor", "boz", "dhul", "dush", "ghal",
-                     "ghor", "ghul", "grag", "gros", "kaz", "khar", "khaz",
-                     "khor", "khul", "kuz", "larg", "mhor", "mol", "mhol",
-                     "narz", "nash", "orc", "orc", "orcr", "ork", "ork", "ork",
-                     "ork", "orkr", "ors", "ors", "orz", "rhas", "rhaz", "ror",
-                     "rhul", "rhuz", "santh", "sanz", "sarz", "sorz", "suth",
-                     "taz", "thor", "tor", "thor", "ur", "urz", "vhoz", "wur",
-                     "zath", "zho'", "zhuth");
+	_city_name_start("arz", "bhor", "bor", "boz", "dhul", "dush", "ghal",
+			"ghor", "ghul", "grag", "gros", "kaz", "khar", "khaz",
+			"khor", "khul", "kuz", "larg", "mhor", "mol", "mhol",
+			"narz", "nash", "orc", "orc", "orcr", "ork", "ork", "ork",
+			"ork", "orkr", "ors", "ors", "orz", "rhas", "rhaz", "ror",
+			"rhul", "rhuz", "santh", "sanz", "sarz", "sorz", "suth",
+			"taz", "thor", "tor", "thor", "ur", "urz", "vhoz", "wur",
+			"zath", "zho'", "zhuth");
 
-    _city_name_middle("", "", "", "", "", "", "", "", "",
-                      " Khal", " Khal", " Khor", " Mhor", " Mhor", " Ork",
-                      " Ork", " Rhi", " Vir", " Zhor", "ak", "ak", "akh", "akr",
-                      "akr", "al", "anik", "ankh", "ar", "ark", "ath", "az",
-                      "ek", "ek", "ekr", "el", "en", "ent", "entr", "enz", "er",
-                      "erz", "et", "eth", "etr", "ez", "i'", "ik", "ikr", "in",
-                      "ink", "inz", "ir", "nik", "nikr", "ok", "ok", "okr",
-                      "uk", "uk", "uk", "uk", "ukr", "ukr", "ul", "ur", "urk",
-                      "urz", "uz", "zek", "zel", "zhor");
+	_city_name_middle("", "", "", "", "", "", "", "", "",
+			" Khal", " Khal", " Khor", " Mhor", " Mhor", " Ork",
+			" Ork", " Rhi", " Vir", " Zhor", "ak", "ak", "akh", "akr",
+			"akr", "al", "anik", "ankh", "ar", "ark", "ath", "az",
+			"ek", "ek", "ekr", "el", "en", "ent", "entr", "enz", "er",
+			"erz", "et", "eth", "etr", "ez", "i'", "ik", "ikr", "in",
+			"ink", "inz", "ir", "nik", "nikr", "ok", "ok", "okr",
+			"uk", "uk", "uk", "uk", "ukr", "ukr", "ul", "ur", "urk",
+			"urz", "uz", "zek", "zel", "zhor");
 
-    _city_name_end("", "", "", "", "", "a", "a", "a", "ak", "al", "ani", "anik",
-                   "arth", "ath", "az", "e", "el", "en", "ez", "o", "one", "or",
-                   "ork", "orz", "os", "os", "ur", "urk", "urk", "uz", "uz");
+	_city_name_end("", "", "", "", "", "a", "a", "a", "ak", "al", "ani", "anik",
+			"arth", "ath", "az", "e", "el", "en", "ez", "o", "one", "or",
+			"ork", "orz", "os", "os", "ur", "urk", "urk", "uz", "uz");
 
-    _base_combat(14);
-    _hp(130);
-    _food_consumption(105);
-    _warlikeness(3);
-    _life_value(2);
+	_base_combat(14);
+	_hp(130);
+	_food_consumption(105);
+	_warlikeness(3);
+	_life_value(2);
 
-    _starting_population(CIT_PEASANT,  120);
-    _starting_resources (RES_GOLD,    5000);
-    _starting_resources (RES_WOOD,    2000);
-    _starting_resources (RES_STONE,   2000);
+	_starting_population(CIT_PEASANT, 120);
+	_starting_resources (RES_GOLD, 5000);
+	_starting_resources (RES_WOOD, 2000);
+	_starting_resources (RES_STONE, 2000);
 
-    _birth_rate         (CIT_PEASANT,  100);
-    _birth_rate         (CIT_MERCHANT,  95);
-    _birth_rate         (CIT_BURGHER,   90);
-    _citizen_ratio      (CIT_MERCHANT,  15);
-    _citizen_ratio      (CIT_BURGHER,   10);
-    _morale_requirement (CIT_MERCHANT,  30);
-    _morale_requirement (CIT_BURGHER,   50);
-    _low_tax_rate       (CIT_PEASANT,   30);
-    _low_tax_rate       (CIT_MERCHANT,  25);
-    _low_tax_rate       (CIT_BURGHER,   20);
-    _high_tax_rate      (CIT_PEASANT,  100);
-    _high_tax_rate      (CIT_MERCHANT,  85);
-    _high_tax_rate      (CIT_BURGHER,   70);
+	_birth_rate         (CIT_PEASANT, 100);
+	_birth_rate         (CIT_MERCHANT, 95);
+	_birth_rate         (CIT_BURGHER, 90);
+	_citizen_ratio      (CIT_MERCHANT, 15);
+	_citizen_ratio      (CIT_BURGHER, 10);
+	_morale_requirement (CIT_MERCHANT, 30);
+	_morale_requirement (CIT_BURGHER, 50);
+	_low_tax_rate       (CIT_PEASANT, 30);
+	_low_tax_rate       (CIT_MERCHANT, 25);
+	_low_tax_rate       (CIT_BURGHER, 20);
+	_high_tax_rate      (CIT_PEASANT, 100);
+	_high_tax_rate      (CIT_MERCHANT, 85);
+	_high_tax_rate      (CIT_BURGHER, 70);
 
-    _relations(RACE_ELF,      -1);
-    _relations(RACE_DWARF,     1);
-    _relations(RACE_ORC,       2);
-    _relations(RACE_GOBLIN,   -1);
-    _relations(RACE_OGRE,      1);
-    _relations(RACE_TROLL,     1);
-    _relations(RACE_HALFLING, -3);
-    _relations(RACE_GNOME,    -2);
-    _relations(RACE_MINOTAUR,  2);
-    _relations(RACE_RAKSHASA,  1);
+	_relations(RACE_ELF, -1);
+	_relations(RACE_DWARF, 1);
+	_relations(RACE_ORC, 2);
+	_relations(RACE_GOBLIN, -1);
+	_relations(RACE_OGRE, 1);
+	_relations(RACE_TROLL, 1);
+	_relations(RACE_HALFLING, -3);
+	_relations(RACE_GNOME, -2);
+	_relations(RACE_MINOTAUR, 2);
+	_relations(RACE_RAKSHASA, 1);
 
-    _skill(SKILL_FARMING,       1);
-    _skill(SKILL_HUNTING,       4);
-    _skill(SKILL_LIVESTOCK,     2);
-    _skill(SKILL_MINING,        3);
-    _skill(SKILL_FORESTRY,      3);
-    _skill(SKILL_CONSTRUCTION,  2);
-    _skill(SKILL_TRADE,         2);
-    _skill(SKILL_ESPIONAGE,     2);
-    _skill(SKILL_MAGIC,         1);
-    _skill(SKILL_EARTH_MAGIC,   2);
-    _skill(SKILL_WATER_MAGIC,   1);
-    _skill(SKILL_AIR_MAGIC,     1);
-    _skill(SKILL_FIRE_MAGIC,    3);
-    _skill(SKILL_LIFE_MAGIC,    1);
-    _skill(SKILL_DEATH_MAGIC,   3);
+	_skill(SKILL_FARMING, 1);
+	_skill(SKILL_HUNTING, 4);
+	_skill(SKILL_LIVESTOCK, 2);
+	_skill(SKILL_MINING, 3);
+	_skill(SKILL_FORESTRY, 3);
+	_skill(SKILL_CONSTRUCTION, 2);
+	_skill(SKILL_TRADE, 2);
+	_skill(SKILL_ESPIONAGE, 2);
+	_skill(SKILL_MAGIC, 1);
+	_skill(SKILL_EARTH_MAGIC, 2);
+	_skill(SKILL_WATER_MAGIC, 1);
+	_skill(SKILL_AIR_MAGIC, 1);
+	_skill(SKILL_FIRE_MAGIC, 3);
+	_skill(SKILL_LIFE_MAGIC, 1);
+	_skill(SKILL_DEATH_MAGIC, 3);
 
-    _description("\
+	_description("\
 Orcs are a nasty, brutish <link=race>race</link>, and they are proud of it.  \
 Among all the races, orcs are the most eager for <link=war>conflict</link>.  \
 Orcish citizens quickly grow bored if there is not a war to fight; this is the \
@@ -661,117 +662,117 @@ exceptions being <link=fire magic>fire</link> and <link=death magic>death\
 ");
 
 
-  _race(RACE_GOBLIN);
-    _name("goblin");
-    _plural_name("goblins");
-    _adjective("goblin");
+	_race(RACE_GOBLIN);
+	_name("goblin");
+	_plural_name("goblins");
+	_adjective("goblin");
 
-    _color(c_ltgray);
-    _kingdom_color(c_ltgray);
-    _kingdom_color(c_brown);
-    _kingdom_color(c_red);
+	_color(c_ltgray);
+	_kingdom_color(c_ltgray);
+	_kingdom_color(c_brown);
+	_kingdom_color(c_red);
 
-    _map_type(MAP_WASTELAND,   100);
-    _map_type(MAP_BASIN,        80);
-    _map_type(MAP_PLAINS,       70);
-    _map_type(MAP_JUNGLE,       60);
-    _map_type(MAP_FOOTHILLS,    50);
-    _map_type(MAP_MOUNTAINOUS,  20);
+	_map_type(MAP_WASTELAND, 100);
+	_map_type(MAP_BASIN, 80);
+	_map_type(MAP_PLAINS, 70);
+	_map_type(MAP_JUNGLE, 60);
+	_map_type(MAP_FOOTHILLS, 50);
+	_map_type(MAP_MOUNTAINOUS, 20);
 
-    _map_type(MAP_DESERT,      -10);
+	_map_type(MAP_DESERT, -10);
 
 // Gobbos are good in forests & mountains, bad in ice
-    _travel_cost(MAP_TUNDRA,         75);
-    _travel_cost(MAP_FOREST,         50);
-    _travel_cost(MAP_JUNGLE,        150);
-    _travel_cost(MAP_FOOTHILLS,      40);
-    _travel_cost(MAP_ICY_FOOTHILLS, 150);
-    _travel_cost(MAP_MOUNTAINOUS,   200);
-    _travel_cost(MAP_ICY_MOUNTAIN,  500);
-    _travel_cost(MAP_CANYON,         33);
-    _travel_cost(MAP_ICECAP,        150);
+	_travel_cost(MAP_TUNDRA, 75);
+	_travel_cost(MAP_FOREST, 50);
+	_travel_cost(MAP_JUNGLE, 150);
+	_travel_cost(MAP_FOOTHILLS, 40);
+	_travel_cost(MAP_ICY_FOOTHILLS, 150);
+	_travel_cost(MAP_MOUNTAINOUS, 200);
+	_travel_cost(MAP_ICY_MOUNTAIN, 500);
+	_travel_cost(MAP_CANYON, 33);
+	_travel_cost(MAP_ICECAP, 150);
 
-    _cluster_size(5, 8);
-    _city_size(CITY_TYPE_CITY,     150,  2000);
-    _city_size(CITY_TYPE_DUCHY,   1200,  6000);
-    _city_size(CITY_TYPE_CAPITAL, 3000,  1200);
+	_cluster_size(5, 8);
+	_city_size(CITY_TYPE_CITY, 150, 2000);
+	_city_size(CITY_TYPE_DUCHY, 1200, 6000);
+	_city_size(CITY_TYPE_CAPITAL, 3000, 1200);
 
-    _city_name_start("ak", "ar", "bek", "bik", "bir", "bu", "buk", "dak", "dek",
-                     "dik", "dir", "du", "ek", "er", "fek", "fik", "fu", "hak",
-                     "hu", "ik", "ir", "kak", "ku", "kuk", "krak", "krek", "na",
-                     "nak", "nik", "nuk", "pik", "prik", "pu", "su", "rak",
-                     "rik", "ru", "ruk", "sak", "sek", "sik", "stak", "stek",
-                     "stik", "stuk", "su", "suk", "tak", "tek", "tik", "tu",
-                     "tuk", "tra", "trak", "trek", "trik", "truk", "u", "uk",
-                     "vak", "vik", "vu");
+	_city_name_start("ak", "ar", "bek", "bik", "bir", "bu", "buk", "dak", "dek",
+			"dik", "dir", "du", "ek", "er", "fek", "fik", "fu", "hak",
+			"hu", "ik", "ir", "kak", "ku", "kuk", "krak", "krek", "na",
+			"nak", "nik", "nuk", "pik", "prik", "pu", "su", "rak",
+			"rik", "ru", "ruk", "sak", "sek", "sik", "stak", "stek",
+			"stik", "stuk", "su", "suk", "tak", "tek", "tik", "tu",
+			"tuk", "tra", "trak", "trek", "trik", "truk", "u", "uk",
+			"vak", "vik", "vu");
 
-    _city_name_middle("", "", "", "", "", "", "", "", "", "", "", "", "", "",
-                      "", "", "", "", "", "", "", "", "", "", "", "a", "aba",
-                      "abi", "abu", "ada", "adi", "adu", "aka", "aki", "aku",
-                      "ala", "ali", "alu", "ava", "avi", "avu", "la", "li",
-                      "lu", "ra", "ri", "ru");
+	_city_name_middle("", "", "", "", "", "", "", "", "", "", "", "", "", "",
+			"", "", "", "", "", "", "", "", "", "", "", "a", "aba",
+			"abi", "abu", "ada", "adi", "adu", "aka", "aki", "aku",
+			"ala", "ali", "alu", "ava", "avi", "avu", "la", "li",
+			"lu", "ra", "ri", "ru");
 
-    _city_name_end("ba", "bak", "bek", "bu", "buk", "da", "dak", "dek", "dik",
-                   "du", "duk", "fak", "fik", "fuk", "hak", "hik", "huk", "ka",
-                   "kak", "kek", "kik", "ku", "kuk", "na", "nak", "ni", "nik",
-                   "nok", "nu", "nuk", "pa", "pak", "pi", "pik", "pok", "puk",
-                   "rak", "rik", "ro", "ru", "ruk", "sak", "sik", "so", "sok",
-                   "spak", "sprak", "suk", "tak", "tek", "tik", "to", "trak",
-                   "trik", "truk");
+	_city_name_end("ba", "bak", "bek", "bu", "buk", "da", "dak", "dek", "dik",
+			"du", "duk", "fak", "fik", "fuk", "hak", "hik", "huk", "ka",
+			"kak", "kek", "kik", "ku", "kuk", "na", "nak", "ni", "nik",
+			"nok", "nu", "nuk", "pa", "pak", "pi", "pik", "pok", "puk",
+			"rak", "rik", "ro", "ru", "ruk", "sak", "sik", "so", "sok",
+			"spak", "sprak", "suk", "tak", "tek", "tik", "to", "trak",
+			"trik", "truk");
 
-    _base_combat(8);
-    _hp(85);
-    _food_consumption( 90);
-    _warlikeness(-1);
-    _life_value(1);
+	_base_combat(8);
+	_hp(85);
+	_food_consumption(90);
+	_warlikeness(-1);
+	_life_value(1);
 
-    _starting_population(CIT_PEASANT,  140);
-    _starting_resources (RES_GOLD,    4000);
-    _starting_resources (RES_WOOD,    1600);
-    _starting_resources (RES_STONE,   1600);
+	_starting_population(CIT_PEASANT, 140);
+	_starting_resources (RES_GOLD, 4000);
+	_starting_resources (RES_WOOD, 1600);
+	_starting_resources (RES_STONE, 1600);
 
-    _birth_rate         (CIT_PEASANT,   80);
-    _birth_rate         (CIT_MERCHANT,  80);
-    _birth_rate         (CIT_BURGHER,   80);
-    _citizen_ratio      (CIT_MERCHANT,  20);
-    _citizen_ratio      (CIT_BURGHER,   14);
-    _morale_requirement (CIT_MERCHANT,  50);
-    _morale_requirement (CIT_BURGHER,   75);
-    _low_tax_rate       (CIT_PEASANT,   25);
-    _low_tax_rate       (CIT_MERCHANT,  20);
-    _low_tax_rate       (CIT_BURGHER,   15);
-    _high_tax_rate      (CIT_PEASANT,   90);
-    _high_tax_rate      (CIT_MERCHANT,  80);
-    _high_tax_rate      (CIT_BURGHER,   60);
+	_birth_rate         (CIT_PEASANT, 80);
+	_birth_rate         (CIT_MERCHANT, 80);
+	_birth_rate         (CIT_BURGHER, 80);
+	_citizen_ratio      (CIT_MERCHANT, 20);
+	_citizen_ratio      (CIT_BURGHER, 14);
+	_morale_requirement (CIT_MERCHANT, 50);
+	_morale_requirement (CIT_BURGHER, 75);
+	_low_tax_rate       (CIT_PEASANT, 25);
+	_low_tax_rate       (CIT_MERCHANT, 20);
+	_low_tax_rate       (CIT_BURGHER, 15);
+	_high_tax_rate      (CIT_PEASANT, 90);
+	_high_tax_rate      (CIT_MERCHANT, 80);
+	_high_tax_rate      (CIT_BURGHER, 60);
 
-    _relations(RACE_HUMAN,    -1);
-    _relations(RACE_ELF,      -2);
-    _relations(RACE_DWARF,     1);
-    _relations(RACE_ORC,       2);
-    _relations(RACE_GOBLIN,    1);
-    _relations(RACE_OGRE,      1);
-    _relations(RACE_TROLL,     2);
-    _relations(RACE_GNOME,     1);
-    _relations(RACE_RAKSHASA,  2);
-    _relations(RACE_NAGA,      1);
+	_relations(RACE_HUMAN, -1);
+	_relations(RACE_ELF, -2);
+	_relations(RACE_DWARF, 1);
+	_relations(RACE_ORC, 2);
+	_relations(RACE_GOBLIN, 1);
+	_relations(RACE_OGRE, 1);
+	_relations(RACE_TROLL, 2);
+	_relations(RACE_GNOME, 1);
+	_relations(RACE_RAKSHASA, 2);
+	_relations(RACE_NAGA, 1);
 
-    _skill(SKILL_FARMING,       3);
-    _skill(SKILL_HUNTING,       2);
-    _skill(SKILL_LIVESTOCK,     1);
-    _skill(SKILL_MINING,        3);
-    _skill(SKILL_FORESTRY,      2);
-    _skill(SKILL_CONSTRUCTION,  3);
-    _skill(SKILL_TRADE,         3);
-    _skill(SKILL_ESPIONAGE,     5);
-    _skill(SKILL_MAGIC,         2);
-    _skill(SKILL_EARTH_MAGIC,   2);
-    _skill(SKILL_WATER_MAGIC,   2);
-    _skill(SKILL_AIR_MAGIC,     3);
-    _skill(SKILL_FIRE_MAGIC,    2);
-    _skill(SKILL_LIFE_MAGIC,    2);
-    _skill(SKILL_DEATH_MAGIC,   2);
+	_skill(SKILL_FARMING, 3);
+	_skill(SKILL_HUNTING, 2);
+	_skill(SKILL_LIVESTOCK, 1);
+	_skill(SKILL_MINING, 3);
+	_skill(SKILL_FORESTRY, 2);
+	_skill(SKILL_CONSTRUCTION, 3);
+	_skill(SKILL_TRADE, 3);
+	_skill(SKILL_ESPIONAGE, 5);
+	_skill(SKILL_MAGIC, 2);
+	_skill(SKILL_EARTH_MAGIC, 2);
+	_skill(SKILL_WATER_MAGIC, 2);
+	_skill(SKILL_AIR_MAGIC, 3);
+	_skill(SKILL_FIRE_MAGIC, 2);
+	_skill(SKILL_LIFE_MAGIC, 2);
+	_skill(SKILL_DEATH_MAGIC, 2);
 
-    _description("\
+	_description("\
 Goblins are a distant cousin of <link=orcs>orcs</link>, though the resemblance \
 is faint.  Unlike their large, strong, vicious relatives, goblins are small in \
 stature (often measuring less than four feet tall) and cowardly in nature.  \
@@ -806,136 +807,136 @@ affinity for any of the <link=magical school>schools of magic</link>, save for \
 ");
 
 
-  _race(RACE_OGRE);
-    _name("ogre");
-    _plural_name("ogres");
-    _adjective("ogre");
+	_race(RACE_OGRE);
+	_name("ogre");
+	_plural_name("ogres");
+	_adjective("ogre");
 
-    _color(c_yellow);
-    _kingdom_color(c_brown);
-    _kingdom_color(c_red);
-    _kingdom_color(c_magenta);
+	_color(c_yellow);
+	_kingdom_color(c_brown);
+	_kingdom_color(c_red);
+	_kingdom_color(c_magenta);
 
-    _map_type(MAP_BASIN,       100);
-    _map_type(MAP_PLAINS,       90);
-    _map_type(MAP_WASTELAND,    50);
-    _map_type(MAP_FOOTHILLS,    40);
+	_map_type(MAP_BASIN, 100);
+	_map_type(MAP_PLAINS, 90);
+	_map_type(MAP_WASTELAND, 50);
+	_map_type(MAP_FOOTHILLS, 40);
 
-    _map_type(MAP_DESERT,      -40);
-    _map_type(MAP_JUNGLE,      -30);
-    _map_type(MAP_SWAMP,       -20);
-    _map_type(MAP_MOUNTAINOUS, -10);
+	_map_type(MAP_DESERT, -40);
+	_map_type(MAP_JUNGLE, -30);
+	_map_type(MAP_SWAMP, -20);
+	_map_type(MAP_MOUNTAINOUS, -10);
 
 // Ogres' size make them bad at navigating tight quarters, like forests.  But
 // they can traverse rocky areas more easily.
-    _travel_cost(MAP_WASTELAND,      33);
-    _travel_cost(MAP_FOREST,        150);
-    _travel_cost(MAP_SWAMP,         175);
-    _travel_cost(MAP_JUNGLE,        300);
-    _travel_cost(MAP_FOOTHILLS,      33);
-    _travel_cost(MAP_ICY_FOOTHILLS,  66);
-    _travel_cost(MAP_MOUNTAINOUS,   200);
-    _travel_cost(MAP_ICY_MOUNTAIN,  350);
-    _travel_cost(MAP_CANYON,         33);
+	_travel_cost(MAP_WASTELAND, 33);
+	_travel_cost(MAP_FOREST, 150);
+	_travel_cost(MAP_SWAMP, 175);
+	_travel_cost(MAP_JUNGLE, 300);
+	_travel_cost(MAP_FOOTHILLS, 33);
+	_travel_cost(MAP_ICY_FOOTHILLS, 66);
+	_travel_cost(MAP_MOUNTAINOUS, 200);
+	_travel_cost(MAP_ICY_MOUNTAIN, 350);
+	_travel_cost(MAP_CANYON, 33);
 
-    _cluster_size(1, 3);
-    _city_size(CITY_TYPE_CITY,      50,  800);
-    _city_size(CITY_TYPE_DUCHY,    500, 2800);
-    _city_size(CITY_TYPE_CAPITAL, 1400, 5000);
+	_cluster_size(1, 3);
+	_city_size(CITY_TYPE_CITY, 50, 800);
+	_city_size(CITY_TYPE_DUCHY, 500, 2800);
+	_city_size(CITY_TYPE_CAPITAL, 1400, 5000);
 
 // End with lr
-    _city_name_start("al", "ar", "bal", "bar", "bel", "bil", "dal", "dar",
-                     "del", "el", "fal", "far", "ful", "hal", "har", "her",
-                     "hul", "il", "ir", "lar", "lor", "lur", "mal", "mar",
-                     "mel", "mer", "mil", "mor", "mul", "mur", "nal", "nar",
-                     "nel", "nil", "nor", "nul", "or", "rel", "ril", "tal",
-                     "tar", "ter", "til", "tor", "tul", "ur", "war", "wer",
-                     "wil", "wor", "yal", "yar", "yel", "yil", "yor", "yus");
+	_city_name_start("al", "ar", "bal", "bar", "bel", "bil", "dal", "dar",
+			"del", "el", "fal", "far", "ful", "hal", "har", "her",
+			"hul", "il", "ir", "lar", "lor", "lur", "mal", "mar",
+			"mel", "mer", "mil", "mor", "mul", "mur", "nal", "nar",
+			"nel", "nil", "nor", "nul", "or", "rel", "ril", "tal",
+			"tar", "ter", "til", "tor", "tul", "ur", "war", "wer",
+			"wil", "wor", "yal", "yar", "yel", "yil", "yor", "yus");
 
 // Start with bdkt, end with vowel or lr
-    _city_name_middle("", "", "", "", "bal", "bar", "ba", "bel", "be", "bil",
-                      "bi", "bor", "bo", "bul", "bur", "bu", "dal", "dar",
-                      "da", "del", "de", "dil", "di", "dor", "do", "dul",
-                      "du", "kal", "kar", "ka", "kel", "ke", "kil", "ki",
-                      "kor", "ko", "kul", "ku", "tal", "tar", "ta", "tel",
-                      "te", "til", "ti", "tor", "to", "tu");
+	_city_name_middle("", "", "", "", "bal", "bar", "ba", "bel", "be", "bil",
+			"bi", "bor", "bo", "bul", "bur", "bu", "dal", "dar",
+			"da", "del", "de", "dil", "di", "dor", "do", "dul",
+			"du", "kal", "kar", "ka", "kel", "ke", "kil", "ki",
+			"kor", "ko", "kul", "ku", "tal", "tar", "ta", "tel",
+			"te", "til", "ti", "tor", "to", "tu");
 
 // Start with bdkt, end with aodklnrt,rd,rk,rt,
-    _city_name_end("", "", "", "", "ba", "bad", "bak", "ban", "bar", "bat",
-                   "bard", "bark", "bart", "bed", "bek", "bel", "ben", "bet",
-                   "berd", "bid", "bik", "bil", "bin", "bit", "birk", "birt",
-                   "bo", "bod", "bok", "bon", "bot", "bord", "bork", "bort",
-                   "bud", "buk", "bun", "bur", "but", "burd", "burk", "burt",
-                   "da", "dad", "dak", "dal", "dan", "dar", "dat", "dard",
-                   "dark", "dart", "ded", "dek", "del", "den", "det", "derk",
-                   "dert", "did", "dil", "din", "dit", "dirk", "dirt", "do",
-                   "dod", "dok", "don", "dor", "dot", "dork", "dort", "dud",
-                   "duk", "dun", "dut", "durk", "durt", "ka", "kad", "kal",
-                   "kan", "kar", "kat", "kard", "kark", "kart", "ked", "kel",
-                   "ken", "ket", "kerk", "kert", "kid", "kik", "kin", "kit",
-                   "kirk", "ko", "kod", "kok", "kol", "kon", "kor", "kot",
-                   "kord", "kork", "kort", "kud", "kuk", "kul", "kut", "kurd",
-                   "kurk", "kurt", "ta", "tad", "tak", "tal", "tan", "tar",
-                   "tat", "tard", "tark", "tart", "ted", "tek", "tel", "ten",
-                   "ter", "tet", "terd", "terk", "tert", "tid", "tik", "til",
-                   "tin", "tit", "tird", "tird", "tirt", "to", "tod", "tok",
-                   "ton", "tor", "tot", "tord", "tork", "tort", "tud", "tuk",
-                   "tun", "tut", "turd", "turk", "turt");
+	_city_name_end("", "", "", "", "ba", "bad", "bak", "ban", "bar", "bat",
+			"bard", "bark", "bart", "bed", "bek", "bel", "ben", "bet",
+			"berd", "bid", "bik", "bil", "bin", "bit", "birk", "birt",
+			"bo", "bod", "bok", "bon", "bot", "bord", "bork", "bort",
+			"bud", "buk", "bun", "bur", "but", "burd", "burk", "burt",
+			"da", "dad", "dak", "dal", "dan", "dar", "dat", "dard",
+			"dark", "dart", "ded", "dek", "del", "den", "det", "derk",
+			"dert", "did", "dil", "din", "dit", "dirk", "dirt", "do",
+			"dod", "dok", "don", "dor", "dot", "dork", "dort", "dud",
+			"duk", "dun", "dut", "durk", "durt", "ka", "kad", "kal",
+			"kan", "kar", "kat", "kard", "kark", "kart", "ked", "kel",
+			"ken", "ket", "kerk", "kert", "kid", "kik", "kin", "kit",
+			"kirk", "ko", "kod", "kok", "kol", "kon", "kor", "kot",
+			"kord", "kork", "kort", "kud", "kuk", "kul", "kut", "kurd",
+			"kurk", "kurt", "ta", "tad", "tak", "tal", "tan", "tar",
+			"tat", "tard", "tark", "tart", "ted", "tek", "tel", "ten",
+			"ter", "tet", "terd", "terk", "tert", "tid", "tik", "til",
+			"tin", "tit", "tird", "tird", "tirt", "to", "tod", "tok",
+			"ton", "tor", "tot", "tord", "tork", "tort", "tud", "tuk",
+			"tun", "tut", "turd", "turk", "turt");
 
-    _base_combat(13);
-    _hp(150);
-    _food_consumption(140);
-    _warlikeness(-2);
-    _life_value(4);
+	_base_combat(13);
+	_hp(150);
+	_food_consumption(140);
+	_warlikeness(-2);
+	_life_value(4);
 
-    _starting_population(CIT_PEASANT,   90);
-    _starting_resources (RES_GOLD,    4500);
-    _starting_resources (RES_WOOD,    2800);
-    _starting_resources (RES_STONE,   2800);
+	_starting_population(CIT_PEASANT, 90);
+	_starting_resources (RES_GOLD, 4500);
+	_starting_resources (RES_WOOD, 2800);
+	_starting_resources (RES_STONE, 2800);
 
-    _birth_rate         (CIT_PEASANT,  120);
-    _birth_rate         (CIT_MERCHANT, 110);
-    _birth_rate         (CIT_BURGHER,  100);
-    _citizen_ratio      (CIT_MERCHANT,  10);
-    _citizen_ratio      (CIT_BURGHER,   10);
-    _morale_requirement (CIT_MERCHANT,  50);
-    _morale_requirement (CIT_BURGHER,   70);
-    _low_tax_rate       (CIT_PEASANT,   20);
-    _low_tax_rate       (CIT_MERCHANT,  15);
-    _low_tax_rate       (CIT_BURGHER,   10);
-    _high_tax_rate      (CIT_PEASANT,   80);
-    _high_tax_rate      (CIT_MERCHANT,  65);
-    _high_tax_rate      (CIT_BURGHER,   50);
+	_birth_rate         (CIT_PEASANT, 120);
+	_birth_rate         (CIT_MERCHANT, 110);
+	_birth_rate         (CIT_BURGHER, 100);
+	_citizen_ratio      (CIT_MERCHANT, 10);
+	_citizen_ratio      (CIT_BURGHER, 10);
+	_morale_requirement (CIT_MERCHANT, 50);
+	_morale_requirement (CIT_BURGHER, 70);
+	_low_tax_rate       (CIT_PEASANT, 20);
+	_low_tax_rate       (CIT_MERCHANT, 15);
+	_low_tax_rate       (CIT_BURGHER, 10);
+	_high_tax_rate      (CIT_PEASANT, 80);
+	_high_tax_rate      (CIT_MERCHANT, 65);
+	_high_tax_rate      (CIT_BURGHER, 50);
 
-    _relations(RACE_HUMAN,     2);
-    _relations(RACE_ELF,       2);
-    _relations(RACE_DWARF,     1);
-    _relations(RACE_ORC,      -2);
-    _relations(RACE_GOBLIN,   -1);
-    _relations(RACE_OGRE,      3);
-    _relations(RACE_TROLL,    -4);
-    _relations(RACE_HALFLING,  3);
-    _relations(RACE_GNOME,    -1);
-    _relations(RACE_RAKSHASA,  1);
-    _relations(RACE_MINOTAUR,  2);
+	_relations(RACE_HUMAN, 2);
+	_relations(RACE_ELF, 2);
+	_relations(RACE_DWARF, 1);
+	_relations(RACE_ORC, -2);
+	_relations(RACE_GOBLIN, -1);
+	_relations(RACE_OGRE, 3);
+	_relations(RACE_TROLL, -4);
+	_relations(RACE_HALFLING, 3);
+	_relations(RACE_GNOME, -1);
+	_relations(RACE_RAKSHASA, 1);
+	_relations(RACE_MINOTAUR, 2);
 
-    _skill(SKILL_FARMING,       4);
-    _skill(SKILL_HUNTING,       2);
-    _skill(SKILL_LIVESTOCK,     4);
-    _skill(SKILL_MINING,        3);
-    _skill(SKILL_FORESTRY,      4);
-    _skill(SKILL_CONSTRUCTION,  2);
-    _skill(SKILL_TRADE,         2);
-    _skill(SKILL_ESPIONAGE,     2);
-    _skill(SKILL_MAGIC,         2);
-    _skill(SKILL_EARTH_MAGIC,   4);
-    _skill(SKILL_WATER_MAGIC,   4);
-    _skill(SKILL_AIR_MAGIC,     3);
-    _skill(SKILL_FIRE_MAGIC,    3);
-    _skill(SKILL_LIFE_MAGIC,    4);
-    _skill(SKILL_DEATH_MAGIC,   2);
+	_skill(SKILL_FARMING, 4);
+	_skill(SKILL_HUNTING, 2);
+	_skill(SKILL_LIVESTOCK, 4);
+	_skill(SKILL_MINING, 3);
+	_skill(SKILL_FORESTRY, 4);
+	_skill(SKILL_CONSTRUCTION, 2);
+	_skill(SKILL_TRADE, 2);
+	_skill(SKILL_ESPIONAGE, 2);
+	_skill(SKILL_MAGIC, 2);
+	_skill(SKILL_EARTH_MAGIC, 4);
+	_skill(SKILL_WATER_MAGIC, 4);
+	_skill(SKILL_AIR_MAGIC, 3);
+	_skill(SKILL_FIRE_MAGIC, 3);
+	_skill(SKILL_LIFE_MAGIC, 4);
+	_skill(SKILL_DEATH_MAGIC, 2);
 
-    _description("\
+	_description("\
 Ogres are a large, lumbering <link=race>race</link>, resembling a huge version \
 of something from <link=humans>humans</link>' evolutionary past.  Their size \
 and innate strength make them decent fighters and quite difficult to kill, but \
@@ -966,100 +967,100 @@ become a <link=mage>mage</link> they have a strong connection to \
 ");
 
 
-  _race(RACE_TROLL);
-    _name("troll");
-    _plural_name("trolls");
-    _adjective("trollish");
+	_race(RACE_TROLL);
+	_name("troll");
+	_plural_name("trolls");
+	_adjective("trollish");
 
-    _color(c_dkgray);
-    _kingdom_color(c_ltgray);
-    _kingdom_color(c_brown);
-    _kingdom_color(c_red);
+	_color(c_dkgray);
+	_kingdom_color(c_ltgray);
+	_kingdom_color(c_brown);
+	_kingdom_color(c_red);
 
-    _map_type(MAP_FOOTHILLS,   100);
-    _map_type(MAP_CANYON,      100);
-    _map_type(MAP_MOUNTAINOUS,  80);
+	_map_type(MAP_FOOTHILLS, 100);
+	_map_type(MAP_CANYON, 100);
+	_map_type(MAP_MOUNTAINOUS, 80);
 
-    _map_type(MAP_SWAMP,       -40);
-    _map_type(MAP_PLAINS,      -20);
+	_map_type(MAP_SWAMP, -40);
+	_map_type(MAP_PLAINS, -20);
 
-    _travel_cost(MAP_WASTELAND,      25);
-    _travel_cost(MAP_MOUNTAINOUS,   150);
-    _travel_cost(MAP_ICY_MOUNTAIN,  250);
+	_travel_cost(MAP_WASTELAND, 25);
+	_travel_cost(MAP_MOUNTAINOUS, 150);
+	_travel_cost(MAP_ICY_MOUNTAIN, 250);
 
-    _cluster_size(1, 2);
-    _city_size(CITY_TYPE_CITY,      25,  300);
-    _city_size(CITY_TYPE_DUCHY,    200,  800);
-    _city_size(CITY_TYPE_CAPITAL,  500, 2000);
+	_cluster_size(1, 2);
+	_city_size(CITY_TYPE_CITY, 25, 300);
+	_city_size(CITY_TYPE_DUCHY, 200, 800);
+	_city_size(CITY_TYPE_CAPITAL, 500, 2000);
 
-    _city_name_start("ak", "ar", "ark", "buk", "bur", "burk", "duk", "dar",
-                     "dark", "dur", "dor", "durk", "ek", "er", "hak", "har",
-                     "hark", "hek", "hur", "hurk", "lar", "luk", "lor", "lork",
-                     "lur", "mak", "mar", "mark", "mor", "muk", "mur", "murk",
-                     "rak", "rek", "rok", "ruk", "tak", "tar", "tark", "tek",
-                     "ter", "terk", "tuk", "turk", "uk", "ur", "urk");
+	_city_name_start("ak", "ar", "ark", "buk", "bur", "burk", "duk", "dar",
+			"dark", "dur", "dor", "durk", "ek", "er", "hak", "har",
+			"hark", "hek", "hur", "hurk", "lar", "luk", "lor", "lork",
+			"lur", "mak", "mar", "mark", "mor", "muk", "mur", "murk",
+			"rak", "rek", "rok", "ruk", "tak", "tar", "tark", "tek",
+			"ter", "terk", "tuk", "turk", "uk", "ur", "urk");
 
-    _city_name_middle(" A", " Ba", " Be", " Bu", " Da", " De", " Du", " E",
-                      " Ha", " He", " Hu", " La", " Le", " Lu", " Ma", " Me",
-                      " Mu", " Ra", " Re", " Ro", " Ru", " Ta", " Te", " Tu",
-                      " U", "a", "e", "la", "le", "lu", "ra", "re", "ro", "ru",
-                      "ta", "te", "u");
+	_city_name_middle(" A", " Ba", " Be", " Bu", " Da", " De", " Du", " E",
+			" Ha", " He", " Hu", " La", " Le", " Lu", " Ma", " Me",
+			" Mu", " Ra", " Re", " Ro", " Ru", " Ta", " Te", " Tu",
+			" U", "a", "e", "la", "le", "lu", "ra", "re", "ro", "ru",
+			"ta", "te", "u");
 
-    _city_name_end("", "k", "k", "k", "k", "k", "r", "r", "r", "rk", "rk");
+	_city_name_end("", "k", "k", "k", "k", "k", "r", "r", "r", "rk", "rk");
 
-    _base_combat(20);
-    _hp(200);
-    _food_consumption(180);
-    _warlikeness(0);  // Trolls truly don't care if they're at war or not!
-    _life_value(2);
+	_base_combat(20);
+	_hp(200);
+	_food_consumption(180);
+	_warlikeness(0);  // Trolls truly don't care if they're at war or not!
+	_life_value(2);
 
-    _starting_population(CIT_PEASANT,   20);
-    _starting_resources (RES_GOLD,    6000);
-    _starting_resources (RES_WOOD,    2000);
-    _starting_resources (RES_STONE,   3500);
+	_starting_population(CIT_PEASANT, 20);
+	_starting_resources (RES_GOLD, 6000);
+	_starting_resources (RES_WOOD, 2000);
+	_starting_resources (RES_STONE, 3500);
 
-    _birth_rate         (CIT_PEASANT,  180);
-    _birth_rate         (CIT_MERCHANT, 170);
-    _birth_rate         (CIT_BURGHER,  160);
-    _citizen_ratio      (CIT_MERCHANT,  20);
-    _citizen_ratio      (CIT_BURGHER,   20);
-    _morale_requirement (CIT_MERCHANT,  20);
-    _morale_requirement (CIT_BURGHER,   30);
-    _low_tax_rate       (CIT_PEASANT,    5);
-    _low_tax_rate       (CIT_MERCHANT,   5);
-    _low_tax_rate       (CIT_BURGHER,    5);
-    _high_tax_rate      (CIT_PEASANT,  100);
-    _high_tax_rate      (CIT_MERCHANT,  95);
-    _high_tax_rate      (CIT_BURGHER,   90);
+	_birth_rate         (CIT_PEASANT, 180);
+	_birth_rate         (CIT_MERCHANT, 170);
+	_birth_rate         (CIT_BURGHER, 160);
+	_citizen_ratio      (CIT_MERCHANT, 20);
+	_citizen_ratio      (CIT_BURGHER, 20);
+	_morale_requirement (CIT_MERCHANT, 20);
+	_morale_requirement (CIT_BURGHER, 30);
+	_low_tax_rate       (CIT_PEASANT, 5);
+	_low_tax_rate       (CIT_MERCHANT, 5);
+	_low_tax_rate       (CIT_BURGHER, 5);
+	_high_tax_rate      (CIT_PEASANT, 100);
+	_high_tax_rate      (CIT_MERCHANT, 95);
+	_high_tax_rate      (CIT_BURGHER, 90);
 
-    _relations(RACE_HUMAN,    -2);
-    _relations(RACE_ELF,      -3);
-    _relations(RACE_DWARF,    -5);
-    _relations(RACE_GOBLIN,   -2);
-    _relations(RACE_OGRE,     -2);
-    _relations(RACE_HALFLING, -3);
-    _relations(RACE_GNOME,    -3);
-    _relations(RACE_MINOTAUR, -1);
-    _relations(RACE_RAKSHASA,  3);
-    _relations(RACE_NAGA,     -1);
+	_relations(RACE_HUMAN, -2);
+	_relations(RACE_ELF, -3);
+	_relations(RACE_DWARF, -5);
+	_relations(RACE_GOBLIN, -2);
+	_relations(RACE_OGRE, -2);
+	_relations(RACE_HALFLING, -3);
+	_relations(RACE_GNOME, -3);
+	_relations(RACE_MINOTAUR, -1);
+	_relations(RACE_RAKSHASA, 3);
+	_relations(RACE_NAGA, -1);
 
-    _skill(SKILL_FARMING,       1);
-    _skill(SKILL_HUNTING,       4);
-    _skill(SKILL_LIVESTOCK,     1);
-    _skill(SKILL_MINING,        2);
-    _skill(SKILL_FORESTRY,      1);
-    _skill(SKILL_CONSTRUCTION,  1);
-    _skill(SKILL_TRADE,         1);
-    _skill(SKILL_ESPIONAGE,     1);
-    _skill(SKILL_MAGIC,         1);
-    _skill(SKILL_EARTH_MAGIC,   2);
-    _skill(SKILL_WATER_MAGIC,   1);
-    _skill(SKILL_AIR_MAGIC,     1);
-    _skill(SKILL_FIRE_MAGIC,    2);
-    _skill(SKILL_LIFE_MAGIC,    1);
-    _skill(SKILL_DEATH_MAGIC,   4);
+	_skill(SKILL_FARMING, 1);
+	_skill(SKILL_HUNTING, 4);
+	_skill(SKILL_LIVESTOCK, 1);
+	_skill(SKILL_MINING, 2);
+	_skill(SKILL_FORESTRY, 1);
+	_skill(SKILL_CONSTRUCTION, 1);
+	_skill(SKILL_TRADE, 1);
+	_skill(SKILL_ESPIONAGE, 1);
+	_skill(SKILL_MAGIC, 1);
+	_skill(SKILL_EARTH_MAGIC, 2);
+	_skill(SKILL_WATER_MAGIC, 1);
+	_skill(SKILL_AIR_MAGIC, 1);
+	_skill(SKILL_FIRE_MAGIC, 2);
+	_skill(SKILL_LIFE_MAGIC, 1);
+	_skill(SKILL_DEATH_MAGIC, 4);
 
-    _description("\
+	_description("\
 Of all the <link=race>races</link> in the world, the trolls are without a \
 doubt the most terrifying and garish.  Most races regard them as barely more \
 than animals; those who are lucky enough to have never met one often think of \
@@ -1101,119 +1102,119 @@ the <link=magical school>magical schools</link> besides \
 ");
 
 
-  _race(RACE_HALFLING);
-    _name("halfling");
-    _plural_name("halflings");
-    _adjective("halfling");
+	_race(RACE_HALFLING);
+	_name("halfling");
+	_plural_name("halflings");
+	_adjective("halfling");
 
-    _color(c_ltblue);
-    _kingdom_color(c_blue);
-    _kingdom_color(c_cyan);
-    _kingdom_color(c_green);
+	_color(c_ltblue);
+	_kingdom_color(c_blue);
+	_kingdom_color(c_cyan);
+	_kingdom_color(c_green);
 
-    _map_type(MAP_BASIN,       100);
-    _map_type(MAP_PLAINS,       90);
-    _map_type(MAP_FOREST,       80);
+	_map_type(MAP_BASIN, 100);
+	_map_type(MAP_PLAINS, 90);
+	_map_type(MAP_FOREST, 80);
 
-    _map_type(MAP_DESERT,      -90);
-    _map_type(MAP_JUNGLE,      -70);
+	_map_type(MAP_DESERT, -90);
+	_map_type(MAP_JUNGLE, -70);
 
 // Halflings are small, and just plain poor travelers, and as a result travel
 // slowly almost everywhere.  However, their small size makes it easier to
 // traverse forests and the like, and they travel normally there.
-    _travel_cost(MAP_TUNDRA,         75);
-    _travel_cost(MAP_DESERT,         60);
-    _travel_cost(MAP_WASTELAND,      60);
-    _travel_cost(MAP_PLAINS,         33);
-    _travel_cost(MAP_FOOTHILLS,      75);
-    _travel_cost(MAP_ICY_FOOTHILLS, 150);
-    _travel_cost(MAP_MOUNTAINOUS,   375);
-    _travel_cost(MAP_ICY_MOUNTAIN,  600);
-    _travel_cost(MAP_BASIN,          33);
-    _travel_cost(MAP_CANYON,         60);
-    _travel_cost(MAP_GLACIER,       100);
-    _travel_cost(MAP_COASTAL,        33);
-    _travel_cost(MAP_ICECAP,        150);
+	_travel_cost(MAP_TUNDRA, 75);
+	_travel_cost(MAP_DESERT, 60);
+	_travel_cost(MAP_WASTELAND, 60);
+	_travel_cost(MAP_PLAINS, 33);
+	_travel_cost(MAP_FOOTHILLS, 75);
+	_travel_cost(MAP_ICY_FOOTHILLS, 150);
+	_travel_cost(MAP_MOUNTAINOUS, 375);
+	_travel_cost(MAP_ICY_MOUNTAIN, 600);
+	_travel_cost(MAP_BASIN, 33);
+	_travel_cost(MAP_CANYON, 60);
+	_travel_cost(MAP_GLACIER, 100);
+	_travel_cost(MAP_COASTAL, 33);
+	_travel_cost(MAP_ICECAP, 150);
 
-    _cluster_size(3, 4);
-    _city_size(CITY_TYPE_CITY,     100, 1200);
-    _city_size(CITY_TYPE_DUCHY,    800, 4000);
-    _city_size(CITY_TYPE_CAPITAL, 2000, 8000);
+	_cluster_size(3, 4);
+	_city_size(CITY_TYPE_CITY, 100, 1200);
+	_city_size(CITY_TYPE_DUCHY, 800, 4000);
+	_city_size(CITY_TYPE_CAPITAL, 2000, 8000);
 
-    _city_name_start("bl", "br", "ch", "cl", "cr", "dr", "fl", "fr", "gl", "gr",
-                     "l", "pl", "pr", "r", "st", "str", "th", "tr", "wh", "wr");
+	_city_name_start("bl", "br", "ch", "cl", "cr", "dr", "fl", "fr", "gl", "gr",
+			"l", "pl", "pr", "r", "st", "str", "th", "tr", "wh", "wr");
 
-    _city_name_middle("aid", "aig", "aigh", "aight", "ail", "aim", "ain", "air",
-                      "airt", "aist", "ait", "aive", "aize", "aud", "aug",
-                      "augh", "aught", "aum", "aun", "aur", "aurt", "aust",
-                      "aut", "auve", "ay", "ead", "eal", "eam", "ean", "ear",
-                      "eart", "east", "eat", "eave", "eaze", "eed", "eegh",
-                      "eel", "eem", "een", "eer", "eest", "eet", "eeve", "eeze",
-                      "eum", "eun", "eur", "euze", "iad", "iar", "ian", "iar",
-                      "iom", "ion", "ior", "iot", "oar", "oast", "oid", "oil",
-                      "oin", "oist", "oit", "oize", "ood", "oog", "oogh", "oom",
-                      "oon", "oor", "oost", "oot", "oud", "oun", "oust", "out");
+	_city_name_middle("aid", "aig", "aigh", "aight", "ail", "aim", "ain", "air",
+			"airt", "aist", "ait", "aive", "aize", "aud", "aug",
+			"augh", "aught", "aum", "aun", "aur", "aurt", "aust",
+			"aut", "auve", "ay", "ead", "eal", "eam", "ean", "ear",
+			"eart", "east", "eat", "eave", "eaze", "eed", "eegh",
+			"eel", "eem", "een", "eer", "eest", "eet", "eeve", "eeze",
+			"eum", "eun", "eur", "euze", "iad", "iar", "ian", "iar",
+			"iom", "ion", "ior", "iot", "oar", "oast", "oid", "oil",
+			"oin", "oist", "oit", "oize", "ood", "oog", "oogh", "oom",
+			"oon", "oor", "oost", "oot", "oud", "oun", "oust", "out");
 
-    _city_name_end(" Bottom", "s Bottom", " End", "s End", " Field", "s Field",
-                   " Glen", " Hall", "sberry", "sborough", "sburg", "sbury",
-                   "sby", "sdon", "dover", "field", "ford", "ford", "sforth",
-                   "gale", "ham", "ham", "ham", "skirk", "smouth", "sneck",
-                   "ton", "ton", "wood", "svale", "sville");
+	_city_name_end(" Bottom", "s Bottom", " End", "s End", " Field", "s Field",
+			" Glen", " Hall", "sberry", "sborough", "sburg", "sbury",
+			"sby", "sdon", "dover", "field", "ford", "ford", "sforth",
+			"gale", "ham", "ham", "ham", "skirk", "smouth", "sneck",
+			"ton", "ton", "wood", "svale", "sville");
 
-    _base_combat(5);
-    _hp(80);
-    _food_consumption(100);
-    _warlikeness(-3);
-    _life_value(4);
+	_base_combat(5);
+	_hp(80);
+	_food_consumption(100);
+	_warlikeness(-3);
+	_life_value(4);
 
-    _starting_population(CIT_PEASANT,  100);
-    _starting_resources (RES_GOLD,    5000);
-    _starting_resources (RES_WOOD,    2500);
-    _starting_resources (RES_STONE,   2000);
+	_starting_population(CIT_PEASANT, 100);
+	_starting_resources (RES_GOLD, 5000);
+	_starting_resources (RES_WOOD, 2500);
+	_starting_resources (RES_STONE, 2000);
 
-    _birth_rate         (CIT_PEASANT,  100);
-    _birth_rate         (CIT_MERCHANT,  90);
-    _birth_rate         (CIT_BURGHER,   80);
-    _citizen_ratio      (CIT_MERCHANT,   7);
-    _citizen_ratio      (CIT_BURGHER,    7);
-    _morale_requirement (CIT_MERCHANT,  60);
-    _morale_requirement (CIT_BURGHER,   80);
-    _low_tax_rate       (CIT_PEASANT,   20);
-    _low_tax_rate       (CIT_MERCHANT,  15);
-    _low_tax_rate       (CIT_BURGHER,   10);
-    _high_tax_rate      (CIT_PEASANT,   80);
-    _high_tax_rate      (CIT_MERCHANT,  65);
-    _high_tax_rate      (CIT_BURGHER,   50);
+	_birth_rate         (CIT_PEASANT, 100);
+	_birth_rate         (CIT_MERCHANT, 90);
+	_birth_rate         (CIT_BURGHER, 80);
+	_citizen_ratio      (CIT_MERCHANT, 7);
+	_citizen_ratio      (CIT_BURGHER, 7);
+	_morale_requirement (CIT_MERCHANT, 60);
+	_morale_requirement (CIT_BURGHER, 80);
+	_low_tax_rate       (CIT_PEASANT, 20);
+	_low_tax_rate       (CIT_MERCHANT, 15);
+	_low_tax_rate       (CIT_BURGHER, 10);
+	_high_tax_rate      (CIT_PEASANT, 80);
+	_high_tax_rate      (CIT_MERCHANT, 65);
+	_high_tax_rate      (CIT_BURGHER, 50);
 
-    _relations(RACE_HUMAN,     1);
-    _relations(RACE_ELF,      -1);
-    _relations(RACE_DWARF,     2);
-    _relations(RACE_ORC,      -3);
-    _relations(RACE_GOBLIN,   -2);
-    _relations(RACE_OGRE,      2);
-    _relations(RACE_TROLL,    -4);
-    _relations(RACE_HALFLING,  3);
-    _relations(RACE_GNOME,    -1);
-    _relations(RACE_RAKSHASA,  1);
-    _relations(RACE_NAGA,     -2);
+	_relations(RACE_HUMAN, 1);
+	_relations(RACE_ELF, -1);
+	_relations(RACE_DWARF, 2);
+	_relations(RACE_ORC, -3);
+	_relations(RACE_GOBLIN, -2);
+	_relations(RACE_OGRE, 2);
+	_relations(RACE_TROLL, -4);
+	_relations(RACE_HALFLING, 3);
+	_relations(RACE_GNOME, -1);
+	_relations(RACE_RAKSHASA, 1);
+	_relations(RACE_NAGA, -2);
 
-    _skill(SKILL_FARMING,       4);
-    _skill(SKILL_HUNTING,       1);
-    _skill(SKILL_LIVESTOCK,     5);
-    _skill(SKILL_MINING,        2);
-    _skill(SKILL_FORESTRY,      4);
-    _skill(SKILL_CONSTRUCTION,  3);
-    _skill(SKILL_TRADE,         2);
-    _skill(SKILL_ESPIONAGE,     3);
-    _skill(SKILL_MAGIC,         3);
-    _skill(SKILL_EARTH_MAGIC,   3);
-    _skill(SKILL_WATER_MAGIC,   3);
-    _skill(SKILL_AIR_MAGIC,     3);
-    _skill(SKILL_FIRE_MAGIC,    2);
-    _skill(SKILL_LIFE_MAGIC,    4);
-    _skill(SKILL_DEATH_MAGIC,   2);
+	_skill(SKILL_FARMING, 4);
+	_skill(SKILL_HUNTING, 1);
+	_skill(SKILL_LIVESTOCK, 5);
+	_skill(SKILL_MINING, 2);
+	_skill(SKILL_FORESTRY, 4);
+	_skill(SKILL_CONSTRUCTION, 3);
+	_skill(SKILL_TRADE, 2);
+	_skill(SKILL_ESPIONAGE, 3);
+	_skill(SKILL_MAGIC, 3);
+	_skill(SKILL_EARTH_MAGIC, 3);
+	_skill(SKILL_WATER_MAGIC, 3);
+	_skill(SKILL_AIR_MAGIC, 3);
+	_skill(SKILL_FIRE_MAGIC, 2);
+	_skill(SKILL_LIFE_MAGIC, 4);
+	_skill(SKILL_DEATH_MAGIC, 2);
 
-    _description("\
+	_description("\
 Halflings are a reclusive <link=race>race</link>, small in stature (about half \
 the height of a <link=human>human</link> - hence the name).  They shun \
 adventure and <link=war>warfaring</link>, preferring instead to focus on \
@@ -1241,140 +1242,140 @@ destructive <link=magical school>schools</link> of <link=fire magic>fire\
 ");
 
 
-  _race(RACE_GNOME);
-    _name("gnome");
-    _plural_name("gnomes");
-    _adjective("gnomic");
+	_race(RACE_GNOME);
+	_name("gnome");
+	_plural_name("gnomes");
+	_adjective("gnomic");
 
-    _color(c_ltgray);
-    _kingdom_color(c_ltgray);
-    _kingdom_color(c_brown);
-    _kingdom_color(c_cyan);
+	_color(c_ltgray);
+	_kingdom_color(c_ltgray);
+	_kingdom_color(c_brown);
+	_kingdom_color(c_cyan);
 
-    _map_type(MAP_CANYON,         100);
-    _map_type(MAP_FOOTHILLS,       90);
-    _map_type(MAP_MOUNTAINOUS,     85);
-    _map_type(MAP_BASIN,           40);
-    _map_type(MAP_PLAINS,          20);
+	_map_type(MAP_CANYON, 100);
+	_map_type(MAP_FOOTHILLS, 90);
+	_map_type(MAP_MOUNTAINOUS, 85);
+	_map_type(MAP_BASIN, 40);
+	_map_type(MAP_PLAINS, 20);
 
-    _map_type(MAP_ICECAP,         -95);
-    _map_type(MAP_ICY_MOUNTAIN,   -95);
-    _map_type(MAP_TUNDRA,         -90);
-    _map_type(MAP_DESERT,         -90);
-    _map_type(MAP_ICY_FOOTHILLS,  -85);
-    _map_type(MAP_GLACIER,        -80);
-    _map_type(MAP_SWAMP,          -60);
-    _map_type(MAP_JUNGLE,         -30);
-    _map_type(MAP_FOREST,         -10);
+	_map_type(MAP_ICECAP, -95);
+	_map_type(MAP_ICY_MOUNTAIN, -95);
+	_map_type(MAP_TUNDRA, -90);
+	_map_type(MAP_DESERT, -90);
+	_map_type(MAP_ICY_FOOTHILLS, -85);
+	_map_type(MAP_GLACIER, -80);
+	_map_type(MAP_SWAMP, -60);
+	_map_type(MAP_JUNGLE, -30);
+	_map_type(MAP_FOREST, -10);
 
 // They're small so most travel takes 50% longer; but small size means they're
 // good at picking through forests etc. so those have no penalty.  Also they're
 // excellent at mountain traveling, so they move faster there!
-    _travel_cost(MAP_TUNDRA,         90);
-    _travel_cost(MAP_DESERT,         75);
-    _travel_cost(MAP_WASTELAND,      75);
-    _travel_cost(MAP_PLAINS,         50);
-    _travel_cost(MAP_FOOTHILLS,      75);
-    _travel_cost(MAP_ICY_FOOTHILLS, 150);
-    _travel_cost(MAP_MOUNTAINOUS,   175);
-    _travel_cost(MAP_ICY_MOUNTAIN,  275);
-    _travel_cost(MAP_BASIN,          45);
-    _travel_cost(MAP_CANYON,         45);
-    _travel_cost(MAP_GLACIER,       130);
-    _travel_cost(MAP_COASTAL,        50);
-    _travel_cost(MAP_ICECAP,        165);
-    
+	_travel_cost(MAP_TUNDRA, 90);
+	_travel_cost(MAP_DESERT, 75);
+	_travel_cost(MAP_WASTELAND, 75);
+	_travel_cost(MAP_PLAINS, 50);
+	_travel_cost(MAP_FOOTHILLS, 75);
+	_travel_cost(MAP_ICY_FOOTHILLS, 150);
+	_travel_cost(MAP_MOUNTAINOUS, 175);
+	_travel_cost(MAP_ICY_MOUNTAIN, 275);
+	_travel_cost(MAP_BASIN, 45);
+	_travel_cost(MAP_CANYON, 45);
+	_travel_cost(MAP_GLACIER, 130);
+	_travel_cost(MAP_COASTAL, 50);
+	_travel_cost(MAP_ICECAP, 165);
 
-    _cluster_size(1, 4);
-    _city_size(CITY_TYPE_CITY,      40,   750);
-    _city_size(CITY_TYPE_DUCHY,    800,  4000);
-    _city_size(CITY_TYPE_CAPITAL, 3500, 12000);
+
+	_cluster_size(1, 4);
+	_city_size(CITY_TYPE_CITY, 40, 750);
+	_city_size(CITY_TYPE_DUCHY, 800, 4000);
+	_city_size(CITY_TYPE_CAPITAL, 3500, 12000);
 
 // City names are vaguely based on ancient greek!
-    _city_name_start("ab", "ab", "ach", "act", "aeg", "aeg", "aen", "akr", "al",
-                     "al", "amn", "and", "ant", "ap", "ast", "bhr", "br", "ch",
-                     "chr", "chron", "col", "cum", "cyn", "cyr", "dec", "del",
-                     "dod", "dor", "edes", "elat", "emp", "eph", "epid", "eret",
-                     "eub", "gour", "gort", "gyth", "hel", "hell", "herm",
-                     "hier", "hybl", "ias", "imbr", "ith", "kall", "kimm",
-                     "knid", "knos", "kyd", "kyr", "lam", "laod", "lemp",
-                     "lind", "liss", "mall", "mant", "morg", "myr", "myrm",
-                     "naucr", "naudr", "nic", "nymp", "nyr", "oen", "od", "old",
-                     "onch", "pand", "pandr", "padr", "patr", "perg", "phaitr",
-                     "phass", "phil", "phocr", "pis", "pix", "psych", "psydr",
-                     "pyr", "rhod", "sam", "sel", "sest", "syb", "syr", "tar",
-                     "tan", "thas", "th", "thr", "tr", "trip", "tyr", "tyr");
-                     
+	_city_name_start("ab", "ab", "ach", "act", "aeg", "aeg", "aen", "akr", "al",
+			"al", "amn", "and", "ant", "ap", "ast", "bhr", "br", "ch",
+			"chr", "chron", "col", "cum", "cyn", "cyr", "dec", "del",
+			"dod", "dor", "edes", "elat", "emp", "eph", "epid", "eret",
+			"eub", "gour", "gort", "gyth", "hel", "hell", "herm",
+			"hier", "hybl", "ias", "imbr", "ith", "kall", "kimm",
+			"knid", "knos", "kyd", "kyr", "lam", "laod", "lemp",
+			"lind", "liss", "mall", "mant", "morg", "myr", "myrm",
+			"naucr", "naudr", "nic", "nymp", "nyr", "oen", "od", "old",
+			"onch", "pand", "pandr", "padr", "patr", "perg", "phaitr",
+			"phass", "phil", "phocr", "pis", "pix", "psych", "psydr",
+			"pyr", "rhod", "sam", "sel", "sest", "syb", "syr", "tar",
+			"tan", "thas", "th", "thr", "tr", "trip", "tyr", "tyr");
 
-    _city_name_middle("", "", "", "", "", "ac", "acl", "ad", "aed", "aeg",
-                      "ael", "aen", "aerr", "aes", "aeth", "alc", "all", "am",
-                      "amn", "ant", "anth", "ar", "aryn", "arynth", "ass",
-                      "ecus", "eil", "ein", "eir", "el", "eon", "em", "emb",
-                      "embr", "en", "end", "er", "esm", "ess", "est", "et",
-                      "eth", "i", "ic", "id", "ig", "il", "in", "ion", "iop",
-                      "ios", "ipp", "is", "ist", "istr", "oc", "od", "odr",
-                      "on", "ondr", "ones", "or", "os", "oss", "ost", "ostr",
-                      "oll", "om", "opol", "ycth", "yd", "yn", "ynth", "yntr",
-                      "yr", "yss", "yst", "yth");
 
-    _city_name_end("a", "aca", "ae", "aea", "ai", "ana", "ana", "atis", "e",
-                   "ea", "ea", "ede", "edon", "ene", "es", "esos", "esus",
-                   "eia", "ia", "ia", "ia", "ias", "ina", "ios", "is", "ium",
-                   "izi", "oa", "och", "oli", "olis", "olis", "olis", "on",
-                   "os", "us", "us", "yn");
+	_city_name_middle("", "", "", "", "", "ac", "acl", "ad", "aed", "aeg",
+			"ael", "aen", "aerr", "aes", "aeth", "alc", "all", "am",
+			"amn", "ant", "anth", "ar", "aryn", "arynth", "ass",
+			"ecus", "eil", "ein", "eir", "el", "eon", "em", "emb",
+			"embr", "en", "end", "er", "esm", "ess", "est", "et",
+			"eth", "i", "ic", "id", "ig", "il", "in", "ion", "iop",
+			"ios", "ipp", "is", "ist", "istr", "oc", "od", "odr",
+			"on", "ondr", "ones", "or", "os", "oss", "ost", "ostr",
+			"oll", "om", "opol", "ycth", "yd", "yn", "ynth", "yntr",
+			"yr", "yss", "yst", "yth");
 
-    _base_combat(6);
-    _hp(75);
-    _food_consumption(50);
-    _warlikeness(-2);
-    _life_value(3);
+	_city_name_end("a", "aca", "ae", "aea", "ai", "ana", "ana", "atis", "e",
+			"ea", "ea", "ede", "edon", "ene", "es", "esos", "esus",
+			"eia", "ia", "ia", "ia", "ias", "ina", "ios", "is", "ium",
+			"izi", "oa", "och", "oli", "olis", "olis", "olis", "on",
+			"os", "us", "us", "yn");
 
-    _starting_population(CIT_PEASANT,   90);
-    _starting_resources (RES_GOLD,    8500);
-    _starting_resources (RES_WOOD,    1500);
-    _starting_resources (RES_STONE,   1500);
+	_base_combat(6);
+	_hp(75);
+	_food_consumption(50);
+	_warlikeness(-2);
+	_life_value(3);
 
-    _birth_rate         (CIT_PEASANT,  120);
-    _birth_rate         (CIT_MERCHANT, 110);
-    _birth_rate         (CIT_BURGHER,  100);
-    _citizen_ratio      (CIT_MERCHANT,   5);
-    _citizen_ratio      (CIT_BURGHER,    5);
-    _morale_requirement (CIT_MERCHANT,  20);
-    _morale_requirement (CIT_BURGHER,   60);
-    _low_tax_rate       (CIT_PEASANT,   10);
-    _low_tax_rate       (CIT_MERCHANT,   7);
-    _low_tax_rate       (CIT_BURGHER,    5);
-    _high_tax_rate      (CIT_PEASANT,   65);
-    _high_tax_rate      (CIT_MERCHANT,  50);
-    _high_tax_rate      (CIT_BURGHER,   35);
+	_starting_population(CIT_PEASANT, 90);
+	_starting_resources (RES_GOLD, 8500);
+	_starting_resources (RES_WOOD, 1500);
+	_starting_resources (RES_STONE, 1500);
 
-    _relations(RACE_HUMAN,      2);
-    _relations(RACE_DWARF,      3);
-    _relations(RACE_ORC,       -1);
-    _relations(RACE_GOBLIN,     1);
-    _relations(RACE_OGRE,      -1);
-    _relations(RACE_TROLL,     -3);
-    _relations(RACE_HALFLING,  -1);
-    _relations(RACE_GNOME,      2);
-    _relations(RACE_RAKSHASA,   1);
+	_birth_rate         (CIT_PEASANT, 120);
+	_birth_rate         (CIT_MERCHANT, 110);
+	_birth_rate         (CIT_BURGHER, 100);
+	_citizen_ratio      (CIT_MERCHANT, 5);
+	_citizen_ratio      (CIT_BURGHER, 5);
+	_morale_requirement (CIT_MERCHANT, 20);
+	_morale_requirement (CIT_BURGHER, 60);
+	_low_tax_rate       (CIT_PEASANT, 10);
+	_low_tax_rate       (CIT_MERCHANT, 7);
+	_low_tax_rate       (CIT_BURGHER, 5);
+	_high_tax_rate      (CIT_PEASANT, 65);
+	_high_tax_rate      (CIT_MERCHANT, 50);
+	_high_tax_rate      (CIT_BURGHER, 35);
 
-    _skill(SKILL_FARMING,       3);
-    _skill(SKILL_HUNTING,       1);
-    _skill(SKILL_LIVESTOCK,     3);
-    _skill(SKILL_MINING,        4);
-    _skill(SKILL_FORESTRY,      3);
-    _skill(SKILL_CONSTRUCTION,  3);
-    _skill(SKILL_TRADE,         5);
-    _skill(SKILL_ESPIONAGE,     3);
-    _skill(SKILL_MAGIC,         1);
-    _skill(SKILL_EARTH_MAGIC,   4);
-    _skill(SKILL_WATER_MAGIC,   2);
-    _skill(SKILL_AIR_MAGIC,     2);
-    _skill(SKILL_FIRE_MAGIC,    3);
-    _skill(SKILL_LIFE_MAGIC,    1);
-    _skill(SKILL_DEATH_MAGIC,   1);
+	_relations(RACE_HUMAN, 2);
+	_relations(RACE_DWARF, 3);
+	_relations(RACE_ORC, -1);
+	_relations(RACE_GOBLIN, 1);
+	_relations(RACE_OGRE, -1);
+	_relations(RACE_TROLL, -3);
+	_relations(RACE_HALFLING, -1);
+	_relations(RACE_GNOME, 2);
+	_relations(RACE_RAKSHASA, 1);
 
-    _description("\
+	_skill(SKILL_FARMING, 3);
+	_skill(SKILL_HUNTING, 1);
+	_skill(SKILL_LIVESTOCK, 3);
+	_skill(SKILL_MINING, 4);
+	_skill(SKILL_FORESTRY, 3);
+	_skill(SKILL_CONSTRUCTION, 3);
+	_skill(SKILL_TRADE, 5);
+	_skill(SKILL_ESPIONAGE, 3);
+	_skill(SKILL_MAGIC, 1);
+	_skill(SKILL_EARTH_MAGIC, 4);
+	_skill(SKILL_WATER_MAGIC, 2);
+	_skill(SKILL_AIR_MAGIC, 2);
+	_skill(SKILL_FIRE_MAGIC, 3);
+	_skill(SKILL_LIFE_MAGIC, 1);
+	_skill(SKILL_DEATH_MAGIC, 1);
+
+	_description("\
 Gnomes are a secretive, reclusive <link=race>race</link> who tend to live in \
 defensible locations like <link=mountains>mountains</link> or \
 <link=foothills>hills</link>.  They are the most diminuitive of all the races, \
@@ -1414,107 +1415,110 @@ few other <link=magical school>schools</link>.\
 ");
 
 
-  _race(RACE_MINOTAUR);
-    _name("minotaur");
-    _plural_name("minotaurs");
-    _adjective("minotaur");
+	_race(RACE_MINOTAUR);
+	_name("minotaur");
+	_plural_name("minotaurs");
+	_adjective("minotaur");
 
-    _color(c_red);
-    _kingdom_color(c_red);
-    _kingdom_color(c_blue);
-    _kingdom_color(c_green);
+	_color(c_red);
+	_kingdom_color(c_red);
+	_kingdom_color(c_blue);
+	_kingdom_color(c_green);
 
-    _map_type(MAP_BASIN,           100);
-    _map_type(MAP_PLAINS,           90);
-    _map_type(MAP_WASTELAND,        75);
-    _map_type(MAP_FOOTHILLS,        60);
-    _map_type(MAP_FOREST,           40);
-    _map_type(MAP_CANYON,           35);
-    _map_type(MAP_MOUNTAINOUS,      20);
-    _map_type(MAP_DESERT,           10);
+	_map_type(MAP_BASIN, 100);
+	_map_type(MAP_PLAINS, 90);
+	_map_type(MAP_WASTELAND, 75);
+	_map_type(MAP_FOOTHILLS, 60);
+	_map_type(MAP_FOREST, 40);
+	_map_type(MAP_CANYON, 35);
+	_map_type(MAP_MOUNTAINOUS, 20);
+	_map_type(MAP_DESERT, 10);
 
-    _map_type(MAP_ICECAP,         -100);
-    _map_type(MAP_ICY_MOUNTAIN,   -100);
-    _map_type(MAP_TUNDRA,          -90);
-    _map_type(MAP_ICY_FOOTHILLS,   -70);
-    _map_type(MAP_GLACIER,         -50);
-    _map_type(MAP_SWAMP,           -15);
-    _map_type(MAP_JUNGLE,          -10);
+	_map_type(MAP_ICECAP, -100);
+	_map_type(MAP_ICY_MOUNTAIN, -100);
+	_map_type(MAP_TUNDRA, -90);
+	_map_type(MAP_ICY_FOOTHILLS, -70);
+	_map_type(MAP_GLACIER, -50);
+	_map_type(MAP_SWAMP, -15);
+	_map_type(MAP_JUNGLE, -10);
 
-    _travel_cost(MAP_DESERT,        50);
-    _travel_cost(MAP_WASTELAND,     30);
-    _travel_cost(MAP_PLAINS,        20);
+	_travel_cost(MAP_DESERT, 50);
+	_travel_cost(MAP_WASTELAND, 30);
+	_travel_cost(MAP_PLAINS, 20);
 
-    _cluster_size(2, 4);
-    _city_size(CITY_TYPE_CITY,     100, 1000);
-    _city_size(CITY_TYPE_DUCHY,    750, 3800);
-    _city_size(CITY_TYPE_CAPITAL, 1800, 7500);
+	_cluster_size(2, 4);
+	_city_size(CITY_TYPE_CITY, 100, 1000);
+	_city_size(CITY_TYPE_DUCHY, 750, 3800);
+	_city_size(CITY_TYPE_CAPITAL, 1800, 7500);
 
 // More greek-flavored names!  kinda!
-    _city_name_start("ass", "b", "byr", "cr", "cyr", "d", "ess", "f", "g",
-                     "gr", "gyr", "h", "hyr", "ill", "iss", "k", "kn", "l", "m",
-                     "mn", "n", "oss", "pl", "pr", "pyr", "r", "st", "t", "tyr",
-                     "ull", "ulv", "z");
+	_city_name_start("ass", "b", "byr", "cr", "cyr", "d", "ess", "f", "g",
+			"gr", "gyr", "h", "hyr", "ill", "iss", "k", "kn", "l", "m",
+			"mn", "n", "oss", "pl", "pr", "pyr", "r", "st", "t", "tyr",
+			"ull", "ulv", "z");
 
-    _city_name_middle("ad", "aed", "ael", "aer", "al", "all", "am", "amn", "an",                      "ap", "ar", "ard", "ars", "art", "at", "ath", "atr", "eg",                      "el", "ell", "em", "en", "esc", "esk", "esp", "ess",                            "est", "etr", "il", "in", "inn", "ist", "itr", "oc", "od",                      "odr", "oel", "ohem", "ol", "om", "omn", "on", "op",                            "opr", "os", "osk", "oss", "ost", "ostr", "ot", "otr",
-                      "ul", "uss", "ust", "ustr", "yd", "ydr", "yg", "yl", "ym",
-                      "ymn", "yp", "ypr", "ys", "yst", "ystr", "yt", "ytr");
+	_city_name_middle("ad", "aed", "ael", "aer", "al", "all", "am", "amn", "an", "ap", "ar", "ard",
+			"ars", "art", "at", "ath", "atr", "eg", "el", "ell", "em", "en", "esc", "esk", "esp",
+			"ess", "est", "etr", "il", "in", "inn", "ist", "itr", "oc", "od", "odr", "oel", "ohem",
+			"ol", "om", "omn", "on", "op", "opr", "os", "osk", "oss", "ost", "ostr", "ot", "otr",
+			"ul", "uss", "ust", "ustr", "yd", "ydr", "yg", "yl", "ym",
+			"ymn", "yp", "ypr", "ys", "yst", "ystr", "yt", "ytr");
 
-    _city_name_end("a", "e", "es", "ia", "o", "oa", "os", "otia", "ua", "ude",
-                   "ute", "yde", "ys");
+	_city_name_end("a", "e", "es", "ia", "o", "oa", "os", "otia", "ua", "ude",
+			"ute", "yde", "ys");
 
-    _base_combat(12);
-    _hp(110);
-    _food_consumption(110);
-    _warlikeness(-1);
-    _life_value(3);
+	_base_combat(12);
+	_hp(110);
+	_food_consumption(110);
+	_warlikeness(-1);
+	_life_value(3);
 
-    _starting_population(CIT_PEASANT,  100);
-    _starting_resources (RES_GOLD,    5000);
-    _starting_resources (RES_WOOD,    2000);
-    _starting_resources (RES_STONE,   3000);
+	_starting_population(CIT_PEASANT, 100);
+	_starting_resources (RES_GOLD, 5000);
+	_starting_resources (RES_WOOD, 2000);
+	_starting_resources (RES_STONE, 3000);
 
-    _birth_rate         (CIT_PEASANT,   75);
-    _birth_rate         (CIT_MERCHANT,  85);
-    _birth_rate         (CIT_BURGHER,   90);
-    _citizen_ratio      (CIT_MERCHANT,  12);
-    _citizen_ratio      (CIT_BURGHER,   14);
-    _morale_requirement (CIT_MERCHANT,  30);
-    _morale_requirement (CIT_BURGHER,   50);
-    _low_tax_rate       (CIT_PEASANT,   30);
-    _low_tax_rate       (CIT_MERCHANT,  20);
-    _low_tax_rate       (CIT_BURGHER,   10);
-    _high_tax_rate      (CIT_PEASANT,   85);
-    _high_tax_rate      (CIT_MERCHANT,  70);
-    _high_tax_rate      (CIT_BURGHER,   65);
+	_birth_rate         (CIT_PEASANT, 75);
+	_birth_rate         (CIT_MERCHANT, 85);
+	_birth_rate         (CIT_BURGHER, 90);
+	_citizen_ratio      (CIT_MERCHANT, 12);
+	_citizen_ratio      (CIT_BURGHER, 14);
+	_morale_requirement (CIT_MERCHANT, 30);
+	_morale_requirement (CIT_BURGHER, 50);
+	_low_tax_rate       (CIT_PEASANT, 30);
+	_low_tax_rate       (CIT_MERCHANT, 20);
+	_low_tax_rate       (CIT_BURGHER, 10);
+	_high_tax_rate      (CIT_PEASANT, 85);
+	_high_tax_rate      (CIT_MERCHANT, 70);
+	_high_tax_rate      (CIT_BURGHER, 65);
 
-    _relations(RACE_ELF,       -1);
-    _relations(RACE_DWARF,      2);
-    _relations(RACE_GOBLIN,    -1);
-    _relations(RACE_OGRE,       1);
-    _relations(RACE_TROLL,     -2);
-    _relations(RACE_GNOME,     -1);
-    _relations(RACE_MINOTAUR,   2);
-    _relations(RACE_RAKSHASA,   1);
-    _relations(RACE_NAGA,      -1);
+	_relations(RACE_ELF, -1);
+	_relations(RACE_DWARF, 2);
+	_relations(RACE_GOBLIN, -1);
+	_relations(RACE_OGRE, 1);
+	_relations(RACE_TROLL, -2);
+	_relations(RACE_GNOME, -1);
+	_relations(RACE_MINOTAUR, 2);
+	_relations(RACE_RAKSHASA, 1);
+	_relations(RACE_NAGA, -1);
 
-    _skill(SKILL_FARMING,       3);
-    _skill(SKILL_HUNTING,       2);
-    _skill(SKILL_LIVESTOCK,     4);
-    _skill(SKILL_MINING,        2);
-    _skill(SKILL_FORESTRY,      3);
-    _skill(SKILL_CONSTRUCTION,  5);
-    _skill(SKILL_TRADE,         3);
-    _skill(SKILL_ESPIONAGE,     2);
-    _skill(SKILL_MAGIC,         2);
-    _skill(SKILL_EARTH_MAGIC,   4);
-    _skill(SKILL_WATER_MAGIC,   3);
-    _skill(SKILL_AIR_MAGIC,     2);
-    _skill(SKILL_FIRE_MAGIC,    3);
-    _skill(SKILL_LIFE_MAGIC,    3);
-    _skill(SKILL_DEATH_MAGIC,   3);
+	_skill(SKILL_FARMING, 3);
+	_skill(SKILL_HUNTING, 2);
+	_skill(SKILL_LIVESTOCK, 4);
+	_skill(SKILL_MINING, 2);
+	_skill(SKILL_FORESTRY, 3);
+	_skill(SKILL_CONSTRUCTION, 5);
+	_skill(SKILL_TRADE, 3);
+	_skill(SKILL_ESPIONAGE, 2);
+	_skill(SKILL_MAGIC, 2);
+	_skill(SKILL_EARTH_MAGIC, 4);
+	_skill(SKILL_WATER_MAGIC, 3);
+	_skill(SKILL_AIR_MAGIC, 2);
+	_skill(SKILL_FIRE_MAGIC, 3);
+	_skill(SKILL_LIFE_MAGIC, 3);
+	_skill(SKILL_DEATH_MAGIC, 3);
 
-    _description("\
+	_description("\
 Minotaurs are a <link=race>race</link> of large, muscular beings resembling a \
 bipedal <link=cow>cow</link>.  Like their bovine brethren, they are \
 <link=vegetarian>vegetarian</link>, and eat no meat.  They are at home in a \
@@ -1539,140 +1543,140 @@ is not unknown to them.  They are equally skilled in all \
 ");
 
 
-  _race(RACE_RAKSHASA);
-    _name("rakshasa");
-    _plural_name("rakshasa");
-    _adjective("rakshasan");
+	_race(RACE_RAKSHASA);
+	_name("rakshasa");
+	_plural_name("rakshasa");
+	_adjective("rakshasan");
 
-    _color(c_pink);
-    _kingdom_color(c_magenta);
-    _kingdom_color(c_blue);
-    _kingdom_color(c_ltgray);
+	_color(c_pink);
+	_kingdom_color(c_magenta);
+	_kingdom_color(c_blue);
+	_kingdom_color(c_ltgray);
 
-    _map_type(MAP_JUNGLE,          100);
-    _map_type(MAP_FOREST,           90);
-    _map_type(MAP_CANYON,           85);
-    _map_type(MAP_BASIN,            80);
-    _map_type(MAP_MOUNTAINOUS,      40);
-    _map_type(MAP_FOOTHILLS,        30);
-    _map_type(MAP_SWAMP,            25);
-    _map_type(MAP_PLAINS,           10);
+	_map_type(MAP_JUNGLE, 100);
+	_map_type(MAP_FOREST, 90);
+	_map_type(MAP_CANYON, 85);
+	_map_type(MAP_BASIN, 80);
+	_map_type(MAP_MOUNTAINOUS, 40);
+	_map_type(MAP_FOOTHILLS, 30);
+	_map_type(MAP_SWAMP, 25);
+	_map_type(MAP_PLAINS, 10);
 
-    _map_type(MAP_ICY_MOUNTAIN,   -100);
-    _map_type(MAP_ICY_FOOTHILLS,  -100);
-    _map_type(MAP_TUNDRA,          -90);
-    _map_type(MAP_GLACIER,         -75);
-    _map_type(MAP_DESERT,          -10);
+	_map_type(MAP_ICY_MOUNTAIN, -100);
+	_map_type(MAP_ICY_FOOTHILLS, -100);
+	_map_type(MAP_TUNDRA, -90);
+	_map_type(MAP_GLACIER, -75);
+	_map_type(MAP_DESERT, -10);
 
 // Rakshasa are great at traveling in jungles and forests, but fare poorly in
 // cold terrain.
-    _travel_cost(MAP_TUNDRA,        100);
-    _travel_cost(MAP_FOREST,         50);
-    _travel_cost(MAP_SWAMP,         100);
-    _travel_cost(MAP_JUNGLE,        125);
-    _travel_cost(MAP_ICY_FOOTHILLS, 200);
-    _travel_cost(MAP_ICY_MOUNTAIN,  800);
-    _travel_cost(MAP_GLACIER,       150);
-    _travel_cost(MAP_ICECAP,        200);
+	_travel_cost(MAP_TUNDRA, 100);
+	_travel_cost(MAP_FOREST, 50);
+	_travel_cost(MAP_SWAMP, 100);
+	_travel_cost(MAP_JUNGLE, 125);
+	_travel_cost(MAP_ICY_FOOTHILLS, 200);
+	_travel_cost(MAP_ICY_MOUNTAIN, 800);
+	_travel_cost(MAP_GLACIER, 150);
+	_travel_cost(MAP_ICECAP, 200);
 
-    _cluster_size(1, 3);
-    _city_size(CITY_TYPE_CITY,      40,  500);
-    _city_size(CITY_TYPE_DUCHY,    300, 1800);
-    _city_size(CITY_TYPE_CAPITAL,  800, 4000);
+	_cluster_size(1, 3);
+	_city_size(CITY_TYPE_CITY, 40, 500);
+	_city_size(CITY_TYPE_DUCHY, 300, 1800);
+	_city_size(CITY_TYPE_CAPITAL, 800, 4000);
 
 // Vaguely based on Arabic city names
 
-    _city_name_start("ab", "ab", "al", "al", "al", "al-", "al-", "al-", "al-",
-                     "ahm", "ar", "ark", "ash", "ashk", "bag", "bah", "bahr",
-                     "bat", "beir", "ben", "bir", "boum", "bur", "but", "dak",
-                     "dak", "dam", "dar", "dhu", "dub", "fal", "fus", "had",
-                     "haif", "har", "heb", "hej", "hib", "isk", "jeb", "jed",
-                     "jib", "jir", "jub",  "khar", "khir", "khob", "mad", "man",
-                     "mar", "mart", "mor", "mos", "nab", "nad", "naj", "niz",
-                     "qal", "qar", "rab", "raf", "ram", "raq", "ras Ab", "saf",
-                     "sak", "sam", "sam", "shar", "shef", "shul", "sid",
-                     "sok", "som", "su", "sul", "tab", "tak", "tar", "tar",
-                     "tas", "tid", "tik", "tir", "trip", "tru", "tul", "tun",
-                     "uk", "um ", "um ", "zag", "zan");
+	_city_name_start("ab", "ab", "al", "al", "al", "al-", "al-", "al-", "al-",
+			"ahm", "ar", "ark", "ash", "ashk", "bag", "bah", "bahr",
+			"bat", "beir", "ben", "bir", "boum", "bur", "but", "dak",
+			"dak", "dam", "dar", "dhu", "dub", "fal", "fus", "had",
+			"haif", "har", "heb", "hej", "hib", "isk", "jeb", "jed",
+			"jib", "jir", "jub", "khar", "khir", "khob", "mad", "man",
+			"mar", "mart", "mor", "mos", "nab", "nad", "naj", "niz",
+			"qal", "qar", "rab", "raf", "ram", "raq", "ras Ab", "saf",
+			"sak", "sam", "sam", "shar", "shef", "shul", "sid",
+			"sok", "som", "su", "sul", "tab", "tak", "tar", "tar",
+			"tas", "tid", "tik", "tir", "trip", "tru", "tul", "tun",
+			"uk", "um ", "um ", "zag", "zan");
 
-    _city_name_middle("", "", "", " el-", " el-", "?-es-", "ab", "ab", "ab",
-                      "ad", "af", "ahm", "aib", "air", "aj", "ak", "akra-Sh",
-                      "an", "ans", "ar", "as", "asr", "assi", "at", "atri",
-                      "eb", "ebbr", "ed", "edr", "ef", "efa-Ab", "eid", "eid",
-                      "eif", "eir", "eit", "eitr", "ej", "ek", "ekr", "el",
-                      "em", "en", "epp", "es", "essr", "est", "estr", "?had",
-                      "?hadj", "?hah", "?hid", "?hidr", "?hif", "?hod", "?hof",
-                      "?hud", "?hudj", "?huj", "id", "idr", "if", "if", "ifr",
-                      "iq", "*iq", "iqr", "*iqr", "iq-Raf", "il", "il", "im",
-                      "in", "ir", "ir", "itr", "odj", "odr", "of", "ok", "okr",
-                      "ol", "on", "uad", "uar", "uk", "ukhr", "uw");
+	_city_name_middle("", "", "", " el-", " el-", "?-es-", "ab", "ab", "ab",
+			"ad", "af", "ahm", "aib", "air", "aj", "ak", "akra-Sh",
+			"an", "ans", "ar", "as", "asr", "assi", "at", "atri",
+			"eb", "ebbr", "ed", "edr", "ef", "efa-Ab", "eid", "eid",
+			"eif", "eir", "eit", "eitr", "ej", "ek", "ekr", "el",
+			"em", "en", "epp", "es", "essr", "est", "estr", "?had",
+			"?hadj", "?hah", "?hid", "?hidr", "?hif", "?hod", "?hof",
+			"?hud", "?hudj", "?huj", "id", "idr", "if", "if", "ifr",
+			"iq", "*iq", "iqr", "*iqr", "iq-Raf", "il", "il", "im",
+			"in", "ir", "ir", "itr", "odj", "odr", "of", "ok", "okr",
+			"ol", "on", "uad", "uar", "uk", "ukhr", "uw");
 
-    _city_name_end("a", "ab", "ab", "ad", "ad", "ada", "ah", "ah", "ah", "ah",
-                   "aib", "aid", "ail", "air", "ait", "aj", "aj", "akh", "al",
-                   "al", "am", "ama", "amm", "an", "an", "ankh", "ar", "ara",
-                   "asa", "at", "ata", "aud", "ayb", "az", "e'an", "e'un", "ea",
-                   "eb", "eba", "ed", "edi", "eij", "eikh", "eikh", "eiz", "ej",
-                   "em", "eppo", "erun", "es", "eth", "ez", "ezh", "i", "id",
-                   "ig", "il", "ina", "ioch", "ir", "ir", "it", "it", "iya",
-                   "iz", "o", "och", "od", "on", "ona", "ora", "os", "oukh",
-                   "oum", "ous", "outi", "ouz", "uba", "ubi", "ubos", "uel",
-                   "uk", "ukh", "un", "una", "ura", "us", "ut", "uzh", "ys");
+	_city_name_end("a", "ab", "ab", "ad", "ad", "ada", "ah", "ah", "ah", "ah",
+			"aib", "aid", "ail", "air", "ait", "aj", "aj", "akh", "al",
+			"al", "am", "ama", "amm", "an", "an", "ankh", "ar", "ara",
+			"asa", "at", "ata", "aud", "ayb", "az", "e'an", "e'un", "ea",
+			"eb", "eba", "ed", "edi", "eij", "eikh", "eikh", "eiz", "ej",
+			"em", "eppo", "erun", "es", "eth", "ez", "ezh", "i", "id",
+			"ig", "il", "ina", "ioch", "ir", "ir", "it", "it", "iya",
+			"iz", "o", "och", "od", "on", "ona", "ora", "os", "oukh",
+			"oum", "ous", "outi", "ouz", "uba", "ubi", "ubos", "uel",
+			"uk", "ukh", "un", "una", "ura", "us", "ut", "uzh", "ys");
 
-    _base_combat(12);
-    _hp(100);
-    _food_consumption(115);
-    _warlikeness(-1);
-    _life_value(5);
+	_base_combat(12);
+	_hp(100);
+	_food_consumption(115);
+	_warlikeness(-1);
+	_life_value(5);
 
-    _starting_population(CIT_PEASANT,   60);
-    _starting_population(CIT_MERCHANT,  20);
-    _starting_resources (RES_GOLD,    8500);
-    _starting_resources (RES_WOOD,    1500);
-    _starting_resources (RES_STONE,   1500);
+	_starting_population(CIT_PEASANT, 60);
+	_starting_population(CIT_MERCHANT, 20);
+	_starting_resources (RES_GOLD, 8500);
+	_starting_resources (RES_WOOD, 1500);
+	_starting_resources (RES_STONE, 1500);
 
-    _birth_rate         (CIT_PEASANT,  110);
-    _birth_rate         (CIT_MERCHANT, 100);
-    _birth_rate         (CIT_BURGHER,   90);
-    _citizen_ratio      (CIT_MERCHANT,   8);
-    _citizen_ratio      (CIT_BURGHER,    8);
-    _morale_requirement (CIT_MERCHANT,  75);
-    _morale_requirement (CIT_BURGHER,   90);
-    _low_tax_rate       (CIT_PEASANT,   10);
-    _low_tax_rate       (CIT_MERCHANT,   5);
-    _low_tax_rate       (CIT_BURGHER,    5);
-    _high_tax_rate      (CIT_PEASANT,   70);
-    _high_tax_rate      (CIT_MERCHANT,  50);
-    _high_tax_rate      (CIT_BURGHER,   40);
+	_birth_rate         (CIT_PEASANT, 110);
+	_birth_rate         (CIT_MERCHANT, 100);
+	_birth_rate         (CIT_BURGHER, 90);
+	_citizen_ratio      (CIT_MERCHANT, 8);
+	_citizen_ratio      (CIT_BURGHER, 8);
+	_morale_requirement (CIT_MERCHANT, 75);
+	_morale_requirement (CIT_BURGHER, 90);
+	_low_tax_rate       (CIT_PEASANT, 10);
+	_low_tax_rate       (CIT_MERCHANT, 5);
+	_low_tax_rate       (CIT_BURGHER, 5);
+	_high_tax_rate      (CIT_PEASANT, 70);
+	_high_tax_rate      (CIT_MERCHANT, 50);
+	_high_tax_rate      (CIT_BURGHER, 40);
 
-    _relations(RACE_HUMAN,    -1);
-    _relations(RACE_DWARF,    -1);
-    _relations(RACE_ORC,      -2);
-    _relations(RACE_GOBLIN,   -3);
-    _relations(RACE_OGRE,     -2);
-    _relations(RACE_TROLL,    -5);
-    _relations(RACE_HALFLING, -2);
-    _relations(RACE_GNOME,     1);
-    _relations(RACE_MINOTAUR, -1);
-    _relations(RACE_RAKSHASA,  4);
-    _relations(RACE_NAGA,      2);
+	_relations(RACE_HUMAN, -1);
+	_relations(RACE_DWARF, -1);
+	_relations(RACE_ORC, -2);
+	_relations(RACE_GOBLIN, -3);
+	_relations(RACE_OGRE, -2);
+	_relations(RACE_TROLL, -5);
+	_relations(RACE_HALFLING, -2);
+	_relations(RACE_GNOME, 1);
+	_relations(RACE_MINOTAUR, -1);
+	_relations(RACE_RAKSHASA, 4);
+	_relations(RACE_NAGA, 2);
 
-    _skill(SKILL_FARMING,       2);
-    _skill(SKILL_HUNTING,       4);
-    _skill(SKILL_LIVESTOCK,     4);
-    _skill(SKILL_MINING,        2);
-    _skill(SKILL_FORESTRY,      2);
-    _skill(SKILL_CONSTRUCTION,  2);
-    _skill(SKILL_TRADE,         4);
-    _skill(SKILL_ESPIONAGE,     5);
-    _skill(SKILL_MAGIC,         5);
-    _skill(SKILL_EARTH_MAGIC,   4);
-    _skill(SKILL_WATER_MAGIC,   4);
-    _skill(SKILL_AIR_MAGIC,     4);
-    _skill(SKILL_FIRE_MAGIC,    4);
-    _skill(SKILL_LIFE_MAGIC,    4);
-    _skill(SKILL_DEATH_MAGIC,   4);
+	_skill(SKILL_FARMING, 2);
+	_skill(SKILL_HUNTING, 4);
+	_skill(SKILL_LIVESTOCK, 4);
+	_skill(SKILL_MINING, 2);
+	_skill(SKILL_FORESTRY, 2);
+	_skill(SKILL_CONSTRUCTION, 2);
+	_skill(SKILL_TRADE, 4);
+	_skill(SKILL_ESPIONAGE, 5);
+	_skill(SKILL_MAGIC, 5);
+	_skill(SKILL_EARTH_MAGIC, 4);
+	_skill(SKILL_WATER_MAGIC, 4);
+	_skill(SKILL_AIR_MAGIC, 4);
+	_skill(SKILL_FIRE_MAGIC, 4);
+	_skill(SKILL_LIFE_MAGIC, 4);
+	_skill(SKILL_DEATH_MAGIC, 4);
 
-    _description("\
+	_description("\
 Rakshasa are an ancient <link=race>race</link>, said to be descended from \
 demons.  They resemble <link=human>humans</link> in form, but have the fur, \
 head and tail of a <link=tiger>tiger</link>.  Like tigers, rakshasa are most \
@@ -1706,126 +1710,126 @@ their own siblings.\
 ");
 
 
-  _race(RACE_NAGA);
-    _name("naga");
-    _plural_name("naga");
-    _adjective("naga");
+	_race(RACE_NAGA);
+	_name("naga");
+	_plural_name("naga");
+	_adjective("naga");
 
-    _color(c_cyan);
-    _kingdom_color(c_brown);
-    _kingdom_color(c_green);
-    _kingdom_color(c_cyan);
+	_color(c_cyan);
+	_kingdom_color(c_brown);
+	_kingdom_color(c_green);
+	_kingdom_color(c_cyan);
 
-    _map_type(MAP_SWAMP,           100);
-    _map_type(MAP_BASIN,            80);
-    _map_type(MAP_DESERT,           50);
-    _map_type(MAP_JUNGLE,           40);
-    _map_type(MAP_FOREST,           20);
-    _map_type(MAP_PLAINS,           10);
+	_map_type(MAP_SWAMP, 100);
+	_map_type(MAP_BASIN, 80);
+	_map_type(MAP_DESERT, 50);
+	_map_type(MAP_JUNGLE, 40);
+	_map_type(MAP_FOREST, 20);
+	_map_type(MAP_PLAINS, 10);
 
-    _map_type(MAP_ICY_MOUNTAIN,   -100);
-    _map_type(MAP_ICY_FOOTHILLS,  -100);
-    _map_type(MAP_TUNDRA,         -100);
-    _map_type(MAP_GLACIER,         -95);
-    _map_type(MAP_MOUNTAINOUS,     -90);
-    _map_type(MAP_CANYON,          -70);
-    _map_type(MAP_WASTELAND,       -30);
-    _map_type(MAP_FOOTHILLS,       -25);
+	_map_type(MAP_ICY_MOUNTAIN, -100);
+	_map_type(MAP_ICY_FOOTHILLS, -100);
+	_map_type(MAP_TUNDRA, -100);
+	_map_type(MAP_GLACIER, -95);
+	_map_type(MAP_MOUNTAINOUS, -90);
+	_map_type(MAP_CANYON, -70);
+	_map_type(MAP_WASTELAND, -30);
+	_map_type(MAP_FOOTHILLS, -25);
 
-    _travel_cost(MAP_DESERT,        25);
-    _travel_cost(MAP_WASTELAND,     50);
-    _travel_cost(MAP_FOREST,       100);
-    _travel_cost(MAP_SWAMP,         30);
-    _travel_cost(MAP_JUNGLE,       175);
-    _travel_cost(MAP_MOUNTAINOUS,  500);
-    _travel_cost(MAP_ICY_MOUNTAIN, 650);
+	_travel_cost(MAP_DESERT, 25);
+	_travel_cost(MAP_WASTELAND, 50);
+	_travel_cost(MAP_FOREST, 100);
+	_travel_cost(MAP_SWAMP, 30);
+	_travel_cost(MAP_JUNGLE, 175);
+	_travel_cost(MAP_MOUNTAINOUS, 500);
+	_travel_cost(MAP_ICY_MOUNTAIN, 650);
 
-    _cluster_size(2, 4);
-    _city_size(CITY_TYPE_CITY,      80,  900);
-    _city_size(CITY_TYPE_DUCHY,    600, 3500);
-    _city_size(CITY_TYPE_CAPITAL, 1600, 6000);
+	_cluster_size(2, 4);
+	_city_size(CITY_TYPE_CITY, 80, 900);
+	_city_size(CITY_TYPE_DUCHY, 600, 3500);
+	_city_size(CITY_TYPE_CAPITAL, 1600, 6000);
 
 // Kinda based on Indian city names
 
-    _city_name_start("a", "acha", "ada", "adi", "ado", "afza", "ai", "baga",
-                     "baha", "bala", "bale", "bari", "bathi", "be", "bha",
-                     "bhi", "bho", "bika", "bo", "bra", "cha", "chi", "de",
-                     "dha", "dhu", "fari", "faro", "go", "gobi", "gu", "guja",
-                     "ha", "haji", "jala", "jha", "ka", "kari", "ke", "kha",
-                     "laha", "lakhi", "lu", "madhu", "maha", "malka", "mandi",
-                     "mi", "mo", "mu", "naga", "naga", "naga", "naha", "nama",
-                     "nara", "nau", "nawa", "ne", "niwa", "o", "pa", "pala",
-                     "pana", "para", "pau", "peri", "pili", "pra", "pudu",
-                     "pura", "ra", "raja", "rama", "raya", "rewa", "sa", "sada",
-                     "sadu", "sambha", "sata", "sava", "sha", "she", "sheo",
-                     "shi", "sho", "si", "sika", "siva", "sri", "sri ", "sume",
-                     "suri", "ta", "tali", "te", "thiru", "ti", "tiru", "tri",
-                     "uda", "uma", "ura", "utha", "utta", "vada", "vidi",
-                     "vikra", "ya", "yava");
+	_city_name_start("a", "acha", "ada", "adi", "ado", "afza", "ai", "baga",
+			"baha", "bala", "bale", "bari", "bathi", "be", "bha",
+			"bhi", "bho", "bika", "bo", "bra", "cha", "chi", "de",
+			"dha", "dhu", "fari", "faro", "go", "gobi", "gu", "guja",
+			"ha", "haji", "jala", "jha", "ka", "kari", "ke", "kha",
+			"laha", "lakhi", "lu", "madhu", "maha", "malka", "mandi",
+			"mi", "mo", "mu", "naga", "naga", "naga", "naha", "nama",
+			"nara", "nau", "nawa", "ne", "niwa", "o", "pa", "pala",
+			"pana", "para", "pau", "peri", "pili", "pra", "pudu",
+			"pura", "ra", "raja", "rama", "raya", "rewa", "sa", "sada",
+			"sadu", "sambha", "sata", "sava", "sha", "she", "sheo",
+			"shi", "sho", "si", "sika", "siva", "sri", "sri ", "sume",
+			"suri", "ta", "tali", "te", "thiru", "ti", "tiru", "tri",
+			"uda", "uma", "ura", "utha", "utta", "vada", "vidi",
+			"vikra", "ya", "yava");
 
-    _city_name_middle("b", "br", "d", "dh", "dr", "g", "h", "hm", "k", "kud",
-                      "kund", "l", "m", "mg", "mk", "mp", "mr", "n", "ng", "nk",
-                      "nkl", "nt", "p", "pr", "r", "rk", "rkh", "rm", "rmir",
-                      "rn", "rp", "rs", "rt", "rudr", "rund", "sh", "ss", "t",
-                      "th", "thag", "tl", "tr", "v", "y");
+	_city_name_middle("b", "br", "d", "dh", "dr", "g", "h", "hm", "k", "kud",
+			"kund", "l", "m", "mg", "mk", "mp", "mr", "n", "ng", "nk",
+			"nkl", "nt", "p", "pr", "r", "rk", "rkh", "rm", "rmir",
+			"rn", "rp", "rs", "rt", "rudr", "rund", "sh", "ss", "t",
+			"th", "thag", "tl", "tr", "v", "y");
 
-    _city_name_end("", "", "ab", "abad", "adesh", "aka", "al", "ala", "am",
-                   "an", "ana", "and", "anja", "anji", "apur", "ara", "asa",
-                   "ati", "atra", "eli", "er", "esh", "i", "ia", "impa", "inga",
-                   "ior", "iri", "oha", "ul", "ula", "und", "ur", "ura");
+	_city_name_end("", "", "ab", "abad", "adesh", "aka", "al", "ala", "am",
+			"an", "ana", "and", "anja", "anji", "apur", "ara", "asa",
+			"ati", "atra", "eli", "er", "esh", "i", "ia", "impa", "inga",
+			"ior", "iri", "oha", "ul", "ula", "und", "ur", "ura");
 
-    _base_combat(10);
-    _hp(100);
-    _food_consumption(100);
-    _warlikeness(-2);
-    _life_value(3);
+	_base_combat(10);
+	_hp(100);
+	_food_consumption(100);
+	_warlikeness(-2);
+	_life_value(3);
 
-    _starting_population(CIT_PEASANT,  100);
-    _starting_resources (RES_GOLD,    6000);
-    _starting_resources (RES_WOOD,    2500);
-    _starting_resources (RES_STONE,   2000);
+	_starting_population(CIT_PEASANT, 100);
+	_starting_resources (RES_GOLD, 6000);
+	_starting_resources (RES_WOOD, 2500);
+	_starting_resources (RES_STONE, 2000);
 
-    _birth_rate         (CIT_PEASANT,  100);
-    _birth_rate         (CIT_MERCHANT, 100);
-    _birth_rate         (CIT_BURGHER,  100);
-    _citizen_ratio      (CIT_MERCHANT,  10);
-    _citizen_ratio      (CIT_BURGHER,   10);
-    _morale_requirement (CIT_MERCHANT,  40);
-    _morale_requirement (CIT_BURGHER,   60);
-    _low_tax_rate       (CIT_PEASANT,   20);
-    _low_tax_rate       (CIT_MERCHANT,  15);
-    _low_tax_rate       (CIT_BURGHER,   10);
-    _high_tax_rate      (CIT_PEASANT,   80);
-    _high_tax_rate      (CIT_MERCHANT,  65);
-    _high_tax_rate      (CIT_BURGHER,   50);
+	_birth_rate         (CIT_PEASANT, 100);
+	_birth_rate         (CIT_MERCHANT, 100);
+	_birth_rate         (CIT_BURGHER, 100);
+	_citizen_ratio      (CIT_MERCHANT, 10);
+	_citizen_ratio      (CIT_BURGHER, 10);
+	_morale_requirement (CIT_MERCHANT, 40);
+	_morale_requirement (CIT_BURGHER, 60);
+	_low_tax_rate       (CIT_PEASANT, 20);
+	_low_tax_rate       (CIT_MERCHANT, 15);
+	_low_tax_rate       (CIT_BURGHER, 10);
+	_high_tax_rate      (CIT_PEASANT, 80);
+	_high_tax_rate      (CIT_MERCHANT, 65);
+	_high_tax_rate      (CIT_BURGHER, 50);
 
-    _relations(RACE_ELF,       2);
-    _relations(RACE_ORC,      -2);
-    _relations(RACE_GOBLIN,   -1);
-    _relations(RACE_OGRE,      1);
-    _relations(RACE_TROLL,    -3);
-    _relations(RACE_HALFLING,  1);
-    _relations(RACE_GNOME,    -2);
-    _relations(RACE_RAKSHASA,  2);
-    _relations(RACE_NAGA,      2);
+	_relations(RACE_ELF, 2);
+	_relations(RACE_ORC, -2);
+	_relations(RACE_GOBLIN, -1);
+	_relations(RACE_OGRE, 1);
+	_relations(RACE_TROLL, -3);
+	_relations(RACE_HALFLING, 1);
+	_relations(RACE_GNOME, -2);
+	_relations(RACE_RAKSHASA, 2);
+	_relations(RACE_NAGA, 2);
 
-    _skill(SKILL_FARMING,       3);
-    _skill(SKILL_HUNTING,       4);
-    _skill(SKILL_LIVESTOCK,     3);
-    _skill(SKILL_MINING,        2);
-    _skill(SKILL_FORESTRY,      4);
-    _skill(SKILL_CONSTRUCTION,  2);
-    _skill(SKILL_TRADE,         3);
-    _skill(SKILL_ESPIONAGE,     4);
-    _skill(SKILL_MAGIC,         5);
-    _skill(SKILL_EARTH_MAGIC,   4);
-    _skill(SKILL_WATER_MAGIC,   5);
-    _skill(SKILL_AIR_MAGIC,     3);
-    _skill(SKILL_FIRE_MAGIC,    2);
-    _skill(SKILL_LIFE_MAGIC,    3);
-    _skill(SKILL_DEATH_MAGIC,   4);
+	_skill(SKILL_FARMING, 3);
+	_skill(SKILL_HUNTING, 4);
+	_skill(SKILL_LIVESTOCK, 3);
+	_skill(SKILL_MINING, 2);
+	_skill(SKILL_FORESTRY, 4);
+	_skill(SKILL_CONSTRUCTION, 2);
+	_skill(SKILL_TRADE, 3);
+	_skill(SKILL_ESPIONAGE, 4);
+	_skill(SKILL_MAGIC, 5);
+	_skill(SKILL_EARTH_MAGIC, 4);
+	_skill(SKILL_WATER_MAGIC, 5);
+	_skill(SKILL_AIR_MAGIC, 3);
+	_skill(SKILL_FIRE_MAGIC, 2);
+	_skill(SKILL_LIFE_MAGIC, 3);
+	_skill(SKILL_DEATH_MAGIC, 4);
 
-    _description("\
+	_description("\
 Naga are a serpentine <link=race>race</link>, creatures with a large snake-\
 like tail and a <link=human>human</link> torso, albeit with four arms.  Nagas \
 come in two breeds, Desert Naga and Swamp Naga.  Despite the names, the only \
