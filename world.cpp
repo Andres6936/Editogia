@@ -1170,14 +1170,14 @@ void World_map::add_resource(Point origin, Crop crop, Mineral mineral,
       if (crop != CROP_NULL) {
 // With crops, we need to check to make sure the environment is a match
         if (tile_okay_for_crop(x, y, crop)) {
-          crops[x][y]    |= int(pow(2, crop));
+          crops[x][y]    |= int(pow(2, (int) crop));
         }
       } else if (mineral != MINERAL_NULL) {
-        minerals[x][y] |= int(pow(2, mineral));
+        minerals[x][y] |= int(pow(2, (int) mineral));
       } else if (animal != ANIMAL_NULL) {
 // With animals, we need to check to make sure the environment is a match
         if (tile_okay_for_animal(x, y, animal)) {
-          animals[x][y]  |= int(pow(2, animal));
+          animals[x][y]  |= int(pow(2, (int) animal));
         }
       }
     }
@@ -2161,7 +2161,7 @@ bool World_map::has_crop(Crop crop, int x, int y)
   if (crop == CROP_NULL && crops[x][y] > 1) {
     return true;
   }
-  return (crops[x][y] & int(pow(2, crop)));
+  return (crops[x][y] & int(pow(2, (int) crop)));
 }
 
 bool World_map::has_mineral(Mineral mineral, int x, int y)
@@ -2172,7 +2172,7 @@ bool World_map::has_mineral(Mineral mineral, int x, int y)
   if (mineral == MINERAL_NULL && minerals[x][y] > 1) {
     return true;
   }
-  return (minerals[x][y] & int(pow(2, mineral)));
+  return (minerals[x][y] & int(pow(2, (int) mineral)));
 }
 
 bool World_map::has_animal(Animal animal, int x, int y)
@@ -2183,7 +2183,7 @@ bool World_map::has_animal(Animal animal, int x, int y)
   if (animal == ANIMAL_NULL && animals[x][y] > 1) {
     return true;
   }
-  return (animals[x][y] & int(pow(2, animal)));
+  return (animals[x][y] & int(pow(2, (int) animal)));
 }
 
 int world_size_kingdoms(World_size size)
