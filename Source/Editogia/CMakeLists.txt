@@ -31,6 +31,7 @@ ADD_EXECUTABLE(Editogia.App
         player_city.cpp
         race.cpp
         race_data.cpp
+        Recipe.cpp
         resource.cpp
         resource_data.cpp
         rng.cpp
