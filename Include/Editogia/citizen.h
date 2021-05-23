@@ -19,6 +19,8 @@ enum Citizen_type
 
 Citizen_type lookup_citizen_type(std::string name);
 
+const char* toString(const Citizen_type type) noexcept;
+
 std::string citizen_type_name(Citizen_type type, bool plural = false);
 
 struct Citizen_amount

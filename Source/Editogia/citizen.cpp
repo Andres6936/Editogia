@@ -449,6 +449,28 @@ Citizen_type lookup_citizen_type(std::string name)
 	return CIT_NULL;
 }
 
+const char* toString(const Citizen_type type) noexcept
+{
+	switch (type)
+	{
+
+	case CIT_NULL:
+		return "Null";
+	case CIT_SLAVE:
+		return "Slaves";
+	case CIT_PEASANT:
+		return "Peasants";
+	case CIT_MERCHANT:
+		return "Merchants";
+	case CIT_BURGHER:
+		return "Burghers";
+	case CIT_MAX:
+		return "Max";
+	}
+
+	return "Null";
+}
+
 // plural defaults to false
 std::string citizen_type_name(Citizen_type type, bool plural)
 {

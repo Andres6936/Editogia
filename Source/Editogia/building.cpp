@@ -1389,7 +1389,7 @@ bool Building_datum::add_production(Resource type, int amount)
 const std::string Building_datum::toJSON() const noexcept
 {
 	using namespace ArduinoJson;
-	DynamicJsonDocument doc(1024);
+	DynamicJsonDocument doc(2048);
 
 	doc["Name"] = name;
 	doc["Wages"] = wages;
@@ -1411,7 +1411,10 @@ const std::string Building_datum::toJSON() const noexcept
 		costObject[toString(cost.type)] = cost.amount;
 	}
 
-	char output[1024];
+	JsonObject jobsObject = doc.createNestedObject("Jobs");
+	jobsObject[toString(jobs.type)] = jobs.amount;
+
+	char output[2048];
 	serializeJsonPretty(doc, output);
 	return output;
 }
