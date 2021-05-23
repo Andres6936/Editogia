@@ -522,14 +522,14 @@ A smith is a <link=building>building</link> where various metal goods are \
 fashioned.\
 ");
 
-	ArduinoJson::DynamicJsonDocument doc(4084);
+	ArduinoJson::DynamicJsonDocument doc(16000);
 
 	for(std::size_t i = 1; i < BUILD_MAX; ++i)
 	{
 		doc.add(ArduinoJson::serialized(Building_data[i]->toJSON()));
 	}
 
-	char output[4084];
+	char output[16000];
 	ArduinoJson::serializeJsonPretty(doc, output);
 	std::ofstream file {"builds.json"};
 	file << output;

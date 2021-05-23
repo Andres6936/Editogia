@@ -2,7 +2,7 @@
 #include "Editogia/stringfunc.h"
 #include "Editogia/rng.h"
 
-const char* resourceToString(const Resource resource) noexcept
+const char* toString(const Resource resource) noexcept
 {
 	switch (resource)
 	{

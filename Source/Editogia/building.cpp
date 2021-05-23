@@ -1392,7 +1392,6 @@ const std::string Building_datum::toJSON() const noexcept
 	DynamicJsonDocument doc(1024);
 
 	doc["Name"] = name;
-	doc["Cost"] = 300;
 	doc["Wages"] = wages;
 	doc["UpKeep"] = upkeep;
 	doc["Category"] = category;
@@ -1409,7 +1408,7 @@ const std::string Building_datum::toJSON() const noexcept
 		if (cost.amount <= 0) continue;
 
 		JsonObject costObject = buildCostsObject.createNestedObject();
-		costObject[resourceToString(cost.type)] = cost.amount;
+		costObject[toString(cost.type)] = cost.amount;
 	}
 
 	char output[1024];
