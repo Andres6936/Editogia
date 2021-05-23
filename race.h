@@ -5,6 +5,7 @@
 #include "color.h"      // Race_datum stores the race's color.
 #include "map_type.h"   // For Map_type
 #include "city_type.h"  // We track population size for each City_type.
+#include "stringfunc.h"
 #include <string>
 #include <map>
 
@@ -93,9 +94,31 @@ struct Race_datum
 
 	~Race_datum();
 
-// pos is "start" "middle" or "end" and indicates where to put it.
-// The rest is a null-terminated list of C strings
-	void add_city_names(std::string pos, ...);
+	// pos is "start" "middle" or "end" and indicates where to put it.
+	// The rest is a null-terminated list of C strings
+	template <typename ... Args>
+	void add_city_names(const std::string& pos, Args&&... args)
+	{
+		std::string fixed_pos = no_caps(trim(pos));
+
+		if (fixed_pos == "start")
+		{
+			(city_name_start.push_back(std::forward<Args>(args)), ...);
+		}
+		else if (fixed_pos == "middle")
+		{
+			(city_name_middle.push_back(std::forward<Args>(args)), ...);
+		}
+		else if (fixed_pos == "end")
+		{
+			(city_name_end.push_back(std::forward<Args>(args)), ...);
+		}
+		else
+		{
+			// debugmsg("Race_datum::add_city_names(\"%s\") called!", fixed_pos.c_str());
+			return;
+		}
+	}
 
 	std::string get_city_name();
 

@@ -46,15 +46,6 @@ Race_datum* Race_data[RACE_MAX];
  * character."  e.g. "Tat!bol" => "Tatol" but "Ta!bol" => "Tabol"
  */
 
-#define _city_name_start(...) \
-  Race_data[cur_id]->add_city_names("start", __VA_ARGS__, 0)
-
-#define _city_name_middle(...) \
-  Race_data[cur_id]->add_city_names("middle", __VA_ARGS__, 0)
-
-#define _city_name_end(...) \
-  Race_data[cur_id]->add_city_names("end", __VA_ARGS__, 0)
-
 #define _base_combat(n) \
   Race_data[cur_id]->base_combat = (n)
 
@@ -139,17 +130,17 @@ void init_races()
 	_city_size(CITY_TYPE_DUCHY, 800, 4000);
 	_city_size(CITY_TYPE_CAPITAL, 2000, 8000);
 
-	_city_name_start("al", "am", "an", "bir", "birm", "cam", "can", "car",
+	Race_data[cur_id]->add_city_names("start", "al", "am", "an", "bir", "birm", "cam", "can", "car",
 			"chel", "dan", "dar", "dun", "ed", "el", "ex", "fel",
 			"hil", "hut", "lan", "lat", "nor", "port", "quart", "ruth",
 			"south", "tel", "wan", "wil", "wilm", "yor", "york");
 
-	_city_name_middle("", "", "a", "*a", "al", "*al", "*an", "*as", "ca",
+	Race_data[cur_id]->add_city_names("middle","", "", "a", "*a", "al", "*al", "*an", "*as", "ca",
 			"cing", "*er", "*ers", "e", "e", "es", "es", "*es",
 			"*ial", "*iam", "*iams", "*ing", "ing", "*is", "*is",
 			"*or", "*ow", "*os", "ser", "sing", "ter", "*um", "us");
 
-	_city_name_end("", "", "", "", "", "borough", "burg", "burg", "burg",
+	Race_data[cur_id]->add_city_names("end","", "", "", "", "", "borough", "burg", "burg", "burg",
 			"bury", "bury", "by", "by", "cas", "caster", "don", "*ers",
 			"*ex", "field", "field", "ford", "forth", "gale", "ham",
 			"ham", "herst", "ia", "*ia", "in", "*in", "ire", "kirk",
@@ -260,17 +251,17 @@ and have no affinity for any particular <link=magical school>school</link>.\
 	_city_size(CITY_TYPE_CAPITAL, 1600, 6000);
 
 // Should end with a vowel or "lnrs"
-	_city_name_start("al", "bi", "bir", "bri", "dil", "e", "el", "en", "er",
+	Race_data[cur_id]->add_city_names("start","al", "bi", "bir", "bri", "dil", "e", "el", "en", "er",
 			"ere", "es", "fi", "for", "il", "in", "is", "kor", "li",
 			"lo", "me", "mi", "mir", "na", "ri", "ta", "to", "tol",
 			"va", "val", "vi");
 
 // Should end with a vowel or "lnr"
-	_city_name_middle("", "", "", "", "", "", "allo", "an", "he",
+	Race_data[cur_id]->add_city_names("middle","", "", "", "", "", "", "allo", "an", "he",
 			"i", "la", "lo", "lum", "lun", "ni", "ny", "rio", "ro",
 			"ta", "the", "tir", "thro", "va", "ver", "ya");
 
-	_city_name_end("a", "bar", "bel", "dell", "dell", "dell", "dolin", "e",
+	Race_data[cur_id]->add_city_names("end","a", "bar", "bel", "dell", "dell", "dell", "dolin", "e",
 			"ion", "le", "lest", "lin", "lin", "lo", "lon", "lond",
 			"lond", "mar", "men", "min", "o", "on", "os", "se", "th",
 			"the", "thon", "thrion", "thrond", "vin", "vin", "vin");
@@ -404,7 +395,7 @@ Elves are skilled <link=magic>spellcasters</link>, particularly in the \
 	_city_size(CITY_TYPE_CAPITAL, 1800, 7200);
 
 // Start should end with any of "ioulr"
-	_city_name_start("amo", "bel", "bil", "bor", "bur", "dai", "du",
+	Race_data[cur_id]->add_city_names("start","amo", "bel", "bil", "bor", "bur", "dai", "du",
 			"dur", "fal", "glau", "glo", "glor", "gor", "grel", "gu",
 			"hel", "ho", "hol", "hor", "hur", "ilu", "lor", "mon",
 			"mor", "nar", "nau", "ni", "nir", "no", "nol", "nor", "or",
@@ -412,7 +403,7 @@ Elves are skilled <link=magic>spellcasters</link>, particularly in the \
 			"ul");
 
 // Middle should start w/ anything that follows "ioulr", end with a vowel or "r"
-	_city_name_middle("a", "ar", "be", "bi", "bor", "dar", "de", "dene", "der",
+	Race_data[cur_id]->add_city_names("middle","a", "ar", "be", "bi", "bor", "dar", "de", "dene", "der",
 			"di", "dine", "do", "dor", "dore", "dostr", "du", "e",
 			"fa", "far", "ga", "gar", "ge", "ger", "gerde", "gla",
 			"glar", "gle", "gor", "gora", "gu", "gunde", "le", "lege",
@@ -424,7 +415,7 @@ Elves are skilled <link=magic>spellcasters</link>, particularly in the \
 			"tor", "tori", "tre", "tro", "ve", "vi", "vise", "vur",
 			"vurse");
 
-	_city_name_end("", "", "", "", "", "", "", "", "", "", "", "", "der", "dom",
+	Race_data[cur_id]->add_city_names("end","", "", "", "", "", "", "", "", "", "", "", "", "der", "dom",
 			"dom", "dom", "don", "donar", "dum", "dun", "dun", "dun",
 			"forge", "forge", "gost", "gost", "grad", "grod", "grod",
 			"lan", "lind", "nar", "nar", "roth", "th", "th", "thun",
@@ -547,7 +538,7 @@ are, are among the most powerful in the world.\
 	_city_size(CITY_TYPE_DUCHY, 800, 4500);
 	_city_size(CITY_TYPE_CAPITAL, 2000, 9200);
 
-	_city_name_start("arz", "bhor", "bor", "boz", "dhul", "dush", "ghal",
+	Race_data[cur_id]->add_city_names("start","arz", "bhor", "bor", "boz", "dhul", "dush", "ghal",
 			"ghor", "ghul", "grag", "gros", "kaz", "khar", "khaz",
 			"khor", "khul", "kuz", "larg", "mhor", "mol", "mhol",
 			"narz", "nash", "orc", "orc", "orcr", "ork", "ork", "ork",
@@ -556,7 +547,7 @@ are, are among the most powerful in the world.\
 			"taz", "thor", "tor", "thor", "ur", "urz", "vhoz", "wur",
 			"zath", "zho'", "zhuth");
 
-	_city_name_middle("", "", "", "", "", "", "", "", "",
+	Race_data[cur_id]->add_city_names("middle","", "", "", "", "", "", "", "", "",
 			" Khal", " Khal", " Khor", " Mhor", " Mhor", " Ork",
 			" Ork", " Rhi", " Vir", " Zhor", "ak", "ak", "akh", "akr",
 			"akr", "al", "anik", "ankh", "ar", "ark", "ath", "az",
@@ -566,7 +557,7 @@ are, are among the most powerful in the world.\
 			"uk", "uk", "uk", "uk", "ukr", "ukr", "ul", "ur", "urk",
 			"urz", "uz", "zek", "zel", "zhor");
 
-	_city_name_end("", "", "", "", "", "a", "a", "a", "ak", "al", "ani", "anik",
+	Race_data[cur_id]->add_city_names("end","", "", "", "", "", "a", "a", "a", "ak", "al", "ani", "anik",
 			"arth", "ath", "az", "e", "el", "en", "ez", "o", "one", "or",
 			"ork", "orz", "os", "os", "ur", "urk", "urk", "uz", "uz");
 
@@ -697,7 +688,7 @@ exceptions being <link=fire magic>fire</link> and <link=death magic>death\
 	_city_size(CITY_TYPE_DUCHY, 1200, 6000);
 	_city_size(CITY_TYPE_CAPITAL, 3000, 1200);
 
-	_city_name_start("ak", "ar", "bek", "bik", "bir", "bu", "buk", "dak", "dek",
+	Race_data[cur_id]->add_city_names("start","ak", "ar", "bek", "bik", "bir", "bu", "buk", "dak", "dek",
 			"dik", "dir", "du", "ek", "er", "fek", "fik", "fu", "hak",
 			"hu", "ik", "ir", "kak", "ku", "kuk", "krak", "krek", "na",
 			"nak", "nik", "nuk", "pik", "prik", "pu", "su", "rak",
@@ -706,13 +697,13 @@ exceptions being <link=fire magic>fire</link> and <link=death magic>death\
 			"tuk", "tra", "trak", "trek", "trik", "truk", "u", "uk",
 			"vak", "vik", "vu");
 
-	_city_name_middle("", "", "", "", "", "", "", "", "", "", "", "", "", "",
+	Race_data[cur_id]->add_city_names("middle","", "", "", "", "", "", "", "", "", "", "", "", "", "",
 			"", "", "", "", "", "", "", "", "", "", "", "a", "aba",
 			"abi", "abu", "ada", "adi", "adu", "aka", "aki", "aku",
 			"ala", "ali", "alu", "ava", "avi", "avu", "la", "li",
 			"lu", "ra", "ri", "ru");
 
-	_city_name_end("ba", "bak", "bek", "bu", "buk", "da", "dak", "dek", "dik",
+	Race_data[cur_id]->add_city_names("end","ba", "bak", "bek", "bu", "buk", "da", "dak", "dek", "dik",
 			"du", "duk", "fak", "fik", "fuk", "hak", "hik", "huk", "ka",
 			"kak", "kek", "kik", "ku", "kuk", "na", "nak", "ni", "nik",
 			"nok", "nu", "nuk", "pa", "pak", "pi", "pik", "pok", "puk",
@@ -845,7 +836,7 @@ affinity for any of the <link=magical school>schools of magic</link>, save for \
 	_city_size(CITY_TYPE_CAPITAL, 1400, 5000);
 
 // End with lr
-	_city_name_start("al", "ar", "bal", "bar", "bel", "bil", "dal", "dar",
+	Race_data[cur_id]->add_city_names("start","al", "ar", "bal", "bar", "bel", "bil", "dal", "dar",
 			"del", "el", "fal", "far", "ful", "hal", "har", "her",
 			"hul", "il", "ir", "lar", "lor", "lur", "mal", "mar",
 			"mel", "mer", "mil", "mor", "mul", "mur", "nal", "nar",
@@ -854,7 +845,7 @@ affinity for any of the <link=magical school>schools of magic</link>, save for \
 			"wil", "wor", "yal", "yar", "yel", "yil", "yor", "yus");
 
 // Start with bdkt, end with vowel or lr
-	_city_name_middle("", "", "", "", "bal", "bar", "ba", "bel", "be", "bil",
+	Race_data[cur_id]->add_city_names("middle","", "", "", "", "bal", "bar", "ba", "bel", "be", "bil",
 			"bi", "bor", "bo", "bul", "bur", "bu", "dal", "dar",
 			"da", "del", "de", "dil", "di", "dor", "do", "dul",
 			"du", "kal", "kar", "ka", "kel", "ke", "kil", "ki",
@@ -862,7 +853,7 @@ affinity for any of the <link=magical school>schools of magic</link>, save for \
 			"te", "til", "ti", "tor", "to", "tu");
 
 // Start with bdkt, end with aodklnrt,rd,rk,rt,
-	_city_name_end("", "", "", "", "ba", "bad", "bak", "ban", "bar", "bat",
+	Race_data[cur_id]->add_city_names("end","", "", "", "", "ba", "bad", "bak", "ban", "bar", "bat",
 			"bard", "bark", "bart", "bed", "bek", "bel", "ben", "bet",
 			"berd", "bid", "bik", "bil", "bin", "bit", "birk", "birt",
 			"bo", "bod", "bok", "bon", "bot", "bord", "bork", "bort",
@@ -993,20 +984,20 @@ become a <link=mage>mage</link> they have a strong connection to \
 	_city_size(CITY_TYPE_DUCHY, 200, 800);
 	_city_size(CITY_TYPE_CAPITAL, 500, 2000);
 
-	_city_name_start("ak", "ar", "ark", "buk", "bur", "burk", "duk", "dar",
+	Race_data[cur_id]->add_city_names("start","ak", "ar", "ark", "buk", "bur", "burk", "duk", "dar",
 			"dark", "dur", "dor", "durk", "ek", "er", "hak", "har",
 			"hark", "hek", "hur", "hurk", "lar", "luk", "lor", "lork",
 			"lur", "mak", "mar", "mark", "mor", "muk", "mur", "murk",
 			"rak", "rek", "rok", "ruk", "tak", "tar", "tark", "tek",
 			"ter", "terk", "tuk", "turk", "uk", "ur", "urk");
 
-	_city_name_middle(" A", " Ba", " Be", " Bu", " Da", " De", " Du", " E",
+	Race_data[cur_id]->add_city_names("middle"," A", " Ba", " Be", " Bu", " Da", " De", " Du", " E",
 			" Ha", " He", " Hu", " La", " Le", " Lu", " Ma", " Me",
 			" Mu", " Ra", " Re", " Ro", " Ru", " Ta", " Te", " Tu",
 			" U", "a", "e", "la", "le", "lu", "ra", "re", "ro", "ru",
 			"ta", "te", "u");
 
-	_city_name_end("", "k", "k", "k", "k", "k", "r", "r", "r", "rk", "rk");
+	Race_data[cur_id]->add_city_names("end","", "k", "k", "k", "k", "k", "r", "r", "r", "rk", "rk");
 
 	_base_combat(20);
 	_hp(200);
@@ -1141,10 +1132,10 @@ the <link=magical school>magical schools</link> besides \
 	_city_size(CITY_TYPE_DUCHY, 800, 4000);
 	_city_size(CITY_TYPE_CAPITAL, 2000, 8000);
 
-	_city_name_start("bl", "br", "ch", "cl", "cr", "dr", "fl", "fr", "gl", "gr",
+	Race_data[cur_id]->add_city_names("start","bl", "br", "ch", "cl", "cr", "dr", "fl", "fr", "gl", "gr",
 			"l", "pl", "pr", "r", "st", "str", "th", "tr", "wh", "wr");
 
-	_city_name_middle("aid", "aig", "aigh", "aight", "ail", "aim", "ain", "air",
+	Race_data[cur_id]->add_city_names("middle","aid", "aig", "aigh", "aight", "ail", "aim", "ain", "air",
 			"airt", "aist", "ait", "aive", "aize", "aud", "aug",
 			"augh", "aught", "aum", "aun", "aur", "aurt", "aust",
 			"aut", "auve", "ay", "ead", "eal", "eam", "ean", "ear",
@@ -1155,7 +1146,7 @@ the <link=magical school>magical schools</link> besides \
 			"oin", "oist", "oit", "oize", "ood", "oog", "oogh", "oom",
 			"oon", "oor", "oost", "oot", "oud", "oun", "oust", "out");
 
-	_city_name_end(" Bottom", "s Bottom", " End", "s End", " Field", "s Field",
+	Race_data[cur_id]->add_city_names("end"," Bottom", "s Bottom", " End", "s End", " Field", "s Field",
 			" Glen", " Hall", "sberry", "sborough", "sburg", "sbury",
 			"sby", "sdon", "dover", "field", "ford", "ford", "sforth",
 			"gale", "ham", "ham", "ham", "skirk", "smouth", "sneck",
@@ -1292,7 +1283,7 @@ destructive <link=magical school>schools</link> of <link=fire magic>fire\
 	_city_size(CITY_TYPE_CAPITAL, 3500, 12000);
 
 // City names are vaguely based on ancient greek!
-	_city_name_start("ab", "ab", "ach", "act", "aeg", "aeg", "aen", "akr", "al",
+	Race_data[cur_id]->add_city_names("start","ab", "ab", "ach", "act", "aeg", "aeg", "aen", "akr", "al",
 			"al", "amn", "and", "ant", "ap", "ast", "bhr", "br", "ch",
 			"chr", "chron", "col", "cum", "cyn", "cyr", "dec", "del",
 			"dod", "dor", "edes", "elat", "emp", "eph", "epid", "eret",
@@ -1307,7 +1298,7 @@ destructive <link=magical school>schools</link> of <link=fire magic>fire\
 			"tan", "thas", "th", "thr", "tr", "trip", "tyr", "tyr");
 
 
-	_city_name_middle("", "", "", "", "", "ac", "acl", "ad", "aed", "aeg",
+	Race_data[cur_id]->add_city_names("middle","", "", "", "", "", "ac", "acl", "ad", "aed", "aeg",
 			"ael", "aen", "aerr", "aes", "aeth", "alc", "all", "am",
 			"amn", "ant", "anth", "ar", "aryn", "arynth", "ass",
 			"ecus", "eil", "ein", "eir", "el", "eon", "em", "emb",
@@ -1318,7 +1309,7 @@ destructive <link=magical school>schools</link> of <link=fire magic>fire\
 			"oll", "om", "opol", "ycth", "yd", "yn", "ynth", "yntr",
 			"yr", "yss", "yst", "yth");
 
-	_city_name_end("a", "aca", "ae", "aea", "ai", "ana", "ana", "atis", "e",
+	Race_data[cur_id]->add_city_names("end","a", "aca", "ae", "aea", "ai", "ana", "ana", "atis", "e",
 			"ea", "ea", "ede", "edon", "ene", "es", "esos", "esus",
 			"eia", "ia", "ia", "ia", "ias", "ina", "ios", "is", "ium",
 			"izi", "oa", "och", "oli", "olis", "olis", "olis", "on",
@@ -1452,19 +1443,19 @@ few other <link=magical school>schools</link>.\
 	_city_size(CITY_TYPE_CAPITAL, 1800, 7500);
 
 // More greek-flavored names!  kinda!
-	_city_name_start("ass", "b", "byr", "cr", "cyr", "d", "ess", "f", "g",
+	Race_data[cur_id]->add_city_names("start","ass", "b", "byr", "cr", "cyr", "d", "ess", "f", "g",
 			"gr", "gyr", "h", "hyr", "ill", "iss", "k", "kn", "l", "m",
 			"mn", "n", "oss", "pl", "pr", "pyr", "r", "st", "t", "tyr",
 			"ull", "ulv", "z");
 
-	_city_name_middle("ad", "aed", "ael", "aer", "al", "all", "am", "amn", "an", "ap", "ar", "ard",
+	Race_data[cur_id]->add_city_names("middle","ad", "aed", "ael", "aer", "al", "all", "am", "amn", "an", "ap", "ar", "ard",
 			"ars", "art", "at", "ath", "atr", "eg", "el", "ell", "em", "en", "esc", "esk", "esp",
 			"ess", "est", "etr", "il", "in", "inn", "ist", "itr", "oc", "od", "odr", "oel", "ohem",
 			"ol", "om", "omn", "on", "op", "opr", "os", "osk", "oss", "ost", "ostr", "ot", "otr",
 			"ul", "uss", "ust", "ustr", "yd", "ydr", "yg", "yl", "ym",
 			"ymn", "yp", "ypr", "ys", "yst", "ystr", "yt", "ytr");
 
-	_city_name_end("a", "e", "es", "ia", "o", "oa", "os", "otia", "ua", "ude",
+	Race_data[cur_id]->add_city_names("end","a", "e", "es", "ia", "o", "oa", "os", "otia", "ua", "ude",
 			"ute", "yde", "ys");
 
 	_base_combat(12);
@@ -1586,7 +1577,7 @@ is not unknown to them.  They are equally skilled in all \
 
 // Vaguely based on Arabic city names
 
-	_city_name_start("ab", "ab", "al", "al", "al", "al-", "al-", "al-", "al-",
+	Race_data[cur_id]->add_city_names("start","ab", "ab", "al", "al", "al", "al-", "al-", "al-", "al-",
 			"ahm", "ar", "ark", "ash", "ashk", "bag", "bah", "bahr",
 			"bat", "beir", "ben", "bir", "boum", "bur", "but", "dak",
 			"dak", "dam", "dar", "dhu", "dub", "fal", "fus", "had",
@@ -1599,7 +1590,7 @@ is not unknown to them.  They are equally skilled in all \
 			"tas", "tid", "tik", "tir", "trip", "tru", "tul", "tun",
 			"uk", "um ", "um ", "zag", "zan");
 
-	_city_name_middle("", "", "", " el-", " el-", "?-es-", "ab", "ab", "ab",
+	Race_data[cur_id]->add_city_names("middle","", "", "", " el-", " el-", "?-es-", "ab", "ab", "ab",
 			"ad", "af", "ahm", "aib", "air", "aj", "ak", "akra-Sh",
 			"an", "ans", "ar", "as", "asr", "assi", "at", "atri",
 			"eb", "ebbr", "ed", "edr", "ef", "efa-Ab", "eid", "eid",
@@ -1611,7 +1602,7 @@ is not unknown to them.  They are equally skilled in all \
 			"in", "ir", "ir", "itr", "odj", "odr", "of", "ok", "okr",
 			"ol", "on", "uad", "uar", "uk", "ukhr", "uw");
 
-	_city_name_end("a", "ab", "ab", "ad", "ad", "ada", "ah", "ah", "ah", "ah",
+	Race_data[cur_id]->add_city_names("end","a", "ab", "ab", "ad", "ad", "ada", "ah", "ah", "ah", "ah",
 			"aib", "aid", "ail", "air", "ait", "aj", "aj", "akh", "al",
 			"al", "am", "ama", "amm", "an", "an", "ankh", "ar", "ara",
 			"asa", "at", "ata", "aud", "ayb", "az", "e'an", "e'un", "ea",
@@ -1751,7 +1742,7 @@ their own siblings.\
 
 // Kinda based on Indian city names
 
-	_city_name_start("a", "acha", "ada", "adi", "ado", "afza", "ai", "baga",
+	Race_data[cur_id]->add_city_names("start","a", "acha", "ada", "adi", "ado", "afza", "ai", "baga",
 			"baha", "bala", "bale", "bari", "bathi", "be", "bha",
 			"bhi", "bho", "bika", "bo", "bra", "cha", "chi", "de",
 			"dha", "dhu", "fari", "faro", "go", "gobi", "gu", "guja",
@@ -1767,13 +1758,13 @@ their own siblings.\
 			"uda", "uma", "ura", "utha", "utta", "vada", "vidi",
 			"vikra", "ya", "yava");
 
-	_city_name_middle("b", "br", "d", "dh", "dr", "g", "h", "hm", "k", "kud",
+	Race_data[cur_id]->add_city_names("middle","b", "br", "d", "dh", "dr", "g", "h", "hm", "k", "kud",
 			"kund", "l", "m", "mg", "mk", "mp", "mr", "n", "ng", "nk",
 			"nkl", "nt", "p", "pr", "r", "rk", "rkh", "rm", "rmir",
 			"rn", "rp", "rs", "rt", "rudr", "rund", "sh", "ss", "t",
 			"th", "thag", "tl", "tr", "v", "y");
 
-	_city_name_end("", "", "ab", "abad", "adesh", "aka", "al", "ala", "am",
+	Race_data[cur_id]->add_city_names("end","", "", "ab", "abad", "adesh", "aka", "al", "ala", "am",
 			"an", "ana", "and", "anja", "anji", "apur", "ara", "asa",
 			"ati", "atra", "eli", "er", "esh", "i", "ia", "impa", "inga",
 			"ior", "iri", "oha", "ul", "ula", "und", "ur", "ura");
