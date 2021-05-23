@@ -6,6 +6,8 @@
 #include <string>
 #include <vector>
 
+#include "Editogia/resource.h"
+
 struct Recipe
 {
 	// R and A combine to form a Resource_amount.
