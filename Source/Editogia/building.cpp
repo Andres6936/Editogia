@@ -1402,23 +1402,15 @@ const std::string Building_datum::toJSON() const noexcept
 	doc["description"] = description;
 	doc["destroy-cost"] = destroy_cost;
 
-//	JsonArray buildCostsObject = doc.to<JsonArray>();
-//
-//	for(const auto& cost : build_costs)
-//	{
-//		if (cost.amount <= 0) continue;
-//
-//		JsonObject costObject = doc.to<JsonObject>();
-//		costObject[resourceToString(cost.type)] = cost.amount;
-//
-//		char output[512];
-//		serializeJson(costObject, output);
-//		buildCostsObject.add(output);
-//	}
-//
-//	char array[512];
-//	serializeJson(buildCostsObject, array);
-//	doc["cost"] = array;
+	JsonArray buildCostsObject = doc.createNestedArray("costs");
+
+	for(const auto& cost : build_costs)
+	{
+		if (cost.amount <= 0) continue;
+
+		JsonObject costObject = buildCostsObject.createNestedObject();
+		costObject[resourceToString(cost.type)] = cost.amount;
+	}
 
 	char output[1024];
 	serializeJsonPretty(doc, output);
