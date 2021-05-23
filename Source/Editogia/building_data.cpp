@@ -1,5 +1,9 @@
 #include "Editogia/building.h"
 #include <sstream>
+#include <fstream>
+#include <iostream>
+
+#include <ArduinoJson/ArduinoJson.hpp>
 
 Building_datum* Building_data[BUILD_MAX];
 
@@ -117,8 +121,6 @@ void init_building_data()
 A park is a well-groomed area of nature, with carefully designed paths and \
 seating areas.\
 ");
-
-	Building_data[1]->toJSON();
 
 	_build(BUILD_PLAZA);
 	_name("plaza");
@@ -519,5 +521,18 @@ employed, making a variety of goods from <link=wood>wood</link>.\
 A smith is a <link=building>building</link> where various metal goods are \
 fashioned.\
 ");
+
+	ArduinoJson::DynamicJsonDocument doc(4084);
+
+	for(const auto& build: Building_data)
+	{
+		doc.add(ArduinoJson::serialized(build->toJSON()));
+	}
+
+	char output[4084];
+	ArduinoJson::serializeJsonPretty(doc, output);
+	std::ofstream file {"builds.json"};
+	file << output;
+	file.close();
 
 }

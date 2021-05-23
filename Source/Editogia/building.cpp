@@ -1388,7 +1388,7 @@ bool Building_datum::add_production(Resource type, int amount)
 	return true;
 }
 
-void Building_datum::toJSON() const noexcept
+const std::string Building_datum::toJSON() const noexcept
 {
 	ArduinoJson::DynamicJsonDocument doc(1024);
 
@@ -1400,12 +1400,9 @@ void Building_datum::toJSON() const noexcept
 	doc["base-morale"] = base_morale;
 	doc["description"] = description;
 
-	char output[4084];
+	char output[1024];
 	ArduinoJson::serializeJsonPretty(doc, output);
-
-	std::ofstream file {"output.json"};
-	file << output;
-	file.close();
+	return output;
 }
 
 Building_category lookup_building_category(std::string name)
