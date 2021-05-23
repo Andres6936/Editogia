@@ -1394,6 +1394,7 @@ const std::string Building_datum::toJSON() const noexcept
 	doc["cost"] = 300;
 	doc["wages"] = wages;
 	doc["up-keep"] = upkeep;
+	doc["category"] = category;
 	doc["build-time"] = build_time;
 	doc["un-lockable"] = unlockable;
 	doc["base-morale"] = base_morale;
