@@ -201,6 +201,8 @@ struct Building_datum
 // Things this building can construct
 	std::vector<Recipe> recipes;
 
+	void toJSON() const noexcept;
+
 };
 
 struct Building

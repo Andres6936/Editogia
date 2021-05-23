@@ -3,6 +3,7 @@ PROJECT(Editogia)
 
 # Used for find resources from the root path of project
 SET(EDITOGIA_ROOT_DIR ${CMAKE_CURRENT_SOURCE_DIR})
+SET(EDITOGIA_BINARY_DIR ${CMAKE_CURRENT_BINARY_DIR})
 
 INCLUDE(CMakeModules/CPM.cmake)
 

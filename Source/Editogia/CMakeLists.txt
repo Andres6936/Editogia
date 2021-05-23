@@ -39,4 +39,9 @@ ADD_EXECUTABLE(Editogia.App
         )
 SET_TARGET_PROPERTIES(Editogia.App PROPERTIES CXX_STANDARD 17)
 TARGET_LINK_LIBRARIES(Editogia.App PRIVATE Editogia.Common)
+TARGET_LINK_LIBRARIES(Editogia.App PRIVATE ArduinoJson)
 TARGET_INCLUDE_DIRECTORIES(Editogia.App PRIVATE $<BUILD_INTERFACE:${EDITOGIA_ROOT_DIR}/Include/>)
+
+# Move the binary after of build the target to binary root directory
+# for found the resources that need the executable
+SET_TARGET_PROPERTIES(Editogia.App PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${EDITOGIA_BINARY_DIR})

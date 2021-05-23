@@ -118,6 +118,8 @@ A park is a well-groomed area of nature, with carefully designed paths and \
 seating areas.\
 ");
 
+	Building_data[1]->toJSON();
+
 	_build(BUILD_PLAZA);
 	_name("plaza");
 	_cost(RES_GOLD, 500);

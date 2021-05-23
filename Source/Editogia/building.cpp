@@ -6,6 +6,10 @@
 #include "Editogia/player_city.h"  // For close()
 #include "Editogia/rng.h"
 #include <sstream>
+#include <fstream>
+#include <iostream>
+
+#include <ArduinoJson/ArduinoJson.hpp>
 
 // R defaults to RES_NULL, A defaults to 1
 Recipe::Recipe(Resource R, int A)
@@ -1382,6 +1386,26 @@ bool Building_datum::add_production(Resource type, int amount)
 
 	production.push_back(Resource_amount(type, amount));
 	return true;
+}
+
+void Building_datum::toJSON() const noexcept
+{
+	ArduinoJson::DynamicJsonDocument doc(1024);
+
+	doc["name"] = name;
+	doc["cost"] = 300;
+	doc["build-time"] = build_time;
+	doc["destroy-cost"] = destroy_cost;
+	doc["up-keep"] = upkeep;
+	doc["base-morale"] = base_morale;
+	doc["description"] = description;
+
+	char output[4084];
+	ArduinoJson::serializeJsonPretty(doc, output);
+
+	std::ofstream file {"output.json"};
+	file << output;
+	file.close();
 }
 
 Building_category lookup_building_category(std::string name)
