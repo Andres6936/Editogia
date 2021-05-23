@@ -132,6 +132,7 @@ const std::string Recipe::toJSON() const noexcept
 	doc["Name"] = name;
 	doc["MaxDeficit"] = max_deficit;
 	doc["UnitsPerDay"] = units_per_day;
+	doc["DaysPerUnit"] = days_per_unit;
 
 	char output[2048];
 	serializeJsonPretty(doc, output);
