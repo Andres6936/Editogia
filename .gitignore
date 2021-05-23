@@ -8,3 +8,5 @@ world.sav
 obj/
 save/
 cuss/demo*
+.idea/
+cmake-build*/
