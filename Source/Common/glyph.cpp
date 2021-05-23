@@ -1,6 +1,6 @@
 #include <sstream>
-#include "glyph.h"
-#include "window.h"
+#include "Editogia/glyph.h"
+#include "Editogia/window.h"
 
 std::string glyph::save_data()
 {

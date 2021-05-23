@@ -1,7 +1,7 @@
-#include "globals.h"
-#include "files.h"
-#include "help.h"
-#include "window.h" // For debugmsg()
+#include "Editogia/globals.h"
+#include "Editogia/files.h"
+#include "Editogia/help.h"
+#include "Editogia/window.h" // For debugmsg()
 
 Game* GAME;
 

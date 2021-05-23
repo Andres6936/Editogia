@@ -1,4 +1,4 @@
-#include "trade.h"
+#include "Editogia/trade.h"
 #include <sstream>
 
 Trade_route::Trade_route()

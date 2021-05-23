@@ -1,5 +1,5 @@
-#include "player_city.h"
-#include "rng.h"
+#include "Editogia/player_city.h"
+#include "Editogia/rng.h"
 #include "window.h"
 #include "world.h"
 #include "interface.h"

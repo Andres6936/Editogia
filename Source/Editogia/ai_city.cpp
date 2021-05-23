@@ -1,7 +1,7 @@
-#include "ai_city.h"
-#include "window.h" // For debugmsg()
-#include "world.h"  // Needed for randomize_properties()
-#include "rng.h"
+#include "Editogia/ai_city.h"
+#include "Editogia/window.h" // For debugmsg()
+#include "Editogia/world.h"  // Needed for randomize_properties()
+#include "Editogia/rng.h"
 #include <sstream>
 
 AI_mayor::AI_mayor()

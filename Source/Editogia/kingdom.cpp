@@ -1,8 +1,8 @@
-#include "kingdom.h"
-#include "rng.h"
-#include "window.h" // For debugmsg()
-#include "geometry.h" // For rl_dist()
-#include "ai_city.h"
+#include "Editogia/kingdom.h"
+#include "Editogia/rng.h"
+#include "Editogia/window.h" // For debugmsg()
+#include "Editogia/geometry.h" // For rl_dist()
+#include "Editogia/ai_city.h"
 #include "globals.h"
 #include <sstream>
 

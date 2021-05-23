@@ -1,5 +1,5 @@
-#include "citizen.h"
-#include "city.h"
+#include "Editogia/citizen.h"
+#include "Editogia/city.h"
 #include "stringfunc.h"
 #include "rng.h"
 #include "window.h"     // For debugmsg()

@@ -3,9 +3,9 @@
 #include <unistd.h>
 #include <iostream> // For displaying messages to the terminal
 #include <algorithm>  // For sorting the list of loadable files
-#include "cuss.h"
-#include "files.h"
-#include "stringfunc.h"
+#include "Editogia/cuss.h"
+#include "Editogia/files.h"
+#include "Editogia/stringfunc.h"
 
 using namespace cuss;
 

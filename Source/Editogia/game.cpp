@@ -1,5 +1,5 @@
-#include "game.h"
-#include "city.h"
+#include "Editogia/game.h"
+#include "Editogia/city.h"
 #include "player_city.h"
 #include "stringfunc.h"
 #include "world.h"

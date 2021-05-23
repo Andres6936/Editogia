@@ -3,8 +3,8 @@
 #include <list>
 #include <cstring>
 #include <sstream>
-#include "window.h"
-#include "cuss.h"
+#include "Editogia/window.h"
+#include "Editogia/cuss.h"
 
 bool parse_color_tags(std::string text, std::vector<std::string>& segments,
 		std::vector<long>& color_pairs, nc_color fg = c_white,

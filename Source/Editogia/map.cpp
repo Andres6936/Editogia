@@ -1,8 +1,8 @@
-#include "map.h"
-#include "rng.h"
-#include "geometry.h" // For direction
-#include "window.h" // For debugmsg
-#include "stringfunc.h" // for capitalize()
+#include "Editogia/map.h"
+#include "Editogia/rng.h"
+#include "Editogia/geometry.h" // For direction
+#include "Editogia/window.h" // For debugmsg
+#include "Editogia/stringfunc.h" // for capitalize()
 #include <sstream>
 
 Map_tile::Map_tile()

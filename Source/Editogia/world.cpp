@@ -1,15 +1,15 @@
-#include "world.h"
-#include "rng.h"
-#include "geometry.h"
-#include "window.h"
-#include "cuss.h"
-#include "keys.h" // for input_direction()
-#include "kingdom.h"  // To color map based on Kingdom.
-#include "stringfunc.h" // For capitalize()
-#include "animal.h"
-#include "ai_city.h"
-#include "pathfind.h" // For road building, trade route finding, and more!
-#include "globals.h"
+#include "Editogia/world.h"
+#include "Editogia/rng.h"
+#include "Editogia/geometry.h"
+#include "Editogia/window.h"
+#include "Editogia/cuss.h"
+#include "Editogia/keys.h" // for input_direction()
+#include "Editogia/kingdom.h"  // To color map based on Kingdom.
+#include "Editogia/stringfunc.h" // For capitalize()
+#include "Editogia/animal.h"
+#include "Editogia/ai_city.h"
+#include "Editogia/pathfind.h" // For road building, trade route finding, and more!
+#include "Editogia/globals.h"
 #include <sstream>
 #include <vector>
 #include <math.h> // for pow() and sqrt()

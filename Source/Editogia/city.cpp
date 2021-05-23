@@ -1,7 +1,7 @@
-#include "city.h"
-#include "rng.h"
-#include "world.h"
-#include "globals.h"
+#include "Editogia/city.h"
+#include "Editogia/rng.h"
+#include "Editogia/world.h"
+#include "Editogia/globals.h"
 #include <sstream>
 
 City::City()

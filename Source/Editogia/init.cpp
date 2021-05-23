@@ -1,12 +1,12 @@
-#include "building.h"
-#include "area.h"
-#include "map.h"
-#include "resource.h"
-#include "race.h"
-#include "animal.h"
-#include "ai.h"
-#include "help.h"
-#include "globals.h"
+#include "Editogia/building.h"
+#include "Editogia/area.h"
+#include "Editogia/map.h"
+#include "Editogia/resource.h"
+#include "Editogia/race.h"
+#include "Editogia/animal.h"
+#include "Editogia/ai.h"
+#include "Editogia/help.h"
+#include "Editogia/globals.h"
 
 bool init_all_data()
 {

@@ -1,7 +1,7 @@
-#include "building.h"
-#include "resource.h"
-#include "city.h" // Needed in Building::amount_built()
-#include "window.h" // For debugmsg
+#include "Editogia/building.h"
+#include "Editogia/resource.h"
+#include "Editogia/city.h" // Needed in Building::amount_built()
+#include "Editogia/window.h" // For debugmsg
 #include "stringfunc.h" // Needed in lookup_building_category()
 #include "player_city.h"  // For close()
 #include "rng.h"

@@ -1,5 +1,5 @@
-#include "cuss.h"
-#include "stringfunc.h"
+#include "Editogia/cuss.h"
+#include "Editogia/stringfunc.h"
 #include <sstream>
 #include <fstream>
 

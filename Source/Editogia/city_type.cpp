@@ -1,5 +1,5 @@
-#include "city_type.h"
-#include "stringfunc.h"
+#include "Editogia/city_type.h"
+#include "Editogia/stringfunc.h"
 
 City_type lookup_city_type(std::string name)
 {

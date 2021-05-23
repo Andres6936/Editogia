@@ -1,6 +1,6 @@
-#include "animal.h"
-#include "stringfunc.h" // search_for_animal() needs trim() and no_caps()
-#include "rng.h"
+#include "Editogia/animal.h"
+#include "Editogia/stringfunc.h" // search_for_animal() needs trim() and no_caps()
+#include "Editogia/rng.h"
 #include <sstream>
 
 bool Animal_amount::is_infinite()

@@ -1,5 +1,5 @@
-#include "stringfunc.h"
-#include "window.h"
+#include "Editogia/stringfunc.h"
+#include "Editogia/window.h"
 #include <sstream>
 #include <math.h> // digits_in() uses log10(); move_decimal() uses pow()
 

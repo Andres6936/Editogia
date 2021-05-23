@@ -1,7 +1,7 @@
-#include "help.h"
-#include "globals.h"
-#include "area.h"
-#include "building.h"
+#include "Editogia/help.h"
+#include "Editogia/globals.h"
+#include "Editogia/area.h"
+#include "Editogia/building.h"
 #include "race.h"
 #include "stringfunc.h" // For capitalize()
 #include <sstream>

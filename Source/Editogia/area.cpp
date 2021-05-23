@@ -1,8 +1,8 @@
-#include "area.h"
-#include "window.h"       // For debugmsg()
-#include "city.h"         // For Area::close()
-#include "player_city.h"  // For Area::close() and Area::reopen()
-#include "stringfunc.h"   // For no_caps() and trim()
+#include "Editogia/area.h"
+#include "Editogia/window.h"       // For debugmsg()
+#include "Editogia/city.h"         // For Area::close()
+#include "Editogia/player_city.h"  // For Area::close() and Area::reopen()
+#include "Editogia/stringfunc.h"   // For no_caps() and trim()
 #include <map>
 #include <sstream>
 

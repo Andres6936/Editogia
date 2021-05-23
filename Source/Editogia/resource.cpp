@@ -1,6 +1,6 @@
-#include "resource.h"
-#include "stringfunc.h"
-#include "rng.h"
+#include "Editogia/resource.h"
+#include "Editogia/stringfunc.h"
+#include "Editogia/rng.h"
 
 bool Resource_amount::is_infinite()
 {

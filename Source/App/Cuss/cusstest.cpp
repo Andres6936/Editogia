@@ -1,5 +1,5 @@
-#include "cuss.h"
-#include "window.h"
+#include "Editogia/cuss.h"
+#include "Editogia/window.h"
 
 int main(int argc, char** argv)
 {

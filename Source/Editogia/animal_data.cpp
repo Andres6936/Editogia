@@ -1,4 +1,4 @@
-#include "animal.h"
+#include "Editogia/animal.h"
 
 Animal_datum* Animal_data[ANIMAL_MAX];
 
