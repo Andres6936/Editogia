@@ -82,6 +82,8 @@ enum Resource
 	RES_MAX
 };
 
+const char* resourceToString(const Resource resource) noexcept;
+
 Resource lookup_resource(std::string name);
 
 enum Luxury_type

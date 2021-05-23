@@ -2,6 +2,91 @@
 #include "Editogia/stringfunc.h"
 #include "Editogia/rng.h"
 
+const char* resourceToString(const Resource resource) noexcept
+{
+	switch (resource)
+	{
+
+	case RES_NULL:
+		return "Null";
+	case RES_GOLD:
+		return "Gold";
+	case RES_FOOD:
+		return "Food";
+	case RES_WOOD:
+		return "Wood";
+	case RES_STONE:
+		return "Stone";
+	case RES_TIN:
+		return "Tin";
+	case RES_COPPER:
+		return "Copper";
+	case RES_IRON:
+		return "Iron";
+	case RES_FIBER:
+		return "Fiber";
+	case RES_FUR:
+		return "Fur";
+	case RES_LEATHER:
+		return "Leather";
+	case RES_UNICORN_HORN:
+		return "UnicornHorn";
+	case RES_SALT:
+		return "Salt";
+	case RES_PEPPER:
+		return "Pepper";
+	case RES_CINNAMON:
+		return "Cinnamon";
+	case RES_CUMIN:
+		return "Cumin";
+	case RES_PAPRIKA:
+		return "Paprika";
+	case RES_TOBACCO:
+		return "Tobacco";
+	case RES_CANNABIS:
+		return "Cannabis";
+	case RES_AMANITAS:
+		return "Amanitas";
+	case RES_AYAHUASCA:
+		return "Ayahuasca";
+	case RES_SPICEREED:
+		return "Spicereed";
+	case RES_CLOTHING:
+		return "Clothing";
+	case RES_COUTURE:
+		return "Couture";
+	case RES_FUR_COATS:
+		return "Coats";
+	case RES_LEATHER_COATS:
+		return "LeatherCoats";
+	case RES_WOOD_HOUSEWARES:
+		return "WoodHousewares";
+	case RES_TIN_HOUSEWARES:
+		return "TinHousewares";
+	case RES_COPPER_HOUSEWARES:
+		return "CopperHousewares";
+	case RES_IRON_HOUSEWARES:
+		return "IronHousewares";
+	case RES_FURNITURE:
+		return "Furniture";
+	case RES_JEWELRY:
+		return "Jewelry";
+	case RES_BLANK_BOOK:
+		return "Book";
+	case RES_FARMING:
+		return "Farming";
+	case RES_MINING:
+		return "Mining";
+	case RES_HUNTING:
+		return "Hunting";
+	case RES_LOGGING:
+		return "Logging";
+	case RES_MAX:
+		return "Max";
+	}
+	return "Unknown";
+}
+
 bool Resource_amount::is_infinite()
 {
 	return (amount == INFINITE_RESOURCE);
