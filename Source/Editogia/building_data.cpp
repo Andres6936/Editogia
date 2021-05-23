@@ -524,9 +524,9 @@ fashioned.\
 
 	ArduinoJson::DynamicJsonDocument doc(4084);
 
-	for(const auto& build: Building_data)
+	for(std::size_t i = 1; i < BUILD_MAX; ++i)
 	{
-		doc.add(ArduinoJson::serialized(build->toJSON()));
+		doc.add(ArduinoJson::serialized(Building_data[i]->toJSON()));
 	}
 
 	char output[4084];
