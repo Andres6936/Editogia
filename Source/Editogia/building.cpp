@@ -1392,11 +1392,13 @@ const std::string Building_datum::toJSON() const noexcept
 
 	doc["name"] = name;
 	doc["cost"] = 300;
-	doc["build-time"] = build_time;
-	doc["destroy-cost"] = destroy_cost;
+	doc["wages"] = wages;
 	doc["up-keep"] = upkeep;
+	doc["build-time"] = build_time;
+	doc["un-lockable"] = unlockable;
 	doc["base-morale"] = base_morale;
 	doc["description"] = description;
+	doc["destroy-cost"] = destroy_cost;
 
 	char output[1024];
 	ArduinoJson::serializeJsonPretty(doc, output);
