@@ -132,27 +132,33 @@ const std::string Recipe::toJSON() const noexcept
 	doc["Name"] = name;
 	doc["MaxDeficit"] = max_deficit;
 
-	// Avoid the ramification of if-else, is equivalent to use if {}.
-	units_per_day > 0 ? doc["UnitsPerDay"] = units_per_day : nullptr;
-	days_per_unit > 0 ? doc["DaysPerUnit"] = days_per_unit : nullptr;
+	if (units_per_day > 0)
+	{
+		doc["UnitsPerDay"] = units_per_day;
+	}
+
+	if (days_per_unit > 0)
+	{
+		doc["DaysPerUnit"] = days_per_unit;
+	}
 
 	if (resource_ingredients.size() > 0)
 	{
-		JsonArray resourcesObject = doc.createNestedArray("UseResources");
+		JsonArray resourcesArray = doc.createNestedArray("UseResources");
 		for(const auto& resource : resource_ingredients)
 		{
-			JsonObject resourceObject = resourcesObject.createNestedObject();
-			resourcesObject[toString(resource.type)] = resource.amount;
+			JsonObject resourceObject = resourcesArray.createNestedObject();
+			resourceObject[toString(resource.type)] = resource.amount;
 		}
 	}
 
 	if (mineral_ingredients.size() > 0)
 	{
-		JsonArray mineralsObject = doc.createNestedArray("UseMinerals");
+		JsonArray mineralsArray = doc.createNestedArray("UseMinerals");
 		for(const auto& mineral : mineral_ingredients)
 		{
-			JsonObject mineralObject = mineralsObject.createNestedObject();
-			mineralsObject[toString(mineral.type)] = mineral.amount;
+			JsonObject mineralObject = mineralsArray.createNestedObject();
+			mineralObject[toString(mineral.type)] = mineral.amount;
 		}
 	}
 
