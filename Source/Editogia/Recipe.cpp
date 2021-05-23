@@ -1,6 +1,7 @@
 // Joan Andrés (@Andres6936) Github.
 
 #include <sstream>
+#include "Editogia/window.h"
 #include "Editogia/Recipe.hpp"
 
 
