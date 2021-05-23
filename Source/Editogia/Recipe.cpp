@@ -131,8 +131,30 @@ const std::string Recipe::toJSON() const noexcept
 
 	doc["Name"] = name;
 	doc["MaxDeficit"] = max_deficit;
-	doc["UnitsPerDay"] = units_per_day;
-	doc["DaysPerUnit"] = days_per_unit;
+
+	// Avoid the ramification of if-else, is equivalent to use if {}.
+	units_per_day > 0 ? doc["UnitsPerDay"] = units_per_day : nullptr;
+	days_per_unit > 0 ? doc["DaysPerUnit"] = days_per_unit : nullptr;
+
+	if (resource_ingredients.size() > 0)
+	{
+		JsonArray resourcesObject = doc.createNestedArray("UseResources");
+		for(const auto& resource : resource_ingredients)
+		{
+			JsonObject resourceObject = resourcesObject.createNestedObject();
+			resourcesObject[toString(resource.type)] = resource.amount;
+		}
+	}
+
+	if (mineral_ingredients.size() > 0)
+	{
+		JsonArray mineralsObject = doc.createNestedArray("UseMinerals");
+		for(const auto& mineral : mineral_ingredients)
+		{
+			JsonObject mineralObject = mineralsObject.createNestedObject();
+			mineralsObject[toString(mineral.type)] = mineral.amount;
+		}
+	}
 
 	char output[2048];
 	serializeJsonPretty(doc, output);
