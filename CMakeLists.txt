@@ -9,6 +9,8 @@ ADD_EXECUTABLE(Editogia.Cussed
         stringfunc.cpp
         files.cpp
         )
+SET_TARGET_PROPERTIES(Editogia.Cussed PROPERTIES CXX_STANDARD 17)
+
 ADD_EXECUTABLE(Editogia.Cusstest
         cuss.cpp
         cusstest.cpp
@@ -18,6 +20,8 @@ ADD_EXECUTABLE(Editogia.Cusstest
         stringfunc.cpp
         files.cpp
         )
+SET_TARGET_PROPERTIES(Editogia.Cusstest PROPERTIES CXX_STANDARD 17)
+
 ADD_EXECUTABLE(Editogia.App
         ai_city.cpp
         ai_data.cpp
@@ -63,6 +67,7 @@ ADD_EXECUTABLE(Editogia.App
         window.cpp
         world.cpp
         )
+SET_TARGET_PROPERTIES(Editogia.App PROPERTIES CXX_STANDARD 17)
 
 FILE(COPY ${CMAKE_CURRENT_SOURCE_DIR}/notes DESTINATION ${CMAKE_CURRENT_BINARY_DIR}/)
 FILE(COPY ${CMAKE_CURRENT_SOURCE_DIR}/cuss DESTINATION ${CMAKE_CURRENT_BINARY_DIR}/)
