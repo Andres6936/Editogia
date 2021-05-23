@@ -1391,18 +1391,18 @@ const std::string Building_datum::toJSON() const noexcept
 	using namespace ArduinoJson;
 	DynamicJsonDocument doc(1024);
 
-	doc["name"] = name;
-	doc["cost"] = 300;
-	doc["wages"] = wages;
-	doc["up-keep"] = upkeep;
-	doc["category"] = category;
-	doc["build-time"] = build_time;
-	doc["un-lockable"] = unlockable;
-	doc["base-morale"] = base_morale;
-	doc["description"] = description;
-	doc["destroy-cost"] = destroy_cost;
+	doc["Name"] = name;
+	doc["Cost"] = 300;
+	doc["Wages"] = wages;
+	doc["UpKeep"] = upkeep;
+	doc["Category"] = category;
+	doc["BuildTime"] = build_time;
+	doc["UnLockable"] = unlockable;
+	doc["BaseMorale"] = base_morale;
+	doc["Description"] = description;
+	doc["DestroyCost"] = destroy_cost;
 
-	JsonArray buildCostsObject = doc.createNestedArray("costs");
+	JsonArray buildCostsObject = doc.createNestedArray("Costs");
 
 	for(const auto& cost : build_costs)
 	{
