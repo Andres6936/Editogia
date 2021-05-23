@@ -6,8 +6,6 @@
 #include "Editogia/player_city.h"  // For close()
 #include "Editogia/rng.h"
 #include <sstream>
-#include <fstream>
-#include <iostream>
 
 #include <ArduinoJson/ArduinoJson.hpp>
 
