@@ -71,9 +71,9 @@ Player_city::Player_city()
 
 	birth_points = 0;
 
-	for (int i = 0; i < RES_MAX; i++)
+	for (auto& resource : resources)
 	{
-		resources[i] = 0;
+		resource = 0;
 	}
 	for (int i = 0; i < MINERAL_MAX; i++)
 	{
