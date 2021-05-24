@@ -23,6 +23,7 @@ ADD_EXECUTABLE(Editogia.App
         keys.cpp
         kingdom.cpp
         main.cpp
+        ManagerResources.cpp
         map.cpp
         map_data.cpp
         map_type_data.cpp

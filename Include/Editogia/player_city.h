@@ -24,6 +24,8 @@
 #include <map>
 #include <istream>
 
+#include "Editogia/ManagerResources.hpp"
+
 enum Message_type
 {
 	MESSAGE_NULL = 0,
@@ -299,6 +301,8 @@ private:
 	int birth_points; // We gain these each turn; at 100, a citizen is born.
 
 	Animal_action hunting_action[ANIMAL_MAX];
+
+	Editogia::ManagerResources resourcesM{};
 };
 
 
