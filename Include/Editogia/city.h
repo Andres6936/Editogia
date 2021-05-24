@@ -15,6 +15,8 @@
 #include "cuss.h"
 #include "glyph.h"    // For City::get_glyph()
 #include <map>
+
+#include <array>
 #include <istream>    // For City::load_data()
 
 // For determining City::get_glyph() - above this uses O, below uses o
@@ -195,11 +197,10 @@ public:
 
 	Point location;
 
-	Citizens population[CIT_MAX];
-
-	int resources[RES_MAX];
-	int minerals[MINERAL_MAX];
 	std::map<Animal, int> livestock;
+	std::array<int, RES_MAX> resources;
+	std::array<int, MINERAL_MAX> minerals;
+	std::array<Citizens, CIT_MAX> population;
 
 	City_map map;
 
@@ -208,12 +209,13 @@ public:
 	std::map<int, Trade_route> trade_routes;
 
 protected:
+
 	std::string name;
 	City_type type;
 	Race race;
 
-	int resource_price[RES_MAX];
-	int mineral_price[MINERAL_MAX];
+	std::array<int, RES_MAX> resource_price;
+	std::array<int, MINERAL_MAX> mineral_price;
 
 // Which cities are we *directly* connected to via road?
 	//std::vector<City*> road_connections;
