@@ -6,8 +6,10 @@
 #include "map_type.h"   // For Map_type
 #include "city_type.h"  // We track population size for each City_type.
 #include "stringfunc.h"
-#include <string>
+
 #include <map>
+#include <array>
+#include <string>
 
 enum Map_type;
 
@@ -159,7 +161,7 @@ struct Race_datum
 // GAME START VALUES
 
 	int starting_population[CIT_MAX];
-	int starting_resources[RES_MAX];
+	std::array<int, RES_MAX> starting_resources;
 
 
 // CITIZEN-TYPE-BASED VALUES

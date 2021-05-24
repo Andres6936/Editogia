@@ -161,8 +161,6 @@ public:
 
 	bool expend_resource(Resource res, int amount);
 
-	bool expend_resource(Resource_amount res);
-
 	bool expend_resources(std::vector<Resource_amount> res_used);
 
 	bool expend_resources(std::map<Resource, int> res_used);

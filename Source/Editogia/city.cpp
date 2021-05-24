@@ -2,6 +2,8 @@
 #include "Editogia/rng.h"
 #include "Editogia/world.h"
 #include "Editogia/globals.h"
+
+#include <Levin/Log.hpp>
 #include <sstream>
 
 City::City()
@@ -74,10 +76,12 @@ std::string City::save_data()
 	{
 		ret << population[i].save_data() << std::endl;
 	}
-	for (int i = 0; i < RES_MAX; i++)
+
+	for (const auto& value : resources)
 	{
-		ret << resources[i] << " ";
+		ret << value << " ";
 	}
+
 	ret << std::endl;
 	for (int i = 0; i < MINERAL_MAX; i++)
 	{
@@ -164,9 +168,9 @@ bool City::load_data(std::istream& data)
 		}
 	}
 
-	for (int i = 0; i < RES_MAX; i++)
+	for (auto& value : resources)
 	{
-		data >> resources[i];
+		data >> value;
 	}
 
 	for (int i = 0; i < MINERAL_MAX; i++)
@@ -203,7 +207,12 @@ void City::start_new_city()
 		population[i].add_citizens(race_dat->starting_population[i]);
 	}
 
-	for (int i = 0; i < RES_MAX; i++)
+	if (resources.size() not_eq race_dat->starting_resources.size())
+	{
+		Levin::Log::Error("The size of arrays not is equals.");
+	}
+
+	for (std::size_t i = 0; i < resources.size(); ++i)
 	{
 		resources[i] = race_dat->starting_resources[i];
 	}
@@ -213,7 +222,7 @@ void City::start_new_city()
 	}
 
 // We always start with the maximum amount of food, regardless of our race.
-	resources[RES_FOOD] = get_food_cap();
+	resources[Resource::RES_FOOD] = get_food_cap();
 
 }
 
@@ -551,11 +560,15 @@ int City::get_net_resource_production(Resource res)
 
 int City::get_resource_amount(Resource res)
 {
-	if (res < 0 || res >= RES_MAX)
+	try
 	{
+		return resources.at(res);
+	}
+	catch (std::out_of_range& exception)
+	{
+		Levin::Log::Error("Trying to access an index that does not exist, returning 0.");
 		return 0;
 	}
-	return resources[res];
 }
 
 int City::get_mineral_amount(Mineral min)
@@ -680,16 +693,6 @@ bool City::expend_resource(Resource res, int amount)
 	return true;
 }
 
-bool City::expend_resource(Resource_amount res)
-{
-	if (!has_resource(res))
-	{
-		return false;
-	}
-	resources[res.type] -= res.amount;
-	return true;
-}
-
 bool City::expend_resources(std::vector<Resource_amount> res_used)
 {
 	if (!has_resources(res_used))
@@ -697,9 +700,9 @@ bool City::expend_resources(std::vector<Resource_amount> res_used)
 		return false;
 	}
 
-	for (int i = 0; i < res_used.size(); i++)
+	for (const auto& [type, amount] : res_used)
 	{
-		resources[res_used[i].type] -= res_used[i].amount;
+		resources.at(type) -= amount;
 	}
 	return true;
 }
@@ -711,12 +714,11 @@ bool City::expend_resources(std::map<Resource, int> res_used)
 		return false;
 	}
 
-	for (std::map<Resource, int>::iterator it = res_used.begin();
-		 it != res_used.end();
-		 it++)
+	for (const auto& [type, value] : res_used)
 	{
-		resources[it->first] -= it->second;
+		resources[type] -= value;
 	}
+
 	return true;
 }
 

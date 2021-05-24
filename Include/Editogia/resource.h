@@ -2,6 +2,7 @@
 #define _RESOURCE_H_
 
 #include "color.h"
+#include <array>
 #include <string>
 #include <vector>
 
@@ -316,7 +317,7 @@ std::string mineral_amount_ranking(Mineral_amount min_amt);
 std::string trees_amount_ranking(int wood);
 
 // Defined in resource_data.cpp
-extern Resource_datum* Resource_data[RES_MAX];
+extern std::array<Resource_datum*, RES_MAX> Resource_data;
 extern Crop_datum* Crop_data[CROP_MAX];
 extern Mineral_datum* Mineral_data[MINERAL_MAX];
 

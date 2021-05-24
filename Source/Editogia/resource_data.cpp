@@ -1,6 +1,6 @@
 #include "Editogia/resource.h"
 
-Resource_datum* Resource_data[RES_MAX];
+std::array<Resource_datum*, RES_MAX> Resource_data;
 Crop_datum* Crop_data[CROP_MAX];
 Mineral_datum* Mineral_data[MINERAL_MAX];
 
