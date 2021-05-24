@@ -9,17 +9,22 @@
 #include "Editogia/kingdom.h"  // For init_kingdoms()
 #include "Editogia/globals.h"
 
+#include <Levin/Levin.hpp>
+
 void check_world_resources(World_map* world);
 
 int main()
 {
-// seed the RNG.  TODO: wrap this
-	srand(time(NULL));
+	// Configure the logger
+	Levin::Log::SetNewLogger(std::make_unique<Levin::FileLogger>("Editogia.log"));
 
-// Start up our display (e.g. ncurses)
+	// seed the RNG.
+	//srand(time(NULL));
+
+	// Start up our display (e.g. ncurses)
 	init_display();
 
-// Init the game data!
+	// Init the game data!
 	if (!init_all_data())
 	{
 		debugmsg("Failed to init data!");
@@ -32,7 +37,7 @@ int main()
 		return 1;
 	}
 
-// Set up a game.
+	// Set up a game.
 	GAME = new Game;
 
 	Interface interface;

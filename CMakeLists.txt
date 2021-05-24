@@ -8,6 +8,7 @@ SET(EDITOGIA_BINARY_DIR ${CMAKE_CURRENT_BINARY_DIR})
 INCLUDE(CMakeModules/CPM.cmake)
 
 CPMAddPackage("gh:Andres6936/Junos@6.17.3")
+CPMAddPackage("gh:Andres6936/Levin@2021.0523")
 
 ADD_SUBDIRECTORY(Source/Common)
 ADD_SUBDIRECTORY(Source/App/Cuss)
