@@ -9,8 +9,12 @@
 #include "Editogia/files.h"
 #include <fstream>
 
+#include <Levin/Log.hpp>
+
 Game::Game()
 {
+	Levin::Log::Informational("Creating instance of application.");
+
 	next_city_uid = 0;
 	world = new World_map;
 	city = new Player_city;
