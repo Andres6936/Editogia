@@ -1,5 +1,6 @@
 // Joan Andrés (@Andres6936) Github.
 
+#include <Levin/Log.hpp>
 #include "Editogia/ManagerResources.hpp"
 
 using namespace Editogia;
@@ -42,4 +43,16 @@ ManagerResources::ManagerResources()
 	insert({ Resource::RES_MINING, 0 });
 	insert({ Resource::RES_HUNTING, 0 });
 	insert({ Resource::RES_LOGGING, 0 });
+}
+
+void ManagerResources::setAt(std::int32_t value, Resource type) noexcept
+{
+	try
+	{
+		at(type) = value;
+	}
+	catch (std::out_of_range& exception)
+	{
+		Levin::Log::Warning("Attempting to access to resource type that does not exist.");
+	}
 }
