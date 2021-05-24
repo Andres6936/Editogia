@@ -43,6 +43,18 @@ ManagerResources::ManagerResources()
 	insert({ Resource::RES_MINING, 0 });
 	insert({ Resource::RES_HUNTING, 0 });
 	insert({ Resource::RES_LOGGING, 0 });
+
+	Levin::Log::Informational("The Manager Resource has been created.");
+}
+
+void ManagerResources::reset() noexcept
+{
+	for(auto& [_, value] : *this)
+	{
+		value = 0;
+	}
+
+	Levin::Log::Informational("The Manager Resource has been restarted.");
 }
 
 std::uint32_t ManagerResources::getAt(Resource type) noexcept

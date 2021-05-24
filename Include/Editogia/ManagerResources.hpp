@@ -18,6 +18,8 @@ namespace Editogia
 
 		ManagerResources();
 
+		void reset() noexcept;
+
 		std::uint32_t getAt(const Resource type) noexcept;
 
 		void setAt(const std::int32_t value, const Resource type) noexcept;
