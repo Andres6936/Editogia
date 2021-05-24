@@ -45,7 +45,20 @@ ManagerResources::ManagerResources()
 	insert({ Resource::RES_LOGGING, 0 });
 }
 
-void ManagerResources::setAt(std::int32_t value, Resource type) noexcept
+std::uint32_t ManagerResources::getAt(Resource type) noexcept
+{
+	try
+	{
+		return at(type);
+	}
+	catch (std::out_of_range& exception)
+	{
+		Levin::Log::Warning("Attempting to access to resource type that does not exist.");
+		return 0;
+	}
+}
+
+void ManagerResources::setAt(const std::int32_t value, const Resource type) noexcept
 {
 	try
 	{
