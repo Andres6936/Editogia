@@ -738,7 +738,7 @@ void Player_city::do_turn()
 	}
 
 // Receive taxes.
-	resources[RES_GOLD] += get_taxes();
+	resources[Resource::RES_GOLD] += get_taxes();
 
 // Check for starvation.
 	for (int i = 1; i < CIT_MAX; i++)
@@ -830,7 +830,7 @@ void Player_city::do_turn()
 	if (!expend_resource(RES_GOLD, wages))
 	{
 // TODO: Consequences for failure to pay wages!
-		resources[RES_GOLD] = 0;
+		resources[Resource::RES_GOLD] = 0;
 	}
 
 // Lose gold to corruption.
@@ -838,7 +838,7 @@ void Player_city::do_turn()
 	if (!expend_resource(RES_GOLD, corruption))
 	{
 // TODO: Consequences for failure to pay corruption?
-		resources[RES_GOLD] = 0;
+		resources[Resource::RES_GOLD] = 0;
 	}
 
 // We total maintenance into a single pool because we'll need to divide the gold
@@ -905,9 +905,9 @@ void Player_city::do_turn()
 
 // Make sure our food isn't above the cap (food goes bad y'know)
 	int food_cap = get_food_cap();
-	if (resources[RES_FOOD] > food_cap)
+	if (resources[Resource::RES_FOOD] > food_cap)
 	{
-		resources[RES_FOOD] = food_cap;
+		resources[Resource::RES_FOOD] = food_cap;
 	}
 
 // Advance progress on the first area in our queue.
@@ -1103,9 +1103,9 @@ void Player_city::handle_livestock()
 void Player_city::feed_citizens()
 {
 	int food_consumed = get_food_consumption();
-	if (resources[RES_FOOD] >= food_consumed)
+	if (resources[Resource::RES_FOOD] >= food_consumed)
 	{
-		resources[RES_FOOD] -= food_consumed;
+		resources[Resource::RES_FOOD] -= food_consumed;
 // Everyone eats!  Reduce starvation.
 		for (int i = 0; i < CIT_MAX; i++)
 		{
@@ -1129,9 +1129,9 @@ void Player_city::feed_citizens()
 			Citizen_type cit_type = Citizen_type(i);
 			int type_consumption = get_food_consumption(cit_type);
 			int* ptr_starvation = &(population[i].starvation);
-			if (resources[RES_FOOD] >= type_consumption)
+			if (resources[Resource::RES_FOOD] >= type_consumption)
 			{
-				resources[RES_FOOD] -= type_consumption;
+				resources[Resource::RES_FOOD] -= type_consumption;
 // We ate, hooray!  Reduce starvation.
 				if (*ptr_starvation <= 5)
 				{
@@ -1144,7 +1144,7 @@ void Player_city::feed_citizens()
 			}
 			else
 			{
-				int food_deficit = type_consumption - resources[RES_FOOD];
+				int food_deficit = type_consumption - resources[Resource::RES_FOOD];
 				int citizen_consumption = citizen_food_consumption(cit_type);
 				int hungry_citizens = 0;
 				if (citizen_consumption > 0)
@@ -1171,7 +1171,7 @@ void Player_city::feed_citizens()
 									  (pop * 2);
 				}
 				add_message(MESSAGE_URGENT, "We have run out of food!");
-				resources[RES_FOOD] = 0;
+				resources[Resource::RES_FOOD] = 0;
 			} // resources[RES_FOOD] < type_consumption
 		} // for (int i = CIT_MAX - 1; i > CIT_NULL; i--)
 	} // resources[RES_FOOD] < food_consumed
