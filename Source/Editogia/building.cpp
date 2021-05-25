@@ -518,21 +518,16 @@ std::map<Resource, int> Building::get_resource_production(City* city, bool real)
 				num_built = recipe_amt->amount;
 			}
 
-/* Next, check how many units of the resource manufactured we have the component
- * resources/minerals for.
- * We copy the city's resources and minerals to a new array since if $real is
- * false, we don't want to actually deduct the city's resources.
- */
-			int tmp_resources[RES_MAX];
-			int tmp_minerals[MINERAL_MAX];
-			for (int i = 0; i < RES_MAX; i++)
-			{
-				tmp_resources[i] = city->resources[i];
-			}
-			for (int i = 0; i < MINERAL_MAX; i++)
-			{
-				tmp_minerals[i] = city->minerals[i];
-			}
+			/* Next, check how many units of the resource manufactured we have the component
+			 * resources/minerals for.
+			 * We copy the city's resources and minerals to a new array since if $real is
+			 * false, we don't want to actually deduct the city's resources.
+			 */
+			std::array<int, RES_MAX> tmp_resources;
+			std::copy(city->resources.begin(), city->resources.end(), tmp_resources.begin());
+
+			std::array<int, MINERAL_MAX> tmp_minerals;
+			std::copy(city->minerals.begin(), city->minerals.end(), tmp_minerals.begin());
 
 /* We use a for loop since we might eventually run out of resources/minerals and
  * will need to stop before we've built num_built units.  We could use math to
