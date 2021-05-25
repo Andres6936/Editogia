@@ -27,6 +27,7 @@ ADD_EXECUTABLE(Editogia.App
         map.cpp
         map_data.cpp
         map_type_data.cpp
+        Message.cpp
         military.cpp
         pathfind.cpp
         player_city.cpp
