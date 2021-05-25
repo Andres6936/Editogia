@@ -5,6 +5,25 @@
 #include <doctest/doctest.h>
 #include "Editogia/Util/Container.hpp"
 
+template<typename Container>
+bool equalsContainer(const Container& left, const Container& right)
+{
+	if (left.size() not_eq right.size())
+	{
+		return false;
+	}
+
+	for(std::size_t index = 0; index < left.size(); ++index)
+	{
+		if (left[index] not_eq right[index])
+		{
+			return false;
+		}
+	}
+
+	return true;
+}
+
 TEST_CASE("Verify that all the properties are set to false for the construct for default")
 {
 	std::vector vector {1, 2, 3, 4, 5};
@@ -15,5 +34,7 @@ TEST_CASE("Verify that all the properties are set to false for the construct for
 
 	CHECK(vector.at(4) == 5);
 	CHECK(array.at(4) == 5);
+
+	CHECK(equalsContainer(vector, {1, 2, 3, 4, 5}));
 }
 
