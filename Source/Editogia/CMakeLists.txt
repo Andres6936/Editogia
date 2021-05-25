@@ -49,7 +49,6 @@ ADD_EXECUTABLE(Editogia.App main.cpp)
 SET_TARGET_PROPERTIES(Editogia.App PROPERTIES CXX_STANDARD 17)
 TARGET_LINK_LIBRARIES(Editogia.App PRIVATE Editogia.Lib)
 TARGET_LINK_LIBRARIES(Editogia.App PRIVATE Levin::Framework)
-TARGET_INCLUDE_DIRECTORIES(Editogia.App PRIVATE $<BUILD_INTERFACE:${EDITOGIA_ROOT_DIR}/Include/>)
 
 # Move the binary after of build the target to binary root directory
 # for found the resources that need the executable
