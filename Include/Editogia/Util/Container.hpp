@@ -3,6 +3,8 @@
 #ifndef EDITOGIA_CONTAINER_HPP
 #define EDITOGIA_CONTAINER_HPP
 
+#include <algorithm>
+
 /**
  * Wrapper around of method that set all the values of a Container
  * to the value send for parameter.
@@ -20,12 +22,9 @@
  * @param value The value used to reset the container.
  */
 template<typename Container, typename Type>
-void resetAt(Container& container, const Type&& value)
+void resetAt(Container& container, const Type& value)
 {
-	for(auto& item: container)
-	{
-		item = std::forward<Type>(value);
-	}
+	std::fill(container.begin(), container.end(), value);
 }
 
 #endif //EDITOGIA_CONTAINER_HPP
