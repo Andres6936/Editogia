@@ -20,11 +20,11 @@
  * @param value The value used to reset the container.
  */
 template<typename Container, typename Type>
-void resetAt(Container& container, const Type& value)
+void resetAt(Container& container, const Type&& value)
 {
 	for(auto& item: container)
 	{
-		item = value;
+		item = std::forward<Type>(value);
 	}
 }
 
