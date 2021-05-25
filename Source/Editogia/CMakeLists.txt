@@ -1,4 +1,4 @@
-ADD_EXECUTABLE(Editogia.App
+ADD_LIBRARY(Editogia.Lib
         ai_city.cpp
         ai_data.cpp
         animal.cpp
@@ -22,7 +22,6 @@ ADD_EXECUTABLE(Editogia.App
         interface.cpp
         keys.cpp
         kingdom.cpp
-        main.cpp
         ManagerResources.cpp
         map.cpp
         map_data.cpp
@@ -40,10 +39,16 @@ ADD_EXECUTABLE(Editogia.App
         trade.cpp
         world.cpp
         )
+SET_TARGET_PROPERTIES(Editogia.Lib PROPERTIES CXX_STANDARD 17)
+TARGET_LINK_LIBRARIES(Editogia.Lib PRIVATE Editogia.Common)
+TARGET_LINK_LIBRARIES(Editogia.Lib PRIVATE Levin::Framework)
+TARGET_LINK_LIBRARIES(Editogia.Lib PRIVATE ArduinoJson)
+TARGET_INCLUDE_DIRECTORIES(Editogia.Lib PRIVATE $<BUILD_INTERFACE:${EDITOGIA_ROOT_DIR}/Include/>)
+
+ADD_EXECUTABLE(Editogia.App main.cpp)
 SET_TARGET_PROPERTIES(Editogia.App PROPERTIES CXX_STANDARD 17)
-TARGET_LINK_LIBRARIES(Editogia.App PRIVATE Editogia.Common)
+TARGET_LINK_LIBRARIES(Editogia.App PRIVATE Editogia.Lib)
 TARGET_LINK_LIBRARIES(Editogia.App PRIVATE Levin::Framework)
-TARGET_LINK_LIBRARIES(Editogia.App PRIVATE ArduinoJson)
 TARGET_INCLUDE_DIRECTORIES(Editogia.App PRIVATE $<BUILD_INTERFACE:${EDITOGIA_ROOT_DIR}/Include/>)
 
 # Move the binary after of build the target to binary root directory

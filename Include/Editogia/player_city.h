@@ -25,6 +25,7 @@
 #include <istream>
 
 #include "Editogia/ManagerResources.hpp"
+#include "Editogia/Message.hpp"
 
 
 class Player_city : public City
