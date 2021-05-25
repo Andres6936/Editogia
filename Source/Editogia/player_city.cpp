@@ -8,6 +8,8 @@
 #include "Editogia/combat.h" // For hunting
 #include "Editogia/globals.h"
 #include "Editogia/kingdom.h"
+#include "Editogia/Util/Container.hpp"
+
 #include <sstream>
 #include <vector>
 #include <map>
@@ -26,14 +28,9 @@ Player_city::Player_city()
 
 	birth_points = 0;
 
-	for (auto& resource : resources)
-	{
-		resource = 0;
-	}
-	for (int i = 0; i < MINERAL_MAX; i++)
-	{
-		minerals[i] = 0;
-	}
+	resetAt(resources, 0);
+	resetAt(minerals, 0);
+
 	for (int i = 0; i < ANIMAL_MAX; i++)
 	{
 		hunting_action[i] = Animal_data[i]->default_action;
