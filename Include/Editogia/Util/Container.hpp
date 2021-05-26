@@ -32,12 +32,29 @@ void resetAt(Container& container, const Type& value)
 	std::fill(container.begin(), container.end(), value);
 }
 
-template<typename Container, typename Function>
-void applyAt(Container& container, Function&& function)
+/**
+ *
+ * @tparam Container The parameter must be of meet the requirements
+ * of Container, it is: A Container is an object used to store other
+ * objects and taking care of the management of the memory used by
+ * the objects it contains.
+ *
+ * @tparam Callable A Callable type is a type for which the INVOKE
+ * operation (used by, e.g., std::function, std::bind, and
+ * std::thread::thread) is applicable. This operation may be performed
+ * explicitly using the library function std::invoke.
+ *
+ * @param container The container that store the values, the
+ * container must meet the requirement of Iterable.
+ *
+ * @param function Callable object to be invoked.
+ */
+template<typename Container, typename Callable>
+void applyAt(Container& container, Callable&& function)
 {
 	for (auto& item : container)
 	{
-		std::invoke(std::forward<Function>(function), item);
+		std::invoke(std::forward<Callable>(function), item);
 	}
 }
 
