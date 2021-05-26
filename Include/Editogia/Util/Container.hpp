@@ -24,6 +24,9 @@
 template<typename Container, typename Type>
 void resetAt(Container& container, const Type& value)
 {
+	// Verify that the type elements that stored the Container is the
+	// same type of value that trying assign.
+	static_assert(std::is_same<typename Container::value_type, Type>::value);
 	std::fill(container.begin(), container.end(), value);
 }
 
