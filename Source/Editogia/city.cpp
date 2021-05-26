@@ -430,11 +430,6 @@ glyph City::get_glyph()
 	return ret;
 }
 
-City_type City::get_city_type()
-{
-	return type;
-}
-
 Race City::get_race()
 {
 	return race;
@@ -494,11 +489,6 @@ std::vector<Trade_route> City::find_buyers_for(Resource res)
 int City::get_price(Resource res)
 {
 	return resource_price[res];
-}
-
-int City::get_price(Mineral min)
-{
-	return mineral_price[min];
 }
 
 void City::set_all_prices()

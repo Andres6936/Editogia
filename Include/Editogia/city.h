@@ -87,8 +87,6 @@ public:
 
 	glyph get_glyph();
 
-	City_type get_city_type();
-
 	Race get_race();
 
 // Trade-related functions
@@ -105,9 +103,7 @@ public:
 
 	int get_price(Resource res);
 
-	int get_price(Mineral min);
-
-// Set prices for all resources.
+	// Set prices for all resources.
 	virtual void set_all_prices();
 
 // The quantity that we want on a daily basis.
