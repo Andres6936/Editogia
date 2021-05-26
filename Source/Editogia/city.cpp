@@ -2,6 +2,7 @@
 #include "Editogia/rng.h"
 #include "Editogia/world.h"
 #include "Editogia/globals.h"
+#include "Editogia/Util/Container.hpp"
 
 #include <Levin/Log.hpp>
 #include <sstream>
@@ -20,10 +21,8 @@ City::City()
 		resources[i] = 0;
 		resource_price[i] = Resource_data[i]->value;
 	}
-	for (int i = 0; i < MINERAL_MAX; i++)
-	{
-		minerals[i] = 0;
-	}
+
+	resetAt(minerals, 0);
 }
 
 City::~City()
