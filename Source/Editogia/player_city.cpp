@@ -2491,12 +2491,10 @@ void Player_city::kill_animals(Animal animal, int amount, Point pos)
 int Player_city::get_livestock_total()
 {
 	int ret = 0;
-	for (std::map<Animal, int>::iterator it = livestock.begin();
-		 it != livestock.end();
-		 it++)
+	for (auto&[animal, amount] : livestock)
 	{
-		Animal_datum* ani_dat = Animal_data[it->first];
-		ret += it->second * ani_dat->size;
+		Animal_datum* ani_dat = Animal_data[animal];
+		ret += amount * ani_dat->size;
 	}
 	return ret;
 }
