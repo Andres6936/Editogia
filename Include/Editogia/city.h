@@ -183,10 +183,6 @@ public:
 
 	void gain_mineral(Mineral res, int amount);
 
-	void gain_mineral(Mineral_amount res);
-
-	void gain_minerals(std::vector<Mineral_amount> res_used);
-
 	void gain_minerals(std::map<Mineral, int> res_used);
 
 

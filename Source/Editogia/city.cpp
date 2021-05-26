@@ -805,26 +805,11 @@ void City::gain_mineral(Mineral min, int amount)
 	minerals[min] += amount;
 }
 
-void City::gain_mineral(Mineral_amount min)
-{
-	gain_mineral(min.type, min.amount);
-}
-
-void City::gain_minerals(std::vector<Mineral_amount> min_used)
-{
-	for (int i = 0; i < min_used.size(); i++)
-	{
-		gain_mineral(min_used[i]);
-	}
-}
-
 void City::gain_minerals(std::map<Mineral, int> min_used)
 {
-	for (std::map<Mineral, int>::iterator it = min_used.begin();
-		 it != min_used.end();
-		 it++)
+	for (auto& [mineral, used] : min_used )
 	{
-		gain_mineral(it->first, it->second);
+		gain_mineral(mineral, used);
 	}
 }
 
