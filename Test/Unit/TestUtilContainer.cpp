@@ -41,7 +41,24 @@ TEST_CASE("Verify that the method resetAt set all the values of container to val
 	CHECK(vector.size() == 5);
 	CHECK(array.size() == 5);
 
-	CHECK(equalsContainer(vector, {0, 0, 0, 0, 0}));
-	CHECK(equalsContainer(array, {0, 0, 0, 0, 0}));
+	CHECK(equalsContainer(vector, { 0, 0, 0, 0, 0 }));
+	CHECK(equalsContainer(array, { 0, 0, 0, 0, 0 }));
 }
 
+void add(int& value)
+{
+	value *= 2;
+}
+
+TEST_CASE("")
+{
+	std::vector vector{ 1, 2, 3, 4, 5 };
+
+	CHECK(vector.size() == 5);
+	CHECK(equalsContainer(vector, { 1, 2, 3, 4, 5 }));
+
+	applyAt(vector, add);
+
+	CHECK(vector.size() == 5);
+	CHECK(equalsContainer(vector, { 2, 4, 6, 8, 10 }));
+}

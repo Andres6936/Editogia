@@ -32,4 +32,13 @@ void resetAt(Container& container, const Type& value)
 	std::fill(container.begin(), container.end(), value);
 }
 
+template<typename Container, typename Function>
+void applyAt(Container& container, Function&& function)
+{
+	for (auto& item : container)
+	{
+		std::invoke(std::forward<Function>(function), item);
+	}
+}
+
 #endif //EDITOGIA_CONTAINER_HPP
