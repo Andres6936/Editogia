@@ -4,6 +4,7 @@
 #define EDITOGIA_CONTAINER_HPP
 
 #include <algorithm>
+#include <type_traits>
 
 /**
  * Wrapper around of method that set all the values of a Container
