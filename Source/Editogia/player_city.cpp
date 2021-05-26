@@ -1297,11 +1297,6 @@ void Player_city::add_open_area(Area area)
 
 }
 
-void Player_city::destroy_area_at(int x, int y)
-{
-	destroy_area_at(Point(x, y));
-}
-
 void Player_city::destroy_area_at(Point pos)
 {
 	for (int i = 0; i < areas.size(); i++)
@@ -1558,11 +1553,6 @@ std::vector<int> Player_city::get_unread_message_count()
 	}
 
 	return ret;
-}
-
-bool Player_city::inside_radius(int x, int y)
-{
-	return inside_radius(Point(x, y));
 }
 
 bool Player_city::inside_radius(Point p)
@@ -1934,16 +1924,6 @@ std::vector<Building*> Player_city::get_all_buildings()
 	return ret;
 }
 
-std::vector<Building*> Player_city::get_pure_buildings()
-{
-	std::vector<Building*> ret;
-	for (int i = 0; i < buildings.size(); i++)
-	{
-		ret.push_back(&(buildings[i]));
-	}
-	return ret;
-}
-
 // cit_type defaults to CIT_NULL
 std::vector<Building*> Player_city::get_employers(Citizen_type cit_type)
 {
@@ -1978,31 +1958,6 @@ int Player_city::get_number_of_buildings(Building_type type)
 			ret++;
 		}
 	}
-	return ret;
-}
-
-int Player_city::get_number_of_areas(Area_type type)
-{
-	int ret = 0;
-	for (int i = 0; i < areas.size(); i++)
-	{
-		if (type == AREA_NULL || areas[i].type == type)
-		{
-			ret++;
-		}
-	}
-	return ret;
-}
-
-int Player_city::get_buildings_supported()
-{
-	int ret = 0;
-	for (int i = 0; i < areas.size(); i++)
-	{
-		Area_datum* area_dat = areas[i].get_area_datum();
-		ret += area_dat->buildings_supported;
-	}
-
 	return ret;
 }
 
@@ -2257,44 +2212,6 @@ int Player_city::get_food_production()
 	return ret;
 }
 
-std::vector<Crop_amount> Player_city::get_crops_grown()
-{
-	std::vector<Crop_amount> ret;
-// Look for any areas with buildings that provide RES_FARMING
-	for (int i = 0; i < areas.size(); i++)
-	{
-		Building* build = &(areas[i].building);
-		if (build->workers > 0 && areas[i].produces_resource(RES_FARMING))
-		{
-			for (int n = 0; n < build->crops_grown.size(); n++)
-			{
-// Check if we already have that crop in ret
-				if (build->crops_grown[n].amount > 0)
-				{
-					Crop_amount crop = build->crops_grown[n];
-					bool found_crop = false;
-					for (int m = 0; !found_crop && m < ret.size(); m++)
-					{
-						if (ret[m].type == crop.type)
-						{
-							found_crop = true;
-							ret[m].amount += crop.amount;
-						}
-					}
-					if (!found_crop)
-					{ // Didn't combine it, so add it to the list
-						ret.push_back(crop);
-					}
-				}
-			}
-		} // if (build->workers > 0 && areas[i].produces_resource(RES_FARMING))
-	} // for (int i = 0; i < areas.size(); i++)
-
-// TODO: Buildings (not from areas) that provide RES_FARMING?
-
-	return ret;
-}
-
 // mineral defaults to MINERAL_NULL
 int Player_city::get_amount_mined(Mineral mineral)
 {
@@ -2354,16 +2271,6 @@ std::map<Mineral, int> Player_city::get_minerals_used()
 {
 	std::map<Mineral, int> ret;
 	return ret;
-}
-
-Animal_action Player_city::get_hunting_action(Animal animal)
-{
-	return hunting_action[animal];
-}
-
-void Player_city::set_hunting_action(Animal animal, Animal_action action)
-{
-	hunting_action[animal] = action;
 }
 
 void Player_city::do_hunt(Area* hunting_camp)

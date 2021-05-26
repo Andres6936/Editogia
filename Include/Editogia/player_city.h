@@ -78,7 +78,6 @@ public:
 	Area_queue_status add_area_to_queue(Area area);
 
 	void add_open_area(Area area);  // Move it from queue to areas.
-	void destroy_area_at(int x, int y);
 
 	void destroy_area_at(Point pos);
 
@@ -109,9 +108,6 @@ public:
 // It goes through the unread messages and adds 1 for each messages of that type
 	std::vector<int> get_unread_message_count();
 
-
-// Map-related functions
-	bool inside_radius(int x, int y);
 
 	bool inside_radius(Point p);
 
@@ -163,7 +159,7 @@ public:
 // Building/Area-related functions
 	std::vector<Building*> get_all_buildings();
 
-	std::vector<Building*> get_pure_buildings(); // i.e. those not of an Area
+	// i.e. those not of an Area
 // get_employers() returns buildings with at least 1 worker of the type passed.
 // If it's passed CIT_NULL (or nothing), it ignores the Citizen_type.
 	std::vector<Building*> get_employers(Citizen_type cit_type = CIT_NULL);
@@ -172,9 +168,6 @@ public:
 // all) they will return the sum total of ALL buildings/areas.
 	int get_number_of_buildings(Building_type type = BUILD_NULL);
 
-	int get_number_of_areas(Area_type type = AREA_NULL);
-
-	int get_buildings_supported();  // Total of buildings_supported of all areas
 	int get_total_maintenance();
 
 	int get_fields_worked();
@@ -212,19 +205,12 @@ public:
 	// Crops & food
 	int get_food_production();
 
-	std::vector<Crop_amount> get_crops_grown();
-
 	// Mining
 	int get_amount_mined(Mineral mineral = MINERAL_NULL);
 
 	std::map<Mineral, int> get_minerals_mined();
 
 	std::map<Mineral, int> get_minerals_used();
-
-	// Animals & hunting
-	Animal_action get_hunting_action(Animal animal);
-
-	void set_hunting_action(Animal animal, Animal_action action);
 
 	void do_hunt(Area* hunting_camp);
 
