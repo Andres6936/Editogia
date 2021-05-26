@@ -784,9 +784,9 @@ void City::gain_resource(Resource_amount res)
 
 void City::gain_resources(std::vector<Resource_amount> res_used)
 {
-	for (int i = 0; i < res_used.size(); i++)
+	for (auto& amount : res_used)
 	{
-		gain_resource(res_used[i]);
+		gain_resource(amount);
 	}
 }
 
