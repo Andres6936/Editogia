@@ -26,7 +26,8 @@ void resetAt(Container& container, const Type& value)
 {
 	// Verify that the type elements that stored the Container is the
 	// same type of value that trying assign.
-	static_assert(std::is_same<typename Container::value_type, Type>::value);
+	static_assert(std::is_same<typename Container::value_type, Type>::value,
+			"The value of parameter not is same type that stored the Container");
 	std::fill(container.begin(), container.end(), value);
 }
 
