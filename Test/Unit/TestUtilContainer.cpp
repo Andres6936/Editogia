@@ -32,9 +32,16 @@ TEST_CASE("Verify that all the properties are set to false for the construct for
 	CHECK(vector.size() == 5);
 	CHECK(array.size() == 5);
 
-	CHECK(vector.at(4) == 5);
-	CHECK(array.at(4) == 5);
-
 	CHECK(equalsContainer(vector, {1, 2, 3, 4, 5}));
+	CHECK(equalsContainer(array, {1, 2, 3, 4, 5}));
+
+	resetAt(vector, 0);
+	resetAt(array, 0);
+
+	CHECK(vector.size() == 5);
+	CHECK(array.size() == 5);
+
+	CHECK(equalsContainer(vector, {0, 0, 0, 0, 0}));
+	CHECK(equalsContainer(array, {0, 0, 0, 0, 0}));
 }
 
