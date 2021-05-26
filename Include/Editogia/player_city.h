@@ -19,9 +19,10 @@
 #include "window.h"
 #include "cuss.h"
 
+#include <map>
+#include <array>
 #include <vector>
 #include <string>
-#include <map>
 #include <istream>
 
 #include "Editogia/ManagerResources.hpp"
@@ -244,19 +245,16 @@ public:
 
 
 // *** DATA ***
-	int tax_rate[CIT_MAX];
-
-	std::vector<Military_unit> units_stationed;
-
 	int radius;
 
-	bool area_unlocked[AREA_MAX];
-	bool building_unlocked[BUILD_MAX];
-
-	std::vector<Building> buildings;
-	std::vector<Building> building_queue;
+	std::array<int, CIT_MAX> tax_rate;
+	std::array<bool, AREA_MAX> area_unlocked;
+	std::array<bool, BUILD_MAX> building_unlocked;
 	std::vector<Area> areas;
 	std::vector<Area> area_queue;
+	std::vector<Building> buildings;
+	std::vector<Building> building_queue;
+	std::vector<Military_unit> units_stationed;
 
 	std::map<Animal, int> hunt_kills;
 	int hunt_record_days; // How many days since we started recording hunt food?
@@ -273,9 +271,7 @@ public:
 private:
 	int birth_points; // We gain these each turn; at 100, a citizen is born.
 
-	Animal_action hunting_action[ANIMAL_MAX];
-
-	Editogia::ManagerResources resourcesM{};
+	std::array<Animal_action,ANIMAL_MAX> hunting_action;
 };
 
 
