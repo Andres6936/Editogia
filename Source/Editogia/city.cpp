@@ -659,20 +659,6 @@ bool City::has_minerals(std::vector<Mineral_amount> min_used)
 	return true;
 }
 
-bool City::has_minerals(std::map<Mineral, int> min_used)
-{
-	for (std::map<Mineral, int>::iterator it = min_used.begin();
-		 it != min_used.end();
-		 it++)
-	{
-		if (!has_mineral(it->first, it->second))
-		{
-			return false;
-		}
-	}
-	return true;
-}
-
 bool City::expend_resource(Resource res, int amount)
 {
 	if (!has_resource(res, amount))

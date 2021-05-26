@@ -153,8 +153,6 @@ public:
 
 	bool has_minerals(std::vector<Mineral_amount> min_used);
 
-	bool has_minerals(std::map<Mineral, int> min_used);
-
 	bool expend_resource(Resource res, int amount);
 
 	bool expend_resources(std::vector<Resource_amount> res_used);
