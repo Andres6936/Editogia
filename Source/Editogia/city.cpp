@@ -432,11 +432,9 @@ Race City::get_race()
 std::vector<Trade_route> City::find_sellers_of(Resource res)
 {
 	std::vector<Trade_route> ret;
-	for (std::map<int, Trade_route>::iterator it = trade_routes.begin();
-		 it != trade_routes.end();
-		 it++)
+	for (auto&[serial, tradeRoute] : trade_routes)
 	{
-		City* seller = GAME->world->lookup_city_uid(it->first);
+		City* seller = GAME->world->lookup_city_uid(serial);
 		if (seller)
 		{
 			int avail = seller->get_net_resource_production(res);
@@ -444,19 +442,19 @@ std::vector<Trade_route> City::find_sellers_of(Resource res)
 			{
 // Insert into our return vector, sorted by distance.
 // TODO: Sort by unit price (including overhead)!
-				int dist = it->second.distance;
+				int dist = tradeRoute.distance;
 				bool found = false;
 				for (int i = 0; !found && i < ret.size(); i++)
 				{
 					if (dist <= ret[i].distance)
 					{
 						found = true;
-						ret.insert(ret.begin() + i, it->second);
+						ret.insert(ret.begin() + i, tradeRoute);
 					}
 				}
 				if (!found)
 				{
-					ret.push_back(it->second);
+					ret.push_back(tradeRoute);
 				}
 			} // if (avail > 0)
 		} // if (seller)
