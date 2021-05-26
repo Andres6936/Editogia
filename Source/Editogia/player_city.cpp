@@ -165,7 +165,7 @@ bool Player_city::load_data(std::istream& data)
 {
 	if (!City::load_data(data))
 	{
-		debugmsg("Player_city::load_data() failed when calling City::load_data().");
+		Levin::Log::Debug("Player_city::load_data() failed when calling City::load_data().");
 		return false;
 	}
 
@@ -181,7 +181,7 @@ bool Player_city::load_data(std::istream& data)
 		Military_unit tmp_unit;
 		if (!tmp_unit.load_data(data))
 		{
-			debugmsg("Player_city failed to load Military_unit %d/%d.",
+			Levin::Log::Debug("Player_city failed to load Military_unit {}/{}.",
 					i, num_units);
 			return false;
 		}
@@ -206,7 +206,7 @@ bool Player_city::load_data(std::istream& data)
 		Building tmp_build;
 		if (!tmp_build.load_data(data))
 		{
-			debugmsg("Player_city failed to load building %d/%d.", i, num_buildings);
+			Levin::Log::Debug("Player_city failed to load building {}/{}.", i, num_buildings);
 			return false;
 		}
 		buildings.push_back(tmp_build);
@@ -219,7 +219,7 @@ bool Player_city::load_data(std::istream& data)
 		Building tmp_build;
 		if (!tmp_build.load_data(data))
 		{
-			debugmsg("Player_city failed to load queued building %d/%d.",
+			Levin::Log::Debug("Player_city failed to load queued building {}/{}.",
 					i, num_buildings);
 			return false;
 		}
@@ -233,7 +233,7 @@ bool Player_city::load_data(std::istream& data)
 		Area tmp_area;
 		if (!tmp_area.load_data(data))
 		{
-			debugmsg("Player_city failed to load area %d/%d.", i, num_areas);
+			Levin::Log::Debug("Player_city failed to load area {}/{}.", i, num_areas);
 			return false;
 		}
 		areas.push_back(tmp_area);
@@ -246,7 +246,7 @@ bool Player_city::load_data(std::istream& data)
 		Area tmp_area;
 		if (!tmp_area.load_data(data))
 		{
-			debugmsg("Player_city failed to load area %d/%d.", i, num_areas);
+			Levin::Log::Debug("Player_city failed to load area {}/{}.", i, num_areas);
 			return false;
 		}
 		areas.push_back(tmp_area);
@@ -260,7 +260,7 @@ bool Player_city::load_data(std::istream& data)
 		data >> tmpani >> tmpnum;
 		if (tmpani <= 0 || tmpani >= ANIMAL_MAX)
 		{
-			debugmsg("Player_city loaded hunt_kills on animal %d (range is 1 to %d).",
+			Levin::Log::Debug("Player_city loaded hunt_kills on animal {} (range is 1 to {}).",
 					tmpani, ANIMAL_MAX - 1);
 			return false;
 		}
@@ -275,7 +275,7 @@ bool Player_city::load_data(std::istream& data)
 		Message tmpmes;
 		if (!tmpmes.load_data(data))
 		{
-			debugmsg("Player_city failed to load message %d/%d.", i, num_messages);
+			Levin::Log::Debug("Player_city failed to load message {}/{}.", i, num_messages);
 			return false;
 		}
 		messages.push_back(tmpmes);
@@ -283,7 +283,7 @@ bool Player_city::load_data(std::istream& data)
 
 	if (!world_seen.load_data(data))
 	{
-		debugmsg("Player_city failed to load Map_seen.");
+		Levin::Log::Debug("Player_city failed to load Map_seen.");
 		return false;
 	}
 
@@ -438,7 +438,7 @@ void Player_city::set_starting_tiles_seen()
 	Kingdom* kingdom = GAME->get_kingdom_for_race(race);
 	if (!kingdom)
 	{
-		debugmsg("No kingdom found for Player_city::set_starting_tiles_seen().");
+		Levin::Log::Debug("No kingdom found for Player_city::set_starting_tiles_seen().");
 		return;
 	}
 
@@ -506,7 +506,7 @@ void Player_city::draw_map(cuss::element* e_draw, Point sel, bool radius_limited
 {
 	if (!e_draw)
 	{
-		debugmsg("Player_city::draw_map() called with NULL drawing area.");
+		Levin::Log::Debug("Player_city::draw_map() called with NULL drawing area.");
 		return;
 	}
 
@@ -579,7 +579,7 @@ void Player_city::draw_map(cuss::element* e_draw, Point sel, bool radius_limited
 			Point pos(x, y);
 			if (drawing.count(pos) == 0)
 			{
-				debugmsg("ERROR - hole in city drawing at %s!", pos.str().c_str());
+				Levin::Log::Debug("ERROR - hole in city drawing at {}!", pos.str());
 				e_draw->set_data(glyph(), x, y);
 			}
 			else
@@ -1142,8 +1142,8 @@ void Player_city::add_open_area(Area area)
 	Building_datum* build_dat = area.get_building_datum();
 	if (!build_dat)
 	{
-		debugmsg("NULL Building_data* in Player_city::open_area (%s).",
-				area.get_name().c_str());
+		Levin::Log::Debug("NULL Building_data* in Player_city::open_area ({}).",
+				area.get_name());
 	}
 
 // Farms are set up specially.
@@ -1362,8 +1362,8 @@ void Player_city::kill_citizens(Citizen_type type, int amount,
 // Sanity check
 	if (type == CIT_NULL || type == CIT_MAX)
 	{
-		debugmsg("Player_city::kill_citizens(%s) called!",
-				citizen_type_name(type).c_str());
+		Levin::Log::Debug("Player_city::kill_citizens({}) called!",
+				citizen_type_name(type));
 		return;
 	}
 
@@ -1389,8 +1389,8 @@ void Player_city::kill_citizens(Citizen_type type, int amount,
 		Building* bldg = employers[index];
 		if (bldg->workers <= 0)
 		{
-			debugmsg("Player_city::killed_citizens() tried to fire citizens from a \
-workerless building!");
+			Levin::Log::Debug(
+					"Player_city::killed_citizens() tried to fire citizens from a worker less building!");
 			employers.erase(employers.begin() + index);
 		}
 		else
@@ -2193,7 +2193,7 @@ void Player_city::do_hunt(Area* hunting_camp)
 {
 	if (!hunting_camp)
 	{
-		debugmsg("Player_city::do_hunt(NULL) called!");
+		Levin::Log::Debug("Player_city::do_hunt(NULL) called!");
 		return;
 	}
 
@@ -2201,7 +2201,7 @@ void Player_city::do_hunt(Area* hunting_camp)
 
 	if (!tile)
 	{
-		debugmsg("BUG - Hunting on NULL ground!");
+		Levin::Log::Debug("BUG - Hunting on NULL ground!");
 		return;
 	}
 
@@ -2261,8 +2261,8 @@ void Player_city::do_hunt(Area* hunting_camp)
 // Sanity check...
 			if (point_cost <= 0)
 			{
-				debugmsg("Hunting cost 0! (%s, pack of %d)",
-						target_data->name.c_str(), pack_size);
+				Levin::Log::Debug("Hunting cost 0! ({}, pack of {})",
+						target_data->name, pack_size);
 				point_cost = 1;
 			}
 // If we don't have enough points, we roll against the cost.  If our roll is
@@ -2548,7 +2548,7 @@ bool Player_city::meets_achievement(City_achievement achievement)
 		return false;
 	}
 
-	debugmsg("Escaped Player_city::meets_achievement switch.");
+	Levin::Log::Debug("Escaped Player_city::meets_achievement switch.");
 	return false;
 }
 
