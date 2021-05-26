@@ -50,7 +50,7 @@ void add(int& value)
 	value *= 2;
 }
 
-TEST_CASE("")
+TEST_CASE("Verify the transmutation of container with function add(ref value)")
 {
 	std::vector vector{ 1, 2, 3, 4, 5 };
 
