@@ -108,8 +108,6 @@ public:
 
 	bool inside_radius(Point p);
 
-	Area* area_at(int x, int y);
-
 	Area* area_at(Point p);
 
 	std::string get_map_info(Point p);

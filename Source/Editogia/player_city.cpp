@@ -1483,11 +1483,6 @@ bool Player_city::inside_radius(Point p)
 	return rl_dist(center, p) <= radius;
 }
 
-Area* Player_city::area_at(int x, int y)
-{
-	return area_at(Point(x, y));
-}
-
 Area* Player_city::area_at(Point p)
 {
 	for (int i = 0; i < areas.size(); i++)
