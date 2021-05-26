@@ -165,13 +165,7 @@ public:
 
 	bool expend_resources(std::map<Resource, int> res_used);
 
-	bool expend_mineral(Mineral res, int amount);
-
-	bool expend_mineral(Mineral_amount res);
-
 	bool expend_minerals(std::vector<Mineral_amount> min_used);
-
-	bool expend_minerals(std::map<Mineral, int> min_used);
 
 	void gain_resource(Resource res, int amount);
 

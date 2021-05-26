@@ -722,26 +722,6 @@ bool City::expend_resources(std::map<Resource, int> res_used)
 	return true;
 }
 
-bool City::expend_mineral(Mineral res, int amount)
-{
-	if (!has_mineral(res, amount))
-	{
-		return false;
-	}
-	minerals[res] -= amount;
-	return true;
-}
-
-bool City::expend_mineral(Mineral_amount res)
-{
-	if (!has_mineral(res))
-	{
-		return false;
-	}
-	minerals[res.type] -= res.amount;
-	return true;
-}
-
 bool City::expend_minerals(std::vector<Mineral_amount> min_used)
 {
 	if (!has_minerals(min_used))
@@ -752,22 +732,6 @@ bool City::expend_minerals(std::vector<Mineral_amount> min_used)
 	for (int i = 0; i < min_used.size(); i++)
 	{
 		minerals[min_used[i].type] -= min_used[i].amount;
-	}
-	return true;
-}
-
-bool City::expend_minerals(std::map<Mineral, int> min_used)
-{
-	if (!has_minerals(min_used))
-	{
-		return false;
-	}
-
-	for (std::map<Mineral, int>::iterator it = min_used.begin();
-		 it != min_used.end();
-		 it++)
-	{
-		minerals[it->first] -= it->second;
 	}
 	return true;
 }
