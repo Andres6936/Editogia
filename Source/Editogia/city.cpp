@@ -792,11 +792,9 @@ void City::gain_resources(std::vector<Resource_amount> res_used)
 
 void City::gain_resources(std::map<Resource, int> res_used)
 {
-	for (std::map<Resource, int>::iterator it = res_used.begin();
-		 it != res_used.end();
-		 it++)
+	for (auto& [resource, used] : res_used)
 	{
-		gain_resource(it->first, it->second);
+		gain_resource(resource, used);
 	}
 }
 
