@@ -197,7 +197,6 @@ protected:
 	Race race;
 
 	std::array<int, RES_MAX> resource_price;
-	std::array<int, MINERAL_MAX> mineral_price;
 
 // Which cities are we *directly* connected to via road?
 	//std::vector<City*> road_connections;
