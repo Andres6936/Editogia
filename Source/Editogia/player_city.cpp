@@ -14,6 +14,8 @@
 #include <vector>
 #include <map>
 
+#include <Levin/Levin.hpp>
+
 
 Player_city::Player_city()
 {
@@ -57,6 +59,8 @@ Player_city::Player_city()
 
 	hunt_record_days = -1;  // We set it to 0 when we build our first camp
 	hunt_record_food = 0;
+
+	Levin::Log::Informational("The player city has been created.");
 }
 
 Player_city::~Player_city()
