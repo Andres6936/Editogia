@@ -212,10 +212,8 @@ void City::start_new_city()
 	{
 		resources[i] = race_dat->starting_resources[i];
 	}
-	for (int i = 0; i < MINERAL_MAX; i++)
-	{
-		minerals[i] = 0;
-	}
+
+	resetAt(minerals, 0);
 
 // We always start with the maximum amount of food, regardless of our race.
 	resources[Resource::RES_FOOD] = get_food_cap();
