@@ -24,7 +24,7 @@ bool equalsContainer(const Container& left, const Container& right)
 	return true;
 }
 
-TEST_CASE("Verify that all the properties are set to false for the construct for default")
+TEST_CASE("Verify that the method resetAt set all the values of container to value send for parameter")
 {
 	std::vector vector {1, 2, 3, 4, 5};
 	std::array array{1, 2, 3, 4, 5};
