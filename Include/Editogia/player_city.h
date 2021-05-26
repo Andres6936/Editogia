@@ -57,9 +57,6 @@ public:
 
 	void mark_nearby_tiles_seen(int range);
 
-// Display output
-	glyph get_glyph();
-
 	void draw_map(cuss::element* e_draw, Point sel = Point(-1, -1),
 			bool radius_limited = false, bool only_terrain = false);
 
