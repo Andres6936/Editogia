@@ -23,7 +23,6 @@ City::City()
 	for (int i = 0; i < MINERAL_MAX; i++)
 	{
 		minerals[i] = 0;
-		mineral_price[i] = Mineral_data[i]->value;
 	}
 }
 
