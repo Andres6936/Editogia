@@ -40,14 +40,10 @@ void City::clear_data()
 	{
 		population[i].type = Citizen_type(i);
 	}
-	for (int i = 0; i < RES_MAX; i++)
-	{
-		resources[i] = 0;
-	}
-	for (int i = 0; i < MINERAL_MAX; i++)
-	{
-		minerals[i] = 0;
-	}
+
+	resetAt(resources, 0);
+	resetAt(minerals, 0);
+
 	livestock.clear();
 	trade_routes.clear();
 // TODO: Clear the map?
