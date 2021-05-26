@@ -46,7 +46,9 @@ void City::clear_data()
 
 	livestock.clear();
 	trade_routes.clear();
-// TODO: Clear the map?
+
+	Levin::Log::Informational("The information of City has been cleared.");
+	// TODO: Clear the map?
 }
 
 std::string City::save_data()
