@@ -235,14 +235,14 @@ private:
 	// The variadic parameters are a null-terminated set of strings; each one is an
 	// option in this menu.
 	template<typename ... Args>
-	bool add_menu(TypeMenu id, std::string name, Args&& ... args)
+	bool add_menu(TypeMenu typeMenu, Args&& ... args)
 	{
-		int length = tagless_length(name) + 3;  // +3 for "1: "
+		int length = tagless_length(toString(typeMenu)) + 3;  // +3 for "1: "
 		Menu tmp_menu;
-		std::string ss_name = "<c=pink,blue>" + std::to_string(int(id)) +
-							  "<c=white,blue>: " + name;
+		std::string ss_name = "<c=pink,blue>" + std::to_string(int(typeMenu)) +
+							  "<c=white,blue>: " + toString(typeMenu);
 		tmp_menu.name = ss_name;
-		tmp_menu.id = id;
+		tmp_menu.id = typeMenu;
 		tmp_menu.posx = next_menu_posx;
 		next_menu_posx += length + 2;
 
