@@ -5774,21 +5774,6 @@ std::vector<std::string> SceneManager::get_menu_options(TypeMenu item)
 	return ret;
 }
 
-/*
-  switch (item) {
-    case Ministers:
-      ret.push_back( menuify("Finance")   );
-      ret.push_back( menuify("Public")    );
-      ret.push_back( menuify("Trade")     );
-      ret.push_back( menuify("Diplomacy") );
-      ret.push_back( menuify("Military")  );
-      break;
-  }
-
-  return ret;
-}
-*/
-
 void SceneManager::set_menu_str()
 {
 	std::stringstream ss_menus;
