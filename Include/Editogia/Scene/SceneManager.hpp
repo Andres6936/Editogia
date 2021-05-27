@@ -57,6 +57,34 @@ public:
 	void main_loop();
 
 private:
+
+	// *** DATA ***
+// Menu info - all static.
+	std::vector<Menu> menus;
+	std::string menu_str;
+	int next_menu_posx;
+
+// Current mode.
+	Player_city* pl_city; // Shorthand for GAME->city
+	Game_state game_state; // e.g. "quit"
+	Interface_mode cur_mode;
+	Data_mode cur_data_mode;
+	int message_offset;  // We can scroll messages; the first message to start w/
+	TypeMenu cur_menu;
+
+// Varius values used in user interaction.
+	Point sel;  // Point in map currently highlighted
+	bool city_radius; // If true, gray out map tiles outside of radius of control
+	bool show_terrain;// If true, don't draw areas - just the terrain
+	Area_type current_area; // Current area to be built
+	bool temp_text; // Is there temporary text in text_map_info?
+	std::string original_info_text; // Orig. text of text_map_info, to be restored
+
+// Windows and cuss interfaces.
+	cuss::interface i_main;
+	Window w_main;
+
+
 /* This is a modal interface, so keys are handled differently depending on what
  * mode we're in.  Esc and ! are unique; Esc always sets mode/menu to NULL, and
  * ! always sets mode to Menu and menu to NULL.
@@ -223,32 +251,6 @@ private:
 
 // Sets the string to be stored in the menu bar
 	void set_menu_str();
-
-// *** DATA ***
-// Menu info - all static.
-	std::vector<Menu> menus;
-	std::string menu_str;
-	int next_menu_posx;
-
-// Current mode.
-	Player_city* pl_city; // Shorthand for GAME->city
-	Game_state game_state; // e.g. "quit"
-	Interface_mode cur_mode;
-	Data_mode cur_data_mode;
-	int message_offset;  // We can scroll messages; the first message to start w/
-	TypeMenu cur_menu;
-
-// Varius values used in user interaction.
-	Point sel;  // Point in map currently highlighted
-	bool city_radius; // If true, gray out map tiles outside of radius of control
-	bool show_terrain;// If true, don't draw areas - just the terrain
-	Area_type current_area; // Current area to be built
-	bool temp_text; // Is there temporary text in text_map_info?
-	std::string original_info_text; // Orig. text of text_map_info, to be restored
-
-// Windows and cuss interfaces.
-	cuss::interface i_main;
-	Window w_main;
 
 };
 
