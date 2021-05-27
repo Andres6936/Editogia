@@ -5761,17 +5761,24 @@ Menu findMenuType(const TypeMenu type, const Container& container)
 		}
 	}
 
-	throw std::domain_error("Element type not found in the container.");
+	throw std::domain_error("Element type cannot be found in the container.");
 }
 
 void SceneManager::get_menu_info(TypeMenu item, std::string& name, int& posx)
 {
-	Menu menu = findMenuType(item, menus);
+	try
+	{
+		Menu menu = findMenuType(item, menus);
 
-	name = menu.name;
-	name = remove_color_tags(name);
-	name = name.substr(3);  // Remove "1: "
-	posx = menu.posx;
+		name = menu.name;
+		name = remove_color_tags(name);
+		name = name.substr(3);  // Remove "1: "
+		posx = menu.posx;
+	}
+	catch (std::domain_error& exception)
+	{
+		Levin::Log::Error(exception.what());
+	}
 }
 
 std::vector<std::string> SceneManager::get_menu_options(TypeMenu item)
