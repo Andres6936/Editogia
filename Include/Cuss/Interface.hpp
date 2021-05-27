@@ -65,17 +65,17 @@ namespace cuss
 
 		bool set_selectable(std::string name, bool setting);
 
-// set_data replaces the element's data with whatever is passed
-// add_data appends whatever is passed to the element's data
-// These are all defined for each element type; if they're invalid, the type
-//  just returns false.
+		// set_data replaces the element's data with whatever is passed
+		// add_data appends whatever is passed to the element's data
+		// These are all defined for each element type; if they're invalid, the type
+		//  just returns false.
 		bool set_data(std::string name, std::string data);
 
 		bool add_data(std::string name, std::string data);
 
-		bool set_data(std::string name, std::vector <std::string> data);
+		bool set_data(std::string name, std::vector<std::string> data);
 
-		bool add_data(std::string name, std::vector <std::string> data);
+		bool add_data(std::string name, std::vector<std::string> data);
 
 		bool set_data(std::string name, int data);
 
@@ -85,30 +85,30 @@ namespace cuss
 
 		bool set_data(std::string name, nc_color fg, nc_color bg = c_null);
 
-/* self_reference makes an element take control of its own data (meaning it will
- * delete the data when it is deleted).
- * ref_data makes an element reference some external set of data.  Note that if
- * a function is not appropriate, it will not change the reference and will
- * return false (e.g. telling a number element to reference a vector of strings)
- */
+		/* self_reference makes an element take control of its own data (meaning it will
+		 * delete the data when it is deleted).
+		 * ref_data makes an element reference some external set of data.  Note that if
+		 * a function is not appropriate, it will not change the reference and will
+		 * return false (e.g. telling a number element to reference a vector of strings)
+		 */
 		bool self_reference(std::string name);
 
 		bool ref_data(std::string name, std::string* data);
 
-		bool ref_data(std::string name, std::vector <std::string>* data);
+		bool ref_data(std::string name, std::vector<std::string>* data);
 
 		bool ref_data(std::string name, int* data);
 
 		bool clear_data(std::string name);
 
-// These will return empty data if inappropriate to the element.
+		// These will return empty data if inappropriate to the element.
 		std::string get_str(std::string name);
 
 		int get_int(std::string name);
 
 		int element_width(std::string name);
 
-		std::vector <std::string> binding_list();
+		std::vector<std::string> binding_list();
 
 		bool add_binding(long ch, action_id act, std::string target,
 				int a, int b = 0);
@@ -125,8 +125,11 @@ namespace cuss
 
 		bool rem_all_bindings(std::string target);
 
-		bool handle_action(long ch);  // Only does keybindings
-		bool handle_keypress(long ch);  // May redirect to current object
+		// Only does keybindings
+		bool handle_action(long ch);
+
+		// May redirect to current object
+		bool handle_keypress(long ch);
 
 	private:
 		int active_element;
