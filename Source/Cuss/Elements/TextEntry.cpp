@@ -1,6 +1,7 @@
 // Joan Andrés (@Andres6936) Github.
 
 #include <sstream>
+#include "Editogia/stringfunc.h"
 #include "Cuss/Elements/TextEntry.hpp"
 
 
