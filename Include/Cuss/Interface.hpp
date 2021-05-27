@@ -52,6 +52,13 @@ namespace cuss
 		 */
 		interface() noexcept = default;
 
+		/**
+		 * Constructor
+		 *
+		 * @param name The name of interface.
+		 * @param width The width of interface.
+		 * @param height The height of interface.
+		 */
 		interface(std::string name, int width, int height) noexcept;
 
 		// Destructor
