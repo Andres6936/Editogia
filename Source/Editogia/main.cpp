@@ -22,13 +22,13 @@ int main()
 	// Init the game data!
 	if (!init_all_data())
 	{
-		debugmsg("Failed to init data!");
+		Levin::Log::Emergency("Failed to init data!");
 		return 1;
 	}
 
 	if (!set_directories())
 	{
-		debugmsg("Failed to set directories!");
+		Levin::Log::Emergency("Failed to set directories!");
 		return 1;
 	}
 
