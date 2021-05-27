@@ -1,20 +1,19 @@
-#include "Editogia/interface.h"
-#include "Editogia/window.h"
-#include "Editogia/cuss.h"
-#include "Editogia/city.h"
-#include "Editogia/player_city.h"
-#include "Editogia/stringfunc.h"
-#include "Editogia/keys.h"
-#include "Editogia/building.h"
-#include "Editogia/animal.h"
-#include "Editogia/rng.h"
-#include "Editogia/globals.h"
-#include "Editogia/files.h"
-#include "Editogia/help.h"
+#include <map>
 #include <sstream>
 #include <fstream>
 #include <cstdarg> // For the variadic function below
-#include <map>
+#include "Editogia/rng.h"
+#include "Editogia/city.h"
+#include "Editogia/keys.h"
+#include "Editogia/help.h"
+#include "Editogia/files.h"
+#include "Editogia/window.h"
+#include "Editogia/animal.h"
+#include "Editogia/globals.h"
+#include "Editogia/building.h"
+#include "Editogia/interface.h"
+#include "Editogia/stringfunc.h"
+#include "Editogia/player_city.h"
 
 Interface::Interface()
 {
@@ -137,7 +136,7 @@ bool Interface::starting_screen()
 		{
 			getline(fin, tmpline);
 			if (!tmpline.empty() && tmpline[0] == '#' &&
-				(tmpline.length() == 1 || tmpline[1] == ' '))
+					(tmpline.length() == 1 || tmpline[1] == ' '))
 			{
 				continue; // It's a comment
 			}
@@ -221,8 +220,8 @@ bool Interface::starting_screen()
 		case 'G':
 // Generate new world
 			if (!GAME->is_world_ready() ||
-				query_yn("Overwrite %s with a new world?",
-						GAME->world->get_name().c_str()))
+					query_yn("Overwrite %s with a new world?",
+							GAME->world->get_name().c_str()))
 			{
 				World_design design;
 				if (world_design_screen(design))
@@ -397,7 +396,7 @@ bool Interface::world_design_screen(World_design& design)
 		default:
 // First, check if we've selected list_kingdoms; if so, we handle a couple keys
 			if (i_design.selected()->name == "list_kingdoms" &&
-				(ch == 'a' || ch == 'A' || ch == 'd' || ch == 'D'))
+					(ch == 'a' || ch == 'A' || ch == 'd' || ch == 'D'))
 			{
 
 				if (ch == 'a' || ch == 'A')
@@ -407,9 +406,9 @@ bool Interface::world_design_screen(World_design& design)
 					design.kingdoms.push_back(new_race);
 					std::stringstream ss_race;
 					ss_race << "<c=" << color_tag(Race_data[new_race]->color) <<
-							">" <<
-							capitalize_all_words(Race_data[new_race]->plural_name) <<
-							"<c=/>";
+																			  ">" <<
+																			  capitalize_all_words(Race_data[new_race]->plural_name) <<
+																			  "<c=/>";
 					races.push_back(ss_race.str());
 
 // Colorize num_kingdoms_recommended
@@ -475,8 +474,8 @@ void Interface::main_loop()
 	std::stringstream ss_city_race;
 	Race_datum* race_dat = Race_data[pl_city->get_race()];
 	ss_city_race << "<c=white>" << pl_city->get_name() << " - <c=" <<
-				 color_tag(race_dat->color) << ">" <<
-				 capitalize(race_dat->plural_name) << "<c=/>";
+																   color_tag(race_dat->color) << ">" <<
+																   capitalize(race_dat->plural_name) << "<c=/>";
 	i_main.set_data("text_city_race", ss_city_race.str());
 
 	set_mode(IMODE_VIEW_MAP);
@@ -522,7 +521,7 @@ void Interface::main_loop()
 
 // Mark all but 10 most recent messages as read if we're on the message tab
 		if (cur_data_mode == DATA_MODE_MESSAGES &&
-			pl_city->unread_messages >= 10)
+				pl_city->unread_messages >= 10)
 		{
 			pl_city->unread_messages = 10;
 		}
@@ -713,8 +712,8 @@ void Interface::handle_key(long ch)
 					{
 						std::stringstream ss_mes;
 						ss_mes << "You do not have enough gold to re-open your " <<
-							   area_selected->get_name() << ". (Cost: " << cost <<
-							   "  You: " << pl_city->get_resource_amount(RES_GOLD);
+																				 area_selected->get_name() << ". (Cost: " << cost <<
+																				 "  You: " << pl_city->get_resource_amount(RES_GOLD);
 						set_temp_info(ss_mes.str());
 					}
 					else if (query_yn("Open your %s at a cost of %d gold?",
@@ -833,9 +832,9 @@ void Interface::set_mode(Interface_mode mode)
 		if (current_area != AREA_NULL)
 		{
 			commands << "<c=pink>Enter<c=/>: Place " <<
-					 Area_data[current_area]->name << std::endl <<
-					 "<c=pink>Q<c=/>: Cancel " <<
-					 Area_data[current_area]->name << " placement" << std::endl;
+													 Area_data[current_area]->name << std::endl <<
+													 "<c=pink>Q<c=/>: Cancel " <<
+													 Area_data[current_area]->name << " placement" << std::endl;
 		}
 		else
 		{
@@ -934,7 +933,7 @@ void Interface::print_message_alert()
 			ss_msgs << " ";
 		}
 		ss_msgs << "<c=" << color_tag(message_type_color(mtype)) << ">" <<
-				msg_count[i] << "<c=/>";
+																		msg_count[i] << "<c=/>";
 	}
 	ss_msgs << ")";
 
@@ -1071,7 +1070,7 @@ void Interface::print_data()
 			{
 				Resource res = Resource(i);
 				if (!Resource_data[res]->meta &&
-					pl_city->get_resource_amount(res) > 0)
+						pl_city->get_resource_amount(res) > 0)
 				{
 					resource_list.push_back(res);
 				}
@@ -1180,7 +1179,7 @@ void Interface::print_data()
 		Date last_date(1, 1, 1); // Make sure the date check fails
 
 		for (int i = pl_city->messages.size() - pl_city->unread_messages +
-					 message_offset;
+				message_offset;
 			 i < pl_city->messages.size();
 			 i++)
 		{
@@ -1189,7 +1188,7 @@ void Interface::print_data()
 			{ // Print the date
 				last_date = mes->date;
 				ss_data << "<c=ltblue>" << last_date.get_text() << ":<c=/>" <<
-						std::endl;
+																			std::endl;
 			}
 // Print color-coding.
 			ss_data << "<c=" << color_tag(message_type_color(mes->type)) << ">";
@@ -1415,7 +1414,7 @@ void Interface::display_area_stats(Area_type type)
 			int housing = pl_city->get_total_housing(cit_type);
 
 			stats << "<c=white>" << cit_name << " population: " << pop << "<c=/>" <<
-				  std::endl;
+																				  std::endl;
 			stats << "<c=white>" << cit_name << " housing:    ";
 			if (pop == housing)
 			{
@@ -1433,17 +1432,17 @@ void Interface::display_area_stats(Area_type type)
 				stats << "s";
 			}
 			stats << " housing for " << build_dat->housing[i].amount << " " <<
-				  plural_name << "<c=/>" << std::endl << std::endl;
+																			plural_name << "<c=/>" << std::endl << std::endl;
 		}
 		break;
 
 	case AREA_FARM:
 		stats << tile->get_terrain_name() << " farmability: " <<
-			  tile->get_farmability() << "%%%%" << std::endl;
+															  tile->get_farmability() << "%%%%" << std::endl;
 		stats << std::endl;
 		stats << "Crops here: " << tile->get_crop_info() << std::endl;
 		stats << "Food consumed each day: " <<
-			  pl_city->get_food_consumption() << std::endl;
+											pl_city->get_food_consumption() << std::endl;
 		stats << "Food produced each day: " << pl_city->get_food_production();
 		break;
 
@@ -1456,7 +1455,7 @@ void Interface::display_area_stats(Area_type type)
 		if (ter_dat->minerals.empty())
 		{
 			stats << "<c=dkgray>" << ter_dat->name << " does not contain any " <<
-				  "minerals." << "<c=/>";
+																			   "minerals." << "<c=/>";
 		}
 		else
 		{
@@ -1466,7 +1465,7 @@ void Interface::display_area_stats(Area_type type)
 				Mineral_amount min_amt = ter_dat->minerals[i];
 				Mineral_datum* min_dat = Mineral_data[min_amt.type];
 				stats << capitalize(mineral_amount_ranking(min_amt)) << " <c=" <<
-					  color_tag(min_dat->color) << ">" << min_dat->name << "<c=/>";
+																			   color_tag(min_dat->color) << ">" << min_dat->name << "<c=/>";
 				if (i < ter_dat->minerals.size() - 1)
 				{
 					stats << "," << std::endl;
@@ -1481,7 +1480,7 @@ void Interface::display_area_stats(Area_type type)
 
 	case AREA_BARRACKS:
 		stats << "Number of soldiers: " << pl_city->get_military_count() <<
-			  std::endl;
+																		 std::endl;
 		stats << "Soldiers supported: " << pl_city->get_military_supported();
 		break;
 	}
@@ -1726,7 +1725,7 @@ void Interface::minister_finance()
 
 // Now we have total gross expenses...
 	expense_total = expense_wages + expense_trade + expense_maintenance +
-					expense_corruption + expense_military;
+			expense_corruption + expense_military;
 // ... and our net income.
 	net_income = income_total - expense_total;
 
@@ -1887,12 +1886,12 @@ void Interface::minister_finance()
 				std::stringstream field_name;
 				field_name << "num_tax_rate_" << citizen_type_name(tax_type);
 				if (citizen_tax_rate[tax_type] >=
-					pl_city->get_high_tax_rate(tax_type))
+						pl_city->get_high_tax_rate(tax_type))
 				{
 					i_finance.set_data(field_name.str(), c_ltred);
 				}
 				else if (citizen_tax_rate[tax_type] <=
-						 pl_city->get_low_tax_rate(tax_type))
+						pl_city->get_low_tax_rate(tax_type))
 				{
 					i_finance.set_data(field_name.str(), c_ltgreen);
 				}
@@ -1931,12 +1930,12 @@ void Interface::minister_finance()
 				std::stringstream field_name;
 				field_name << "num_tax_rate_" << citizen_type_name(tax_type);
 				if (citizen_tax_rate[tax_type] >=
-					pl_city->get_high_tax_rate(tax_type))
+						pl_city->get_high_tax_rate(tax_type))
 				{
 					i_finance.set_data(field_name.str(), c_ltred);
 				}
 				else if (citizen_tax_rate[tax_type] <=
-						 pl_city->get_low_tax_rate(tax_type))
+						pl_city->get_low_tax_rate(tax_type))
 				{
 					i_finance.set_data(field_name.str(), c_ltgreen);
 				}
@@ -2191,7 +2190,7 @@ void Interface::minister_food()
 // Check if we selected a new farm.
 		int new_farm_index = i_food.get_int("list_farms");
 		if (new_farm_index != farm_index && new_farm_index >= 0 &&
-			new_farm_index < farms.size())
+				new_farm_index < farms.size())
 		{
 			farm_index = new_farm_index;
 			cur_farm = farms[farm_index];
@@ -2245,8 +2244,8 @@ void Interface::minister_food()
 // To decrease farming, we have to be able to fire an appropriate number of
 // peasants from this farm... so make sure we can!
 						if (farm_build->crops_grown[crop_index].amount >= crop_change &&
-							pl_city->fire_citizens(CIT_PEASANT, crop_change,
-									farm_build))
+								pl_city->fire_citizens(CIT_PEASANT, crop_change,
+										farm_build))
 						{
 							farm_build->crops_grown[crop_index].amount -= crop_change;
 							did_it = true;
@@ -2256,9 +2255,9 @@ void Interface::minister_food()
 // peasants to work at this farm... so make sure we can!
 					}
 					else if (crop_change > 0 &&
-							 farm_build->get_empty_fields() >= crop_change &&
-							 pl_city->employ_citizens(CIT_PEASANT, crop_change,
-									 farm_build))
+							farm_build->get_empty_fields() >= crop_change &&
+							pl_city->employ_citizens(CIT_PEASANT, crop_change,
+									farm_build))
 					{
 						farm_build->crops_grown[crop_index].amount += crop_change;
 						did_it = true;
@@ -2401,7 +2400,7 @@ void Interface::minister_hunt()
 
 			std::stringstream ss_action;
 			ss_action << "<c=" << color_tag(animal_action_color(act)) << ">" <<
-					  animal_action_name(bldg->hunting_action) << "<c=/>";
+																			 animal_action_name(bldg->hunting_action) << "<c=/>";
 			actions.push_back(ss_action.str());
 
 			std::stringstream ss_food;
@@ -2530,7 +2529,7 @@ void Interface::minister_hunt()
 				{
 					Resource_amount res = animal_dat->resources_livestock[i];
 					res_livestock << Resource_data[res.type]->name << " x " <<
-								  move_decimal(res.amount, 2);
+																			move_decimal(res.amount, 2);
 					i_hunt.set_data("text_resources_livestock", res_livestock.str());
 				}
 			}
@@ -2576,7 +2575,7 @@ void Interface::minister_hunt()
 // If we're not using the default action, brighten the color.
 				std::stringstream action_text;
 				action_text << "<c=" << color_tag(act_col) << ">" <<
-							capitalize(animal_action_name(act)) << "<c=/>";
+																  capitalize(animal_action_name(act)) << "<c=/>";
 // Animal(1) is index 0, so subtract 1 from the animal to get index for actions
 				actions[cur_index] = action_text.str();
 				cur_bldg->hunting_action = act;
@@ -2806,7 +2805,7 @@ void Interface::minister_livestock()
 	{
 		int new_index = i_livestock.get_int("list_animals");
 		if (new_index >= 0 && new_index < livestock.size() &&
-			new_index != cur_index)
+				new_index != cur_index)
 		{
 			cur_index = new_index;
 			cur_animal = livestock[cur_index];
@@ -2860,7 +2859,7 @@ void Interface::minister_livestock()
 				{
 					Resource_amount res = ani_dat->resources_livestock[i];
 					res_livestock << Resource_data[res.type]->name << " x " <<
-								  move_decimal(res.amount, 2);
+																			move_decimal(res.amount, 2);
 					i_livestock.set_data("text_resources_daily", res_livestock.str());
 				}
 			}
@@ -3038,7 +3037,7 @@ void Interface::minister_mining()
 
 		std::stringstream mineral_ss;
 		mineral_ss << "<c=" << color_tag(min_dat->color) << ">" << min_dat->name <<
-				   "<c=/>";
+																				 "<c=/>";
 		i_mining.add_data("list_master_minerals", mineral_ss.str());
 
 		std::stringstream used_ss, stored_ss;
@@ -3118,7 +3117,7 @@ void Interface::minister_mining()
 // Check if we selected a new mine.
 		int new_mine_index = i_mining.get_int("list_mines");
 		if (new_mine_index != mine_index && new_mine_index >= 0 &&
-			new_mine_index < mines.size())
+				new_mine_index < mines.size())
 		{
 			mine_index = new_mine_index;
 			cur_mine = mines[mine_index];
@@ -3191,8 +3190,8 @@ void Interface::minister_mining()
 // To decrease mining, we have to be able to fire an appropriate number of
 // peasants from this mine... so make sure we can!
 						if (mining_changed->amount >= mineral_change &&
-							pl_city->fire_citizens(CIT_PEASANT, mineral_change,
-									mine_build))
+								pl_city->fire_citizens(CIT_PEASANT, mineral_change,
+										mine_build))
 						{
 							mining_changed->amount -= mineral_change;
 							did_it = true;
@@ -3202,9 +3201,9 @@ void Interface::minister_mining()
 // peasants to work at this mine... so make sure we can!
 					}
 					else if (mineral_change > 0 &&
-							 mine_build->get_empty_shafts() >= mineral_change &&
-							 pl_city->employ_citizens(CIT_PEASANT, mineral_change,
-									 mine_build))
+							mine_build->get_empty_shafts() >= mineral_change &&
+							pl_city->employ_citizens(CIT_PEASANT, mineral_change,
+									mine_build))
 					{
 						mining_changed->amount += mineral_change;
 						did_it = true;
@@ -3303,7 +3302,7 @@ void Interface::minister_morale()
 			i_morale.set_data(morale_name.str(), c_dkgray);
 			std::stringstream ss_nope;
 			ss_nope << "<c=dkgray>(No " << citizen_type_name(cit_type, true) <<
-					")<c=/>";
+																			 ")<c=/>";
 			i_morale.add_data(list_name.str(), ss_nope.str());
 
 		}
@@ -3345,7 +3344,7 @@ void Interface::minister_morale()
 // Start the modifiers list with our tax-based morale
 			std::stringstream tax_morale;
 			tax_morale << "<c=ltblue>" << pl_city->population[i].tax_morale <<
-					   "<c=/>";
+																			"<c=/>";
 			i_morale.add_data(list_name.str(), "<c=ltblue>Base (from taxes)<c=/>");
 			i_morale.add_data(list_amount_name.str(), tax_morale.str());
 
@@ -3436,7 +3435,7 @@ void Interface::luxury_management()
 				luxuries.push_back(res);
 				std::stringstream ss_name;
 				ss_name << "<c=" << color_tag(res_dat->color) << ">" << res_dat->name <<
-						"<c=/>";
+																					  "<c=/>";
 				luxury_name.push_back(ss_name.str());
 			}
 		}
@@ -3452,7 +3451,7 @@ void Interface::luxury_management()
 		int new_index = i_luxuries.get_int("list_luxury_name");
 
 		if (new_index != cur_index &&
-			new_index >= 0 && new_index < luxuries.size())
+				new_index >= 0 && new_index < luxuries.size())
 		{
 			cur_index = new_index;
 			cur_res = luxuries[cur_index];
@@ -3510,13 +3509,13 @@ void Interface::luxury_management()
 				if (lux_type == LUX_NULL)
 				{
 					ss_category << "<c=white>" << res_dat->name <<
-								" is always in demand.<c=/>";
+																" is always in demand.<c=/>";
 				}
 				else
 				{
 					ss_category << luxury_type_name(lux_type) << " demanded: ";
 					if (citizens->luxury_demands.count(lux_type) == 0 ||
-						citizens->luxury_demands[lux_type] == RES_NULL)
+							citizens->luxury_demands[lux_type] == RES_NULL)
 					{
 						ss_category << "<c=white>Any<c=/>";
 					}
@@ -3576,8 +3575,8 @@ void Interface::luxury_management()
 					morale_gain = (res_dat->morale * have) / (want);
 				}
 				if (lux_type != LUX_NULL &&
-					citizens->luxury_demands[lux_type] != RES_NULL &&
-					citizens->luxury_demands[lux_type] != cur_res)
+						citizens->luxury_demands[lux_type] != RES_NULL &&
+						citizens->luxury_demands[lux_type] != cur_res)
 				{
 					morale_gain *= .4;
 				}
@@ -3650,8 +3649,8 @@ void Interface::luxury_management()
 		case 'e':
 		case 'E':
 			if (peasants->count > 0 &&
-				(available > 0 ||
-				 stockpile + available >= peasants->consumption[cur_res] + 1))
+					(available > 0 ||
+							stockpile + available >= peasants->consumption[cur_res] + 1))
 			{
 				peasants->consumption[cur_res]++;
 				cur_index = -1; // Force a data refresh
@@ -3670,8 +3669,8 @@ void Interface::luxury_management()
 		case 'd':
 		case 'D':
 			if (merchants->count > 0 &&
-				(available > 0 ||
-				 stockpile + available >= merchants->consumption[cur_res] + 1))
+					(available > 0 ||
+							stockpile + available >= merchants->consumption[cur_res] + 1))
 			{
 				merchants->consumption[cur_res]++;
 				cur_index = -1; // Force a data refresh
@@ -3690,8 +3689,8 @@ void Interface::luxury_management()
 		case 'c':
 		case 'C':
 			if (burghers->count > 0 &&
-				(available > 0 ||
-				 stockpile + available >= burghers->consumption[cur_res] + 1))
+					(available > 0 ||
+							stockpile + available >= burghers->consumption[cur_res] + 1))
 			{
 				burghers->consumption[cur_res]++;
 				cur_index = -1; // Force a data refresh
@@ -4105,8 +4104,8 @@ void Interface::building_status()
 					Resource_amount res_amt = bldg_dat->production[i];
 					std::stringstream production_ss;
 					production_ss << "<c=ltgray>" <<
-								  capitalize(Resource_data[res_amt.type]->name) <<
-								  " x " << res_amt.amount << "<c=/>";
+												  capitalize(Resource_data[res_amt.type]->name) <<
+												  " x " << res_amt.amount << "<c=/>";
 					production_list.push_back(production_ss.str());
 				}
 				i_buildings.set_data("list_benefits", production_list);
@@ -4172,8 +4171,8 @@ void Interface::building_status()
 					Citizen_amount cit_amt = bldg_dat->housing[i];
 					std::stringstream housing_ss;
 					housing_ss << "<c=ltgray>" <<
-							   capitalize(citizen_type_name(cit_amt.type)) << ": " <<
-							   cit_amt.amount << "<c=/>";
+											   capitalize(citizen_type_name(cit_amt.type)) << ": " <<
+											   cit_amt.amount << "<c=/>";
 					housing_list.push_back(housing_ss.str());
 				}
 				i_buildings.set_data("list_benefits", housing_list);
@@ -4324,13 +4323,13 @@ void Interface::building_status()
 		case 'c':
 		case 'C':
 			if (cur_bldg && cur_bldg->open && !adjusting_production &&
-				query_yn("Really close your %s?", cur_bldg->get_name().c_str()))
+					query_yn("Really close your %s?", cur_bldg->get_name().c_str()))
 			{
 
 				std::stringstream name_ss;
 // Update our names list
 				name_ss << capitalize(cur_bldg->get_name()) <<
-						" <c=red>(Closed)<c=/>";
+															" <c=red>(Closed)<c=/>";
 				building_names[index] = name_ss.str();
 				workers[index] = "<c=red>0<c=/>";
 
@@ -4365,8 +4364,8 @@ void Interface::building_status()
 				{
 					std::stringstream ss_mes;
 					ss_mes << "You do not have enough gold to re-open your " <<
-						   cur_bldg->get_name() << ". (Cost: " << cost <<
-						   "  You: " << pl_city->get_resource_amount(RES_GOLD);
+																			 cur_bldg->get_name() << ". (Cost: " << cost <<
+																			 "  You: " << pl_city->get_resource_amount(RES_GOLD);
 					popup(ss_mes.str().c_str());
 
 				}
@@ -4385,7 +4384,7 @@ void Interface::building_status()
 					{
 						Area* area = pl_city->area_at(cur_bldg->pos);
 						name_ss << " (" <<
-								pl_city->map.get_terrain_name(cur_bldg->pos) << ")";
+										pl_city->map.get_terrain_name(cur_bldg->pos) << ")";
 						if (!area)
 						{
 							debugmsg("Building has position %s, but no area there!",
@@ -4433,7 +4432,7 @@ void Interface::building_status()
 				if (prod_index >= 0 && prod_index < cur_bldg->build_queue.size())
 				{
 					cur_bldg->build_queue.erase(cur_bldg->build_queue.begin() +
-												prod_index);
+							prod_index);
 // Keep our index where it is now
 					move_index = prod_index;
 // Update list_benefits on next loop (i.e. now)
@@ -4460,7 +4459,7 @@ void Interface::building_status()
 // Move item up in the production queue
 		case '<':
 			if (cur_bldg && adjusting_production &&
-				!cur_bldg->build_queue.empty())
+					!cur_bldg->build_queue.empty())
 			{
 				int prod_index = i_buildings.get_int("list_benefits");
 // index > 0 since we can't move the first item up any further
@@ -4481,12 +4480,12 @@ void Interface::building_status()
 // Move item down in the production queue
 		case '>':
 			if (cur_bldg && adjusting_production &&
-				!cur_bldg->build_queue.empty())
+					!cur_bldg->build_queue.empty())
 			{
 				int prod_index = i_buildings.get_int("list_benefits");
 // index < size() - 1 since we can't move the last item down any further
 				if (prod_index >= 0 &&
-					prod_index < cur_bldg->build_queue.size() - 1)
+						prod_index < cur_bldg->build_queue.size() - 1)
 				{
 					Recipe_amount tmp = cur_bldg->build_queue[prod_index + 1];
 					cur_bldg->build_queue[prod_index + 1] =
@@ -4627,7 +4626,7 @@ void Interface::build_building()
 							int amount = bldg_dat->build_costs[i].amount;
 							int city_amount = pl_city->get_resource_amount(res);
 							ss_popup << capitalize(Resource_data[res]->name) << ": " <<
-									 amount << " (You: ";
+																					 amount << " (You: ";
 							if (city_amount < amount)
 							{
 								ss_popup << "<c=red>";  // This is why we can't build this!
@@ -4750,7 +4749,7 @@ void Interface::build_building()
 							int diff = bldg_dat->build_time - bldg->construction_left;
 							std::stringstream ss_warning;
 							ss_warning << "Really cancel production and waste " << diff <<
-									   " days of effort?";
+																						" days of effort?";
 							do_it = query_yn(ss_warning.str().c_str());
 						}
 
@@ -4823,7 +4822,7 @@ void Interface::set_building_list(cuss::interface& i_build,
 			Building_category cat = Building_category(i);
 			std::stringstream option;
 			option << "<c=pink>" << i << "<c=/>: " <<
-				   capitalize(building_category_name(cat));
+												   capitalize(building_category_name(cat));
 			i_build.add_data("list_options", option.str());
 		}
 // Append our options with a way to leave the screen
@@ -4838,7 +4837,7 @@ void Interface::set_building_list(cuss::interface& i_build,
 // First, set the headers.
 		std::stringstream header;
 		header << "<c=yellow>" << capitalize(building_category_name(category)) <<
-			   "<c=/>";
+																			   "<c=/>";
 		i_build.set_data("text_header", header.str());
 		i_build.set_data("text_resource_header", "Gold:  Wood:  Stone:");
 // Clear out the old cost lists
@@ -4963,21 +4962,21 @@ void Interface::set_building_list(cuss::interface& i_build,
 		i_build.add_data("list_cost_gold", "");
 		std::stringstream city_gold;
 		city_gold << "<c=white>" << pl_city->get_resource_amount(RES_GOLD) <<
-				  "<c=/>";
+																		   "<c=/>";
 		i_build.add_data("list_cost_gold", city_gold.str());
 
 		i_build.add_data("list_cost_wood", "");
 		i_build.add_data("list_cost_wood", "");
 		std::stringstream city_wood;
 		city_wood << "<c=white>" << pl_city->get_resource_amount(RES_WOOD) <<
-				  "<c=/>";
+																		   "<c=/>";
 		i_build.add_data("list_cost_wood", city_wood.str());
 
 		i_build.add_data("list_cost_stone", "");
 		i_build.add_data("list_cost_stone", "");
 		std::stringstream city_stone;
 		city_stone << "<c=white>" << pl_city->get_resource_amount(RES_STONE) <<
-				   "<c=/>";
+																			 "<c=/>";
 		i_build.add_data("list_cost_stone", city_stone.str());
 
 		help_count = types.size();
@@ -5038,9 +5037,9 @@ Use direction keys to select a queued building.\n\
 
 		std::stringstream help_text;
 		help_text << "<c=pink>1<c=/> - <c=pink>" << num_options << "<c=/>: View " <<
-				  "buildings in category." << std::endl;
+																				  "buildings in category." << std::endl;
 		help_text << "<c=pink>TAB<c=/>: Switch to the building queue (allow you " <<
-				  "to change the order or remove items)." << std::endl;
+																				  "to change the order or remove items)." << std::endl;
 		help_text << "<c=pink>ESC<c=/>/<c=pink>Q<c=/>: Leave this screen.";
 
 		i_build.set_data("text_help", help_text.str());
@@ -5051,9 +5050,9 @@ Use direction keys to select a queued building.\n\
 
 		std::stringstream help_text;
 		help_text << "<c=pink>1<c=/> - <c=pink>" << num_options << "<c=/>: " <<
-				  "Select a building to add to your queue." << std::endl;
+																			 "Select a building to add to your queue." << std::endl;
 		help_text << "<c=pink>TAB<c=/>: Switch to the building queue (allow you " <<
-				  "to change the order or remove items)." << std::endl;
+																				  "to change the order or remove items)." << std::endl;
 		help_text << "<c=pink>ESC<c=/>/<c=pink>Q<c=/>: Pick a new category.";
 
 		i_build.set_data("text_help", help_text.str());
@@ -5087,7 +5086,7 @@ bool Interface::pick_recipe(Building* cur_bldg, Recipe_amount& new_recipe)
 // Capitalize and color the name of the resource
 		std::stringstream ss_name, ss_units, ss_stored, ss_components;
 		ss_name << "<c=yellow>" << capitalize(rec.get_name()) << " x " <<
-				rec.result.amount << "<c=/>";
+																	   rec.result.amount << "<c=/>";
 // Fetch the units per day, converting from days per unit if necessary
 		if (rec.units_per_day != 0)
 		{
@@ -5110,7 +5109,7 @@ bool Interface::pick_recipe(Building* cur_bldg, Recipe_amount& new_recipe)
 		ss_stored << stored << "<c=/>";
 // Fetch the components
 		if (rec.resource_ingredients.empty() &&
-			rec.mineral_ingredients.empty())
+				rec.mineral_ingredients.empty())
 		{
 			prod_components.push_back(std::string());
 		}
@@ -5121,16 +5120,16 @@ bool Interface::pick_recipe(Building* cur_bldg, Recipe_amount& new_recipe)
 				Resource ing_type = rec.resource_ingredients[n].type;
 				int ing_amount = rec.resource_ingredients[n].amount;
 				ss_components << ing_amount << " x " <<
-							  capitalize(Resource_data[ing_type]->name) <<
-							  std::endl;
+													 capitalize(Resource_data[ing_type]->name) <<
+													 std::endl;
 			}
 			for (int n = 0; n < rec.mineral_ingredients.size(); n++)
 			{
 				Mineral ing_type = rec.mineral_ingredients[n].type;
 				int ing_amount = rec.mineral_ingredients[n].amount;
 				ss_components << ing_amount << " x " <<
-							  capitalize(Mineral_data[ing_type]->name) <<
-							  std::endl;
+													 capitalize(Mineral_data[ing_type]->name) <<
+													 std::endl;
 			}
 		}
 // Now put the contents of the stringstreams where they belong.
@@ -5291,7 +5290,7 @@ void Interface::set_area_list(Area_category category,
 			Area_category cat = Area_category(i);
 			std::stringstream ss_cat;
 			ss_cat << "<c=pink>" << i << "<c=/>: " <<
-				   capitalize(area_category_name(cat)) << std::endl;
+												   capitalize(area_category_name(cat)) << std::endl;
 			i_main.add_data("text_commands", ss_cat.str());
 		}
 // Add an option to cancel.
@@ -5307,7 +5306,7 @@ void Interface::set_area_list(Area_category category,
 		{
 			Area_datum* area_dat = Area_data[i];
 			if (pl_city->area_unlocked[i] &&
-				area_dat->category == category)
+					area_dat->category == category)
 			{
 				types.push_back(Area_type(i));
 			}
@@ -5318,7 +5317,7 @@ void Interface::set_area_list(Area_category category,
 			std::stringstream ss_area;
 			Area_datum* area_dat = Area_data[types[i]];
 			ss_area << "<c=pink>" << i + 1 << "<c=/>: " <<
-					capitalize(area_dat->name) << std::endl;
+														capitalize(area_dat->name) << std::endl;
 			i_main.add_data("text_commands", ss_area.str());
 		}
 // Finally, add an option to go back to category selection.
@@ -5356,7 +5355,7 @@ void Interface::help_index()
 	{
 		int new_index = i_help.get_int("list_categories");
 		if (new_index != cur_index && new_index >= 0 &&
-			new_index < categories.size())
+				new_index < categories.size())
 		{
 			cur_index = new_index;
 			std::string cat_name = categories[cur_index];
@@ -5443,7 +5442,7 @@ void Interface::help_search()
 		w_help.refresh();
 
 		bool entry = (i_help.selected() &&
-					  i_help.selected()->name == "entry_search");
+				i_help.selected()->name == "entry_search");
 
 		long ch = input();
 
@@ -5618,8 +5617,8 @@ bool Interface::help_article(std::string name)
 		i_help.set_data("text_title", "<c=ltred>Article not found.<c=/>");
 		std::stringstream ss_error;
 		ss_error << "There is no article named '<c=ltcyan>" << name << "<c=/>'." <<
-				 "  If you are seeing this, it is likely a bug!" << std::endl <<
-				 std::endl << "Press any key to leave this screen...";
+																				 "  If you are seeing this, it is likely a bug!" << std::endl <<
+																				 std::endl << "Press any key to leave this screen...";
 		i_help.set_data("text_content", ss_error.str());
 
 		i_help.draw(&w_help);
