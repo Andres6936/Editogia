@@ -56,13 +56,13 @@ bool SceneManager::init()
 	w_main.init(0, 0, 80, 24);
 
 // Menu setup!  Put menus here.
-	add_menu(TypeMenu::Game,
+	addMenu(TypeMenu::Game,
 			"Save & Quit",
 			"Quit without saving",
 			"About"
 	);
 
-	add_menu(TypeMenu::Ministers,
+	addMenu(TypeMenu::Ministers,
 			"Finance",
 			"Farms & Food",
 			"Hunting",
@@ -72,16 +72,16 @@ bool SceneManager::init()
 			"Trade"
 	);
 
-	add_menu(TypeMenu::Buildings,
+	addMenu(TypeMenu::Buildings,
 			"Status",
 			"Build"
 	);
 
-	add_menu(TypeMenu::World,
+	addMenu(TypeMenu::World,
 			"View Map"
 	);
 
-	add_menu(TypeMenu::Help,
+	addMenu(TypeMenu::Help,
 			"Index",
 			"Search"
 	);

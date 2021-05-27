@@ -235,7 +235,7 @@ private:
 	// The variadic parameters are a null-terminated set of strings; each one is an
 	// option in this menu.
 	template<typename ... Args>
-	bool add_menu(TypeMenu typeMenu, Args&& ... args)
+	bool addMenu(TypeMenu typeMenu, Args&& ... args)
 	{
 		int length = tagless_length(toString(typeMenu)) + 3;  // +3 for "1: "
 		Menu tmp_menu;
