@@ -15,6 +15,8 @@
 #include "Editogia/player_city.h"
 #include "Editogia/Scene/SceneManager.hpp"
 
+#include <Levin/Levin.hpp>
+
 SceneManager::SceneManager()
 {
 	cur_menu = MENU_NULL;
@@ -46,7 +48,7 @@ bool SceneManager::init()
 
 	if (!i_main.load_from_file("cuss/interface.cuss"))
 	{
-		debugmsg("Failed to load critical interface file cuss/interface.cuss!");
+		Levin::Log::Critical("Failed to load critical interface file cuss/interface.cuss!");
 		return false;
 	}
 
