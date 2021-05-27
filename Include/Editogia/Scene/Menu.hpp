@@ -40,6 +40,16 @@ struct Menu
 	 * The submenus of menu.
 	 */
 	std::vector<std::string> items;
+
+	// Getters
+
+	const std::int32_t getWidth() const noexcept;
+
+	const std::string& getName() const noexcept;
+
+	const TypeMenu getTypeMenu() const noexcept;
+
+	const std::vector<std::string>& getItems() const noexcept;
 };
 
 #endif //EDITOGIA_MENU_HPP
