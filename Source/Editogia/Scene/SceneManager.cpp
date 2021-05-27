@@ -5761,7 +5761,7 @@ void SceneManager::get_menu_info(TypeMenu item, std::string& name, int& posx)
 	{
 		Menu menu = findMenuType(item, menus);
 
-		name = menu.name;
+		name = menu.getName();
 		name = remove_color_tags(name);
 		name = name.substr(3);  // Remove "1: "
 		posx = menu.width;
@@ -5794,7 +5794,7 @@ void SceneManager::set_menu_str()
 	ss_menus << "<c=white,blue>";
 	for (int i = 0; i < menus.size(); i++)
 	{
-		ss_menus << "  " << menus[i].name;
+		ss_menus << "  " << menus[i].getName();
 	}
 	ss_menus << "<c=/>";
 	menu_str = ss_menus.str();
