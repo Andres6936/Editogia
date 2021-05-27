@@ -1,6 +1,7 @@
 // Joan Andrés (@Andres6936) Github.
 
 #include <sstream>
+#include <fstream>
 #include "Editogia/stringfunc.h"
 #include "Cuss/Interface.hpp"
 #include "Cuss/Elements/List.hpp"
