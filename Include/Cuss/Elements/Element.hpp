@@ -49,6 +49,10 @@ namespace cuss
 
 		void setCoordinateY(const std::int32_t y) noexcept;
 
+		void setHAlignment(const alignment HAlignment) noexcept;
+
+		void setVAlignment(const vertical_alignment VAlignment) noexcept;
+
 		element()
 		{
 			name = "";

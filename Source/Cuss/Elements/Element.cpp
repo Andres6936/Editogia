@@ -73,3 +73,13 @@ void element::setCoordinateY(const std::int32_t y) noexcept
 {
 	posy = y;
 }
+
+void element::setHAlignment(const alignment HAlignment) noexcept
+{
+	align = HAlignment;
+}
+
+void element::setVAlignment(const vertical_alignment VAlignment) noexcept
+{
+	v_align = VAlignment;
+}
