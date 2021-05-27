@@ -54,7 +54,11 @@ namespace cuss
 
 		interface(std::string name, int width, int height) noexcept;
 
+		// Destructor
+
 		~interface();
+
+		// Methods
 
 		void add_element(element_type type, std::string name, int posx, int posy,
 				int sizex, int sizey, bool selectable = true);
