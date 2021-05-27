@@ -1,19 +1,19 @@
-#include "Editogia/world.h"
-#include "Editogia/rng.h"
-#include "Editogia/geometry.h"
-#include "Editogia/window.h"
-#include "Editogia/cuss.h"
-#include "Editogia/keys.h" // for input_direction()
-#include "Editogia/kingdom.h"  // To color map based on Kingdom.
-#include "Editogia/stringfunc.h" // For capitalize()
-#include "Editogia/animal.h"
-#include "Editogia/ai_city.h"
-#include "Editogia/pathfind.h" // For road building, trade route finding, and more!
-#include "Editogia/globals.h"
 #include <sstream>
 #include <vector>
 #include <math.h> // for pow() and sqrt()
 #include <fstream>
+#include "Editogia/rng.h"
+#include "Editogia/keys.h" // for input_direction()
+#include "Editogia/world.h"
+#include "Editogia/window.h"
+#include "Editogia/animal.h"
+#include "Editogia/ai_city.h"
+#include "Editogia/globals.h"
+#include "Editogia/kingdom.h"  // To color map based on Kingdom.
+#include "Editogia/pathfind.h" // For road building, trade route finding, and more!
+#include "Editogia/geometry.h"
+#include "Editogia/stringfunc.h" // For capitalize()
+#include "Cuss/Interface.hpp"
 
 Map_seen::Map_seen()
 {
@@ -805,7 +805,7 @@ Placing %d blobs [%d%%%%%%%%]",
 		}
 // So figure out a size that will do that.
 		int needed_coverage = (animal_dat->percentage * size *
-							   size) / 100;
+				size) / 100;
 		int needed_area = needed_coverage / num_blobs;
 		int needed_radius = sqrt(double(needed_area));
 		int min_radius = needed_radius * 0.6;
@@ -980,12 +980,12 @@ bool World_map::save_to_file(std::string filename)
 		for (int y = 0; y < size; y++)
 		{
 			fout << tiles[x][y] << " " <<
-				 continent_id[x][y] << " " << // Not sure if we really need this
-				 kingdom_id[x][y] << " " <<
-				 road[x][y] << " " <<
-				 crops[x][y] << " " <<
-				 minerals[x][y] << " " <<
-				 animals[x][y] << " ";
+									   continent_id[x][y] << " " << // Not sure if we really need this
+									   kingdom_id[x][y] << " " <<
+									   road[x][y] << " " <<
+									   crops[x][y] << " " <<
+									   minerals[x][y] << " " <<
+									   animals[x][y] << " ";
 		}
 		fout << std::endl;
 	}
@@ -1032,12 +1032,12 @@ bool World_map::load_from_file(std::string filename)
 		{
 			bool tmp_road;
 			fin >> tmp_map_type >>
-				continent_id[x][y] >>
-				kingdom_id[x][y] >>
-				tmp_road >>
-				crops[x][y] >>
-				minerals[x][y] >>
-				animals[x][y];
+								continent_id[x][y] >>
+								kingdom_id[x][y] >>
+								tmp_road >>
+								crops[x][y] >>
+								minerals[x][y] >>
+								animals[x][y];
 			tiles[x][y] = Map_type(tmp_map_type);
 			road[x][y] = tmp_road;
 		}
@@ -1322,7 +1322,7 @@ void World_map::add_resource(Point origin, Crop crop, Mineral mineral,
 		return;
 	}
 	else if (crop != CROP_NULL && mineral != MINERAL_NULL &&
-			 animal != ANIMAL_NULL)
+			animal != ANIMAL_NULL)
 	{
 		debugmsg("World_map::add_resource() called with all three resources set!");
 		return;
@@ -1629,8 +1629,8 @@ Point World_map::draw(Point start, Map_seen* seen)
 
 					int kingdom_id = get_kingdom_id(x, y);
 					if (!city_here && kingdom_id >= 0 && tile_seen &&
-						kingdom_id < GAME->kingdoms.size() &&
-						!hilite_crops && !hilite_minerals && !hilite_animals)
+							kingdom_id < GAME->kingdoms.size() &&
+							!hilite_crops && !hilite_minerals && !hilite_animals)
 					{
 						Kingdom* kingdom = GAME->kingdoms[kingdom_id];
 // Skip adding the kingdom background if it would interfere with our cursor.
@@ -1638,11 +1638,11 @@ Point World_map::draw(Point start, Map_seen* seen)
 					}
 
 					bool do_crop_hilite = (hilite_crops &&
-										   has_crop(crop_hilited, x, y));
+							has_crop(crop_hilited, x, y));
 					bool do_mineral_hilite = (hilite_minerals &&
-											  has_mineral(mineral_hilited, x, y));
+							has_mineral(mineral_hilited, x, y));
 					bool do_animal_hilite = (hilite_animals &&
-											 has_animal(animal_hilited, x, y));
+							has_animal(animal_hilited, x, y));
 
 // See if we need to change the background color for any reason.
 					if (!city_here && tile_seen)
@@ -1734,7 +1734,7 @@ Point World_map::draw(Point start, Map_seen* seen)
 				Crop_datum* crop_dat = Crop_data[crops_here[i]];
 				nc_color crop_color = crop_type_color(crop_dat->type);
 				(*crop_ss) << "<c=" << color_tag(crop_color) << ">" << crop_dat->name <<
-						   "<c=/>" << std::endl;
+																					  "<c=/>" << std::endl;
 			}
 			for (int i = 0; i < minerals_here.size(); i++)
 			{
@@ -1750,7 +1750,7 @@ Point World_map::draw(Point start, Map_seen* seen)
 				Mineral_datum* mineral_dat = Mineral_data[minerals_here[i]];
 				nc_color mineral_color = mineral_dat->color;
 				(*mineral_ss) << "<c=" << color_tag(mineral_color) << ">" <<
-							  mineral_dat->name << "<c=/>" << std::endl;
+																		  mineral_dat->name << "<c=/>" << std::endl;
 			}
 			i_legend.set_data("text_crops_here_left", crops_left_ss.str());
 			i_legend.set_data("text_crops_here_right", crops_right_ss.str());
@@ -1766,7 +1766,7 @@ Point World_map::draw(Point start, Map_seen* seen)
 				Race_datum* race_dat = Race_data[kingdom->race];
 				std::stringstream ss_race;
 				ss_race << "<c=" << color_tag(race_dat->color) << ">" <<
-						capitalize(race_dat->plural_name) << "<c=/>";
+																	  capitalize(race_dat->plural_name) << "<c=/>";
 				i_legend.set_data("text_kingdom_race", ss_race.str());
 			}
 			else
@@ -1955,10 +1955,10 @@ Point World_map::draw(Point start, Map_seen* seen)
 				{
 					std::stringstream debug_info;
 					debug_info << "Altitude: " << altitude[center.x][center.y] <<
-							   std::endl <<
-							   "Rainfall: " << rainfall[center.x][center.y] <<
-							   std::endl <<
-							   "Temperature: " << temperature[center.x][center.y];
+																			   std::endl <<
+																			   "Rainfall: " << rainfall[center.x][center.y] <<
+																			   std::endl <<
+																			   "Temperature: " << temperature[center.x][center.y];
 					popup_fullscreen(debug_info.str().c_str());
 				}
 
