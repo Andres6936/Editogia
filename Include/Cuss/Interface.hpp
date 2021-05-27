@@ -3,6 +3,14 @@
 #ifndef EDITOGIA_INTERFACE_HPP
 #define EDITOGIA_INTERFACE_HPP
 
+#include <map>
+#include <string>
+#include <vector>
+#include "Editogia/window.h"
+#include "Editogia/geometry.h"
+#include "Cuss/Binding.hpp"
+#include "Cuss/ActionID.hpp"
+#include "Cuss/Elements/Type.hpp"
 #include "Cuss/Elements/Element.hpp"
 
 class interface
