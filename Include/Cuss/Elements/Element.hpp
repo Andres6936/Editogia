@@ -3,6 +3,11 @@
 #ifndef EDITOGIA_ELEMENT_HPP
 #define EDITOGIA_ELEMENT_HPP
 
+#include <string>
+#include <vector>
+#include "Cuss/Elements/Type.hpp"
+#include "Cuss/Elements/Alignment.hpp"
+
 struct element
 {
 	std::string name;
