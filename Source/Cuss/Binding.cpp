@@ -1,5 +1,7 @@
 // Joan Andrés (@Andres6936) Github.
 
+#include <sstream>
+#include "Editogia/stringfunc.h"
 #include "Cuss/Binding.hpp"
 
 
@@ -7,7 +9,7 @@ std::string binding::save_data()
 {
 	std::stringstream ret;
 	ret << int(act) << " " << target << " "
-	STD_DELIM << " " << a << " " << b;
+										STD_DELIM << " " << a << " " << b;
 	return ret.str();
 }
 
