@@ -10,10 +10,10 @@ enum class TypeMenu
 {
 	None,
 	Game,
-	Help,
-	World,
-	Buildings,
 	Ministers,
+	Buildings,
+	World,
+	Help,
 };
 
 struct Menu
