@@ -8,6 +8,7 @@
 
 #include "Editogia/glyph.h"
 #include "Editogia/color.h"
+#include "Editogia/window.h"
 #include "Cuss/Elements/Type.hpp"
 #include "Cuss/Elements/Alignment.hpp"
 
