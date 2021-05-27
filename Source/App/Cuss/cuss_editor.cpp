@@ -3,7 +3,12 @@
 #include <unistd.h>
 #include <iostream> // For displaying messages to the terminal
 #include <algorithm>  // For sorting the list of loadable files
-#include "Editogia/cuss.h"
+#include "Cuss/Interface.hpp"
+#include "Cuss/Elements/List.hpp"
+#include "Cuss/Elements/Menu.hpp"
+#include "Cuss/Elements/Drawing.hpp"
+#include "Cuss/Elements/TextBox.hpp"
+#include "Cuss/Elements/TextEntry.hpp"
 #include "Editogia/files.h"
 #include "Editogia/stringfunc.h"
 
