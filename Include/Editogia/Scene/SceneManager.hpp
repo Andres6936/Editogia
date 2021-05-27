@@ -83,11 +83,11 @@ private:
 
 // *** Menus ***
 
-// Open the specified menu; if item == MENU_NULL, close all menus.
-	void set_menu(Menu_id item);
+// Open the specified menu; if item == None, close all menus.
+	void set_menu(TypeMenu item);
 
 // Perform the action bound to the given menu item
-	void do_menu_action(Menu_id menu, int index);
+	void do_menu_action(TypeMenu menu, int index);
 
 
 // *** Interface adjustment ***
@@ -192,10 +192,10 @@ private:
 // *** Helper / data-storing functions ***
 
 // Stores the name and position (on menu bar) of the given menu in name & posx
-	void get_menu_info(Menu_id item, std::string& name, int& posx);
+	void get_menu_info(TypeMenu item, std::string& name, int& posx);
 
 // Returns the list of options in the specified menu
-	std::vector<std::string> get_menu_options(Menu_id item);
+	std::vector<std::string> get_menu_options(TypeMenu item);
 
 
 // *** Setup functions ***
@@ -204,7 +204,7 @@ private:
 	// The variadic parameters are a null-terminated set of strings; each one is an
 	// option in this menu.
 	template<typename ... Args>
-	bool add_menu(Menu_id id, std::string name, Args&& ... args)
+	bool add_menu(TypeMenu id, std::string name, Args&& ... args)
 	{
 		int length = tagless_length(name) + 3;  // +3 for "1: "
 		Menu tmp_menu;
@@ -235,7 +235,7 @@ private:
 	Interface_mode cur_mode;
 	Data_mode cur_data_mode;
 	int message_offset;  // We can scroll messages; the first message to start w/
-	Menu_id cur_menu;
+	TypeMenu cur_menu;
 
 // Varius values used in user interaction.
 	Point sel;  // Point in map currently highlighted

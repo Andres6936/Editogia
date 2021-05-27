@@ -6,21 +6,20 @@
 #include <vector>
 #include <string>
 
-enum Menu_id
+enum class TypeMenu
 {
-	MENU_NULL = 0,
-	MENU_GAME,
-	MENU_MINISTERS,
-	MENU_BUILDINGS,
-	MENU_WORLD,
-	MENU_HELP,
-	MENU_MAX
+	None,
+	Game,
+	Help,
+	World,
+	Buildings,
+	Ministers,
 };
 
 struct Menu
 {
 	std::string name;
-	Menu_id id;
+	TypeMenu id;
 	int posx;
 	std::vector<std::string> items;
 };

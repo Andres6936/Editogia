@@ -19,7 +19,7 @@
 
 SceneManager::SceneManager()
 {
-	cur_menu = MENU_NULL;
+	cur_menu = TypeMenu::None;
 	cur_mode = IMODE_NULL;
 	cur_data_mode = DATA_MODE_CITIZENS;
 	message_offset = 0;
@@ -55,13 +55,13 @@ bool SceneManager::init()
 	w_main.init(0, 0, 80, 24);
 
 // Menu setup!  Put menus here.
-	add_menu(MENU_GAME, "Game",
+	add_menu(TypeMenu::Game, "Game",
 			"Save & Quit",
 			"Quit without saving",
 			"About"
 	);
 
-	add_menu(MENU_MINISTERS, "Ministers",
+	add_menu(TypeMenu::Ministers, "Ministers",
 			"Finance",
 			"Farms & Food",
 			"Hunting",
@@ -71,16 +71,16 @@ bool SceneManager::init()
 			"Trade"
 	);
 
-	add_menu(MENU_BUILDINGS, "Buildings",
+	add_menu(TypeMenu::Buildings, "Buildings",
 			"Status",
 			"Build"
 	);
 
-	add_menu(MENU_WORLD, "World",
+	add_menu(TypeMenu::World, "World",
 			"View Map"
 	);
 
-	add_menu(MENU_HELP, "Help",
+	add_menu(TypeMenu::Help, "Help",
 			"Index",
 			"Search"
 	);
@@ -527,14 +527,14 @@ void SceneManager::main_loop()
 
 		if (ch == KEY_ESC)
 		{
-			set_menu(MENU_NULL);
+			set_menu(TypeMenu::None);
 			set_mode(IMODE_VIEW_MAP);
 
 		}
 		else if (ch == '!')
 		{
 			set_mode(IMODE_MENU);
-			set_menu(MENU_NULL);
+			set_menu(TypeMenu::None);
 
 		}
 		else
@@ -560,14 +560,14 @@ void SceneManager::handle_key(long ch)
  */
 		int menu_index = ch - '0';
 
-		if (cur_menu == MENU_NULL)
+		if (cur_menu == TypeMenu::None)
 		{ // We're not in a menu - so open one
-			set_menu(Menu_id(menu_index));
+			set_menu(TypeMenu(menu_index));
 		}
 		else
 		{
 			do_menu_action(cur_menu, menu_index);
-			set_menu(MENU_NULL);
+			set_menu(TypeMenu::None);
 			set_mode(IMODE_VIEW_MAP); // Get out of menu mode
 		}
 
@@ -587,7 +587,7 @@ void SceneManager::handle_key(long ch)
 // Most menu stuff is handled above (keys '1' - '9').  But Q can close the menu.
 			if (ch == 'q' || ch == 'Q')
 			{
-				set_menu(MENU_NULL);
+				set_menu(TypeMenu::None);
 				set_mode(IMODE_VIEW_MAP);
 			}
 			break;
@@ -1201,21 +1201,21 @@ void SceneManager::print_data()
 }
 
 
-void SceneManager::set_menu(Menu_id item)
+void SceneManager::set_menu(TypeMenu item)
 {
 	std::string menu_name;
 	int posx = -1;
 // If we're setting the currently-open menu, instead just close it.
 	if (item == cur_menu)
 	{
-		item = MENU_NULL;
+		item = TypeMenu::None;
 	}
-	else if (item != MENU_NULL)
+	else if (item != TypeMenu::None)
 	{
 		set_mode(IMODE_MENU);
 	}
 // Remove any currently-open menu.
-	if (cur_menu != MENU_NULL)
+	if (cur_menu != TypeMenu::None)
 	{
 		get_menu_info(cur_menu, menu_name, posx);
 		i_main.erase_element(menu_name);  // Delete the element created for old menu
@@ -1223,7 +1223,7 @@ void SceneManager::set_menu(Menu_id item)
 	}
 // Add in the new menu.
 	cur_menu = item;
-	if (item == MENU_NULL)
+	if (item == TypeMenu::None)
 	{  // Nothing else to do.
 		return;
 	}
@@ -1268,14 +1268,14 @@ void SceneManager::set_menu(Menu_id item)
 	i_main.set_data("menu_border", line_nw, sizex + 1, sizey);
 }
 
-void SceneManager::do_menu_action(Menu_id menu, int index)
+void SceneManager::do_menu_action(TypeMenu menu, int index)
 {
 // By default, we fall back into normal map mode.  This is suitable most of the
 // time, but if not you can override it below.
 	set_mode(IMODE_VIEW_MAP);
 	switch (menu)
 	{
-	case MENU_GAME:
+	case TypeMenu::Game:
 		switch (index)
 		{
 		case 1: // Save and quit
@@ -1300,7 +1300,7 @@ void SceneManager::do_menu_action(Menu_id menu, int index)
 		}
 		break;
 
-	case MENU_MINISTERS:
+	case TypeMenu::Ministers:
 		switch (index)
 		{
 		case 1: // Finance minister
@@ -1327,7 +1327,7 @@ void SceneManager::do_menu_action(Menu_id menu, int index)
 		}
 		break;
 
-	case MENU_BUILDINGS:
+	case TypeMenu::Buildings:
 		switch (index)
 		{
 		case 1: // View buildings
@@ -1339,7 +1339,7 @@ void SceneManager::do_menu_action(Menu_id menu, int index)
 		}
 		break;
 
-	case MENU_WORLD:
+	case TypeMenu::World:
 		switch (index)
 		{
 		case 1: // View map
@@ -1348,7 +1348,7 @@ void SceneManager::do_menu_action(Menu_id menu, int index)
 		}
 		break;
 
-	case MENU_HELP:
+	case TypeMenu::Help:
 		switch (index)
 		{
 		case 1: // Help index
@@ -5733,7 +5733,7 @@ bool SceneManager::help_article(std::string name)
 	} // while (true)
 }
 
-void SceneManager::get_menu_info(Menu_id item, std::string& name, int& posx)
+void SceneManager::get_menu_info(TypeMenu item, std::string& name, int& posx)
 {
 	name = menus[item - 1].name;
 	name = remove_color_tags(name);
@@ -5741,7 +5741,7 @@ void SceneManager::get_menu_info(Menu_id item, std::string& name, int& posx)
 	posx = menus[item - 1].posx;
 }
 
-std::vector<std::string> SceneManager::get_menu_options(Menu_id item)
+std::vector<std::string> SceneManager::get_menu_options(TypeMenu item)
 {
 	std::vector<std::string> ret;
 
@@ -5757,7 +5757,7 @@ std::vector<std::string> SceneManager::get_menu_options(Menu_id item)
 
 /*
   switch (item) {
-    case MENU_MINISTERS:
+    case Ministers:
       ret.push_back( menuify("Finance")   );
       ret.push_back( menuify("Public")    );
       ret.push_back( menuify("Trade")     );
