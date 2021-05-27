@@ -5734,6 +5734,22 @@ bool SceneManager::help_article(std::string name)
 	} // while (true)
 }
 
+/**
+ *
+ * @tparam Container The parameter must be of meet the requirements
+ * of Container, it is: A Container is an object used to store other
+ * objects and taking care of the management of the memory used by
+ * the objects it contains.
+ *
+ * @param type The type of menu.
+ *
+ * @param container The container that store the values, the
+ * container must meet the requirement of Iterable.
+ *
+ * @throw std::domain_error If none element is found in the container.
+ *
+ * @return The Menu that coincide with the type.
+ */
 template<typename Container>
 Menu findMenuType(const TypeMenu type, const Container& container)
 {
