@@ -43,12 +43,24 @@ struct Menu
 
 	// Getters
 
+	/**
+	 * @return The width in characters of menu.
+	 */
 	const std::int32_t getWidth() const noexcept;
 
+	/**
+	 * @return The name of menu.
+	 */
 	const std::string& getName() const noexcept;
 
+	/**
+	 * @return The type of menu.
+	 */
 	const TypeMenu getTypeMenu() const noexcept;
 
+	/**
+	 * @return The submenus of menu.
+	 */
 	const std::vector<std::string>& getItems() const noexcept;
 };
 
