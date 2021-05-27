@@ -160,8 +160,8 @@ bool ele_textbox::set_data(int data)
 	if (offset < 0)
 		offset = 0;
 /*
- else if (data > sizey - broken.size())
-  offset = sizey - broken.size();
+ else if (data > height - broken.size())
+  offset = height - broken.size();
 */
 	return true;
 }

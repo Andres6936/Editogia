@@ -26,8 +26,8 @@ using namespace cuss;
 interface::interface(std::string _name, int _width, int _height) noexcept
 {
 	name = _name;
-	sizex = _width;
-	sizey = _height;
+	width = _width;
+	height = _height;
 }
 
 interface::~interface()
@@ -39,13 +39,13 @@ interface::~interface()
 void interface::add_element(element_type type, std::string name, int posx,
 		int posy, int szx, int szy, bool selectable)
 {
-	if (posx < 0 || posx >= sizex || posy < 0 || posy >= sizey)
+	if (posx < 0 || posx >= width || posy < 0 || posy >= height)
 		return;
 
-	if (posx + szx >= sizex)
-		szx = sizex - posx;
-	if (posy + szy >= sizey)
-		szy = sizey - posy;
+	if (posx + szx >= width)
+		szx = width - posx;
+	if (posy + szy >= height)
+		szy = height - posy;
 
 	if (name.find(' ') != std::string::npos)
 		return;
@@ -208,7 +208,7 @@ std::string interface::save_data()
 {
 	std::stringstream ret;
 
-	ret << name << " " << STD_DELIM << " " << sizex << " " << sizey << " " <<
+	ret << name << " " << STD_DELIM << " " << width << " " << height << " " <<
 		elements.size() << " ";
 	for (int i = 0; i < elements.size(); i++)
 		ret << elements[i]->type() << " " << elements[i]->save_data() << std::endl;
@@ -224,7 +224,7 @@ std::string interface::save_data()
 void interface::load_data(std::istream& datastream)
 {
 	name = load_to_delim(datastream, STD_DELIM);
-	datastream >> sizex >> sizey;
+	datastream >> width >> height;
 	elements.clear();
 	int tmpcount, tmpbind;
 	datastream >> tmpcount;

@@ -228,16 +228,16 @@ int main(int argc, char* argv[])
 								sel->posx = 0;
 							if (sel->posx + sel->sizex - 1 >= sizex)
 								sel->posx = sizex - sel->sizex;
-							if (sel->posx + sel->sizex - 1 >= edited.sizex)
-								sel->posx = edited.sizex - sel->sizex;
+							if (sel->posx + sel->sizex - 1 >= edited.width)
+								sel->posx = edited.width - sel->sizex;
 
 							sel->posy += movey;
 							if (sel->posy < 0)
 								sel->posy = 0;
 							if (sel->posy + sel->sizey - 1 >= sizey)
 								sel->posy = sizey - sel->sizey;
-							if (sel->posy + sel->sizey - 1 >= edited.sizey)
-								sel->posy = edited.sizey - sel->sizey;
+							if (sel->posy + sel->sizey - 1 >= edited.height)
+								sel->posy = edited.height - sel->sizey;
 
 						}
 						else if (dm == DM_RESIZE_ELE && sel)
@@ -247,16 +247,16 @@ int main(int argc, char* argv[])
 								sel->sizex = 1;
 							if (sel->posx + sel->sizex - 1 >= sizex)
 								sel->sizex = sizex - sel->posx;
-							if (sel->posx + sel->sizex - 1 >= edited.sizex)
-								sel->sizex = edited.sizex - sel->posx;
+							if (sel->posx + sel->sizex - 1 >= edited.width)
+								sel->sizex = edited.width - sel->posx;
 
 							sel->sizey += movey;
 							if (sel->sizey < 1)
 								sel->sizey = 1;
 							if (sel->posy + sel->sizey - 1 >= sizey)
 								sel->sizey = sizey - sel->posy;
-							if (sel->posy + sel->sizey - 1 >= edited.sizey)
-								sel->sizey = edited.sizey - sel->posy;
+							if (sel->posy + sel->sizey - 1 >= edited.height)
+								sel->sizey = edited.height - sel->posy;
 
 						}
 						else
@@ -264,11 +264,11 @@ int main(int argc, char* argv[])
 							posx += movex;
 							if (posx < 0) posx = 0;
 							if (posx >= sizex) posx = sizex - 1;
-							if (posx >= edited.sizex) posx = edited.sizex - 1;
+							if (posx >= edited.width) posx = edited.width - 1;
 							posy += movey;
 							if (posy < 0) posy = 0;
 							if (posy >= sizey) posy = sizey - 1;
-							if (posy >= edited.sizey) posy = edited.sizey - 1;
+							if (posy >= edited.height) posy = edited.height - 1;
 						}
 
 					}
@@ -280,9 +280,9 @@ int main(int argc, char* argv[])
 					else if (ch == 'G')
 					{
 						posy = sizey - 1;
-						if (posy >= edited.sizey)
+						if (posy >= edited.height)
 						{
-							posy = edited.sizey - 1;
+							posy = edited.height - 1;
 						}
 
 					}
@@ -294,9 +294,9 @@ int main(int argc, char* argv[])
 					else if (ch == '$')
 					{
 						posx = sizex - 1;
-						if (posx >= edited.sizex)
+						if (posx >= edited.width)
 						{
-							posx = edited.sizex - 1;
+							posx = edited.width - 1;
 						}
 
 					}
@@ -728,8 +728,8 @@ bool starting_window(interface& edited)
 		filename << "cuss/" << selname;
 		selected.load_from_file(filename.str());
 		i_start.set_data("list_elements", selected.element_names());
-		i_start.set_data("num_x", selected.sizex);
-		i_start.set_data("num_y", selected.sizey);
+		i_start.set_data("num_x", selected.width);
+		i_start.set_data("num_y", selected.height);
 	}
 	i_start.select("list_interfaces");
 
@@ -794,8 +794,8 @@ bool starting_window(interface& edited)
 					filename << "cuss/" << selname;
 					selected.load_from_file(filename.str());
 					i_start.set_data("list_elements", selected.element_names());
-					i_start.set_data("num_x", selected.sizex);
-					i_start.set_data("num_y", selected.sizey);
+					i_start.set_data("num_x", selected.width);
+					i_start.set_data("num_y", selected.height);
 				}
 			}
 			if (ch == 'k' || ch == '8' || ch == KEY_UP)
@@ -808,8 +808,8 @@ bool starting_window(interface& edited)
 					filename << "cuss/" << selname;
 					selected.load_from_file(filename.str());
 					i_start.set_data("list_elements", selected.element_names());
-					i_start.set_data("num_x", selected.sizex);
-					i_start.set_data("num_y", selected.sizey);
+					i_start.set_data("num_x", selected.width);
+					i_start.set_data("num_y", selected.height);
 				}
 			}
 			if (ch == 'l' || ch == 'L' || ch == '\n')
@@ -1414,8 +1414,8 @@ void init_interface(interface& edited, std::string name, int x, int y)
 	else
 	{
 		edited.name = name;
-		edited.sizex = x;
-		edited.sizey = y;
+		edited.width = x;
+		edited.height = y;
 		edited.add_element(ELE_DRAWING, "BG", 0, 0, x, y, false);
 	}
 }
@@ -1609,8 +1609,8 @@ void fix_lines(interface& edited, std::string name,
 	{
 		x1 = 0;
 		y1 = 0;
-		x2 = edited.sizex;
-		y2 = edited.sizey;
+		x2 = edited.width;
+		y2 = edited.height;
 	}
 	element* ele = edited.find_by_name(name);
 	ele_drawing* bg = static_cast<ele_drawing*>(ele);

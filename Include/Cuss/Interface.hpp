@@ -36,9 +36,9 @@ namespace cuss
 
 		// Public properties
 
-		int sizey = 24;
+		int height = 24;
 
-		int sizex = 80;
+		int width = 80;
 
 		/**
 		 * The name of interface.
