@@ -63,7 +63,10 @@ namespace cuss
 
 		// Destructor
 
-		~interface();
+		/**
+		 * Destructor
+		 */
+		virtual ~interface();
 
 		// Methods
 
