@@ -5799,20 +5799,6 @@ void Interface::set_menu_str()
 	}
 }
 
-Data_mode lookup_data_mode(std::string name)
-{
-	name = no_caps(trim(name));
-	for (int i = 0; i < DATA_MODE_MAX; i++)
-	{
-		Data_mode ret = Data_mode(i);
-		if (name == no_caps(data_mode_name(ret)))
-		{
-			return ret;
-		}
-	}
-	return DATA_MODE_NULL;
-}
-
 std::string data_mode_name(Data_mode mode)
 {
 	switch (mode)
@@ -5833,13 +5819,3 @@ std::string data_mode_name(Data_mode mode)
 	return "BUG - Escaped data_mode_name() switch!";
 }
 
-std::string menuify(std::string name)
-{
-	if (name.empty())
-	{
-		return std::string();
-	}
-	std::stringstream ret;
-	ret << "<c=ltred>" << name[0] << "<c=/>" << name.substr(1);
-	return ret.str();
-}

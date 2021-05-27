@@ -38,8 +38,6 @@ enum Data_mode
 	DATA_MODE_MAX
 };
 
-Data_mode lookup_data_mode(std::string name);
-
 std::string data_mode_name(Data_mode mode);
 
 enum Game_state
@@ -50,12 +48,6 @@ enum Game_state
 
 class Player_city;
 
-struct Command
-{
-	std::string name;
-	int index;
-};
-
 struct Menu
 {
 	std::string name;
@@ -63,9 +55,6 @@ struct Menu
 	int posx;
 	std::vector<std::string> items;
 };
-
-// Basically, highlights the first letter.
-std::string menuify(std::string name);
 
 class Interface
 {
@@ -276,8 +265,6 @@ private:
 // Windows and cuss interfaces.
 	cuss::interface i_main;
 	Window w_main;
-	cuss::interface i_menu;
-	Window w_menu;
 
 };
 
