@@ -16,6 +16,9 @@
 namespace cuss
 {
 
+	/**
+	 * Properties: DefaultConstructible.
+	 */
 	class interface
 	{
 
@@ -35,6 +38,9 @@ namespace cuss
 
 		std::string name;
 
+		/**
+		 * Default constructors
+		 */
 		interface() noexcept = default;
 
 		interface(std::string name, int width, int height) noexcept;
