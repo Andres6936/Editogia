@@ -1,4 +1,5 @@
 ADD_LIBRARY(Editogia.Lib
+        Scene/SceneManager.cpp
         ai_city.cpp
         ai_data.cpp
         animal.cpp
@@ -19,7 +20,6 @@ ADD_LIBRARY(Editogia.Lib
         help.cpp
         help_data.cpp
         init.cpp
-        interface.cpp
         keys.cpp
         kingdom.cpp
         ManagerResources.cpp

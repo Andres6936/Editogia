@@ -1,24 +1,15 @@
 #ifndef _INTERFACE_H_
 #define _INTERFACE_H_
 
-#include "Cuss/Interface.hpp"
-#include "window.h"
-#include "area.h"
-#include "game.h"
-#include "world.h"
 #include <vector>
 #include <string>
+#include "Editogia/area.h"
+#include "Editogia/game.h"
+#include "Editogia/world.h"
+#include "Editogia/window.h"
+#include "Editogia/Scene/Menu.hpp"
+#include "Cuss/Interface.hpp"
 
-enum Menu_id
-{
-	MENU_NULL = 0,
-	MENU_GAME,
-	MENU_MINISTERS,
-	MENU_BUILDINGS,
-	MENU_WORLD,
-	MENU_HELP,
-	MENU_MAX
-};
 
 enum Interface_mode
 {
@@ -47,14 +38,6 @@ enum Game_state
 };
 
 class Player_city;
-
-struct Menu
-{
-	std::string name;
-	Menu_id id;
-	int posx;
-	std::vector<std::string> items;
-};
 
 class SceneManager
 {

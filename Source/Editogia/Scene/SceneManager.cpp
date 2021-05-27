@@ -11,9 +11,9 @@
 #include "Editogia/animal.h"
 #include "Editogia/globals.h"
 #include "Editogia/building.h"
-#include "Editogia/interface.h"
 #include "Editogia/stringfunc.h"
 #include "Editogia/player_city.h"
+#include "Editogia/Scene/SceneManager.hpp"
 
 SceneManager::SceneManager()
 {
