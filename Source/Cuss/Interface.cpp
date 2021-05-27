@@ -23,12 +23,11 @@
 
 using namespace cuss;
 
-interface::interface(std::string N, int X, int Y)
+interface::interface(std::string _name, int _width, int _height) noexcept
 {
-	active_element = -1;
-	name = N;
-	sizex = X;
-	sizey = Y;
+	name = _name;
+	sizex = _width;
+	sizey = _height;
 }
 
 interface::~interface()

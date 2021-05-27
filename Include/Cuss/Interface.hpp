@@ -19,14 +19,25 @@ namespace cuss
 	class interface
 	{
 
+	private:
+
+		int active_element = -1;
+
+		std::vector<element*> elements;
+
+		std::map<long, binding> bindings;
+
 	public:
 
-		int sizey;
-		int sizex;
+		int sizey = 24;
+
+		int sizex = 80;
 
 		std::string name;
 
-		interface(std::string N = "", int X = 80, int Y = 24);
+		interface() noexcept = default;
+
+		interface(std::string name, int width, int height) noexcept;
 
 		~interface();
 
@@ -130,11 +141,6 @@ namespace cuss
 
 		// May redirect to current object
 		bool handle_keypress(long ch);
-
-	private:
-		int active_element;
-		std::vector<element*> elements;
-		std::map<long, binding> bindings;
 	};
 }
 
