@@ -17,12 +17,14 @@ namespace cuss
 {
 
 	/**
-	 * Properties: DefaultConstructible.
+	 * Constraints: DefaultConstructible.
 	 */
 	class interface
 	{
 
 	private:
+
+		// Private properties
 
 		int active_element = -1;
 
@@ -32,14 +34,21 @@ namespace cuss
 
 	public:
 
+		// Public properties
+
 		int sizey = 24;
 
 		int sizex = 80;
 
+		/**
+		 * The name of interface.
+		 */
 		std::string name;
 
+		// Constructor
+
 		/**
-		 * Default constructors
+		 * Default constructors.
 		 */
 		interface() noexcept = default;
 
