@@ -1,7 +1,24 @@
 // Joan Andrés (@Andres6936) Github.
 
+#include <sstream>
+#include "Editogia/stringfunc.h"
 #include "Cuss/Interface.hpp"
+#include "Cuss/Elements/List.hpp"
+#include "Cuss/Elements/Menu.hpp"
+#include "Cuss/Elements/Number.hpp"
+#include "Cuss/Elements/Drawing.hpp"
+#include "Cuss/Elements/TextBox.hpp"
+#include "Cuss/Elements/TextEntry.hpp"
 
+#define PREP_ELEMENT(ele) \
+  (ele)->name = name;\
+  (ele)->posx = posx;\
+  (ele)->posy = posy;\
+  (ele)->sizex = szx;\
+  (ele)->sizey = szy;\
+  (ele)->selected = false;\
+  (ele)->selectable = selectable;\
+  (ele)->align = ALIGN_LEFT
 
 interface::interface(std::string N, int X, int Y)
 {
