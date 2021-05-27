@@ -22,7 +22,7 @@ const char* toString(const TypeMenu type) noexcept;
 struct Menu
 {
 	/**
-	 * The coordinateX of menu in characters.
+	 * The coordinate at X of menu.
 	 */
 	std::int32_t coordinateX;
 
