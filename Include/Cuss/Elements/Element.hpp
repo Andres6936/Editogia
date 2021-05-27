@@ -5,6 +5,9 @@
 
 #include <string>
 #include <vector>
+
+#include "Editogia/glyph.h"
+#include "Editogia/color.h"
 #include "Cuss/Elements/Type.hpp"
 #include "Cuss/Elements/Alignment.hpp"
 
