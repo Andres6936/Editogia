@@ -5,6 +5,7 @@
 
 #include <vector>
 #include <string>
+#include <cstdint>
 
 enum class TypeMenu
 {
@@ -20,9 +21,24 @@ const char* toString(const TypeMenu type) noexcept;
 
 struct Menu
 {
-	int width;
+	/**
+	 * The width of menu in characters.
+	 */
+	std::int32_t width;
+
+	/**
+	 * The name of menu.
+	 */
 	std::string name;
+
+	/**
+	 * The type of menu.
+	 */
 	TypeMenu typeMenu;
+
+	/**
+	 * The submenus of menu.
+	 */
 	std::vector<std::string> items;
 };
 
