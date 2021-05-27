@@ -18,7 +18,14 @@ namespace cuss
 
 	class interface
 	{
+
 	public:
+
+		int sizey;
+		int sizex;
+
+		std::string name;
+
 		interface(std::string N = "", int X = 80, int Y = 24);
 
 		~interface();
@@ -120,10 +127,6 @@ namespace cuss
 
 		bool handle_action(long ch);  // Only does keybindings
 		bool handle_keypress(long ch);  // May redirect to current object
-		// e.g. 0-9 will be used as input for number
-
-		std::string name;
-		int sizex, sizey;
 
 	private:
 		int active_element;
