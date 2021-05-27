@@ -3,7 +3,7 @@
 #include "Cuss/Elements/Type.hpp"
 
 
-std::string cuss::element_type_name(cuss::element_type type)
+std::string element_type_name(element_type type)
 {
 	switch (type)
 	{
