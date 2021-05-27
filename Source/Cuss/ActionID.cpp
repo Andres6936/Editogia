@@ -2,15 +2,13 @@
 
 #include "Cuss/ActionID.hpp"
 
-using namespace cuss;
-
-bool action_needs_element(action_id act)
+bool cuss::action_needs_element(cuss::action_id act)
 {
 	return (act == ACT_SELECT_STR || act == ACT_SCROLL || act == ACT_SET_COLORS ||
 			act == ACT_TRANSLATE);
 }
 
-std::string action_name(action_id act)
+std::string cuss::action_name(cuss::action_id act)
 {
 	switch (act)
 	{
