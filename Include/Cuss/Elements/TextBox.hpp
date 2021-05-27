@@ -84,7 +84,12 @@ namespace cuss
 			return (*text);
 		}
 
-		virtual std::vector <std::string> get_str_list();
+		virtual std::vector<std::string> get_str_list();
+
+	private:
+
+		void print_scrollbar(Window* win, int posx, int posy, int length, int offset, int size,
+				bool selected);
 	};
 }
 

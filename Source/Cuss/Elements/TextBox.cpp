@@ -8,7 +8,7 @@
 
 using namespace cuss;
 
-void print_scrollbar(Window* win, int posx, int posy, int length, int offset,
+void ele_textbox::print_scrollbar(Window* win, int posx, int posy, int length, int offset,
 		int size, bool selected)
 {
 	nc_color barcol = (selected ? SELECTCOLOR : c_ltgray);
