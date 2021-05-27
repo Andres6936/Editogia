@@ -1,6 +1,5 @@
 ADD_LIBRARY(Editogia.Common
         color.cpp
-        cuss.cpp
         files.cpp
         glyph.cpp
         stringfunc.cpp
