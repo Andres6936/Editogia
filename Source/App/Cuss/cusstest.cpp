@@ -1,4 +1,4 @@
-#include "Editogia/cuss.h"
+#include "Cuss/Interface.hpp"
 #include "Editogia/window.h"
 
 int main(int argc, char** argv)
