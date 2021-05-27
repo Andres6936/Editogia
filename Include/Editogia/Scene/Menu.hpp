@@ -20,9 +20,9 @@ const char* toString(const TypeMenu type) noexcept;
 
 struct Menu
 {
+	int width;
 	std::string name;
-	TypeMenu id;
-	int posx;
+	TypeMenu typeMenu;
 	std::vector<std::string> items;
 };
 

@@ -222,7 +222,7 @@ private:
 
 // *** Helper / data-storing functions ***
 
-// Stores the name and position (on menu bar) of the given menu in name & posx
+// Stores the name and position (on menu bar) of the given menu in name & width
 	void get_menu_info(TypeMenu item, std::string& name, int& posx);
 
 // Returns the list of options in the specified menu
@@ -242,8 +242,8 @@ private:
 		std::string ss_name = "<c=pink,blue>" + std::to_string(int(typeMenu)) +
 							  "<c=white,blue>: " + toString(typeMenu);
 		tmp_menu.name = ss_name;
-		tmp_menu.id = typeMenu;
-		tmp_menu.posx = next_menu_posx;
+		tmp_menu.typeMenu = typeMenu;
+		tmp_menu.width = next_menu_posx;
 		next_menu_posx += length + 2;
 
 		(tmp_menu.items.push_back(std::forward<Args>(args)), ...);

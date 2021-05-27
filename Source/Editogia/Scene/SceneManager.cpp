@@ -5746,7 +5746,7 @@ Menu findMenuType(const TypeMenu type, const Container& container)
 {
 	for (const auto& menu : container)
 	{
-		if (menu.id == type)
+		if (menu.typeMenu == type)
 		{
 			return menu;
 		}
@@ -5764,7 +5764,7 @@ void SceneManager::get_menu_info(TypeMenu item, std::string& name, int& posx)
 		name = menu.name;
 		name = remove_color_tags(name);
 		name = name.substr(3);  // Remove "1: "
-		posx = menu.posx;
+		posx = menu.width;
 	}
 	catch (std::domain_error& exception)
 	{
