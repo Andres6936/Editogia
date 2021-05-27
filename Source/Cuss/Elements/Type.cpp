@@ -1,6 +1,6 @@
 // Joan Andrés (@Andres6936) Github.
 
-#include "Editogia/Type.hpp"
+#include "Cuss/Elements/Type.hpp"
 
 
 std::string cuss::element_type_name(cuss::element_type type)

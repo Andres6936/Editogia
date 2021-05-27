@@ -1,6 +1,6 @@
 // Joan Andrés (@Andres6936) Github.
 
-#include "Editogia/Interface.hpp"
+#include "Cuss/Interface.hpp"
 
 
 interface::interface(std::string N, int X, int Y)

@@ -1,6 +1,6 @@
 // Joan Andrés (@Andres6936) Github.
 
-#include "Editogia/TextEntry.hpp"
+#include "Cuss/Elements/TextEntry.hpp"
 
 
 // *** TEXT ENTRY ELEMENT ***

@@ -1,6 +1,6 @@
 // Joan Andrés (@Andres6936) Github.
 
-#include "Editogia/Number.hpp"
+#include "Cuss/Elements/Number.hpp"
 
 
 // *** NUMBER ELEMENT ***

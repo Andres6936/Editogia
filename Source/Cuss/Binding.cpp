@@ -1,6 +1,6 @@
 // Joan Andrés (@Andres6936) Github.
 
-#include "Editogia/Binding.hpp"
+#include "Cuss/Binding.hpp"
 
 
 std::string binding::save_data()
