@@ -56,12 +56,12 @@ struct Menu
 	std::vector<std::string> items;
 };
 
-class Interface
+class SceneManager
 {
 public:
-	Interface();
+	SceneManager();
 
-	~Interface();
+	~SceneManager();
 
 	bool init();
 

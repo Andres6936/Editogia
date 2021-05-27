@@ -15,7 +15,7 @@
 #include "Editogia/stringfunc.h"
 #include "Editogia/player_city.h"
 
-Interface::Interface()
+SceneManager::SceneManager()
 {
 	cur_menu = MENU_NULL;
 	cur_mode = IMODE_NULL;
@@ -29,11 +29,11 @@ Interface::Interface()
 	temp_text = false;
 }
 
-Interface::~Interface()
+SceneManager::~SceneManager()
 {
 }
 
-bool Interface::init()
+bool SceneManager::init()
 {
 	bool errors = false;
 	std::stringstream ss_errors;
@@ -90,7 +90,7 @@ bool Interface::init()
 	return true;
 }
 
-bool Interface::starting_screen()
+bool SceneManager::starting_screen()
 {
 	Window w_start(0, 0, 80, 24);
 	cuss::interface i_start;
@@ -240,7 +240,7 @@ bool Interface::starting_screen()
 	return true;
 }
 
-bool Interface::world_design_screen(World_design& design)
+bool SceneManager::world_design_screen(World_design& design)
 {
 	cuss::interface i_design;
 	if (!i_design.load_from_file("cuss/world_design.cuss"))
@@ -458,7 +458,7 @@ bool Interface::world_design_screen(World_design& design)
 	} // while (true)
 }
 
-void Interface::main_loop()
+void SceneManager::main_loop()
 {
 	sel = Point(4, 4);
 	city_radius = true;
@@ -547,7 +547,7 @@ void Interface::main_loop()
 	}
 }
 
-void Interface::handle_key(long ch)
+void SceneManager::handle_key(long ch)
 {
 //debugmsg("handle_key");
 	if (ch >= '1' && ch <= '9')
@@ -808,7 +808,7 @@ resources spent to build it.", area_selected->get_name().c_str()))
 	}
 }
 
-void Interface::set_mode(Interface_mode mode)
+void SceneManager::set_mode(Interface_mode mode)
 {
 	cur_mode = mode;
 	i_main.clear_data("text_map_info"); // TODO: No?
@@ -856,7 +856,7 @@ void Interface::set_mode(Interface_mode mode)
 
 }
 
-void Interface::set_data_mode(Data_mode mode)
+void SceneManager::set_data_mode(Data_mode mode)
 {
 	cur_data_mode = mode;
 	message_offset = 0; // Reset any scrolling we've done
@@ -882,7 +882,7 @@ void Interface::set_data_mode(Data_mode mode)
 	print_data();
 }
 
-void Interface::shift_data_mode(int offset)
+void SceneManager::shift_data_mode(int offset)
 {
 	int result = cur_data_mode + offset;
 	while (result <= DATA_MODE_NULL)
@@ -897,7 +897,7 @@ void Interface::shift_data_mode(int offset)
 	set_data_mode(Data_mode(result));
 }
 
-void Interface::print_message_alert()
+void SceneManager::print_message_alert()
 {
 	i_main.clear_data("text_messages");
 
@@ -935,7 +935,7 @@ void Interface::print_message_alert()
 	i_main.set_data("text_messages", ss_msgs.str());
 }
 
-void Interface::print_data()
+void SceneManager::print_data()
 {
 	std::stringstream ss_data;
 
@@ -1199,7 +1199,7 @@ void Interface::print_data()
 }
 
 
-void Interface::set_menu(Menu_id item)
+void SceneManager::set_menu(Menu_id item)
 {
 	std::string menu_name;
 	int posx = -1;
@@ -1266,7 +1266,7 @@ void Interface::set_menu(Menu_id item)
 	i_main.set_data("menu_border", line_nw, sizex + 1, sizey);
 }
 
-void Interface::do_menu_action(Menu_id menu, int index)
+void SceneManager::do_menu_action(Menu_id menu, int index)
 {
 // By default, we fall back into normal map mode.  This is suitable most of the
 // time, but if not you can override it below.
@@ -1363,14 +1363,14 @@ void Interface::do_menu_action(Menu_id menu, int index)
 	}
 }
 
-void Interface::set_temp_info(std::string text)
+void SceneManager::set_temp_info(std::string text)
 {
 	temp_text = true;
 	original_info_text = i_main.get_str("text_map_info");
 	i_main.set_data("text_map_info", text);
 }
 
-void Interface::restore_info_text()
+void SceneManager::restore_info_text()
 {
 	temp_text = false;
 	if (!original_info_text.empty())
@@ -1380,7 +1380,7 @@ void Interface::restore_info_text()
 	}
 }
 
-void Interface::display_area_stats(Area_type type)
+void SceneManager::display_area_stats(Area_type type)
 {
 	i_main.clear_data("text_map_info");
 
@@ -1483,7 +1483,7 @@ void Interface::display_area_stats(Area_type type)
 	i_main.set_data("text_map_info", stats.str());
 }
 
-void Interface::enqueue_area()
+void SceneManager::enqueue_area()
 {
 	if (current_area == AREA_NULL)
 	{
@@ -1527,7 +1527,7 @@ void Interface::enqueue_area()
 	}
 }
 
-bool Interface::load_game()
+bool SceneManager::load_game()
 {
 	cuss::interface i_load;
 	if (!i_load.load_from_file("cuss/load_game.cuss"))
@@ -1623,7 +1623,7 @@ bool Interface::load_game()
 	return false;
 }
 
-void Interface::minister_finance()
+void SceneManager::minister_finance()
 {
 	cuss::interface i_finance;
 	if (!i_finance.load_from_file("cuss/finance.cuss"))
@@ -1949,7 +1949,7 @@ void Interface::minister_finance()
 	}
 }
 
-void Interface::minister_food()
+void SceneManager::minister_food()
 {
 	cuss::interface i_food;
 	if (!i_food.load_from_file("cuss/food.cuss"))
@@ -2291,7 +2291,7 @@ void Interface::minister_food()
 
 }
 
-void Interface::list_farm_crops(Area* cur_farm, cuss::interface& i_food)
+void SceneManager::list_farm_crops(Area* cur_farm, cuss::interface& i_food)
 {
 // List crops grown at cur_farm
 	std::vector<std::string> crop_names, crop_types, crop_food, crop_grown;
@@ -2327,7 +2327,7 @@ void Interface::list_farm_crops(Area* cur_farm, cuss::interface& i_food)
 	i_food.set_data("list_crop_grown", crop_grown);
 }
 
-void Interface::minister_hunt()
+void SceneManager::minister_hunt()
 {
 	cuss::interface i_hunt;
 	if (!i_hunt.load_from_file("cuss/hunting.cuss"))
@@ -2748,7 +2748,7 @@ void Interface::minister_hunt()
 
 }
 
-void Interface::minister_livestock()
+void SceneManager::minister_livestock()
 {
 	cuss::interface i_livestock;
 	if (!i_livestock.load_from_file("cuss/livestock.cuss"))
@@ -2948,7 +2948,7 @@ void Interface::minister_livestock()
 	} // while (!done)
 }
 
-void Interface::minister_mining()
+void SceneManager::minister_mining()
 {
 	cuss::interface i_mining;
 	if (!i_mining.load_from_file("cuss/mining.cuss"))
@@ -3238,7 +3238,7 @@ void Interface::minister_mining()
 
 }
 
-void Interface::list_mine_minerals(Area* cur_mine,
+void SceneManager::list_mine_minerals(Area* cur_mine,
 		std::vector<int>& mineral_indices,
 		cuss::interface& i_mining)
 {
@@ -3268,7 +3268,7 @@ void Interface::list_mine_minerals(Area* cur_mine,
 	i_mining.set_data("list_mineral_mined", mineral_mined);
 }
 
-void Interface::minister_morale()
+void SceneManager::minister_morale()
 {
 	cuss::interface i_morale;
 	if (!i_morale.load_from_file("cuss/morale.cuss"))
@@ -3402,7 +3402,7 @@ void Interface::minister_morale()
 	} // while (true)
 }
 
-void Interface::luxury_management()
+void SceneManager::luxury_management()
 {
 	cuss::interface i_luxuries;
 	if (!i_luxuries.load_from_file("cuss/luxuries.cuss"))
@@ -3756,7 +3756,7 @@ enum Trade_screen
 	TRADE_SCREEN_NEW,
 };
 
-void Interface::minister_trade()
+void SceneManager::minister_trade()
 {
 	cuss::interface i_trade_supplies; // Our resource inventory
 	cuss::interface i_trade_active;   // Our active trades
@@ -3905,7 +3905,7 @@ void Interface::minister_trade()
 	}
 }
 
-void Interface::building_status()
+void SceneManager::building_status()
 {
 	cuss::interface i_buildings;
 	if (!i_buildings.load_from_file("cuss/buildings.cuss"))
@@ -4501,7 +4501,7 @@ void Interface::building_status()
 	} // while (!done)
 }
 
-void Interface::set_building_status_help(cuss::interface& i_buildings,
+void SceneManager::set_building_status_help(cuss::interface& i_buildings,
 		bool adjusting_production)
 {
 	if (adjusting_production)
@@ -4537,7 +4537,7 @@ void Interface::set_building_status_help(cuss::interface& i_buildings,
 
 }
 
-void Interface::build_building()
+void SceneManager::build_building()
 {
 	cuss::interface i_build;
 	if (!i_build.load_from_file("cuss/build_building.cuss"))
@@ -4787,7 +4787,7 @@ false", index);
 
 }
 
-void Interface::set_building_list(cuss::interface& i_build,
+void SceneManager::set_building_list(cuss::interface& i_build,
 		Building_category category,
 		std::vector<Building_type>& types)
 {
@@ -4982,7 +4982,7 @@ void Interface::set_building_list(cuss::interface& i_build,
 	set_building_help(i_build, category, false, help_count);
 }
 
-void Interface::set_building_queue(cuss::interface& i_build)
+void SceneManager::set_building_queue(cuss::interface& i_build)
 {
 // Clear the two fields we're about to set up
 	i_build.clear_data("list_building_queue");
@@ -5010,7 +5010,7 @@ void Interface::set_building_queue(cuss::interface& i_build)
 	}
 }
 
-void Interface::set_building_help(cuss::interface& i_build,
+void SceneManager::set_building_help(cuss::interface& i_build,
 		Building_category build_cat,
 		bool editing_queue, int num_options)
 {
@@ -5056,7 +5056,7 @@ Use direction keys to select a queued building.\n\
 }
 
 
-bool Interface::pick_recipe(Building* cur_bldg, Recipe_amount& new_recipe)
+bool SceneManager::pick_recipe(Building* cur_bldg, Recipe_amount& new_recipe)
 {
 	if (!cur_bldg)
 	{
@@ -5214,7 +5214,7 @@ bool Interface::pick_recipe(Building* cur_bldg, Recipe_amount& new_recipe)
 	}
 }
 
-Area_type Interface::pick_area()
+Area_type SceneManager::pick_area()
 {
 	i_main.clear_data("text_map_info");
 	i_main.clear_data("text_commands");
@@ -5271,7 +5271,7 @@ Area_type Interface::pick_area()
 	} // while (true)
 }
 
-void Interface::set_area_list(Area_category category,
+void SceneManager::set_area_list(Area_category category,
 		std::vector<Area_type>& types)
 {
 	i_main.clear_data("text_commands");
@@ -5321,7 +5321,7 @@ void Interface::set_area_list(Area_category category,
 	}
 }
 
-void Interface::help_index()
+void SceneManager::help_index()
 {
 	cuss::interface i_help;
 	if (!i_help.load_from_file("cuss/help_index.cuss"))
@@ -5402,7 +5402,7 @@ void Interface::help_index()
 	}
 }
 
-void Interface::help_search()
+void SceneManager::help_search()
 {
 	cuss::interface i_help;
 	if (!i_help.load_from_file("cuss/help_search.cuss"))
@@ -5594,7 +5594,7 @@ void Interface::help_search()
 
 }
 
-bool Interface::help_article(std::string name)
+bool SceneManager::help_article(std::string name)
 {
 	cuss::interface i_help;
 	if (!i_help.load_from_file("cuss/help_article.cuss"))
@@ -5731,7 +5731,7 @@ bool Interface::help_article(std::string name)
 	} // while (true)
 }
 
-void Interface::get_menu_info(Menu_id item, std::string& name, int& posx)
+void SceneManager::get_menu_info(Menu_id item, std::string& name, int& posx)
 {
 	name = menus[item - 1].name;
 	name = remove_color_tags(name);
@@ -5739,7 +5739,7 @@ void Interface::get_menu_info(Menu_id item, std::string& name, int& posx)
 	posx = menus[item - 1].posx;
 }
 
-std::vector<std::string> Interface::get_menu_options(Menu_id item)
+std::vector<std::string> SceneManager::get_menu_options(Menu_id item)
 {
 	std::vector<std::string> ret;
 
@@ -5768,7 +5768,7 @@ std::vector<std::string> Interface::get_menu_options(Menu_id item)
 }
 */
 
-void Interface::set_menu_str()
+void SceneManager::set_menu_str()
 {
 	std::stringstream ss_menus;
 	ss_menus << "<c=white,blue>";
