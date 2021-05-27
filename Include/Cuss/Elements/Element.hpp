@@ -5,6 +5,7 @@
 
 #include <string>
 #include <vector>
+#include <cstdint>
 
 #include "Editogia/glyph.h"
 #include "Editogia/color.h"
@@ -31,6 +32,22 @@ namespace cuss
 		vertical_alignment v_align;
 
 		bool recently_selected;
+
+		// Setters
+
+		void setName(const std::string& name) noexcept;
+
+		void setWidth(const std::int32_t width) noexcept;
+
+		void setHeight(const std::int32_t height) noexcept;
+
+		void setSelected(const bool isSelected) noexcept;
+
+		void setSelectable(const bool isSelectable) noexcept;
+
+		void setCoordinateX(const std::int32_t x) noexcept;
+
+		void setCoordinateY(const std::int32_t y) noexcept;
 
 		element()
 		{

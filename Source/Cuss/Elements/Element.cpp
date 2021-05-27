@@ -37,4 +37,39 @@ bool element::set_data(nc_color FG, nc_color BG)
 	return true;
 }
 
+// Setters
 
+void element::setName(const std::string& _name) noexcept
+{
+	name = _name;
+}
+
+void element::setWidth(const std::int32_t width) noexcept
+{
+	sizex = width;
+}
+
+void element::setHeight(const std::int32_t height) noexcept
+{
+	sizey = height;
+}
+
+void element::setSelected(const bool isSelected) noexcept
+{
+	selected = isSelected;
+}
+
+void element::setSelectable(const bool isSelectable) noexcept
+{
+	selectable = isSelectable;
+}
+
+void element::setCoordinateX(const std::int32_t x) noexcept
+{
+	posx = x;
+}
+
+void element::setCoordinateY(const std::int32_t y) noexcept
+{
+	posy = y;
+}
