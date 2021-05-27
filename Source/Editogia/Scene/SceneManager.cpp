@@ -38,15 +38,6 @@ SceneManager::~SceneManager()
 
 bool SceneManager::init()
 {
-	bool errors = false;
-	std::stringstream ss_errors;
-	ss_errors << "Interface initialized with ";
-
-	if (errors)
-	{
-		return false;
-	}
-
 	if (!i_main.load_from_file("cuss/interface.cuss"))
 	{
 		Levin::Log::Critical("Failed to load critical interface file cuss/interface.cuss!");
