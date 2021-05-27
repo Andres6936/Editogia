@@ -12,7 +12,6 @@
 #include "trade.h"
 
 #include "window.h"
-#include "cuss.h"
 #include "glyph.h"    // For City::get_glyph()
 #include <map>
 

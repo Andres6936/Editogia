@@ -15,9 +15,7 @@
 #include "city_achievement.h"
 #include "city_type.h"
 #include "world.h"
-
 #include "window.h"
-#include "cuss.h"
 
 #include <map>
 #include <array>
@@ -25,8 +23,9 @@
 #include <string>
 #include <istream>
 
-#include "Editogia/ManagerResources.hpp"
+#include "Cuss/Elements/Element.hpp"
 #include "Editogia/Message.hpp"
+#include "Editogia/ManagerResources.hpp"
 
 
 class Player_city : public City

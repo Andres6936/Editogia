@@ -1,7 +1,7 @@
 #ifndef _INTERFACE_H_
 #define _INTERFACE_H_
 
-#include "cuss.h"
+#include "Cuss/Interface.hpp"
 #include "window.h"
 #include "area.h"
 #include "game.h"
