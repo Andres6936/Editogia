@@ -1,18 +1,18 @@
-#include "Editogia/player_city.h"
-#include "Editogia/cuss.h"
-#include "Editogia/window.h"
-#include "Editogia/building.h"
-#include "Editogia/stringfunc.h"
-#include "Editogia/geometry.h"
+#include <map>
+#include <vector>
+#include <sstream>
+
 #include "Editogia/rng.h"
 #include "Editogia/combat.h" // For hunting
+#include "Editogia/window.h"
 #include "Editogia/globals.h"
 #include "Editogia/kingdom.h"
+#include "Editogia/building.h"
+#include "Editogia/geometry.h"
+#include "Editogia/stringfunc.h"
+#include "Editogia/player_city.h"
 #include "Editogia/Util/Container.hpp"
-
-#include <sstream>
-#include <vector>
-#include <map>
+#include "Cuss/Interface.hpp"
 
 #include <Levin/Levin.hpp>
 
