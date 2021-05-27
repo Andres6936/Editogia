@@ -5,6 +5,8 @@
 
 #define SELECTCOLOR c_blue
 
+using namespace cuss;
+
 // *** NUMBER ELEMENT ***
 void ele_number::draw(Window* win)
 {

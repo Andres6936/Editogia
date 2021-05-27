@@ -6,6 +6,8 @@
 
 #define SELECTCOLOR c_blue
 
+using namespace cuss;
+
 // *** MENU ELEMENT ***
 void ele_menu::draw(Window* win)
 {

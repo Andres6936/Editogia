@@ -7,78 +7,83 @@
 #include <vector>
 #include "Cuss/Elements/Element.hpp"
 
-struct ele_list : public element
+namespace cuss
 {
-	std::vector<std::string>* list;
-	int offset;
-	int selection;
 
-	ele_list()
+	struct ele_list : public element
 	{
-		name = "";
-		posx = 0;
-		posy = 0;
-		sizex = 0;
-		sizey = 0;
-		selected = false;
-		selectable = false;
-		offset = 0;
-		selection = 0;
-		fg = c_ltgray;
-		bg = c_black;
-		owns_data = false;
-		self_reference();
-	}
+		std::vector<std::string>* list;
+		int offset;
+		int selection;
 
-	virtual element_type type()
-	{
-		return ELE_LIST;
-	};
+		ele_list()
+		{
+			name = "";
+			posx = 0;
+			posy = 0;
+			sizex = 0;
+			sizey = 0;
+			selected = false;
+			selectable = false;
+			offset = 0;
+			selection = 0;
+			fg = c_ltgray;
+			bg = c_black;
+			owns_data = false;
+			self_reference();
+		}
 
-	virtual void draw(Window* win);
+		virtual element_type type()
+		{
+			return ELE_LIST;
+		};
 
-	virtual std::string save_data();
+		virtual void draw(Window* win);
 
-	virtual void load_data(std::istream& datastream);
+		virtual std::string save_data();
 
-	virtual bool self_reference();
+		virtual void load_data(std::istream& datastream);
 
-	virtual bool set_data(std::string data);
+		virtual bool self_reference();
 
-	virtual bool add_data(std::string data);
+		virtual bool set_data(std::string data);
 
-	virtual bool set_data(std::vector <std::string> data);
+		virtual bool add_data(std::string data);
 
-	virtual bool add_data(std::vector <std::string> data);
+		virtual bool set_data(std::vector <std::string> data);
 
-	virtual bool ref_data(std::vector <std::string>* data);
+		virtual bool add_data(std::vector <std::string> data);
+
+		virtual bool ref_data(std::vector <std::string>* data);
 
 // These are used to set the selection
-	virtual bool set_data(int data);
+		virtual bool set_data(int data);
 
-	virtual bool add_data(int data);
+		virtual bool add_data(int data);
 
 // TODO: Implement search function
-	virtual bool handle_keypress(long ch)
-	{
-		return false;
+		virtual bool handle_keypress(long ch)
+		{
+			return false;
+		};
+
+		virtual void clear_data()
+		{
+			list->clear();
+			offset = 0;
+			selection = 0;
+		};
+
+		virtual int get_int();
+
+		virtual std::string get_str();
+
+		virtual std::vector <std::string> get_str_list()
+		{
+			return (*list);
+		};
 	};
 
-	virtual void clear_data()
-	{
-		list->clear();
-		offset = 0;
-		selection = 0;
-	};
-
-	virtual int get_int();
-
-	virtual std::string get_str();
-
-	virtual std::vector <std::string> get_str_list()
-	{
-		return (*list);
-	};
-};
+}
 
 #endif //EDITOGIA_LIST_HPP

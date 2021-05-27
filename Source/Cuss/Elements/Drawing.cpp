@@ -3,6 +3,7 @@
 #include <sstream>
 #include "Cuss/Elements/Drawing.hpp"
 
+using namespace cuss;
 
 // *** DRAWING ELEMENT ***
 void ele_drawing::draw(Window* win)

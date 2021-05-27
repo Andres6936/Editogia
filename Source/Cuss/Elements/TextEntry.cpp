@@ -6,6 +6,8 @@
 
 #define SELECTCOLOR c_blue
 
+using namespace cuss;
+
 // *** TEXT ENTRY ELEMENT ***
 void ele_textentry::draw(Window* win)
 {

@@ -21,6 +21,8 @@
   (ele)->selectable = selectable;\
   (ele)->align = ALIGN_LEFT
 
+using namespace cuss;
+
 interface::interface(std::string N, int X, int Y)
 {
 	active_element = -1;

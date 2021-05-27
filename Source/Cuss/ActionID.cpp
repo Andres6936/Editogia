@@ -2,6 +2,7 @@
 
 #include "Cuss/ActionID.hpp"
 
+using namespace cuss;
 
 bool action_needs_element(action_id act)
 {

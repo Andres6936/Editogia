@@ -4,6 +4,7 @@
 #include "Editogia/stringfunc.h"
 #include "Cuss/Elements/Element.hpp"
 
+using namespace cuss;
 
 // Base save/load functions.
 std::string element::save_data()

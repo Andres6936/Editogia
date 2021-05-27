@@ -4,6 +4,7 @@
 #include "Editogia/stringfunc.h"
 #include "Cuss/Binding.hpp"
 
+using namespace cuss;
 
 std::string binding::save_data()
 {

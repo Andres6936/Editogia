@@ -12,144 +12,148 @@
 #include "Cuss/Elements/Type.hpp"
 #include "Cuss/Elements/Alignment.hpp"
 
-struct element
+namespace cuss
 {
-	std::string name;
-	int posx;
-	int posy;
-	int sizex;
-	int sizey;
-	bool selected;
-	bool selectable;
-	bool owns_data;
-	nc_color fg;
-	nc_color bg;
-	alignment align;
-	vertical_alignment v_align;
 
-	bool recently_selected;
-
-	element()
+	struct element
 	{
-		name = "";
-		posx = 0;
-		posy = 0;
-		sizex = 0;
-		sizey = 0;
-		selected = false;
-		selectable = false;
-		fg = c_ltgray;
-		bg = c_black;
-		owns_data = true;
-		recently_selected = false;
-	}
+		std::string name;
+		int posx;
+		int posy;
+		int sizex;
+		int sizey;
+		bool selected;
+		bool selectable;
+		bool owns_data;
+		nc_color fg;
+		nc_color bg;
+		alignment align;
+		vertical_alignment v_align;
 
-	virtual ~element()
-	{
-	}
+		bool recently_selected;
 
-	virtual element_type type()
-	{
-		return ELE_NULL;
-	}
+		element()
+		{
+			name = "";
+			posx = 0;
+			posy = 0;
+			sizex = 0;
+			sizey = 0;
+			selected = false;
+			selectable = false;
+			fg = c_ltgray;
+			bg = c_black;
+			owns_data = true;
+			recently_selected = false;
+		}
 
-	virtual void draw(Window* win)
-	{
-	}
+		virtual ~element()
+		{
+		}
 
-	virtual std::string save_data();
+		virtual element_type type()
+		{
+			return ELE_NULL;
+		}
 
-	virtual void load_data(std::istream& datastream);
+		virtual void draw(Window* win)
+		{
+		}
 
-	virtual bool self_reference()
-	{
-		return false;
-	}
+		virtual std::string save_data();
 
-	virtual bool set_data(std::string data)
-	{
-		return false;
-	}
+		virtual void load_data(std::istream& datastream);
 
-	virtual bool add_data(std::string data)
-	{
-		return false;
-	}
+		virtual bool self_reference()
+		{
+			return false;
+		}
 
-	virtual bool ref_data(std::string* data)
-	{
-		return false;
-	}
+		virtual bool set_data(std::string data)
+		{
+			return false;
+		}
 
-	virtual bool set_data(std::vector <std::string> data)
-	{
-		return false;
-	}
+		virtual bool add_data(std::string data)
+		{
+			return false;
+		}
 
-	virtual bool add_data(std::vector <std::string> data)
-	{
-		return false;
-	}
+		virtual bool ref_data(std::string* data)
+		{
+			return false;
+		}
 
-	virtual bool ref_data(std::vector <std::string>* data)
-	{
-		return false;
-	}
+		virtual bool set_data(std::vector <std::string> data)
+		{
+			return false;
+		}
 
-	virtual bool set_data(int data)
-	{
-		return false;
-	}
+		virtual bool add_data(std::vector <std::string> data)
+		{
+			return false;
+		}
 
-	virtual bool add_data(int data)
-	{
-		return false;
-	}
+		virtual bool ref_data(std::vector <std::string>* data)
+		{
+			return false;
+		}
 
-	virtual bool ref_data(int* data)
-	{
-		return false;
-	}
+		virtual bool set_data(int data)
+		{
+			return false;
+		}
 
-	virtual bool set_data(glyph gl, int posx, int posy)
-	{
-		return false;
-	}
+		virtual bool add_data(int data)
+		{
+			return false;
+		}
 
-	virtual bool handle_keypress(long ch)
-	{
-		return false;
-	}
+		virtual bool ref_data(int* data)
+		{
+			return false;
+		}
 
-	// This is used to set fg & bg, and hence is defined for element!
-	virtual bool set_data(nc_color FG, nc_color BG = c_null);
+		virtual bool set_data(glyph gl, int posx, int posy)
+		{
+			return false;
+		}
 
-	virtual bool set_alignment(alignment al)
-	{
-		align = al;
-		return true;
-	}
+		virtual bool handle_keypress(long ch)
+		{
+			return false;
+		}
 
-	virtual void clear_data()
-	{
-	}
+		// This is used to set fg & bg, and hence is defined for element!
+		virtual bool set_data(nc_color FG, nc_color BG = c_null);
 
-	virtual std::string get_str()
-	{
-		std::string ret;
-		return ret;
-	}
+		virtual bool set_alignment(alignment al)
+		{
+			align = al;
+			return true;
+		}
 
-	virtual int get_int()
-	{
-		return 0;
-	}
+		virtual void clear_data()
+		{
+		}
 
-	virtual std::vector <std::string> get_str_list()
-	{
-		std::vector <std::string> ret;
-		return ret;
-	}
-};
+		virtual std::string get_str()
+		{
+			std::string ret;
+			return ret;
+		}
+
+		virtual int get_int()
+		{
+			return 0;
+		}
+
+		virtual std::vector <std::string> get_str_list()
+		{
+			std::vector <std::string> ret;
+			return ret;
+		}
+	};
+}
 
 #endif //EDITOGIA_ELEMENT_HPP

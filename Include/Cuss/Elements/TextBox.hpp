@@ -7,81 +7,85 @@
 #include <vector>
 #include "Cuss/Elements/Element.hpp"
 
-struct ele_textbox : public element
+namespace cuss
 {
-	std::string* text;
-	int offset;
 
-	ele_textbox()
+	struct ele_textbox : public element
 	{
-		name = "";
-		posx = 0;
-		posy = 0;
-		sizex = 0;
-		sizey = 0;
-		selected = false;
-		selectable = false;
-		offset = 0;
-		fg = c_ltgray;
-		bg = c_black;
-		owns_data = false;
-		self_reference();
-	}
+		std::string* text;
+		int offset;
 
-	~ele_textbox()
-	{
-		if (owns_data) delete text;
-	};
+		ele_textbox()
+		{
+			name = "";
+			posx = 0;
+			posy = 0;
+			sizex = 0;
+			sizey = 0;
+			selected = false;
+			selectable = false;
+			offset = 0;
+			fg = c_ltgray;
+			bg = c_black;
+			owns_data = false;
+			self_reference();
+		}
 
-	virtual element_type type()
-	{
-		return ELE_TEXTBOX;
-	};
+		~ele_textbox()
+		{
+			if (owns_data) delete text;
+		};
 
-	virtual void draw(Window* win);
+		virtual element_type type()
+		{
+			return ELE_TEXTBOX;
+		};
 
-	virtual std::string save_data();
+		virtual void draw(Window* win);
 
-	virtual void load_data(std::istream& datastream);
+		virtual std::string save_data();
+
+		virtual void load_data(std::istream& datastream);
 
 /* We store this as a vector because the text needs to be split into seperate
  * lines.  It's more efficient to do this once, when the text is stored, than
  * every time we print.
  */
-	virtual bool self_reference();
+		virtual bool self_reference();
 
-	virtual bool set_data(std::string data);
+		virtual bool set_data(std::string data);
 
-	virtual bool add_data(std::string data);
+		virtual bool add_data(std::string data);
 
-	virtual bool ref_data(std::string* data);
+		virtual bool ref_data(std::string* data);
 
-	virtual bool set_data(std::vector <std::string> data);
+		virtual bool set_data(std::vector <std::string> data);
 
-	virtual bool add_data(std::vector <std::string> data);
+		virtual bool add_data(std::vector <std::string> data);
 
 // These adjust the offset
-	virtual bool set_data(int data);
+		virtual bool set_data(int data);
 
-	virtual bool add_data(int data);
+		virtual bool add_data(int data);
 
-	virtual bool handle_keypress(long ch)
-	{
-		return false;
+		virtual bool handle_keypress(long ch)
+		{
+			return false;
+		};
+
+		virtual void clear_data()
+		{
+			(*text) = "";
+			offset = 0;
+		};
+
+		virtual std::string get_str()
+		{
+			return (*text);
+		}
+
+		virtual std::vector <std::string> get_str_list();
 	};
-
-	virtual void clear_data()
-	{
-		(*text) = "";
-		offset = 0;
-	};
-
-	virtual std::string get_str()
-	{
-		return (*text);
-	}
-
-	virtual std::vector <std::string> get_str_list();
-};
+}
 
 #endif //EDITOGIA_TEXTBOX_HPP

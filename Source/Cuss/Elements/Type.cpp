@@ -2,6 +2,7 @@
 
 #include "Cuss/Elements/Type.hpp"
 
+using namespace cuss;
 
 std::string element_type_name(element_type type)
 {
