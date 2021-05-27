@@ -228,10 +228,25 @@ private:
 
 // *** Setup functions ***
 
-// Adds a menu to the menu bar.  Returns false if there's no room for it.
-// The variadic parameters are a null-terminated set of strings; each one is an
-// option in this menu.
-	bool add_menu(Menu_id id, std::string name, ...);
+	// Adds a menu to the menu bar.  Returns false if there's no room for it.
+	// The variadic parameters are a null-terminated set of strings; each one is an
+	// option in this menu.
+	template<typename ... Args>
+	bool add_menu(Menu_id id, const std::string& name, Args&& ... args)
+	{
+		int length = tagless_length(name) + 3;  // +3 for "1: "
+		Menu tmp_menu;
+		std::string ss_name;
+		ss_name + "<c=pink,blue>" + std::to_string(int(id)) + "<c=white,blue>: " + name;
+		tmp_menu.name = ss_name;
+		tmp_menu.posx = next_menu_posx;
+		next_menu_posx += length + 2;
+
+		(tmp_menu.items.push_back(std::forward<Args>(args)), ...);
+
+		menus.push_back(tmp_menu);
+		return true;
+	}
 
 // Sets the string to be stored in the menu bar
 	void set_menu_str();

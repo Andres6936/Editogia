@@ -56,8 +56,7 @@ bool Interface::init()
 	add_menu(MENU_GAME, "Game",
 			"Save & Quit",
 			"Quit without saving",
-			"About",
-			0
+			"About"
 	);
 
 	add_menu(MENU_MINISTERS, "Ministers",
@@ -67,25 +66,21 @@ bool Interface::init()
 			"Livestock",
 			"Mines & Minerals",
 			"Morale",
-			"Trade",
-			0
+			"Trade"
 	);
 
 	add_menu(MENU_BUILDINGS, "Buildings",
 			"Status",
-			"Build",
-			0
+			"Build"
 	);
 
 	add_menu(MENU_WORLD, "World",
-			"View Map",
-			0
+			"View Map"
 	);
 
 	add_menu(MENU_HELP, "Help",
 			"Index",
-			"Search",
-			0
+			"Search"
 	);
 
 	set_menu_str();
@@ -5772,35 +5767,6 @@ std::vector<std::string> Interface::get_menu_options(Menu_id item)
   return ret;
 }
 */
-
-bool Interface::add_menu(Menu_id id, std::string name, ...)
-{
-	int length = tagless_length(name) + 3;  // +3 for "1: "
-/*
-  if (posx + length > 62) {
-    debugmsg("Tried to add menu '%s' at posx %d, but that name is too long!",
-             name.c_str(), posx);
-    return false;
-  }
-*/
-	Menu tmp_menu;
-	std::stringstream ss_name;
-	ss_name << "<c=pink,blue>" << int(id) << "<c=white,blue>: " << name;
-	tmp_menu.name = ss_name.str();
-	tmp_menu.posx = next_menu_posx;
-	next_menu_posx += length + 2;
-	va_list ap;
-	va_start(ap, name);
-	char* tmpstr;
-	while ((tmpstr = (char*)(va_arg(ap, char*))))
-	{
-		tmp_menu.items.push_back(std::string(tmpstr));
-	}
-	va_end(ap);
-
-	menus.push_back(tmp_menu);
-	return true;
-}
 
 void Interface::set_menu_str()
 {
