@@ -41,20 +41,6 @@ class Player_city;
 
 class SceneManager
 {
-public:
-	SceneManager();
-
-	~SceneManager();
-
-	bool init();
-
-// returns false if we quit - this should exit the program
-	bool starting_screen();
-
-// returns false if we cancel
-	bool world_design_screen(World_design& design);
-
-	void main_loop();
 
 private:
 
@@ -84,6 +70,23 @@ private:
 	cuss::interface i_main;
 	Window w_main;
 
+
+public:
+	SceneManager();
+
+	~SceneManager();
+
+	bool init();
+
+// returns false if we quit - this should exit the program
+	bool starting_screen();
+
+// returns false if we cancel
+	bool world_design_screen(World_design& design);
+
+	void main_loop();
+
+private:
 
 /* This is a modal interface, so keys are handled differently depending on what
  * mode we're in.  Esc and ! are unique; Esc always sets mode/menu to NULL, and
