@@ -11,16 +11,6 @@
 #include "Cuss/Elements/TextBox.hpp"
 #include "Cuss/Elements/TextEntry.hpp"
 
-#define PREP_ELEMENT(ele) \
-  (ele)->name = name;\
-  (ele)->posx = posx;\
-  (ele)->posy = posy;\
-  (ele)->sizex = szx;\
-  (ele)->sizey = szy;\
-  (ele)->selected = false;\
-  (ele)->selectable = selectable;\
-  (ele)->align = ALIGN_LEFT
-
 using namespace cuss;
 
 interface::interface(std::string _name, int _width, int _height) noexcept
@@ -61,7 +51,14 @@ void interface::add_element(element_type type, std::string name, int posx,
 	case ELE_DRAWING:
 	{
 		ele_drawing* ele = new ele_drawing;
-		PREP_ELEMENT(ele);
+		(ele)->name = name;
+		(ele)->posx = posx;
+		(ele)->posy = posy;
+		(ele)->sizex = szx;
+		(ele)->sizey = szy;
+		(ele)->selected = false;
+		(ele)->selectable = selectable;
+		(ele)->align = ALIGN_LEFT;
 		elements.push_back(ele);
 	}
 		break;
@@ -69,7 +66,14 @@ void interface::add_element(element_type type, std::string name, int posx,
 	case ELE_TEXTBOX:
 	{
 		ele_textbox* ele = new ele_textbox;
-		PREP_ELEMENT(ele);
+		(ele)->name = name;
+		(ele)->posx = posx;
+		(ele)->posy = posy;
+		(ele)->sizex = szx;
+		(ele)->sizey = szy;
+		(ele)->selected = false;
+		(ele)->selectable = selectable;
+		(ele)->align = ALIGN_LEFT;
 		elements.push_back(ele);
 	}
 		break;
@@ -77,7 +81,14 @@ void interface::add_element(element_type type, std::string name, int posx,
 	case ELE_LIST:
 	{
 		ele_list* ele = new ele_list;
-		PREP_ELEMENT(ele);
+		(ele)->name = name;
+		(ele)->posx = posx;
+		(ele)->posy = posy;
+		(ele)->sizex = szx;
+		(ele)->sizey = szy;
+		(ele)->selected = false;
+		(ele)->selectable = selectable;
+		(ele)->align = ALIGN_LEFT;
 		elements.push_back(ele);
 	}
 		break;
@@ -85,7 +96,14 @@ void interface::add_element(element_type type, std::string name, int posx,
 	case ELE_TEXTENTRY:
 	{
 		ele_textentry* ele = new ele_textentry;
-		PREP_ELEMENT(ele);
+		(ele)->name = name;
+		(ele)->posx = posx;
+		(ele)->posy = posy;
+		(ele)->sizex = szx;
+		(ele)->sizey = szy;
+		(ele)->selected = false;
+		(ele)->selectable = selectable;
+		(ele)->align = ALIGN_LEFT;
 		elements.push_back(ele);
 	}
 		break;
@@ -93,7 +111,14 @@ void interface::add_element(element_type type, std::string name, int posx,
 	case ELE_NUMBER:
 	{
 		ele_number* ele = new ele_number;
-		PREP_ELEMENT(ele);
+		(ele)->name = name;
+		(ele)->posx = posx;
+		(ele)->posy = posy;
+		(ele)->sizex = szx;
+		(ele)->sizey = szy;
+		(ele)->selected = false;
+		(ele)->selectable = selectable;
+		(ele)->align = ALIGN_LEFT;
 		elements.push_back(ele);
 	}
 		break;
@@ -101,7 +126,14 @@ void interface::add_element(element_type type, std::string name, int posx,
 	case ELE_MENU:
 	{
 		ele_menu* ele = new ele_menu;
-		PREP_ELEMENT(ele);
+		(ele)->name = name;
+		(ele)->posx = posx;
+		(ele)->posy = posy;
+		(ele)->sizex = szx;
+		(ele)->sizey = szy;
+		(ele)->selected = false;
+		(ele)->selectable = selectable;
+		(ele)->align = ALIGN_LEFT;
 		elements.push_back(ele);
 	}
 		break;
