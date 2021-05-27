@@ -25,11 +25,6 @@ const char* toString(const TypeMenu type) noexcept
 
 // Getters
 
-const std::int32_t Menu::getWidth() const noexcept
-{
-	return width;
-}
-
 const std::string& Menu::getName() const noexcept
 {
 	return name;
@@ -38,6 +33,11 @@ const std::string& Menu::getName() const noexcept
 const TypeMenu Menu::getTypeMenu() const noexcept
 {
 	return typeMenu;
+}
+
+const std::int32_t Menu::getCoordinateX() const noexcept
+{
+	return coordinateX;
 }
 
 const std::vector<std::string>& Menu::getItems() const noexcept

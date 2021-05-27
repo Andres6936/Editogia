@@ -5764,7 +5764,7 @@ void SceneManager::get_menu_info(TypeMenu item, std::string& name, int& posx)
 		name = menu.getName();
 		name = remove_color_tags(name);
 		name = name.substr(3);  // Remove "1: "
-		posx = menu.width;
+		posx = menu.coordinateX;
 	}
 	catch (std::domain_error& exception)
 	{

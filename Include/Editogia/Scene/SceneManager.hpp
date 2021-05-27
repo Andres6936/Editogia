@@ -243,7 +243,7 @@ private:
 							  "<c=white,blue>: " + toString(typeMenu);
 		tmp_menu.name = ss_name;
 		tmp_menu.typeMenu = typeMenu;
-		tmp_menu.width = next_menu_posx;
+		tmp_menu.coordinateX = next_menu_posx;
 		next_menu_posx += length + 2;
 
 		(tmp_menu.items.push_back(std::forward<Args>(args)), ...);

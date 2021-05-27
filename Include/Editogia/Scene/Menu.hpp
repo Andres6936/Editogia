@@ -22,9 +22,9 @@ const char* toString(const TypeMenu type) noexcept;
 struct Menu
 {
 	/**
-	 * The width of menu in characters.
+	 * The coordinateX of menu in characters.
 	 */
-	std::int32_t width;
+	std::int32_t coordinateX;
 
 	/**
 	 * The name of menu.
@@ -44,11 +44,6 @@ struct Menu
 	// Getters
 
 	/**
-	 * @return The width in characters of menu.
-	 */
-	const std::int32_t getWidth() const noexcept;
-
-	/**
 	 * @return The name of menu.
 	 */
 	const std::string& getName() const noexcept;
@@ -57,6 +52,11 @@ struct Menu
 	 * @return The type of menu.
 	 */
 	const TypeMenu getTypeMenu() const noexcept;
+
+	/**
+	 * @return The coordinateX in characters of menu.
+	 */
+	const std::int32_t getCoordinateX() const noexcept;
 
 	/**
 	 * @return The submenus of menu.
