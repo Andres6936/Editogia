@@ -12,6 +12,7 @@ CPMAddPackage("gh:Andres6936/Levin@2021.0523")
 CPMAddPackage("gh:onqtam/doctest#2.4.6")
 
 ADD_SUBDIRECTORY(Source/Common)
+ADD_SUBDIRECTORY(Source/Cuss)
 ADD_SUBDIRECTORY(Source/App/Cuss)
 ADD_SUBDIRECTORY(Source/Editogia)
 
