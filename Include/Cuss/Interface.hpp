@@ -64,7 +64,7 @@ namespace cuss
 		// Destructor
 
 		/**
-		 * Destructor
+		 * Clear the resources used for the interface.
 		 */
 		virtual ~interface();
 

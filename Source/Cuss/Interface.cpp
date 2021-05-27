@@ -32,8 +32,10 @@ interface::interface(std::string _name, int _width, int _height) noexcept
 
 interface::~interface()
 {
-	for (int i = 0; i < elements.size(); i++)
-		delete elements[i];
+	for (auto& element : elements)
+	{
+		delete element;
+	}
 }
 
 void interface::add_element(element_type type, std::string name, int posx,
