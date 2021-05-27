@@ -26,7 +26,6 @@ using namespace cuss;
 interface::interface(std::string N, int X, int Y)
 {
 	active_element = -1;
-	use_bindings = false;
 	name = N;
 	sizex = X;
 	sizey = Y;
@@ -300,18 +299,6 @@ void interface::load_data(std::istream& datastream)
 		bind.load_data(datastream);
 		bindings[tmpch] = bind;
 	}
-}
-
-bool interface::save_to_file(std::string filename)
-{
-	std::ofstream fout;
-	fout.open(filename.c_str());
-	if (!fout.is_open())
-		return false;
-
-	fout << save_data();
-	fout.close();
-	return true;
 }
 
 bool interface::load_from_file(std::string filename, bool warn)
@@ -641,27 +628,6 @@ int interface::get_int(std::string name)
 	return ele->get_int();
 }
 
-std::vector <std::string> interface::get_str_list(std::string name)
-{
-	element* ele = find_by_name(name);
-	if (!ele)
-	{
-		std::vector <std::string> ret;
-		return ret;
-	}
-	return ele->get_str_list();
-}
-
-int interface::element_height(std::string name)
-{
-	element* ele = find_by_name(name);
-	if (!ele)
-	{
-		return -1;
-	}
-	return ele->sizey;
-}
-
 int interface::element_width(std::string name)
 {
 	element* ele = find_by_name(name);
@@ -670,36 +636,6 @@ int interface::element_width(std::string name)
 		return -1;
 	}
 	return ele->sizex;
-}
-
-int interface::element_posx(std::string name)
-{
-	element* ele = find_by_name(name);
-	if (!ele)
-	{
-		return -1;
-	}
-	return ele->posx;
-}
-
-int interface::element_posy(std::string name)
-{
-	element* ele = find_by_name(name);
-	if (!ele)
-	{
-		return -1;
-	}
-	return ele->posy;
-}
-
-Point interface::element_pos(std::string name)
-{
-	element* ele = find_by_name(name);
-	if (!ele)
-	{
-		return Point(-1, -1);
-	}
-	return Point(ele->posx, ele->posy);
 }
 
 
@@ -728,24 +664,6 @@ std::vector <std::string> interface::binding_list()
 		ret.push_back(info.str());
 	}
 	return ret;
-}
-
-bool interface::add_binding(long ch, action_id act, std::string target)
-{
-	if (bindings.count(ch))
-	{
-		debugmsg("Binding exists for %d!", ch);
-		return false;
-	}
-	if (action_needs_element(act) && target != "<S>" && !find_by_name(target))
-	{
-		debugmsg("Couldn't find element \"%s\"!", target.c_str());
-		return false;
-	}
-
-	binding newbind(act, target);
-	bindings[ch] = newbind;
-	return true;
 }
 
 bool interface::add_binding(long ch, action_id act, std::string target,
@@ -850,12 +768,6 @@ bool interface::rem_all_bindings(std::string target)
 	for (int i = 0; i < to_delete.size(); i++)
 		bindings.erase(to_delete[i]);
 
-	return true;
-}
-
-bool interface::set_use_bindings(bool set)
-{
-	use_bindings = set;
 	return true;
 }
 

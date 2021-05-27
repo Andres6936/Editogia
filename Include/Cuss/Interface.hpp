@@ -36,8 +36,6 @@ namespace cuss
 
 		void load_data(std::istream& datastream);
 
-		bool save_to_file(std::string filename);
-
 		bool load_from_file(std::string filename, bool warn = true);
 
 		std::vector <std::string> element_names();
@@ -101,21 +99,9 @@ namespace cuss
 
 		int get_int(std::string name);
 
-		std::vector <std::string> get_str_list(std::string name);
-
-		int element_height(std::string name);
-
 		int element_width(std::string name);
 
-		int element_posx(std::string name);
-
-		int element_posy(std::string name);
-
-		Point element_pos(std::string name);
-
 		std::vector <std::string> binding_list();
-
-		bool add_binding(long ch, action_id act, std::string target = "");
 
 		bool add_binding(long ch, action_id act, std::string target,
 				int a, int b = 0);
@@ -132,8 +118,6 @@ namespace cuss
 
 		bool rem_all_bindings(std::string target);
 
-		bool set_use_bindings(bool set = true);
-
 		bool handle_action(long ch);  // Only does keybindings
 		bool handle_keypress(long ch);  // May redirect to current object
 		// e.g. 0-9 will be used as input for number
@@ -145,7 +129,6 @@ namespace cuss
 		int active_element;
 		std::vector<element*> elements;
 		std::map<long, binding> bindings;
-		bool use_bindings;
 	};
 }
 
