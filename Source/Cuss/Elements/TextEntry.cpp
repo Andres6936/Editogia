@@ -4,6 +4,7 @@
 #include "Editogia/stringfunc.h"
 #include "Cuss/Elements/TextEntry.hpp"
 
+#define SELECTCOLOR c_blue
 
 // *** TEXT ENTRY ELEMENT ***
 void ele_textentry::draw(Window* win)

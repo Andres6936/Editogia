@@ -4,6 +4,7 @@
 #include "Editogia/stringfunc.h"
 #include "Cuss/Elements/Menu.hpp"
 
+#define SELECTCOLOR c_blue
 
 // *** MENU ELEMENT ***
 void ele_menu::draw(Window* win)

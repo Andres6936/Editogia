@@ -4,6 +4,8 @@
 #include "Editogia/stringfunc.h"
 #include "Cuss/Elements/TextBox.hpp"
 
+#define SELECTCOLOR c_blue
+
 void print_scrollbar(Window* win, int posx, int posy, int length, int offset,
 		int size, bool selected)
 {

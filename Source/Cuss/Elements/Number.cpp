@@ -3,6 +3,7 @@
 #include <sstream>
 #include "Cuss/Elements/Number.hpp"
 
+#define SELECTCOLOR c_blue
 
 // *** NUMBER ELEMENT ***
 void ele_number::draw(Window* win)
