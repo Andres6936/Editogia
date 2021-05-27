@@ -16,6 +16,8 @@ enum class TypeMenu
 	Help,
 };
 
+const char* toString(const TypeMenu type) noexcept;
+
 struct Menu
 {
 	std::string name;

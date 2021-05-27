@@ -1,4 +1,5 @@
 ADD_LIBRARY(Editogia.Lib
+        Scene/Menu.cpp
         Scene/SceneManager.cpp
         ai_city.cpp
         ai_data.cpp
