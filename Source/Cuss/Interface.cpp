@@ -51,14 +51,14 @@ void interface::add_element(element_type type, std::string name, int posx,
 	case ELE_DRAWING:
 	{
 		ele_drawing* ele = new ele_drawing;
-		(ele)->name = name;
-		(ele)->posx = posx;
-		(ele)->posy = posy;
-		(ele)->sizex = szx;
-		(ele)->sizey = szy;
-		(ele)->selected = false;
-		(ele)->selectable = selectable;
-		(ele)->align = ALIGN_LEFT;
+		ele->setName(name);
+		ele->setCoordinateX(posx);
+		ele->setCoordinateY(posy);
+		ele->setWidth(szx);
+		ele->setHeight(szy);
+		ele->setSelected(false);
+		ele->setSelectable(selectable);
+		ele->setHAlignment(alignment::ALIGN_LEFT);
 		elements.push_back(ele);
 	}
 		break;
