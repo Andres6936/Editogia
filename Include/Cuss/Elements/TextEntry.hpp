@@ -3,6 +3,7 @@
 #ifndef EDITOGIA_ELETEXTENTRY_HPP
 #define EDITOGIA_ELETEXTENTRY_HPP
 
+#include <string>
 #include "Cuss/Elements/Element.hpp"
 
 struct ele_textentry : public element

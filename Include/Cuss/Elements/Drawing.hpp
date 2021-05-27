@@ -3,11 +3,13 @@
 #ifndef EDITOGIA_DRAWING_HPP
 #define EDITOGIA_DRAWING_HPP
 
+#include <map>
+#include "Editogia/geometry.h"
 #include "Cuss/Elements/Element.hpp"
 
 struct ele_drawing : public element
 {
-	std::map <Point, glyph, Pointcomp> drawing;
+	std::map<Point, glyph, Pointcomp> drawing;
 
 	ele_drawing()
 	{

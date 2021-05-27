@@ -3,12 +3,14 @@
 #ifndef EDITOGIA_ELEMENU_HPP
 #define EDITOGIA_ELEMENU_HPP
 
+#include <string>
+#include <vector>
 #include "Cuss/Elements/Element.hpp"
 
 struct ele_menu : public element
 {
 	std::string title;
-	std::vector <std::string>* list;
+	std::vector<std::string>* list;
 	int selection;
 	bool open;
 
