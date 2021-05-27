@@ -3,6 +3,8 @@
 #ifndef EDITOGIA_ELEMENU_HPP
 #define EDITOGIA_ELEMENU_HPP
 
+#include "Cuss/Elements/Element.hpp"
+
 struct ele_menu : public element
 {
 	std::string title;

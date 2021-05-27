@@ -3,6 +3,8 @@
 #ifndef EDITOGIA_ELENUMBER_HPP
 #define EDITOGIA_ELENUMBER_HPP
 
+#include "Cuss/Elements/Element.hpp"
+
 struct ele_number : public element
 {
 	int* value;

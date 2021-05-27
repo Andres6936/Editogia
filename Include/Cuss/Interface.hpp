@@ -3,6 +3,8 @@
 #ifndef EDITOGIA_INTERFACE_HPP
 #define EDITOGIA_INTERFACE_HPP
 
+#include "Cuss/Elements/Element.hpp"
+
 class interface
 {
 public:

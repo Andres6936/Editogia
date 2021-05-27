@@ -3,6 +3,9 @@
 #ifndef EDITOGIA_BINDING_HPP
 #define EDITOGIA_BINDING_HPP
 
+#include "Cuss/ActionID.hpp"
+#include <string>
+
 struct binding
 {
 	action_id act;

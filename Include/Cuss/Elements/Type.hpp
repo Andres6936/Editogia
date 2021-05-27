@@ -3,6 +3,8 @@
 #ifndef EDITOGIA_TYPE_HPP
 #define EDITOGIA_TYPE_HPP
 
+#include <string>
+
 enum element_type
 {
 	ELE_NULL = 0, // Nothing

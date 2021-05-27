@@ -3,6 +3,8 @@
 #ifndef EDITOGIA_ACTIONID_HPP
 #define EDITOGIA_ACTIONID_HPP
 
+#include <string>
+
 enum action_id
 {
 	ACT_NULL = 0,    // Do nothing

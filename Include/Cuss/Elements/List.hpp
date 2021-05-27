@@ -3,6 +3,8 @@
 #ifndef EDITOGIA_LIST_HPP
 #define EDITOGIA_LIST_HPP
 
+#include "Cuss/Elements/Element.hpp"
+
 struct ele_list : public element
 {
 	std::vector <std::string>* list;

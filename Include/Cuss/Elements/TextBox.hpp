@@ -3,6 +3,8 @@
 #ifndef EDITOGIA_TEXTBOX_HPP
 #define EDITOGIA_TEXTBOX_HPP
 
+#include "Cuss/Elements/Element.hpp"
+
 struct ele_textbox : public element
 {
 	std::string* text;
