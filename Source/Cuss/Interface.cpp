@@ -28,6 +28,22 @@ interface::~interface()
 	}
 }
 
+template<typename Element>
+void applyElement(Element& element, const std::string& name,
+		const std::int32_t posx, const std::int32_t posy,
+		const std::int32_t szx, const std::int32_t szy,
+		const bool selectable)
+{
+	element->setName(name);
+	element->setCoordinateX(posx);
+	element->setCoordinateY(posy);
+	element->setWidth(szx);
+	element->setHeight(szy);
+	element->setSelected(false);
+	element->setSelectable(selectable);
+	element->setHAlignment(alignment::ALIGN_LEFT);
+}
+
 void interface::add_element(element_type type, std::string name, int posx,
 		int posy, int szx, int szy, bool selectable)
 {
@@ -51,14 +67,7 @@ void interface::add_element(element_type type, std::string name, int posx,
 	case ELE_DRAWING:
 	{
 		ele_drawing* ele = new ele_drawing;
-		ele->setName(name);
-		ele->setCoordinateX(posx);
-		ele->setCoordinateY(posy);
-		ele->setWidth(szx);
-		ele->setHeight(szy);
-		ele->setSelected(false);
-		ele->setSelectable(selectable);
-		ele->setHAlignment(alignment::ALIGN_LEFT);
+		applyElement(ele, name, posx, posy, szx, szy, selectable);
 		elements.push_back(ele);
 	}
 		break;
@@ -66,14 +75,7 @@ void interface::add_element(element_type type, std::string name, int posx,
 	case ELE_TEXTBOX:
 	{
 		ele_textbox* ele = new ele_textbox;
-		(ele)->name = name;
-		(ele)->posx = posx;
-		(ele)->posy = posy;
-		(ele)->sizex = szx;
-		(ele)->sizey = szy;
-		(ele)->selected = false;
-		(ele)->selectable = selectable;
-		(ele)->align = ALIGN_LEFT;
+		applyElement(ele, name, posx, posy, szx, szy, selectable);
 		elements.push_back(ele);
 	}
 		break;
@@ -81,14 +83,7 @@ void interface::add_element(element_type type, std::string name, int posx,
 	case ELE_LIST:
 	{
 		ele_list* ele = new ele_list;
-		(ele)->name = name;
-		(ele)->posx = posx;
-		(ele)->posy = posy;
-		(ele)->sizex = szx;
-		(ele)->sizey = szy;
-		(ele)->selected = false;
-		(ele)->selectable = selectable;
-		(ele)->align = ALIGN_LEFT;
+		applyElement(ele, name, posx, posy, szx, szy, selectable);
 		elements.push_back(ele);
 	}
 		break;
@@ -96,14 +91,7 @@ void interface::add_element(element_type type, std::string name, int posx,
 	case ELE_TEXTENTRY:
 	{
 		ele_textentry* ele = new ele_textentry;
-		(ele)->name = name;
-		(ele)->posx = posx;
-		(ele)->posy = posy;
-		(ele)->sizex = szx;
-		(ele)->sizey = szy;
-		(ele)->selected = false;
-		(ele)->selectable = selectable;
-		(ele)->align = ALIGN_LEFT;
+		applyElement(ele, name, posx, posy, szx, szy, selectable);
 		elements.push_back(ele);
 	}
 		break;
@@ -111,14 +99,7 @@ void interface::add_element(element_type type, std::string name, int posx,
 	case ELE_NUMBER:
 	{
 		ele_number* ele = new ele_number;
-		(ele)->name = name;
-		(ele)->posx = posx;
-		(ele)->posy = posy;
-		(ele)->sizex = szx;
-		(ele)->sizey = szy;
-		(ele)->selected = false;
-		(ele)->selectable = selectable;
-		(ele)->align = ALIGN_LEFT;
+		applyElement(ele, name, posx, posy, szx, szy, selectable);
 		elements.push_back(ele);
 	}
 		break;
@@ -126,14 +107,7 @@ void interface::add_element(element_type type, std::string name, int posx,
 	case ELE_MENU:
 	{
 		ele_menu* ele = new ele_menu;
-		(ele)->name = name;
-		(ele)->posx = posx;
-		(ele)->posy = posy;
-		(ele)->sizex = szx;
-		(ele)->sizey = szy;
-		(ele)->selected = false;
-		(ele)->selectable = selectable;
-		(ele)->align = ALIGN_LEFT;
+		applyElement(ele, name, posx, posy, szx, szy, selectable);
 		elements.push_back(ele);
 	}
 		break;
