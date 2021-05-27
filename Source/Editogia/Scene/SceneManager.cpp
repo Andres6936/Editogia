@@ -2,6 +2,7 @@
 #include <sstream>
 #include <fstream>
 #include <cstdarg> // For the variadic function below
+#include <stdexcept>
 #include "Editogia/rng.h"
 #include "Editogia/city.h"
 #include "Editogia/keys.h"
@@ -5733,22 +5734,40 @@ bool SceneManager::help_article(std::string name)
 	} // while (true)
 }
 
+template<typename Container>
+Menu findMenuType(const TypeMenu type, const Container& container)
+{
+	for (const auto& menu : container)
+	{
+		if (menu.id == type)
+		{
+			return menu;
+		}
+	}
+
+	throw std::domain_error("Element type not found in the container.");
+}
+
 void SceneManager::get_menu_info(TypeMenu item, std::string& name, int& posx)
 {
-	name = menus[item - 1].name;
+	Menu menu = findMenuType(item, menus);
+
+	name = menu.name;
 	name = remove_color_tags(name);
 	name = name.substr(3);  // Remove "1: "
-	posx = menus[item - 1].posx;
+	posx = menu.posx;
 }
 
 std::vector<std::string> SceneManager::get_menu_options(TypeMenu item)
 {
+	Menu menu = findMenuType(item, menus);
+
 	std::vector<std::string> ret;
 
-	for (int i = 0; i < menus[item - 1].items.size(); i++)
+	for (int i = 0; i < menu.items.size(); i++)
 	{
 		std::stringstream ss_name;
-		ss_name << "<c=pink>" << i + 1 << "<c=/>: " << menus[item - 1].items[i];
+		ss_name << "<c=pink>" << i + 1 << "<c=/>: " << menu.items[i];
 		ret.push_back(ss_name.str());
 	}
 

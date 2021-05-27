@@ -211,6 +211,7 @@ private:
 		std::string ss_name = "<c=pink,blue>" + std::to_string(int(id)) +
 							  "<c=white,blue>: " + name;
 		tmp_menu.name = ss_name;
+		tmp_menu.id = id;
 		tmp_menu.posx = next_menu_posx;
 		next_menu_posx += length + 2;
 
