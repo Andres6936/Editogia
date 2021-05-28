@@ -15,6 +15,8 @@
 #include "Editogia/stringfunc.h" // For capitalize()
 #include "Cuss/Interface.hpp"
 
+#include <Levin/Log.hpp>
+
 Map_seen::Map_seen()
 {
 }
@@ -115,22 +117,22 @@ bool World::generate(World_design design)
 // Some sanity checks
 	if (design.size == WORLD_SIZE_MAX)
 	{
-		debugmsg("World generated with size of WORLD_SIZE_MAX!");
+		Levin::Log::Informational("World generated with size of WORLD_SIZE_MAX!");
 		return false;
 	}
 	if (design.temperature == WORLD_TEMP_MAX)
 	{
-		debugmsg("World generated with temperature of WORLD_TEMP_MAX!");
+		Levin::Log::Informational("World generated with temperature of WORLD_TEMP_MAX!");
 		return false;
 	}
 	if (design.rainfall == WORLD_RAIN_MAX)
 	{
-		debugmsg("World generated with rainfall of WORLD_RAIN_MAX!");
+		Levin::Log::Informational("World generated with rainfall of WORLD_RAIN_MAX!");
 		return false;
 	}
 	if (design.mountain == WORLD_MOUNTAIN_MAX)
 	{
-		debugmsg("World generated with mountain of WORLD_MOUNTAIN_MAX!");
+		Levin::Log::Informational("World generated with mountain of WORLD_MOUNTAIN_MAX!");
 		return false;
 	}
 
@@ -984,7 +986,7 @@ bool World::load_from_file(std::string filename)
 {
 	if (filename.empty())
 	{
-		debugmsg("World attempted to load an empty filename.");
+		Levin::Log::Informational("World attempted to load an empty filename.");
 		return false;
 	}
 	std::ifstream fin;
@@ -1024,7 +1026,7 @@ bool World::load_from_file(std::string filename)
 
 	if (!road_map.load_data(fin))
 	{
-		debugmsg("World failed to load road_map.");
+		Levin::Log::Informational("World failed to load road_map.");
 		return false;
 	}
 
@@ -1297,41 +1299,41 @@ void World::add_resource(Point origin, Crop crop, Mineral mineral,
 // Check to make sure that exactly one of crop/mineral/animal is set.
 	if (crop == CROP_NULL && mineral == MINERAL_NULL && animal == ANIMAL_NULL)
 	{
-		debugmsg("World::add_resource() called with all resources NULL!");
+		Levin::Log::Informational("World::add_resource() called with all resources NULL!");
 		return;
 	}
 	else if (crop != CROP_NULL && mineral != MINERAL_NULL &&
 			 animal != ANIMAL_NULL)
 	{
-		debugmsg("World::add_resource() called with all three resources set!");
+		Levin::Log::Informational("World::add_resource() called with all three resources set!");
 		return;
 	}
 	else if (crop != CROP_NULL && mineral != MINERAL_NULL)
 	{
-		debugmsg("World::add_resource() called with crop AND mineral!");
+		Levin::Log::Informational("World::add_resource() called with crop AND mineral!");
 		return;
 	}
 	else if (crop != CROP_NULL && animal != ANIMAL_NULL)
 	{
-		debugmsg("World::add_resource() called with crop AND animal!");
+		Levin::Log::Informational("World::add_resource() called with crop AND animal!");
 		return;
 	}
 	else if (mineral != MINERAL_NULL && animal != ANIMAL_NULL)
 	{
-		debugmsg("World::add_resource() called with mineral AND animal!");
+		Levin::Log::Informational("World::add_resource() called with mineral AND animal!");
 		return;
 	}
 
 	if (OOB(origin))
 	{
-		debugmsg("World::add_resource() called with origin %s.",
+		Levin::Log::Informational("World::add_resource() called with origin %s.",
 				origin.str().c_str());
 		return;
 	}
 
 	if (radius <= 0)
 	{
-		debugmsg("World::add_resource() called with radius %d.", radius);
+		Levin::Log::Informational("World::add_resource() called with radius {}.", radius);
 		return;
 	}
 
@@ -2137,7 +2139,7 @@ int World::route_cost(Race traveler, Point start, Point end)
 {
 	if (traveler == RACE_NULL)
 	{  // Sanity check
-		debugmsg("World::route_cost(RACE_NULL, ...) called!");
+		Levin::Log::Informational("World::route_cost(RACE_NULL, ...) called!");
 		return -1;
 	}
 	if (start == end)
