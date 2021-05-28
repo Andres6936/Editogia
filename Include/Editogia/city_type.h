@@ -12,8 +12,4 @@ enum City_type
 	CITY_TYPE_MAX
 };
 
-City_type lookup_city_type(std::string name);
-
-std::string city_type_name(City_type type);
-
 #endif
