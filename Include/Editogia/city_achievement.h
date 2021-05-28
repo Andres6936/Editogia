@@ -16,10 +16,6 @@ enum City_achievement_type
 	CITY_ACHIEVE_MAX
 };
 
-City_achievement_type lookup_city_achievement_type(std::string name);
-
-std::string city_achievement_type_name(City_achievement_type type);
-
 struct City_achievement
 {
 	City_achievement(City_achievement_type T = CITY_ACHIEVE_NULL,
