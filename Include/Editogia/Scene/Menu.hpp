@@ -21,10 +21,13 @@ const char* toString(const TypeMenu type) noexcept;
 
 struct Menu
 {
+
+	// Properties
+
 	/**
 	 * The coordinate at X of menu.
 	 */
-	std::int32_t coordinateX;
+	std::int32_t coordinateX = 0;
 
 	/**
 	 * The name of menu.
@@ -32,14 +35,18 @@ struct Menu
 	std::string name;
 
 	/**
-	 * The type of menu.
-	 */
-	TypeMenu typeMenu;
-
-	/**
 	 * The submenus of menu.
 	 */
 	std::vector<std::string> items;
+
+	/**
+	 * The type of menu.
+	 */
+	TypeMenu typeMenu = TypeMenu::None;
+
+	// Constructor
+
+	Menu() noexcept = default;
 
 	// Getters
 
