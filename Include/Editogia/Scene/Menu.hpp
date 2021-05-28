@@ -19,6 +19,9 @@ enum class TypeMenu
 
 const char* toString(const TypeMenu type) noexcept;
 
+/**
+ * Constraints: DefaultConstructible.
+ */
 struct Menu
 {
 
