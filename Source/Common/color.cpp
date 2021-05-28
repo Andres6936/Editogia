@@ -262,3 +262,28 @@ nc_color hilight(nc_color orig)
 		return nc_color(int(orig) - 8);
 }
 
+nc_color non_bright(nc_color col)
+{
+	switch (col)
+	{
+	case c_dkgray:
+		return c_ltgray; // Don't want to use black
+	case c_white:
+		return c_ltgray;
+	case c_ltred:
+		return c_red;
+	case c_ltgreen:
+		return c_green;
+	case c_ltblue:
+		return c_blue;
+	case c_ltcyan:
+		return c_cyan;
+	case c_pink:
+		return c_magenta;
+	case c_yellow:
+		return c_brown;
+	default:
+		return col;
+	}
+	return c_null;
+}
