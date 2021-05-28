@@ -66,8 +66,6 @@ enum Area_category
 	AREACAT_MAX
 };
 
-Area_category lookup_area_category(std::string name);
-
 std::string area_category_name(Area_category category);
 
 struct Area_datum
@@ -126,9 +124,7 @@ struct Area
 
 	bool produces_resource(Resource res);
 
-	int amount_produced(Resource res);
-
-// DATA
+	// DATA
 	Area_type type;
 
 // Our position on the City_map.

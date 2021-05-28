@@ -277,29 +277,6 @@ bool Area::produces_resource(Resource res)
 	return (is_open() && get_building_datum()->produces_resource(res));
 }
 
-int Area::amount_produced(Resource res)
-{
-	if (!is_open())
-	{
-		return 0;
-	}
-	return get_building_datum()->amount_produced(res);
-}
-
-Area_category lookup_area_category(std::string name)
-{
-	name = no_caps(trim(name));
-	for (int i = 0; i < AREACAT_MAX; i++)
-	{
-		Area_category ret = Area_category(i);
-		if (name == area_category_name(ret))
-		{
-			return ret;
-		}
-	}
-	return AREACAT_NULL;
-}
-
 std::string area_category_name(Area_category category)
 {
 	switch (category)
