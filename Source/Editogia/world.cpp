@@ -19,11 +19,6 @@ Map_seen::Map_seen()
 {
 }
 
-Map_seen::Map_seen(int S)
-{
-	init(S);
-}
-
 Map_seen::~Map_seen()
 {
 }
@@ -73,11 +68,6 @@ bool Map_seen::load_data(std::istream& data)
 	return true;
 }
 
-bool Map_seen::OOB(Point p)
-{
-	return OOB(p.x, p.y);
-}
-
 bool Map_seen::OOB(int x, int y)
 {
 	return (x < 0 || x >= size ||
@@ -96,11 +86,6 @@ bool Map_seen::is_seen(int x, int y)
 		return false;
 	}
 	return seen[x][y];
-}
-
-void Map_seen::mark_seen(Point p)
-{
-	mark_seen(p.x, p.y);
 }
 
 void Map_seen::mark_seen(int x, int y)
@@ -1997,73 +1982,6 @@ int World_map::get_size()
 	return size;
 }
 
-int World_map::land_count()
-{
-	int ret = 0;
-	for (int x = 0; x < size; x++)
-	{
-		for (int y = 0; y < size; y++)
-		{
-			if (tiles[x][y] != MAP_NULL && tiles[x][y] != MAP_OCEAN)
-			{
-				ret++;
-			}
-		}
-	}
-	return ret;
-}
-
-// crop defaults to CROP_NULL
-int World_map::crop_count(Crop crop)
-{
-	int ret = 0;
-	for (int x = 0; x < size; x++)
-	{
-		for (int y = 0; y < size; y++)
-		{
-			if (has_crop(crop, x, y))
-			{
-				ret++;
-			}
-		}
-	}
-	return ret;
-}
-
-// mineral defaults to MINERAL_NULL
-int World_map::mineral_count(Mineral mineral)
-{
-	int ret = 0;
-	for (int x = 0; x < size; x++)
-	{
-		for (int y = 0; y < size; y++)
-		{
-			if (has_mineral(mineral, x, y))
-			{
-				ret++;
-			}
-		}
-	}
-	return ret;
-}
-
-// animal defaults to ANIMAL_NULL
-int World_map::animal_count(Animal animal)
-{
-	int ret = 0;
-	for (int x = 0; x < size; x++)
-	{
-		for (int y = 0; y < size; y++)
-		{
-			if (has_animal(animal, x, y))
-			{
-				ret++;
-			}
-		}
-	}
-	return ret;
-}
-
 bool World_map::OOB(Point p)
 {
 	return OOB(p.x, p.y);
@@ -2169,11 +2087,6 @@ City* World_map::lookup_city_uid(int uid)
 	return NULL;
 }
 
-bool World_map::has_road(Point p)
-{
-	return has_road(p.x, p.y);
-}
-
 bool World_map::has_road(int x, int y)
 {
 	if (OOB(x, y))
@@ -2226,11 +2139,6 @@ int World_map::travel_cost(int x, int y, Race traveler)
 	return Map_type_data[terrain]->travel_cost;
 }
 
-int World_map::route_cost(Race traveler, int x0, int y0, int x1, int y1)
-{
-	return route_cost(traveler, Point(x0, y0), Point(x1, y1));
-}
-
 int World_map::route_cost(Race traveler, Point start, Point end)
 {
 	if (traveler == RACE_NULL)
@@ -2259,11 +2167,6 @@ int World_map::route_cost(Race traveler, Point start, Point end)
 		return -1;
 	}
 	return route.get_cost();
-}
-
-glyph World_map::get_road_glyph(Point p)
-{
-	return get_road_glyph(p.x, p.y);
 }
 
 glyph World_map::get_road_glyph(int x, int y)
@@ -2521,11 +2424,6 @@ Direction_full World_map::river_end_for(int x, int y)
 	return DIRFULL_NULL;
 }
 
-int World_map::get_trade_distance(Race trader, int x0, int y0, int x1, int y1)
-{
-	return get_trade_distance(trader, Point(x0, y0), Point(x1, y1));
-}
-
 int World_map::get_trade_distance(Race trader, Point start, Point end)
 {
 /* TODO:  Would anything increase the trade distance?
@@ -2533,11 +2431,6 @@ int World_map::get_trade_distance(Race trader, Point start, Point end)
           Areas with bandits/monsters
  */
 	return route_cost(trader, start, end);
-}
-
-bool World_map::build_road(int x0, int y0, int x1, int y1)
-{
-	return build_road(Point(x0, y0), Point(x1, y1));
 }
 
 bool World_map::build_road(Point start, Point end)
@@ -2626,21 +2519,6 @@ std::vector<Animal> World_map::animals_at(int x, int y)
 		}
 	}
 	return ret;
-}
-
-bool World_map::has_crop(Crop crop, Point p)
-{
-	return has_crop(crop, p.x, p.y);
-}
-
-bool World_map::has_mineral(Mineral mineral, Point p)
-{
-	return has_mineral(mineral, p.x, p.y);
-}
-
-bool World_map::has_animal(Animal animal, Point p)
-{
-	return has_animal(animal, p.x, p.y);
 }
 
 bool World_map::has_crop(Crop crop, int x, int y)

@@ -25,8 +25,6 @@ class Map_seen
 public:
 	Map_seen();
 
-	Map_seen(int S);
-
 	~Map_seen();
 
 	void init(int S);
@@ -35,16 +33,18 @@ public:
 
 	bool load_data(std::istream& data);
 
-// Is this point out of bounds?
-	bool OOB(Point p);
-
+	/**
+	 * // Is this point out of bounds?
+	 *
+	 * @param x
+	 * @param y
+	 * @return
+	 */
 	bool OOB(int x, int y);
 
 	bool is_seen(Point p);
 
 	bool is_seen(int x, int y);
-
-	void mark_seen(Point p);
 
 	void mark_seen(int x, int y);
 
@@ -156,18 +156,8 @@ public:
 
 	int get_size();
 
-	int land_count(); // Returns the number of tiles that are not ocean
-/* crop_count() and mineral_count() return the number of tiles with the
- * specified crop/mineral.  If it's omitted (or {CROP,MINERAL}_NULL is passed)
- * then they return the number of tiles with ANY crop/mineral.
- */
-	int crop_count(Crop crop = CROP_NULL);
 
-	int mineral_count(Mineral mineral = MINERAL_NULL);
-
-	int animal_count(Animal animal = ANIMAL_NULL);
-
-// Are tehese coordinates out of bounds?
+	// Are tehese coordinates out of bounds?
 	bool OOB(Point p);
 
 	bool OOB(int x, int y);
@@ -194,9 +184,6 @@ public:
 
 	City* lookup_city_uid(int uid);
 
-// Just references road[][]
-	bool has_road(Point p);
-
 	bool has_road(int x, int y);
 
 // Returns Map_type_data[ get_map_type(p) ]->road_cost; for purposes of building
@@ -214,11 +201,7 @@ public:
 // specified race.
 	int route_cost(Race traveler, Point start, Point end);
 
-	int route_cost(Race traveler, int x0, int y0, int x1, int y1);
-
-// Looks at adjacent tiles to decide which line drawing glyph to use
-	glyph get_road_glyph(Point p);
-
+	// Looks at adjacent tiles to decide which line drawing glyph to use
 	glyph get_road_glyph(int x, int y);
 
 // true if the Map_datum has is_river == true
@@ -256,15 +239,7 @@ public:
 
 	Direction_full river_end_for(int x, int y);
 
-	std::vector<Point> get_path(int x0, int y0, int x1, int y1);
-
-	std::vector<Point> get_path(Point start, Point end);
-
-	int get_trade_distance(Race trader, int x0, int y0, int x1, int y1);
-
 	int get_trade_distance(Race trader, Point start, Point end);
-
-	bool build_road(int x0, int y0, int x1, int y1);
 
 	bool build_road(Point start, Point end);
 
@@ -279,12 +254,6 @@ public:
 	std::vector<Mineral> minerals_at(int x, int y);
 
 	std::vector<Animal> animals_at(int x, int y);
-
-	bool has_crop(Crop crop, Point p);
-
-	bool has_mineral(Mineral mineral, Point p);
-
-	bool has_animal(Animal animal, Point p);
 
 	bool has_crop(Crop crop, int x, int y);
 
