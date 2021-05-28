@@ -137,6 +137,45 @@ struct World_design
  */
 class World_map
 {
+
+private:
+
+	// DATA
+
+	std::string name;
+
+	int size;
+
+	std::vector<std::vector<Map_type> > tiles;
+	std::vector<std::vector<int> > altitude;
+	std::vector<std::vector<int> > rainfall;
+	std::vector<std::vector<int> > temperature;
+	std::vector<std::vector<int> > continent_id;
+	std::vector<std::vector<int> > kingdom_id;
+	std::vector<std::vector<City*> > city;
+	std::vector<std::vector<bool> > river;
+	std::vector<std::vector<bool> > road;
+// crops and minerals are bitmaps that indicate what's here
+	std::vector<std::vector<int> > crops;
+	std::vector<std::vector<int> > minerals;
+	std::vector<std::vector<int> > animals;
+
+// road_map is a map of the road_costs of various terrain.  We will need to
+// update it whenever new roads are built or terrain changes.
+	Generic_map road_map;
+
+/* travel_map is a map of the travel_cost of various terrain, modified for the
+ * presence of roads, rivers, etc.  It will need to be updated whenever new
+ * roads are built or terrain changes.
+ * We store one for each race, because each race travels on terrain differently;
+ * for instance, elves can travel quite easily through forests, whereas humans
+ * cannot.
+ */
+	std::map<Race, Generic_map> travel_map;
+
+	std::vector<Point> continents;
+	std::map<int, std::vector<int> > joined_continents;
+
 public:
 
 	World_map() noexcept = default;
@@ -301,43 +340,6 @@ private:
 	bool tile_okay_for_animal(Point p, Animal animal);
 
 	bool tile_okay_for_animal(int x, int y, Animal animal);
-
-// DATA
-
-	std::string name;
-
-	int size;
-
-	std::vector<std::vector<Map_type> > tiles;
-	std::vector<std::vector<int> > altitude;
-	std::vector<std::vector<int> > rainfall;
-	std::vector<std::vector<int> > temperature;
-	std::vector<std::vector<int> > continent_id;
-	std::vector<std::vector<int> > kingdom_id;
-	std::vector<std::vector<City*> > city;
-	std::vector<std::vector<bool> > river;
-	std::vector<std::vector<bool> > road;
-// crops and minerals are bitmaps that indicate what's here
-	std::vector<std::vector<int> > crops;
-	std::vector<std::vector<int> > minerals;
-	std::vector<std::vector<int> > animals;
-
-// road_map is a map of the road_costs of various terrain.  We will need to
-// update it whenever new roads are built or terrain changes.
-	Generic_map road_map;
-
-/* travel_map is a map of the travel_cost of various terrain, modified for the
- * presence of roads, rivers, etc.  It will need to be updated whenever new
- * roads are built or terrain changes.
- * We store one for each race, because each race travels on terrain differently;
- * for instance, elves can travel quite easily through forests, whereas humans
- * cannot.
- */
-	std::map<Race, Generic_map> travel_map;
-
-	std::vector<Point> continents;
-	std::map<int, std::vector<int> > joined_continents;
-
 };
 
 #endif
