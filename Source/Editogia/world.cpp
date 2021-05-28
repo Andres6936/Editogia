@@ -108,13 +108,7 @@ World_design::~World_design()
 {
 }
 
-World_map::World_map()
-{
-}
 
-World_map::~World_map()
-{
-}
 
 bool World_map::generate(World_design design)
 {

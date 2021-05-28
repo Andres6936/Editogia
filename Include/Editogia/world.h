@@ -132,12 +132,16 @@ struct World_design
 	std::vector<Race> kingdoms;
 };
 
+/**
+ * Constrains: DefaultConstructible.
+ */
 class World_map
 {
 public:
-	World_map();
 
-	~World_map();
+	World_map() noexcept = default;
+
+	virtual ~World_map() noexcept = default;
 
 // These functions return false if they fail for any reason (buggy parameter)
 	bool generate(World_design design);
