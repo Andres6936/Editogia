@@ -52,11 +52,6 @@ public:
 		return false;
 	}
 
-	virtual bool is_ai_city()
-	{
-		return true;
-	}
-
 	void clear_data();
 
 	virtual std::string save_data();
@@ -196,9 +191,6 @@ protected:
 	Race race;
 
 	std::array<int, RES_MAX> resource_price;
-
-// Which cities are we *directly* connected to via road?
-	//std::vector<City*> road_connections;
 };
 
 #endif

@@ -33,11 +33,6 @@ public:
 
 	virtual ~AI_city();
 
-	virtual bool is_ai_city()
-	{
-		return true;
-	}
-
 	virtual std::string save_data();
 
 	virtual bool load_data(std::istream& data);
