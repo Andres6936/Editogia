@@ -20,13 +20,12 @@ enum Combat_result
 struct Battle_result
 {
 	Battle_result(Combat_result R = COMBAT_RES_NULL, int AD = 0, int DD = 0) :
-			result(R), attackers_dead(AD), defenders_dead(DD)
+			result(R), attackers_dead(AD)
 	{
 	}
 
 	Combat_result result;
 	int attackers_dead;
-	int defenders_dead;
 };
 
 /* quick_battle returns a positive number of defenders killed, or a negative

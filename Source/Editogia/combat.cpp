@@ -49,7 +49,6 @@ Battle_result quick_battle(int attacker_number, int attacker_strength,
 
 	Battle_result ret;
 	ret.attackers_dead = attackers_dead;
-	ret.defenders_dead = defenders_dead;
 
 	if (attackers_left == 0 && defenders_left == 0)
 	{
