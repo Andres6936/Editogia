@@ -40,6 +40,4 @@ std::string color_tag(nc_color color);
 
 nc_color hilight(nc_color orig);
 
-nc_color non_bright(nc_color col);
-
 #endif
