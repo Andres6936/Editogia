@@ -1,6 +1,7 @@
 ADD_LIBRARY(Editogia.Lib
         Scene/Menu.cpp
         Scene/SceneManager.cpp
+        Time/Date.cpp
         ai_city.cpp
         ai_data.cpp
         animal.cpp
@@ -14,7 +15,6 @@ ADD_LIBRARY(Editogia.Lib
         city.cpp
         city_type.cpp
         combat.cpp
-        date.cpp
         game.cpp
         geometry.cpp
         globals.cpp
