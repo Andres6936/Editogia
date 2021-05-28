@@ -138,9 +138,6 @@ struct Map_tile
 	int get_farmability();
 
 	Crop get_best_crop(bool prioritize_food = true); // Pick the best crop
-	int get_max_food_output();  // Pick the best crop and multiply by farmability
-// Find the crop that produces the highest-value resource
-	int get_resource_crop_output();
 
 	int get_avg_hunting_output(); // Averages food values of animals
 
@@ -197,10 +194,6 @@ public:
 
 	Map_tile* get_tile(int x, int y);
 
-	std::string get_resource_info(Point p);
-
-	std::string get_resource_info(int x, int y);
-
 	Terrain_datum* get_terrain_datum(Point p);
 
 	Terrain_datum* get_terrain_datum(int x, int y);
@@ -216,10 +209,6 @@ public:
 	std::string get_info(Point p);
 
 	std::string get_info(int x, int y);
-
-	int get_farmability(Point p);
-
-	int get_farmability(int x, int y);
 
 private:
 

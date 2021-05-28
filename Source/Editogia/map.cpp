@@ -252,72 +252,6 @@ Crop Map_tile::get_best_crop(bool prioritize_food)
 	return crops[best_index];
 }
 
-int Map_tile::get_max_food_output()
-{
-	if (!can_build(AREA_FARM))
-	{
-		return 0;
-	}
-// First, find our best crop.
-	int best_food = 0;
-	for (int i = 0; i < crops.size(); i++)
-	{
-		Crop crop = crops[i];
-		Crop_datum* crop_dat = Crop_data[crop];
-		if (crop_dat->food > best_food)
-		{
-			best_food = crop_dat->food;
-		}
-	}
-	if (best_food == 0)
-	{ // No crops here produce food!
-		return 0;
-	}
-
-	int farmability = get_farmability();
-// We don't divide by 10000 at this point, in order to avoid rounding errors.
-	return (best_food * farmability);
-}
-
-// Here the crop "value" is the 100 - Crop_datum's percentage value.
-int Map_tile::get_resource_crop_output()
-{
-	if (!can_build(AREA_FARM))
-	{
-		return 0;
-	}
-
-// Go through all crops here, and find the one that produces the most high-value
-// resource.
-	int best_value = 0;
-	for (int i = 0; i < crops.size(); i++)
-	{
-		Crop crop = crops[i];
-		Crop_datum* crop_dat = Crop_data[crop];
-// Find the resource associated with this crop with the highest value
-		int best_res_value = 0;
-		for (int n = 0; n < crop_dat->bonus_resources.size(); n++)
-		{
-			Resource res = crop_dat->bonus_resources[n].type;
-			Resource_datum* res_dat = Resource_data[res];
-			int res_value = crop_dat->bonus_resources[n].amount * res_dat->value;
-			if (res_value > best_res_value)
-			{
-				best_res_value = res_value;
-			}
-		}
-// Now compare the best resource that crop produces with the best we've found so
-// far.
-		if (best_res_value > best_value)
-		{
-			best_value = best_res_value;
-		}
-	}
-
-// Bonus resources ignore farmability, so just return that value.
-	return best_value;
-}
-
 int Map_tile::get_avg_hunting_output()
 {
 	if (!can_build(AREA_HUNTING_CAMP))
@@ -1246,22 +1180,6 @@ Map_tile* City_map::get_tile(int x, int y)
 	return &(tiles[x][y]);
 }
 
-std::string City_map::get_resource_info(Point p)
-{
-	return get_resource_info(p.x, p.y);
-}
-
-std::string City_map::get_resource_info(int x, int y)
-{
-	if (is_oob(x, y))
-	{
-		return std::string();
-	}
-
-	std::stringstream ret;
-	return ret.str();
-}
-
 Terrain_datum* City_map::get_terrain_datum(Point p)
 {
 	return get_terrain_datum(p.x, p.y);
@@ -1320,20 +1238,6 @@ std::string City_map::get_info(int x, int y)
 	}
 
 	return tiles[x][y].get_info();
-}
-
-int City_map::get_farmability(Point p)
-{
-	return get_farmability(p.x, p.y);
-}
-
-int City_map::get_farmability(int x, int y)
-{
-	if (is_oob(x, y))
-	{
-		return 0;
-	}
-	return tiles[x][y].get_farmability();
 }
 
 bool City_map::is_oob(int x, int y)
