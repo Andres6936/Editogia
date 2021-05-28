@@ -85,8 +85,6 @@ enum Resource
 
 const char* toString(const Resource resource) noexcept;
 
-Resource lookup_resource(std::string name);
-
 enum Luxury_type
 {
 	LUX_NULL = 0, // A valid option, if it's a unique luxury
@@ -99,9 +97,6 @@ enum Luxury_type
 
 	LUX_MAX
 };
-
-// See resource.cpp for this stuff
-Luxury_type lookup_luxury_type(std::string name);
 
 std::string luxury_type_name(Luxury_type type);
 
@@ -139,8 +134,6 @@ struct Resource_amount
 
 	Resource type;
 	int amount;
-
-	bool is_infinite(); // True if amount == INFINITE_RESOURCE
 };
 
 enum Crop_type
@@ -154,8 +147,6 @@ enum Crop_type
 	CROPTYPE_OTHER,
 	CROPTYPE_MAX
 };
-
-Crop_type lookup_crop_type(std::string name);
 
 std::string crop_type_name(Crop_type type);
 
@@ -237,8 +228,6 @@ struct Crop_datum
 		max_rainfall = 100;
 	}
 
-	nc_color get_color();
-
 	std::string name;
 	int food;
 	int percentage;
@@ -287,8 +276,6 @@ struct Crop_amount
 
 	Crop type;
 	int amount;
-
-	bool is_infinite(); // True if amount == INFINITE_RESOURCE
 };
 
 struct Mineral_amount

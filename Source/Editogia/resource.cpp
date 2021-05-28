@@ -117,16 +117,6 @@ const char* toString(Mineral type) noexcept
 	return "Null";
 }
 
-bool Resource_amount::is_infinite()
-{
-	return (amount == INFINITE_RESOURCE);
-}
-
-bool Crop_amount::is_infinite()
-{
-	return (amount == INFINITE_RESOURCE);
-}
-
 bool Mineral_amount::is_infinite()
 {
 	return (amount == INFINITE_RESOURCE);
@@ -146,34 +136,6 @@ Mineral_amount Mineral_amount::randomize()
 	ret.type = type;
 	ret.amount = rng(amount * .8, amount * 1.2);
 	return ret;
-}
-
-Resource lookup_resource(std::string name)
-{
-	name = no_caps(trim(name));
-	for (int i = 0; i < RES_MAX; i++)
-	{
-		Resource ret = Resource(i);
-		if (name == no_caps(Resource_data[ret]->name))
-		{
-			return ret;
-		}
-	}
-	return RES_NULL;
-}
-
-Luxury_type lookup_luxury_type(std::string name)
-{
-	name = no_caps(trim(name));
-	for (int i = 0; i < LUX_MAX; i++)
-	{
-		Luxury_type ret = Luxury_type(i);
-		if (no_caps(luxury_type_name(ret)) == name)
-		{
-			return ret;
-		}
-	}
-	return LUX_NULL;
 }
 
 std::string luxury_type_name(Luxury_type type)
@@ -198,20 +160,6 @@ std::string luxury_type_name(Luxury_type type)
 		return "BUG - Unnamed Luxury_type";
 	}
 	return "BUG - Escaped luxury_type_name() switch!";
-}
-
-Crop_type lookup_crop_type(std::string name)
-{
-	name = no_caps(trim(name));
-	for (int i = 0; i < CROPTYPE_MAX; i++)
-	{
-		Crop_type ret = Crop_type(i);
-		if (no_caps(crop_type_name(ret)) == name)
-		{
-			return ret;
-		}
-	}
-	return CROPTYPE_NULL;
 }
 
 std::string crop_type_name(Crop_type type)
