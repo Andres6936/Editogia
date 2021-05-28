@@ -12,15 +12,7 @@ std::vector<std::string> break_into_lines(std::string text, int linesize);
 
 std::string load_to_delim(std::istream& datastream, std::string delim);
 
-std::string load_to_character(std::istream& datastream, char ch,
-		bool _trim = false);
-
-std::string load_to_character(std::istream& datastream, std::string chars,
-		bool _trim = false);
-
 std::string trim(const std::string& orig);
-
-std::string all_caps(const std::string& orig);
 
 std::string no_caps(const std::string& orig);
 
@@ -45,15 +37,6 @@ int digits_in(int num);
 // returns the number as a string.  For instance, move_decimal(108, 2) would
 // return "1.08".
 std::string move_decimal(int num, int moves);
-
-// Finds the breakpoints that value falls between, and returns a color tag
-// from the colors provided.
-std::string color_gradient(int value, std::vector<int> breakpoints,
-		std::vector<nc_color> colors);
-
-// Returns a list of letters that may follow ch; if vowel_before is true, then
-// there should be a vowel before ch.
-std::string letter_after(long ch, bool vowel_before = false);
 
 bool is_letter(char ch);
 

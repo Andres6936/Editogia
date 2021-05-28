@@ -111,49 +111,6 @@ std::string load_to_delim(std::istream& datastream, std::string delim)
 	return ret;
 }
 
-std::string load_to_character(std::istream& datastream, char ch, bool _trim)
-{
-	std::string ret;
-	char* tmp = new char[1];
-	do
-	{
-		datastream.read(tmp, 1);
-		if (tmp[0] != ch)
-		{
-			ret.push_back(tmp[0]);
-		}
-		debugmsg(ret.c_str());
-	} while (tmp[0] != ch && !(datastream.eof()));
-
-	if (_trim)
-		ret = trim(ret);
-	delete[] tmp;
-	return ret;
-}
-
-std::string load_to_character(std::istream& datastream, std::string chars,
-		bool _trim)
-{
-	std::string ret;
-	char* tmp = new char[1];
-	do
-	{
-		datastream.read(tmp, 1);
-		if (chars.find(tmp[0]) == std::string::npos)
-		{
-			ret.push_back(tmp[0]);
-		}
-		debugmsg(ret.c_str());
-	} while (chars.find(tmp[0]) == std::string::npos && chars[0] >= 0 &&
-			 !(datastream.eof()));
-
-	if (_trim)
-		ret = trim(ret);
-
-	delete[] tmp;
-	return ret;
-}
-
 std::string trim(const std::string& orig)
 {
 	std::string ret = orig;
@@ -175,18 +132,6 @@ std::string trim(const std::string& orig)
 	}
 
 	ret = ret.substr(0, back + 1);
-
-	return ret;
-}
-
-std::string all_caps(const std::string& orig)
-{
-	std::string ret = orig;
-	for (int i = 0; i < ret.length(); i++)
-	{
-		if (ret[i] >= 'a' && ret[i] <= 'z')
-			ret[i] += 'A' - 'a';
-	}
 
 	return ret;
 }
@@ -351,36 +296,6 @@ std::string move_decimal(int num, int moves)
 	return ret.str();
 }
 
-
-std::string color_gradient(int value, std::vector<int> breakpoints,
-		std::vector<nc_color> colors)
-{
-/* We need one more color than breakpoints, since breakpoints are the spots
- * BETWEEN colors:
- *  gray  <split: 5>  white  <split: 12>  green
- */
-	if (breakpoints.size() + 1 != colors.size())
-	{
-		debugmsg("color_gradient() called with mismatched breakpoints/colors!");
-		return "";
-	}
-
-	nc_color col = c_null;
-	for (int i = 0; i < breakpoints.size(); i++)
-	{
-		if (value <= breakpoints[i])
-		{
-			col = colors[i];
-		}
-	}
-	if (col == c_null)
-	{
-		col = colors.back();
-	}
-	std::stringstream ret;
-	ret << "<c=" << color_tag(col) << ">";
-	return ret.str();
-}
 
 std::string letters_after(long letter, bool vowel_before)
 {
