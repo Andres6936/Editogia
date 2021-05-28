@@ -56,11 +56,6 @@ void Window::close()
 	refresh_all(true);
 }
 
-void Window::resize(int sizex, int sizey)
-{
-	wresize(w, sizey, sizex);
-}
-
 void Window::outline()
 {
 	outlined = true;
@@ -373,12 +368,6 @@ void init_display()
 	timeout(1);
 	getch();
 	timeout(-1);
-}
-
-void end_display()
-{
-	erase();
-	endwin();
 }
 
 long input()
