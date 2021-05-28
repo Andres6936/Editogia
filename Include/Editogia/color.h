@@ -40,14 +40,6 @@ std::string color_tag(nc_color color);
 
 nc_color hilight(nc_color orig);
 
-nc_color opposite(nc_color orig);
-
-nc_color contrast(nc_color orig);
-
-bool is_bright(nc_color col);
-
-nc_color brighten(nc_color col);
-
 nc_color non_bright(nc_color col);
 
 #endif
