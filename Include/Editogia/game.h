@@ -39,9 +39,6 @@ public:
 // Saves the game data and the current city in SAVE_DIR/cities/<cityname>.sav
 	bool save_game();
 
-// Loads a game from the specified file
-	bool load_game(std::string filename);
-
 // Mutators
 	void advance_time(int days = 1, City* city = NULL);
 

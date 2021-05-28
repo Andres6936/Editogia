@@ -173,27 +173,6 @@ bool Game::save_game()
 	return true;
 }
 
-bool Game::load_game(std::string filename)
-{
-	std::ifstream fin;
-	fin.open(filename.c_str());
-	if (!fin.is_open())
-	{
-		debugmsg("Couldn't open %s for reading.", filename.c_str());
-		return false;
-	}
-
-	if (!city->load_data(fin))
-	{
-		debugmsg("Game failed to load city.");
-		return false;
-	}
-
-	load_world();
-
-	return true;
-}
-
 void Game::advance_time(int days, City* city)
 {
 // days defaults to 1.
