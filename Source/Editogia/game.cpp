@@ -16,7 +16,7 @@ Game::Game()
 	Levin::Log::Informational("Creating instance of application.");
 
 	next_city_uid = 0;
-	world = new World_map;
+	world = new World;
 	city = new Player_city;
 	world_ready = false;
 }
@@ -148,7 +148,7 @@ bool Game::generate_world(World_design* design)
 	if (world)
 	{
 		delete world;
-		world = new World_map;
+		world = new World;
 	}
 	world->generate(*design);
 	generate_kingdoms(design);

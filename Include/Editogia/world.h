@@ -135,7 +135,7 @@ struct World_design
 /**
  * Constrains: DefaultConstructible.
  */
-class World_map
+class World
 {
 
 private:
@@ -178,9 +178,9 @@ private:
 
 public:
 
-	World_map() noexcept = default;
+	World() noexcept = default;
 
-	virtual ~World_map() noexcept = default;
+	virtual ~World() noexcept = default;
 
 // These functions return false if they fail for any reason (buggy parameter)
 	bool generate(World_design design);

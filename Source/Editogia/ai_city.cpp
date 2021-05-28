@@ -150,7 +150,7 @@ bool AI_city::load_data(std::istream& data)
 	return true;
 }
 
-void AI_city::randomize_properties(World_map* world)
+void AI_city::randomize_properties(World* world)
 {
 	if (!world)
 	{
@@ -261,7 +261,7 @@ void AI_city::randomize_properties(World_map* world)
 	init_demands();
 }
 
-void AI_city::setup_resource_production(World_map* world)
+void AI_city::setup_resource_production(World* world)
 {
 	if (!world)
 	{

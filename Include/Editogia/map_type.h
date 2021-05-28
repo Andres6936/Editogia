@@ -10,7 +10,7 @@
  */
 
 // Map_type defines what your City_map looks like.  It's also used as the basic
-// tile for World_map.
+// tile for World.
 enum Map_type
 {
 	MAP_NULL = 0,

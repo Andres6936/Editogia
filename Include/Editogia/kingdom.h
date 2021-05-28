@@ -30,19 +30,19 @@ public:
 // Building the kingdom
 // called once for each kingdom; it places its capital, the epicenter of the
 // territory.
-	bool place_capital(World_map* world, int radius = KINGDOM_CLAIM_RADIUS);
+	bool place_capital(World* world, int radius = KINGDOM_CLAIM_RADIUS);
 
 // Places a duchy city and claims territory around it.  Decreases
 // expansion_points.
-	bool place_duchy_seat(World_map* world, int& expansion_points);
+	bool place_duchy_seat(World* world, int& expansion_points);
 
 // Places several minor cities around a duchy seat.  They appear within <radius>
 // tiles of the duchy seat.
-	void place_minor_cities(World_map* world, int radius = KINGDOM_CLAIM_RADIUS);
+	void place_minor_cities(World* world, int radius = KINGDOM_CLAIM_RADIUS);
 
-	void build_road(World_map* world, City* start, City* end);
+	void build_road(World* world, City* start, City* end);
 
-	void expand_boundaries(World_map* world);
+	void expand_boundaries(World* world);
 
 	void setup_trade_routes(int base_percent);  // param is for progress bar
 
@@ -59,13 +59,13 @@ public:
 	int most_west, most_north, most_east, most_south;
 
 private:
-	Point pick_best_point(World_map* world, std::vector<Point> points_to_try,
+	Point pick_best_point(World* world, std::vector<Point> points_to_try,
 			int radius = KINGDOM_CLAIM_RADIUS);
 
-	void add_city(World_map* world, Point loc, City_type type,
+	void add_city(World* world, Point loc, City_type type,
 			int radius = KINGDOM_CLAIM_RADIUS);
 
-	void claim_territory(World_map* world, Point p);
+	void claim_territory(World* world, Point p);
 
 // Data
 	Game* game;
@@ -74,6 +74,6 @@ private:
 };
 
 // See kingdom.cpp
-void init_kingdoms(Game* game, World_map* world);
+void init_kingdoms(Game* game, World* world);
 
 #endif

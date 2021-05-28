@@ -8,7 +8,7 @@
 #include <string>
 #include <istream>
 
-class World_map;
+class World;
 
 // Parameters for decision-making
 struct AI_mayor
@@ -43,9 +43,9 @@ public:
 	virtual bool load_data(std::istream& data);
 
 // Randomize population, role, and more
-	void randomize_properties(World_map* world);
+	void randomize_properties(World* world);
 
-	void setup_resource_production(World_map* world);
+	void setup_resource_production(World* world);
 
 // class City provides get_food_consumption()
 // get_food_production() is just resource_production[RES_FOOD]

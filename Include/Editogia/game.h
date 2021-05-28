@@ -12,7 +12,7 @@ class Player_city;
 
 struct World_design;
 
-class World_map;
+class World;
 
 class Kingdom;
 
@@ -58,7 +58,7 @@ public:
 
 	int get_city_uid(); // Returns next_city_uid and advances next_city_uid.
 
-	World_map* world;
+	World* world;
 	std::vector<Kingdom*> kingdoms;
 	Player_city* city;
 

@@ -155,7 +155,7 @@ bool Kingdom::load_data(std::istream& data)
 }
 
 // size defaults to KINGDOM_CLAIM_RADIUS (see kingdom.h)
-bool Kingdom::place_capital(World_map* world, int radius)
+bool Kingdom::place_capital(World* world, int radius)
 {
 	if (!world)
 	{
@@ -180,7 +180,7 @@ bool Kingdom::place_capital(World_map* world, int radius)
 	return true;
 }
 
-bool Kingdom::place_duchy_seat(World_map* world, int& expansion_points)
+bool Kingdom::place_duchy_seat(World* world, int& expansion_points)
 {
 	if (!world)
 	{
@@ -243,7 +243,7 @@ bool Kingdom::place_duchy_seat(World_map* world, int& expansion_points)
 	return true;
 }
 
-void Kingdom::place_minor_cities(World_map* world, int radius)
+void Kingdom::place_minor_cities(World* world, int radius)
 {
 	//std::stringstream ss_debug;
 
@@ -397,11 +397,11 @@ void Kingdom::place_minor_cities(World_map* world, int radius)
 	//debugmsg( ss_debug.str().c_str() );
 }
 
-void Kingdom::build_road(World_map* world, City* start, City* end)
+void Kingdom::build_road(World* world, City* start, City* end)
 {
 	if (!world)
 	{
-		debugmsg("Kingdom::build_road() called with NULL World_map.");
+		debugmsg("Kingdom::build_road() called with NULL World.");
 		return;
 	}
 	else if (!start || !end)
@@ -418,12 +418,12 @@ void Kingdom::build_road(World_map* world, City* start, City* end)
 */
 }
 
-Point Kingdom::pick_best_point(World_map* world,
+Point Kingdom::pick_best_point(World* world,
 		std::vector<Point> points_to_try, int radius)
 {
 	if (!world)
 	{
-		debugmsg("Kingdom::pick_best_point() called with NULL World_map*!");
+		debugmsg("Kingdom::pick_best_point() called with NULL World*!");
 		return Point(-1, -1);
 	}
 
@@ -499,7 +499,7 @@ Point Kingdom::pick_best_point(World_map* world,
 	return points_to_try[best_index];
 }
 
-void Kingdom::add_city(World_map* world, Point loc, City_type type, int radius)
+void Kingdom::add_city(World* world, Point loc, City_type type, int radius)
 {
 	if (!world)
 	{
@@ -561,7 +561,7 @@ void Kingdom::add_city(World_map* world, Point loc, City_type type, int radius)
 	city_locations.push_back(loc);
 }
 
-void Kingdom::claim_territory(World_map* world, Point p)
+void Kingdom::claim_territory(World* world, Point p)
 {
 	if (!world)
 	{
@@ -594,7 +594,7 @@ void Kingdom::claim_territory(World_map* world, Point p)
 	}
 }
 
-void Kingdom::expand_boundaries(World_map* world)
+void Kingdom::expand_boundaries(World* world)
 {
 	if (!world)
 	{

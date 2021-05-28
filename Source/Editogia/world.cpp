@@ -110,27 +110,27 @@ World_design::~World_design()
 
 
 
-bool World_map::generate(World_design design)
+bool World::generate(World_design design)
 {
 // Some sanity checks
 	if (design.size == WORLD_SIZE_MAX)
 	{
-		debugmsg("World_map generated with size of WORLD_SIZE_MAX!");
+		debugmsg("World generated with size of WORLD_SIZE_MAX!");
 		return false;
 	}
 	if (design.temperature == WORLD_TEMP_MAX)
 	{
-		debugmsg("World_map generated with temperature of WORLD_TEMP_MAX!");
+		debugmsg("World generated with temperature of WORLD_TEMP_MAX!");
 		return false;
 	}
 	if (design.rainfall == WORLD_RAIN_MAX)
 	{
-		debugmsg("World_map generated with rainfall of WORLD_RAIN_MAX!");
+		debugmsg("World generated with rainfall of WORLD_RAIN_MAX!");
 		return false;
 	}
 	if (design.mountain == WORLD_MOUNTAIN_MAX)
 	{
-		debugmsg("World_map generated with mountain of WORLD_MOUNTAIN_MAX!");
+		debugmsg("World generated with mountain of WORLD_MOUNTAIN_MAX!");
 		return false;
 	}
 
@@ -882,11 +882,11 @@ Placing %d blobs [%d%%%%%%%%]",
 	return true;
 }
 
-bool World_map::set_size(World_size Size)
+bool World::set_size(World_size Size)
 {
 	if (size <= 0)
 	{
-		debugmsg("World_map::set_size(%d) called!", Size);
+		debugmsg("World::set_size(%d) called!", Size);
 		return false;
 	}
 
@@ -935,7 +935,7 @@ bool World_map::set_size(World_size Size)
 	return true;
 }
 
-bool World_map::save_to_file(std::string filename)
+bool World::save_to_file(std::string filename)
 {
 	if (filename.empty())
 	{
@@ -980,18 +980,18 @@ bool World_map::save_to_file(std::string filename)
 	return true;
 }
 
-bool World_map::load_from_file(std::string filename)
+bool World::load_from_file(std::string filename)
 {
 	if (filename.empty())
 	{
-		debugmsg("World_map attempted to load an empty filename.");
+		debugmsg("World attempted to load an empty filename.");
 		return false;
 	}
 	std::ifstream fin;
 	fin.open(filename.c_str());
 	if (!fin.is_open())
 	{
-		debugmsg("World_map couldn't open '%s' for loading.", filename.c_str());
+		debugmsg("World couldn't open '%s' for loading.", filename.c_str());
 		return false;
 	}
 	std::getline(fin, name);
@@ -1024,7 +1024,7 @@ bool World_map::load_from_file(std::string filename)
 
 	if (!road_map.load_data(fin))
 	{
-		debugmsg("World_map failed to load road_map.");
+		debugmsg("World failed to load road_map.");
 		return false;
 	}
 
@@ -1034,7 +1034,7 @@ bool World_map::load_from_file(std::string filename)
 		Generic_map tmpmap;
 		if (!tmpmap.load_data(fin))
 		{
-			debugmsg("World_map failed to load travel_map for %s.",
+			debugmsg("World failed to load travel_map for %s.",
 					Race_data[i]->name.c_str());
 			return false;
 		}
@@ -1044,7 +1044,7 @@ bool World_map::load_from_file(std::string filename)
 	return true;
 }
 
-void World_map::add_continent(Point origin, int height, int step, int id)
+void World::add_continent(Point origin, int height, int step, int id)
 {
 	std::vector<Point> active;
 
@@ -1188,7 +1188,7 @@ void World_map::add_continent(Point origin, int height, int step, int id)
 
 }
 
-void World_map::add_river(Point origin)
+void World::add_river(Point origin)
 {
 	if (OOB(origin))
 	{
@@ -1274,64 +1274,64 @@ void World_map::add_river(Point origin)
 
 }
 
-void World_map::add_crop(Point origin, Crop crop, int radius)
+void World::add_crop(Point origin, Crop crop, int radius)
 {
 	//crops.push_back( Crop_area(crop, origin, radius) );
 	add_resource(origin, crop, MINERAL_NULL, ANIMAL_NULL, radius);
 }
 
-void World_map::add_mineral(Point origin, Mineral mineral, int radius)
+void World::add_mineral(Point origin, Mineral mineral, int radius)
 {
 	//minerals.push_back( Mineral_area(mineral, origin, radius) );
 	add_resource(origin, CROP_NULL, mineral, ANIMAL_NULL, radius);
 }
 
-void World_map::add_animal(Point origin, Animal animal, int radius)
+void World::add_animal(Point origin, Animal animal, int radius)
 {
 	add_resource(origin, CROP_NULL, MINERAL_NULL, animal, radius);
 }
 
-void World_map::add_resource(Point origin, Crop crop, Mineral mineral,
+void World::add_resource(Point origin, Crop crop, Mineral mineral,
 		Animal animal, int radius)
 {
 // Check to make sure that exactly one of crop/mineral/animal is set.
 	if (crop == CROP_NULL && mineral == MINERAL_NULL && animal == ANIMAL_NULL)
 	{
-		debugmsg("World_map::add_resource() called with all resources NULL!");
+		debugmsg("World::add_resource() called with all resources NULL!");
 		return;
 	}
 	else if (crop != CROP_NULL && mineral != MINERAL_NULL &&
-			animal != ANIMAL_NULL)
+			 animal != ANIMAL_NULL)
 	{
-		debugmsg("World_map::add_resource() called with all three resources set!");
+		debugmsg("World::add_resource() called with all three resources set!");
 		return;
 	}
 	else if (crop != CROP_NULL && mineral != MINERAL_NULL)
 	{
-		debugmsg("World_map::add_resource() called with crop AND mineral!");
+		debugmsg("World::add_resource() called with crop AND mineral!");
 		return;
 	}
 	else if (crop != CROP_NULL && animal != ANIMAL_NULL)
 	{
-		debugmsg("World_map::add_resource() called with crop AND animal!");
+		debugmsg("World::add_resource() called with crop AND animal!");
 		return;
 	}
 	else if (mineral != MINERAL_NULL && animal != ANIMAL_NULL)
 	{
-		debugmsg("World_map::add_resource() called with mineral AND animal!");
+		debugmsg("World::add_resource() called with mineral AND animal!");
 		return;
 	}
 
 	if (OOB(origin))
 	{
-		debugmsg("World_map::add_resource() called with origin %s.",
+		debugmsg("World::add_resource() called with origin %s.",
 				origin.str().c_str());
 		return;
 	}
 
 	if (radius <= 0)
 	{
-		debugmsg("World_map::add_resource() called with radius %d.", radius);
+		debugmsg("World::add_resource() called with radius %d.", radius);
 		return;
 	}
 
@@ -1442,7 +1442,7 @@ void World_map::add_resource(Point origin, Crop crop, Mineral mineral,
 	}
 }
 
-void World_map::update_road_map()
+void World::update_road_map()
 {
 	road_map.set_size(size, size);
 	for (int x = 0; x < size; x++)
@@ -1462,7 +1462,7 @@ void World_map::update_road_map()
 }
 
 // traveler defaults to RACE_NULL
-void World_map::update_travel_map(Race traveler)
+void World::update_travel_map(Race traveler)
 {
 	if (traveler == RACE_NULL)
 	{  // Do all the maps!
@@ -1500,12 +1500,12 @@ void World_map::update_travel_map(Race traveler)
 	}
 }
 
-bool World_map::tile_okay_for_crop(Point p, Crop crop)
+bool World::tile_okay_for_crop(Point p, Crop crop)
 {
 	return tile_okay_for_crop(p.x, p.y, crop);
 }
 
-bool World_map::tile_okay_for_crop(int x, int y, Crop crop)
+bool World::tile_okay_for_crop(int x, int y, Crop crop)
 {
 	Crop_datum* crop_dat = Crop_data[crop];
 	return (temperature[x][y] >= crop_dat->min_temp &&
@@ -1516,12 +1516,12 @@ bool World_map::tile_okay_for_crop(int x, int y, Crop crop)
 			rainfall[x][y] <= crop_dat->max_rainfall);
 }
 
-bool World_map::tile_okay_for_animal(Point p, Animal animal)
+bool World::tile_okay_for_animal(Point p, Animal animal)
 {
 	return tile_okay_for_animal(p.x, p.y, animal);
 }
 
-bool World_map::tile_okay_for_animal(int x, int y, Animal animal)
+bool World::tile_okay_for_animal(int x, int y, Animal animal)
 {
 	Animal_datum* animal_dat = Animal_data[animal];
 	return (temperature[x][y] >= animal_dat->min_temp &&
@@ -1533,7 +1533,7 @@ bool World_map::tile_okay_for_animal(int x, int y, Animal animal)
 }
 
 // start defaults to (-1, -1); seen defaults to NULL
-Point World_map::draw(Point start, Map_seen* seen)
+Point World::draw(Point start, Map_seen* seen)
 {
 	cuss::interface i_legend;
 	if (!i_legend.load_from_file("cuss/world_legend.cuss"))
@@ -1966,33 +1966,33 @@ Point World_map::draw(Point start, Map_seen* seen)
 	} // while (true)
 }
 
-std::string World_map::get_name()
+std::string World::get_name()
 {
 	return name;
 }
 
-int World_map::get_size()
+int World::get_size()
 {
 	return size;
 }
 
-bool World_map::OOB(Point p)
+bool World::OOB(Point p)
 {
 	return OOB(p.x, p.y);
 }
 
-bool World_map::OOB(int x, int y)
+bool World::OOB(int x, int y)
 {
 	return (x < 0 || x >= size ||
 			y < 0 || y >= size);
 }
 
-Map_type World_map::get_map_type(Point p)
+Map_type World::get_map_type(Point p)
 {
 	return get_map_type(p.x, p.y);
 }
 
-Map_type World_map::get_map_type(int x, int y)
+Map_type World::get_map_type(int x, int y)
 {
 	if (OOB(x, y))
 	{
@@ -2001,12 +2001,12 @@ Map_type World_map::get_map_type(int x, int y)
 	return tiles[x][y];
 }
 
-void World_map::set_kingdom_id(Point p, int id)
+void World::set_kingdom_id(Point p, int id)
 {
 	set_kingdom_id(p.x, p.y, id);
 }
 
-void World_map::set_kingdom_id(int x, int y, int id)
+void World::set_kingdom_id(int x, int y, int id)
 {
 	if (OOB(x, y))
 	{
@@ -2015,12 +2015,12 @@ void World_map::set_kingdom_id(int x, int y, int id)
 	kingdom_id[x][y] = id;
 }
 
-int World_map::get_kingdom_id(Point p)
+int World::get_kingdom_id(Point p)
 {
 	return get_kingdom_id(p.x, p.y);
 }
 
-int World_map::get_kingdom_id(int x, int y)
+int World::get_kingdom_id(int x, int y)
 {
 	if (OOB(x, y))
 	{
@@ -2029,12 +2029,12 @@ int World_map::get_kingdom_id(int x, int y)
 	return kingdom_id[x][y];
 }
 
-void World_map::set_city(Point p, City* new_city)
+void World::set_city(Point p, City* new_city)
 {
 	set_city(p.x, p.y, new_city);
 }
 
-void World_map::set_city(int x, int y, City* new_city)
+void World::set_city(int x, int y, City* new_city)
 {
 	if (!new_city || OOB(x, y))
 	{
@@ -2055,12 +2055,12 @@ void World_map::set_city(int x, int y, City* new_city)
 	city_list.push_back(new_city);
 }
 
-City* World_map::get_city(Point p)
+City* World::get_city(Point p)
 {
 	return get_city(p.x, p.y);
 }
 
-City* World_map::get_city(int x, int y)
+City* World::get_city(int x, int y)
 {
 	if (OOB(x, y))
 	{
@@ -2069,7 +2069,7 @@ City* World_map::get_city(int x, int y)
 	return city[x][y];
 }
 
-City* World_map::lookup_city_uid(int uid)
+City* World::lookup_city_uid(int uid)
 {
 	for (int i = 0; i < city_list.size(); i++)
 	{
@@ -2081,7 +2081,7 @@ City* World_map::lookup_city_uid(int uid)
 	return NULL;
 }
 
-bool World_map::has_road(int x, int y)
+bool World::has_road(int x, int y)
 {
 	if (OOB(x, y))
 	{
@@ -2090,12 +2090,12 @@ bool World_map::has_road(int x, int y)
 	return (road[x][y] || get_city(x, y));
 }
 
-int World_map::road_cost(Point p)
+int World::road_cost(Point p)
 {
 	return road_cost(p.x, p.y);
 }
 
-int World_map::road_cost(int x, int y)
+int World::road_cost(int x, int y)
 {
 	if (OOB(x, y))
 	{
@@ -2109,13 +2109,13 @@ int World_map::road_cost(int x, int y)
 }
 
 // traveler defaults to RACE_NULL
-int World_map::travel_cost(Point p, Race traveler)
+int World::travel_cost(Point p, Race traveler)
 {
 	return travel_cost(p.x, p.y, traveler);
 }
 
 // traveler defaults to RACE_NULL
-int World_map::travel_cost(int x, int y, Race traveler)
+int World::travel_cost(int x, int y, Race traveler)
 {
 	if (OOB(x, y))
 	{
@@ -2133,11 +2133,11 @@ int World_map::travel_cost(int x, int y, Race traveler)
 	return Map_type_data[terrain]->travel_cost;
 }
 
-int World_map::route_cost(Race traveler, Point start, Point end)
+int World::route_cost(Race traveler, Point start, Point end)
 {
 	if (traveler == RACE_NULL)
 	{  // Sanity check
-		debugmsg("World_map::route_cost(RACE_NULL, ...) called!");
+		debugmsg("World::route_cost(RACE_NULL, ...) called!");
 		return -1;
 	}
 	if (start == end)
@@ -2147,7 +2147,7 @@ int World_map::route_cost(Race traveler, Point start, Point end)
 // We should ALWAYS have a map for each race, but check just in case.
 	if (travel_map.count(traveler) == 0)
 	{
-		debugmsg("For some reason World_map doesn't have a travel_map for %s!",
+		debugmsg("For some reason World doesn't have a travel_map for %s!",
 				Race_data[traveler]->name.c_str());
 		return -1;
 	}
@@ -2163,7 +2163,7 @@ int World_map::route_cost(Race traveler, Point start, Point end)
 	return route.get_cost();
 }
 
-glyph World_map::get_road_glyph(int x, int y)
+glyph World::get_road_glyph(int x, int y)
 {
 	if (!has_road(x, y))
 	{  // has_road() checks for OOB
@@ -2276,34 +2276,34 @@ glyph World_map::get_road_glyph(int x, int y)
 	return ret;
 }
 
-bool World_map::is_river(Point p)
+bool World::is_river(Point p)
 {
 	return is_river(p.x, p.y);
 }
 
-bool World_map::is_river(int x, int y)
+bool World::is_river(int x, int y)
 {
 	Map_type type = get_map_type(x, y);
 	return Map_type_data[type]->is_river;
 }
 
-bool World_map::is_water(Point p)
+bool World::is_water(Point p)
 {
 	return is_water(p.x, p.y);
 }
 
-bool World_map::is_water(int x, int y)
+bool World::is_water(int x, int y)
 {
 	Map_type type = get_map_type(x, y);
 	return Map_type_data[type]->is_water;
 }
 
-Direction World_map::coast_from(Point p)
+Direction World::coast_from(Point p)
 {
 	return coast_from(p.x, p.y);
 }
 
-Direction World_map::coast_from(int x, int y)
+Direction World::coast_from(int x, int y)
 {
 	if (OOB(x, y))
 	{
@@ -2334,12 +2334,12 @@ Direction World_map::coast_from(int x, int y)
 	return candidates[rng(0, candidates.size() - 1)];
 }
 
-Direction_full World_map::river_start_for(Point p)
+Direction_full World::river_start_for(Point p)
 {
 	return river_start_for(p.x, p.y);
 }
 
-Direction_full World_map::river_start_for(int x, int y)
+Direction_full World::river_start_for(int x, int y)
 {
 // Bounds check
 	if (OOB(x, y))
@@ -2375,12 +2375,12 @@ Direction_full World_map::river_start_for(int x, int y)
 	return DIRFULL_NULL;
 }
 
-Direction_full World_map::river_end_for(Point p)
+Direction_full World::river_end_for(Point p)
 {
 	return river_end_for(p.x, p.y);
 }
 
-Direction_full World_map::river_end_for(int x, int y)
+Direction_full World::river_end_for(int x, int y)
 {
 // Bounds check
 	if (OOB(x, y))
@@ -2418,7 +2418,7 @@ Direction_full World_map::river_end_for(int x, int y)
 	return DIRFULL_NULL;
 }
 
-int World_map::get_trade_distance(Race trader, Point start, Point end)
+int World::get_trade_distance(Race trader, Point start, Point end)
 {
 /* TODO:  Would anything increase the trade distance?
           Enemy races we have to avoid
@@ -2427,7 +2427,7 @@ int World_map::get_trade_distance(Race trader, Point start, Point end)
 	return route_cost(trader, start, end);
 }
 
-bool World_map::build_road(Point start, Point end)
+bool World::build_road(Point start, Point end)
 {
 // See pathfind.h / pathfind.cpp
 	Pathfinder pf(road_map);
@@ -2449,22 +2449,22 @@ bool World_map::build_road(Point start, Point end)
 	return true;
 }
 
-std::vector<Crop> World_map::crops_at(Point p)
+std::vector<Crop> World::crops_at(Point p)
 {
 	return crops_at(p.x, p.y);
 }
 
-std::vector<Mineral> World_map::minerals_at(Point p)
+std::vector<Mineral> World::minerals_at(Point p)
 {
 	return minerals_at(p.x, p.y);
 }
 
-std::vector<Animal> World_map::animals_at(Point p)
+std::vector<Animal> World::animals_at(Point p)
 {
 	return animals_at(p.x, p.y);
 }
 
-std::vector<Crop> World_map::crops_at(int x, int y)
+std::vector<Crop> World::crops_at(int x, int y)
 {
 	std::vector<Crop> ret;
 	if (OOB(x, y))
@@ -2481,7 +2481,7 @@ std::vector<Crop> World_map::crops_at(int x, int y)
 	return ret;
 }
 
-std::vector<Mineral> World_map::minerals_at(int x, int y)
+std::vector<Mineral> World::minerals_at(int x, int y)
 {
 	std::vector<Mineral> ret;
 	if (OOB(x, y))
@@ -2498,7 +2498,7 @@ std::vector<Mineral> World_map::minerals_at(int x, int y)
 	return ret;
 }
 
-std::vector<Animal> World_map::animals_at(int x, int y)
+std::vector<Animal> World::animals_at(int x, int y)
 {
 	std::vector<Animal> ret;
 	if (OOB(x, y))
@@ -2515,7 +2515,7 @@ std::vector<Animal> World_map::animals_at(int x, int y)
 	return ret;
 }
 
-bool World_map::has_crop(Crop crop, int x, int y)
+bool World::has_crop(Crop crop, int x, int y)
 {
 	if (OOB(x, y))
 	{
@@ -2528,7 +2528,7 @@ bool World_map::has_crop(Crop crop, int x, int y)
 	return (crops[x][y] & int(pow(2, (int)crop)));
 }
 
-bool World_map::has_mineral(Mineral mineral, int x, int y)
+bool World::has_mineral(Mineral mineral, int x, int y)
 {
 	if (OOB(x, y))
 	{
@@ -2541,7 +2541,7 @@ bool World_map::has_mineral(Mineral mineral, int x, int y)
 	return (minerals[x][y] & int(pow(2, (int)mineral)));
 }
 
-bool World_map::has_animal(Animal animal, int x, int y)
+bool World::has_animal(Animal animal, int x, int y)
 {
 	if (OOB(x, y))
 	{
