@@ -10,11 +10,6 @@
 #include <ArduinoJson/ArduinoJson.hpp>
 
 
-Resource Recipe_amount::get_resource()
-{
-	return recipe.get_resource();
-}
-
 Building::Building()
 {
 	pos = Point(-1, -1);
@@ -1137,35 +1132,6 @@ std::string Building_datum::generate_help_text()
 	return ret.str();
 }
 
-bool Building_datum::built_by(Race race)
-{
-	if (!race_can_build.empty())
-	{
-		for (int i = 0; i < race_can_build.size(); i++)
-		{
-			if (race_can_build[i] == race)
-			{
-				return true;
-			}
-		}
-		return false;
-	}
-
-	if (!race_forbidden.empty())
-	{
-		for (int i = 0; i < race_forbidden.size(); i++)
-		{
-			if (race_forbidden[i] == race)
-			{
-				return false;
-			}
-		}
-		return true;
-	}
-
-	return true;
-}
-
 // res defaults to RES_NULL
 bool Building_datum::produces_resource(Resource res)
 {
@@ -1300,20 +1266,6 @@ const std::string Building_datum::toJSON() const noexcept
 	char output[4086];
 	serializeJsonPretty(doc, output);
 	return output;
-}
-
-Building_category lookup_building_category(std::string name)
-{
-	name = no_caps(trim(name));
-	for (int i = 0; i < BUILDCAT_MAX; i++)
-	{
-		Building_category ret = Building_category(i);
-		if (no_caps(trim(building_category_name(ret))) == name)
-		{
-			return ret;
-		}
-	}
-	return BUILDCAT_NULL;
 }
 
 std::string building_category_name(Building_category category)

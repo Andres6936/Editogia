@@ -76,9 +76,6 @@ enum Building_category
 	BUILDCAT_MAX
 };
 
-// These are defined in building.cpp
-Building_category lookup_building_category(std::string name);
-
 std::string building_category_name(Building_category category);
 
 // get_true_building_types() returns all Building_types that are NOT just data
@@ -94,8 +91,6 @@ struct Recipe_amount
 	{
 		days_until_built = 0;
 	}
-
-	Resource get_resource();  // Returns recipe.get_resource()
 
 	Recipe recipe;
 	int amount;
@@ -116,8 +111,6 @@ struct Building_datum
 			bool for_area = false);
 
 	std::string generate_help_text(); // Generates text with all critical data
-
-	bool built_by(Race race);
 
 	bool produces_resource(Resource res = RES_NULL);
 
