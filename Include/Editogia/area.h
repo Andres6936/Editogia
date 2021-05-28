@@ -7,7 +7,7 @@
  * Examples include living areas, farms, mines, etc.
  */
 
-#include "glyph.h"
+#include "Glyph.h"
 #include "building.h"
 #include "geometry.h"
 #include "resource.h"
@@ -80,7 +80,7 @@ struct Area_datum
 
 	std::string name;
 	int uid;
-	glyph symbol;
+	Glyph symbol;
 
 	Area_category category;
 

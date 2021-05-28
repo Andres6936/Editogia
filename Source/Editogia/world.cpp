@@ -1588,12 +1588,12 @@ Point World::draw(Point start, Map_seen* seen)
 						debugmsg("No data for tile[%d][%d] (type %d)!", x, y, type);
 					}
 
-					glyph gl;
+					Glyph gl;
 					City* city_here = city[x][y];
 
 					if (!tile_seen)
 					{
-						gl = glyph('-', c_dkgray, c_black);
+						gl = Glyph('-', c_dkgray, c_black);
 					}
 					else if (city_here)
 					{
@@ -1667,8 +1667,8 @@ Point World::draw(Point start, Map_seen* seen)
 
 				}
 				else
-				{  // Out of bounds glyph
-					w_map.putglyph(x - pos.x, y - pos.y, glyph('-', c_dkgray, c_black));
+				{  // Out of bounds Glyph
+					w_map.putglyph(x - pos.x, y - pos.y, Glyph('-', c_dkgray, c_black));
 				}
 
 			} // for (int y = pos.y; y < pos.y + ydim; y++)
@@ -2165,14 +2165,14 @@ int World::route_cost(Race traveler, Point start, Point end)
 	return route.get_cost();
 }
 
-glyph World::get_road_glyph(int x, int y)
+Glyph World::get_road_glyph(int x, int y)
 {
 	if (!has_road(x, y))
 	{  // has_road() checks for OOB
-		return glyph();
+		return Glyph();
 	}
 
-	glyph ret(LINE_XXXX, c_white, c_black);
+	Glyph ret(LINE_XXXX, c_white, c_black);
 
 	if (has_road(x, y - 1))
 	{

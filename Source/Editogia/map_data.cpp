@@ -9,7 +9,7 @@ Terrain_datum* Terrain_data[TER_MAX];
   Terrain_data[cur_id]->name = (n)
 
 #define _symbol(c, f) \
-  Terrain_data[cur_id]->symbol = glyph((c), (f), (c_black))
+  Terrain_data[cur_id]->symbol = Glyph((c), (f), (c_black))
 
 #define _farm(n) \
   Terrain_data[cur_id]->farm_percent = (n)

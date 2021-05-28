@@ -12,7 +12,7 @@ namespace cuss
 
 	struct ele_drawing : public element
 	{
-		std::map<Point, glyph, Pointcomp> drawing;
+		std::map<Point, Glyph, Pointcomp> drawing;
 
 		ele_drawing()
 		{
@@ -39,7 +39,7 @@ namespace cuss
 
 		virtual void load_data(std::istream& datastream);
 
-		virtual bool set_data(glyph gl, int posx, int posy);
+		virtual bool set_data(Glyph gl, int posx, int posy);
 
 		virtual bool set_data(nc_color FG, nc_color BG = c_null);
 

@@ -71,12 +71,12 @@ void Window::outline()
 	wattroff(w, col);
 }
 
-glyph Window::glyphat(int x, int y)
+Glyph Window::glyphat(int x, int y)
 {
-	glyph ret;
+	Glyph ret;
 	if (type == WINDOW_TYPE_TEXT || type == WINDOW_TYPE_OTHER ||
 		x < 0 || x >= xdim || y < 0 || y >= ydim)
-		return ret; // Whatever a default glyph is
+		return ret; // Whatever a default Glyph is
 
 	long wi = mvwinch(w, y, x);
 	//ret.symbol = wi - ((wi & A_COLOR) + (wi & A_ATTRIBUTES));
@@ -99,7 +99,7 @@ void Window::putch(int x, int y, nc_color fg, nc_color bg, long sym)
 	wattroff(w, col);
 }
 
-void Window::putglyph(int x, int y, glyph gl)
+void Window::putglyph(int x, int y, Glyph gl)
 {
 	if (type == WINDOW_TYPE_TEXT || type == WINDOW_TYPE_OTHER)
 		return;

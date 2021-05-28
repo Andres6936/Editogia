@@ -7,30 +7,30 @@
 #define HILITE_COLOR c_blue
 #define NO_BRIGHT_BG true
 
-struct glyph
+struct Glyph
 {
 	long symbol;
 	nc_color fg;
 	nc_color bg;
 
-	glyph()
+	Glyph()
 	{
 		symbol = 'x';
 		fg = c_red;
 		bg = c_white;
 	}
 
-	glyph(long S, nc_color F, nc_color B) : symbol(S), fg(F), bg(B)
+	Glyph(long S, nc_color F, nc_color B) : symbol(S), fg(F), bg(B)
 	{
 	}
 
-	glyph invert();
+	Glyph invert();
 
-	glyph hilite(nc_color back = HILITE_COLOR);
+	Glyph hilite(nc_color back = HILITE_COLOR);
 
 	std::string text_formatted();
 
-	bool operator==(const glyph& rhs);
+	bool operator==(const Glyph& rhs);
 
 	std::string save_data();
 

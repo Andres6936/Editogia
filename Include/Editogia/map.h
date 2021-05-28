@@ -3,7 +3,7 @@
 
 #include "map_type.h" // For enum Map_type
 #include "geometry.h" // For direction
-#include "glyph.h"    // For terrain glyph
+#include "Glyph.h"    // For terrain Glyph
 #include "resource.h" // Crops and minerals
 #include "area.h"
 #include "animal.h"
@@ -51,7 +51,7 @@ struct Terrain_datum
 	Terrain_datum()
 	{
 		name = "Unknown";
-		symbol = glyph('x', c_red, c_white);
+		symbol = Glyph('x', c_red, c_white);
 		farm_percent = 0;
 		wood_min = 0;
 		wood_max = 0;
@@ -59,7 +59,7 @@ struct Terrain_datum
 	};
 
 	std::string name;
-	glyph symbol;
+	Glyph symbol;
 
 	int farm_percent;
 // This value is treated as a "null animal" when hunting; we pick what animal we
@@ -94,13 +94,13 @@ struct Map_type_datum
 		is_river = false;
 		road_cost = -1;
 		travel_cost = -1;
-		symbol = glyph('x', c_red, c_ltgray);
+		symbol = Glyph('x', c_red, c_ltgray);
 	}
 
 	std::string name;
 	bool is_water;
 	bool is_river;
-	glyph symbol;
+	Glyph symbol;
 	int road_cost;    // The difficulty of building a road
 	int travel_cost;  // The cost, in movement points, of traveling; most units
 	// get 100 movement points per day.
@@ -127,7 +127,7 @@ struct Map_tile
 
 	std::string get_terrain_name();
 
-	glyph get_glyph();
+	Glyph get_glyph();
 
 	std::string get_info();
 
@@ -209,9 +209,9 @@ public:
 
 	std::string get_terrain_name(int x, int y);
 
-	glyph get_glyph(Point p);
+	Glyph get_glyph(Point p);
 
-	glyph get_glyph(int x, int y);
+	Glyph get_glyph(int x, int y);
 
 	std::string get_info(Point p);
 

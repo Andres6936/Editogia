@@ -66,7 +66,7 @@ enum draw_mode
 	DM_MAX
 };
 
-glyph pen;
+Glyph pen;
 
 int main(int argc, char* argv[])
 {
@@ -82,7 +82,7 @@ int main(int argc, char* argv[])
 	bool blink = true;
 	bool show_coord = false;
 	int posx = 0, posy = 0, bufx = -1, bufy = -1;
-	pen = glyph('x', c_white, c_black);
+	pen = Glyph('x', c_white, c_black);
 
 	bool really_done = false;
 	while (!really_done)
@@ -116,21 +116,21 @@ int main(int argc, char* argv[])
 				paint(edited, posx, posy);
 
 			edited.draw_prototype(&w);
-			glyph gl_orig = w.glyphat(posx, posy);
+			Glyph gl_orig = w.glyphat(posx, posy);
 			element* sel = edited.selected();
 
 			if (blink)
 			{
 				if (dm == DM_MOVE_ELE)
-					w.putglyph(sel->posx, sel->posy, glyph(LINE_OXXO, c_pink, c_black));
+					w.putglyph(sel->posx, sel->posy, Glyph(LINE_OXXO, c_pink, c_black));
 				else if (dm == DM_RESIZE_ELE)
 					w.putglyph(sel->posx + sel->sizex - 1, sel->posy + sel->sizey - 1,
-							glyph(LINE_XOOX, c_pink, c_black));
+							Glyph(LINE_XOOX, c_pink, c_black));
 				else
 				{
 					if (gl_orig == pen)
 					{
-						glyph tmp(pen.symbol, pen.fg, hilight(pen.bg));
+						Glyph tmp(pen.symbol, pen.fg, hilight(pen.bg));
 						w.putglyph(posx, posy, tmp);
 					}
 					else
@@ -190,7 +190,7 @@ int main(int argc, char* argv[])
 					}
 					else if (ch == KEY_BACKSPACE || ch == 127 || ch == 8)
 					{
-						edited.set_data("BG", glyph(-1, c_black, c_black), posx, posy);
+						edited.set_data("BG", Glyph(-1, c_black, c_black), posx, posy);
 						if (posx > 0) posx--;
 					}
 					else
@@ -465,7 +465,7 @@ int main(int argc, char* argv[])
 					{
 						if (!clipboard.drawing.empty())
 						{
-							for (std::map<Point, glyph>::iterator it = clipboard.drawing.begin();
+							for (std::map<Point, Glyph>::iterator it = clipboard.drawing.begin();
 								 it != clipboard.drawing.end(); it++)
 							{
 								edited.set_data("BG", it->second, it->first.x + posx,
@@ -496,7 +496,7 @@ int main(int argc, char* argv[])
 							sel = NULL;
 						}
 						else
-							edited.set_data("BG", glyph(-1, c_black, c_black), posx, posy);
+							edited.set_data("BG", Glyph(-1, c_black, c_black), posx, posy);
 
 					}
 					else if (ch == '/')
@@ -576,7 +576,7 @@ int main(int argc, char* argv[])
 										clipboard.set_data(bg->drawing[p], x - bufx, y - bufy);
 										//debugmsg("%d", clipboard.drawing.size());
 									}
-									edited.set_data("BG", glyph(-1, c_black, c_black), x, y);
+									edited.set_data("BG", Glyph(-1, c_black, c_black), x, y);
 								}
 							}
 							dm = DM_NULL;
@@ -1456,7 +1456,7 @@ void draw_line(interface& edited, int x1, int y1, int x2, int y2)
 	}
 
 	int x = x1, y = y1;
-	glyph gl(sym, pen.fg, pen.bg);
+	Glyph gl(sym, pen.fg, pen.bg);
 	do
 	{
 		edited.set_data("BG", gl, x, y);
@@ -1501,7 +1501,7 @@ void temp_line(Window& w, int x1, int y1, int x2, int y2)
 	}
 
 	int x = x1, y = y1;
-	glyph gl(sym, c_magenta, c_blue);
+	Glyph gl(sym, c_magenta, c_blue);
 	do
 	{
 		w.putglyph(x, y, gl);
@@ -1542,10 +1542,10 @@ void draw_box(interface& edited, int x1, int y1, int x2, int y2)
 			draw_line(edited, x2, y1, x2, y2);
 		}
 
-		edited.set_data("BG", glyph(LINE_OXXO, pen.fg, pen.bg), x1, y1);
-		edited.set_data("BG", glyph(LINE_OOXX, pen.fg, pen.bg), x2, y1);
-		edited.set_data("BG", glyph(LINE_XXOO, pen.fg, pen.bg), x1, y2);
-		edited.set_data("BG", glyph(LINE_XOOX, pen.fg, pen.bg), x2, y2);
+		edited.set_data("BG", Glyph(LINE_OXXO, pen.fg, pen.bg), x1, y1);
+		edited.set_data("BG", Glyph(LINE_OOXX, pen.fg, pen.bg), x2, y1);
+		edited.set_data("BG", Glyph(LINE_XXOO, pen.fg, pen.bg), x1, y2);
+		edited.set_data("BG", Glyph(LINE_XOOX, pen.fg, pen.bg), x2, y2);
 
 	}
 	else
@@ -1576,10 +1576,10 @@ void temp_box(Window& w, int x1, int y1, int x2, int y2)
 		y1 = buf;
 	}
 
-	w.putglyph(x1, y1, glyph(LINE_OXXO, c_magenta, c_blue));
-	w.putglyph(x2, y1, glyph(LINE_OOXX, c_magenta, c_blue));
-	w.putglyph(x1, y2, glyph(LINE_XXOO, c_magenta, c_blue));
-	w.putglyph(x2, y2, glyph(LINE_XOOX, c_magenta, c_blue));
+	w.putglyph(x1, y1, Glyph(LINE_OXXO, c_magenta, c_blue));
+	w.putglyph(x2, y1, Glyph(LINE_OOXX, c_magenta, c_blue));
+	w.putglyph(x1, y2, Glyph(LINE_XXOO, c_magenta, c_blue));
+	w.putglyph(x2, y2, Glyph(LINE_XOOX, c_magenta, c_blue));
 
 	if (x1 + 1 < x2)
 	{
@@ -1616,7 +1616,7 @@ void fix_lines(interface& edited, std::string name,
 	ele_drawing* bg = static_cast<ele_drawing*>(ele);
 	if (!bg)
 		return;
-	std::map<Point, glyph>::iterator it;
+	std::map<Point, Glyph>::iterator it;
 	for (it = bg->drawing.begin(); it != bg->drawing.end(); it++)
 	{
 		Point p = it->first;

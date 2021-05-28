@@ -1242,8 +1242,8 @@ void SceneManager::set_menu(TypeMenu item)
 	i_main.add_data(menu_name, menu_items);
 
 // Draw the border... ick, manual drawing, oh well.
-	glyph line_ns(LINE_XOXO, c_white, c_black);
-	glyph line_ew(LINE_OXOX, c_white, c_black);
+	Glyph line_ns(LINE_XOXO, c_white, c_black);
+	Glyph line_ew(LINE_OXOX, c_white, c_black);
 	for (int y = 0; y < sizey; y++)
 	{
 		i_main.set_data("menu_border", line_ns, 0, y);
@@ -1254,8 +1254,8 @@ void SceneManager::set_menu(TypeMenu item)
 		i_main.set_data("menu_border", line_ew, x, sizey);
 	}
 // And the corners.
-	glyph line_ne(LINE_XXOO, c_white, c_black);
-	glyph line_nw(LINE_XOOX, c_white, c_black);
+	Glyph line_ne(LINE_XXOO, c_white, c_black);
+	Glyph line_nw(LINE_XOOX, c_white, c_black);
 	i_main.set_data("menu_border", line_ne, 0, sizey);
 	i_main.set_data("menu_border", line_nw, sizex + 1, sizey);
 }

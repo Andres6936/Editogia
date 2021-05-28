@@ -113,7 +113,7 @@ std::string Map_tile::get_terrain_name()
 	return Terrain_data[ter]->name;
 }
 
-glyph Map_tile::get_glyph()
+Glyph Map_tile::get_glyph()
 {
 	return Terrain_data[ter]->symbol;
 }
@@ -1290,16 +1290,16 @@ std::string City_map::get_terrain_name(int x, int y)
 	return tiles[x][y].get_terrain_name();
 }
 
-glyph City_map::get_glyph(Point p)
+Glyph City_map::get_glyph(Point p)
 {
 	return get_glyph(p.x, p.y);
 }
 
-glyph City_map::get_glyph(int x, int y)
+Glyph City_map::get_glyph(int x, int y)
 {
 	if (is_oob(x, y))
 	{
-		return glyph();
+		return Glyph();
 	}
 
 	return tiles[x][y].get_glyph();

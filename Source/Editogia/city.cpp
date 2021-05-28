@@ -345,9 +345,9 @@ std::string City::get_name()
 	return name;
 }
 
-glyph City::get_glyph()
+Glyph City::get_glyph()
 {
-	glyph ret;
+	Glyph ret;
 	ret.bg = c_black;
 	int pop = get_total_population();
 	switch (type)

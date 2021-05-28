@@ -1,7 +1,7 @@
 #ifndef _WINDOW_H_
 #define _WINDOW_H_
 
-#include "glyph.h"
+#include "Glyph.h"
 #include <vector>
 #include <list>
 
@@ -97,7 +97,7 @@ public:
 	void outline();
 
 // Info functions
-	glyph glyphat(int x, int y);
+	Glyph glyphat(int x, int y);
 
 	int sizex()
 	{
@@ -112,7 +112,7 @@ public:
 // The three essential output functions
 	void putch(int x, int y, nc_color fg, nc_color bg, long sym);
 
-	void putglyph(int x, int y, glyph gl);
+	void putglyph(int x, int y, Glyph gl);
 
 // Putstr places a string (unless we're designated as tiles-only)
 	void putstr(int x, int y, nc_color fg, nc_color bg, std::string str, ...);

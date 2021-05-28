@@ -3,7 +3,7 @@
 
 #include "citizen.h"
 #include "city.h"
-#include "glyph.h"  // For AI_city::get_glyph()
+#include "Glyph.h"  // For AI_city::get_glyph()
 #include "ai.h"     // For City_role
 #include <string>
 #include <istream>

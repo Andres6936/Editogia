@@ -121,7 +121,7 @@ namespace cuss
 
 		bool add_data(std::string name, int data);
 
-		bool set_data(std::string name, glyph gl, int posx, int posy);
+		bool set_data(std::string name, Glyph gl, int posx, int posy);
 
 		bool set_data(std::string name, nc_color fg, nc_color bg = c_null);
 

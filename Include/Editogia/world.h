@@ -250,8 +250,8 @@ public:
 // specified race.
 	int route_cost(Race traveler, Point start, Point end);
 
-	// Looks at adjacent tiles to decide which line drawing glyph to use
-	glyph get_road_glyph(int x, int y);
+	// Looks at adjacent tiles to decide which line drawing Glyph to use
+	Glyph get_road_glyph(int x, int y);
 
 // true if the Map_datum has is_river == true
 	bool is_river(Point p);

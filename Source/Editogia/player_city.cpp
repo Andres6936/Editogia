@@ -319,7 +319,7 @@ bool Player_city::place_keep()
 	do
 	{
 		draw_map(i_map.find_by_name("draw_map"));
-		i_map.set_data("draw_map", glyph('@', c_yellow, c_black),
+		i_map.set_data("draw_map", Glyph('@', c_yellow, c_black),
 				CITY_MAP_SIZE / 2, CITY_MAP_SIZE / 2);
 		i_map.draw(&w_map);
 		w_map.refresh();
@@ -510,7 +510,7 @@ void Player_city::draw_map(cuss::element* e_draw, Point sel, bool radius_limited
 		return;
 	}
 
-	std::map<Point, glyph, Pointcomp> drawing;
+	std::map<Point, Glyph, Pointcomp> drawing;
 
 // Draw any constructed areas
 	if (!only_terrain)
@@ -519,7 +519,7 @@ void Player_city::draw_map(cuss::element* e_draw, Point sel, bool radius_limited
 		{
 			Area* area = &(areas[i]);
 			Area_datum* areadata = Area_data[area->type];
-			glyph sym = areadata->symbol;
+			Glyph sym = areadata->symbol;
 			if (area->pos == sel)
 			{
 				sym.bg = c_blue;
@@ -536,7 +536,7 @@ void Player_city::draw_map(cuss::element* e_draw, Point sel, bool radius_limited
 		{
 			Area* area = &(area_queue[i]);
 			Area_datum* areadata = Area_data[area->type];
-			glyph gl = areadata->symbol;
+			Glyph gl = areadata->symbol;
 			if (area->pos == sel)
 			{
 				gl.bg = c_blue;
@@ -549,7 +549,7 @@ void Player_city::draw_map(cuss::element* e_draw, Point sel, bool radius_limited
 		}
 	}
 
-// Now for any "unclaimed" points, pull the glyph from our map
+// Now for any "unclaimed" points, pull the Glyph from our map
 	for (int x = 0; x < CITY_MAP_SIZE; x++)
 	{
 		for (int y = 0; y < CITY_MAP_SIZE; y++)
@@ -557,7 +557,7 @@ void Player_city::draw_map(cuss::element* e_draw, Point sel, bool radius_limited
 			Point pos(x, y);
 			if (drawing.count(pos) == 0)
 			{
-				glyph gl = map.get_glyph(pos);
+				Glyph gl = map.get_glyph(pos);
 				if (radius_limited && !inside_radius(pos))
 				{
 					gl.fg = c_dkgray;
@@ -580,7 +580,7 @@ void Player_city::draw_map(cuss::element* e_draw, Point sel, bool radius_limited
 			if (drawing.count(pos) == 0)
 			{
 				Levin::Log::Debug("ERROR - hole in city drawing at {}!", pos.str());
-				e_draw->set_data(glyph(), x, y);
+				e_draw->set_data(Glyph(), x, y);
 			}
 			else
 			{

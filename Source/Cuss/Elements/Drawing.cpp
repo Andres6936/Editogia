@@ -8,7 +8,7 @@ using namespace cuss;
 // *** DRAWING ELEMENT ***
 void ele_drawing::draw(Window* win)
 {
-	std::map<Point, glyph>::iterator it;
+	std::map<Point, Glyph>::iterator it;
 	for (it = drawing.begin(); it != drawing.end(); it++)
 		win->putglyph(posx + it->first.x, posy + it->first.y, it->second);
 }
@@ -17,7 +17,7 @@ std::string ele_drawing::save_data()
 {
 	std::stringstream ret;
 	ret << element::save_data() << " " << drawing.size() << " ";
-	std::map<Point, glyph>::iterator it;
+	std::map<Point, Glyph>::iterator it;
 	for (it = drawing.begin(); it != drawing.end(); it++)
 		ret << it->first.x << " " << it->first.y << " " << it->second.save_data() <<
 			" ";
@@ -32,14 +32,14 @@ void ele_drawing::load_data(std::istream& datastream)
 	for (int i = 0; i < tmpsize; i++)
 	{
 		Point tmpPoint;
-		glyph tmpglyph;
+		Glyph tmpglyph;
 		datastream >> tmpPoint.x >> tmpPoint.y;
 		tmpglyph.load_data(datastream);
 		drawing[tmpPoint] = tmpglyph;
 	}
 }
 
-bool ele_drawing::set_data(glyph gl, int posx, int posy)
+bool ele_drawing::set_data(Glyph gl, int posx, int posy)
 {
 	if (posx < 0 || posx >= sizex || posy < 0 || posy >= sizey)
 		return false;
@@ -54,7 +54,7 @@ bool ele_drawing::set_data(glyph gl, int posx, int posy)
 
 bool ele_drawing::set_data(nc_color FG, nc_color BG)
 {
-	std::map<Point, glyph>::iterator it;
+	std::map<Point, Glyph>::iterator it;
 	for (it = drawing.begin(); it != drawing.end(); it++)
 	{
 		it->second.fg = FG;
@@ -67,7 +67,7 @@ bool ele_drawing::set_data(nc_color FG, nc_color BG)
 
 bool ele_drawing::translate(long from, long to)
 {
-	std::map<Point, glyph>::iterator it;
+	std::map<Point, Glyph>::iterator it;
 	bool found = false;
 	for (it = drawing.begin(); it != drawing.end(); it++)
 	{

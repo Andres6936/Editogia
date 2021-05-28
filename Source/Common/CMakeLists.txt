@@ -1,7 +1,7 @@
 ADD_LIBRARY(Editogia.Common
+        View/Glyph.cpp
         color.cpp
         files.cpp
-        glyph.cpp
         stringfunc.cpp
         window.cpp
         )

@@ -1,15 +1,15 @@
 #include <sstream>
-#include "Editogia/glyph.h"
+#include "Editogia/Glyph.h"
 #include "Editogia/window.h"
 
-std::string glyph::save_data()
+std::string Glyph::save_data()
 {
 	std::stringstream ret;
 	ret << symbol << " " << int(fg) << " " << int(bg);
 	return ret.str();
 };
 
-void glyph::load_data(std::istream& datastream)
+void Glyph::load_data(std::istream& datastream)
 {
 	int fgtmp, bgtmp;
 	datastream >> symbol >> fgtmp >> bgtmp;
@@ -18,9 +18,9 @@ void glyph::load_data(std::istream& datastream)
 	bg = nc_color(bgtmp);
 }
 
-glyph glyph::invert()
+Glyph Glyph::invert()
 {
-	glyph ret = (*this);
+	Glyph ret = (*this);
 	nc_color tmp = ret.fg;
 	ret.fg = ret.bg;
 	ret.bg = tmp;
@@ -31,13 +31,13 @@ glyph glyph::invert()
 	return ret;
 }
 
-glyph glyph::hilite(nc_color back)
+Glyph Glyph::hilite(nc_color back)
 {
 	if (fg == back)
 	{
 		return invert();
 	}
-	glyph ret = (*this);
+	Glyph ret = (*this);
 
 	if (ret.bg == back)
 	{
@@ -50,7 +50,7 @@ glyph glyph::hilite(nc_color back)
 	return ret;
 }
 
-std::string glyph::text_formatted()
+std::string Glyph::text_formatted()
 {
 	std::stringstream ret;
 	ret << "<c=" << color_tag(fg) << "," << color_tag(bg) << ">" <<
@@ -58,7 +58,7 @@ std::string glyph::text_formatted()
 	return ret.str();
 }
 
-bool glyph::operator==(const glyph& rhs)
+bool Glyph::operator==(const Glyph& rhs)
 {
 	return (rhs.fg == fg && rhs.bg == bg && rhs.symbol == symbol);
 }

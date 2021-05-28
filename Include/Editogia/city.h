@@ -12,7 +12,7 @@
 #include "trade.h"
 
 #include "window.h"
-#include "glyph.h"    // For City::get_glyph()
+#include "Glyph.h"    // For City::get_glyph()
 #include <map>
 
 #include <array>
@@ -84,7 +84,7 @@ public:
 
 	std::string get_name();
 
-	glyph get_glyph();
+	Glyph get_glyph();
 
 	Race get_race();
 

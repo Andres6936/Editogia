@@ -7,7 +7,7 @@
 #include <vector>
 #include <cstdint>
 
-#include "Editogia/glyph.h"
+#include "Editogia/Glyph.h"
 #include "Editogia/color.h"
 #include "Editogia/window.h"
 #include "Cuss/Elements/Type.hpp"
@@ -135,7 +135,7 @@ namespace cuss
 			return false;
 		}
 
-		virtual bool set_data(glyph gl, int posx, int posy)
+		virtual bool set_data(Glyph gl, int posx, int posy)
 		{
 			return false;
 		}

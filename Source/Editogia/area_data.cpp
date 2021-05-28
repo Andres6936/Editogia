@@ -9,7 +9,7 @@ Area_datum* Area_data[AREA_MAX];
   Area_data[cur_id]->name = (n)
 
 #define _symbol(s, f) \
-  Area_data[cur_id]->symbol = glyph((s), (f), c_black)
+  Area_data[cur_id]->symbol = Glyph((s), (f), c_black)
 
 #define _category(c) \
   Area_data[cur_id]->category = (c)

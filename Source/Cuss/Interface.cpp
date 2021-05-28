@@ -549,7 +549,7 @@ bool interface::add_data(std::string name, int data)
 	return ele->add_data(data);
 }
 
-bool interface::set_data(std::string name, glyph gl, int x, int y)
+bool interface::set_data(std::string name, Glyph gl, int x, int y)
 {
 	element* ele = find_by_name(name);
 	if (!ele)

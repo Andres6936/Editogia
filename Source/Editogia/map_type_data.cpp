@@ -21,7 +21,7 @@ Map_type_datum* Map_type_data[MAP_MAX];
   Map_type_data[cur_id]->travel_cost = (n)
 
 #define _symbol(c, f) \
-  Map_type_data[cur_id]->symbol = glyph( (c), (f), c_black)
+  Map_type_data[cur_id]->symbol = Glyph( (c), (f), c_black)
 
 #define _role(r) \
   Map_type_data[cur_id]->city_roles.push_back( (r) )
