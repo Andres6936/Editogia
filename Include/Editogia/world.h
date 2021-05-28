@@ -178,8 +178,14 @@ private:
 
 public:
 
+	/**
+	 * Default constructor.
+	 */
 	World() noexcept = default;
 
+	/**
+	 * Default destructor.
+	 */
 	virtual ~World() noexcept = default;
 
 // These functions return false if they fail for any reason (buggy parameter)
