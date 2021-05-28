@@ -58,20 +58,6 @@ Animal_datum::~Animal_datum()
 {
 }
 
-Animal_action lookup_animal_action(std::string name)
-{
-	name = no_caps(trim(name));
-	for (int i = 0; i < ANIMAL_ACT_MAX; i++)
-	{
-		Animal_action ret = Animal_action(i);
-		if (name == no_caps(animal_action_name(ret)))
-		{
-			return ret;
-		}
-	}
-	return ANIMAL_ACT_NULL;
-}
-
 std::string animal_action_name(Animal_action action)
 {
 	switch (action)
