@@ -342,30 +342,6 @@ void Citizens::decrease_morale_mods()
 	}
 }
 
-int Citizens::add_possession(Resource_amount res)
-{
-	return add_possession(res.type, res.amount);
-}
-
-int Citizens::add_possession(Resource res, int amount)
-{
-	int had = 0;
-	Resource_datum* res_dat = Resource_data[res];
-	int limit = (count * res_dat->demand) / 100;
-	if (consumption.count(res))
-	{
-		had = consumption[res];
-	}
-	if (had + amount > limit)
-	{
-		int left = amount - (limit - had);
-		consumption[res] = limit;
-		return left;
-	}
-	consumption[res] += amount;
-	return 0;
-}
-
 void Citizens::add_morale_modifier(Morale_mod_type type, int amount)
 {
 	add_morale_modifier(type, amount, RES_NULL, "");
@@ -435,20 +411,6 @@ void Citizens::remove_citizens(int amount)
 	}
 }
 
-Citizen_type lookup_citizen_type(std::string name)
-{
-	name = no_caps(trim(name));
-	for (int i = 0; i < CIT_MAX; i++)
-	{
-		Citizen_type ret = Citizen_type(i);
-		if (name == citizen_type_name(ret))
-		{
-			return ret;
-		}
-	}
-	return CIT_NULL;
-}
-
 const char* toString(const Citizen_type type) noexcept
 {
 	switch (type)
@@ -492,20 +454,6 @@ std::string citizen_type_name(Citizen_type type, bool plural)
 		return "Unnamed Citizen_type";
 	}
 	return "BUG - Escaped citizen_type_name() switch";
-}
-
-Morale_mod_type lookup_morale_mod_type(std::string name)
-{
-	name = no_caps(trim(name));
-	for (int i = 0; i < MORALE_MOD_MAX; i++)
-	{
-		Morale_mod_type ret = Morale_mod_type(i);
-		if (name == no_caps(morale_mod_type_name(ret)))
-		{
-			return ret;
-		}
-	}
-	return MORALE_MOD_NULL;
 }
 
 std::string morale_mod_type_name(Morale_mod_type type)

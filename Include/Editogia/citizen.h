@@ -17,8 +17,6 @@ enum Citizen_type
 	CIT_MAX
 };
 
-Citizen_type lookup_citizen_type(std::string name);
-
 const char* toString(const Citizen_type type) noexcept;
 
 std::string citizen_type_name(Citizen_type type, bool plural = false);
@@ -57,8 +55,6 @@ enum Morale_mod_type
 
 	MORALE_MOD_MAX
 };
-
-Morale_mod_type lookup_morale_mod_type(std::string name);
 
 std::string morale_mod_type_name(Morale_mod_type type);
 
@@ -115,30 +111,24 @@ struct Citizens
 
 	void reset(); // Set all values to 0 (don't change type though!)
 
-/* pick_luxuries() attempts to set luxury_demands.  It looks at the resources
- * owned by <city>.  For each Luxury_type, if luxury_demands is not set and
- * city owns one or more resources that belongs to that type, we randomly pick
- * one (weighted by the amount <city> owns).  If luxury_demands IS set, then we
- * do the same random pick, but strongly weight things towards NOT changing.
- */
+	/* pick_luxuries() attempts to set luxury_demands.  It looks at the resources
+	 * owned by <city>.  For each Luxury_type, if luxury_demands is not set and
+	 * city owns one or more resources that belongs to that type, we randomly pick
+	 * one (weighted by the amount <city> owns).  If luxury_demands IS set, then we
+	 * do the same random pick, but strongly weight things towards NOT changing.
+	 */
 	void pick_luxuries(City* city);
 
-// consume_luxuries() looks at consumption[] and attempts to deduct those
-// resources from city, gaining a Morale_modifier in return.  If city doesn't
-// have the resources, it's removed from consumption[].
+	// consume_luxuries() looks at consumption[] and attempts to deduct those
+	// resources from city, gaining a Morale_modifier in return.  If city doesn't
+	// have the resources, it's removed from consumption[].
 	void consume_luxuries(City* city);
 
 	void decrease_morale_mods();
 
-// add_possession() returns the number of items we did not take.  We will only
-// take items up to the limit (set by the Resource_datum)
-	int add_possession(Resource_amount res);
-
-	int add_possession(Resource res, int amount);
-
-// We can't just use default parameters for add_morale_modifier(), since we have
-// one version with a Resource but no string, and another with a string but no
-// resource (plus one with neither, and the full version has both).
+	// We can't just use default parameters for add_morale_modifier(), since we have
+	// one version with a Resource but no string, and another with a string but no
+	// resource (plus one with neither, and the full version has both).
 	void add_morale_modifier(Morale_mod_type type, int amount);
 
 	void add_morale_modifier(Morale_mod_type type, int amount,
