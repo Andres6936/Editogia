@@ -18,8 +18,6 @@ std::string load_to_character(std::istream& datastream, char ch,
 std::string load_to_character(std::istream& datastream, std::string chars,
 		bool _trim = false);
 
-std::string slurp_file(const std::string& filename);
-
 std::string trim(const std::string& orig);
 
 std::string all_caps(const std::string& orig);
