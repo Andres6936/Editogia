@@ -43,12 +43,6 @@ public:
 
 	Date& operator-=(const Date& rhs);
 
-	int get_year();
-
-	int get_month();
-
-	int get_day();
-
 	std::string get_month_name();
 
 	std::string get_text(std::string format = "");

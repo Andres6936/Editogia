@@ -77,24 +77,6 @@ Date& Date::operator-=(const Date& rhs)
 	return *this;
 }
 
-int Date::get_year()
-{
-	standardize();
-	return year;
-}
-
-int Date::get_month()
-{
-	standardize();
-	return month;
-}
-
-int Date::get_day()
-{
-	standardize();
-	return day;
-}
-
 std::string Date::get_month_name()
 {
 	standardize();
