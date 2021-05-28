@@ -73,7 +73,4 @@ private:
 	std::vector<Point> city_locations;
 };
 
-// See kingdom.cpp
-void init_kingdoms(Game* game, World* world);
-
 #endif
