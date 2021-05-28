@@ -12,7 +12,7 @@
 #include "trade.h"
 
 #include "window.h"
-#include "Glyph.h"    // For City::get_glyph()
+#include "Editogia/View/Glyph.h"    // For City::get_glyph()
 #include <map>
 
 #include <array>

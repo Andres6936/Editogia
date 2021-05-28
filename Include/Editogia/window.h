@@ -1,7 +1,7 @@
 #ifndef _WINDOW_H_
 #define _WINDOW_H_
 
-#include "Glyph.h"
+#include "Editogia/View/Glyph.h"
 #include <vector>
 #include <list>
 

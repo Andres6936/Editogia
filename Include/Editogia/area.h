@@ -7,7 +7,7 @@
  * Examples include living areas, farms, mines, etc.
  */
 
-#include "Glyph.h"
+#include "Editogia/View/Glyph.h"
 #include "building.h"
 #include "geometry.h"
 #include "resource.h"

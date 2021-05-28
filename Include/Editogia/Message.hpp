@@ -4,7 +4,7 @@
 #define EDITOGIA_MESSAGE_HPP
 
 #include <string>
-#include "Editogia/date.h"
+#include "Editogia/Time/Date.h"
 #include "Editogia/color.h"
 
 enum Message_type
