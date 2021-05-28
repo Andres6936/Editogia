@@ -48,8 +48,6 @@ public:
 
 	virtual int get_daily_demand(Resource res);
 
-	virtual int get_daily_demand(Mineral min);
-
 	virtual int get_gross_resource_production(Resource res);
 
 	virtual void set_all_prices();

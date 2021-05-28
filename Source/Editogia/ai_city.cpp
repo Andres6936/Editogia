@@ -395,15 +395,6 @@ int AI_city::get_daily_demand(Resource res)
 	return 0;
 }
 
-int AI_city::get_daily_demand(Mineral min)
-{
-	if (mineral_demand.count(min))
-	{
-		return mineral_demand[min];
-	}
-	return 0;
-}
-
 int AI_city::get_gross_resource_production(Resource res)
 {
 	if (resource_production.count(res))

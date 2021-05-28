@@ -72,8 +72,6 @@ public:
 
 	void setup_trade_routes(int range = 100, bool progress_bar = true);
 
-	//void add_road_connection(City* neighbor);
-
 // General-data accessors
 	int get_total_population(Citizen_type type = CIT_NULL);
 
@@ -105,9 +103,7 @@ public:
 // City version just returns 0.
 	virtual int get_daily_demand(Resource res);
 
-	virtual int get_daily_demand(Mineral min);
-
-// Resource-related functions
+	// Resource-related functions
 
 // Returns all resources we own with the given Luxury_type.
 	std::map<Resource, int> get_luxuries(Luxury_type type);

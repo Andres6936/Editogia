@@ -494,11 +494,6 @@ int City::get_daily_demand(Resource res)
 	return 0;
 }
 
-int City::get_daily_demand(Mineral min)
-{
-	return 0;
-}
-
 std::map<Resource, int> City::get_luxuries(Luxury_type type)
 {
 	std::map<Resource, int> ret;
