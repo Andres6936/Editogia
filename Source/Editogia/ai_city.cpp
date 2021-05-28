@@ -980,11 +980,6 @@ void AI_city::add_resource_production(Resource res, int amount)
 	}
 }
 
-void AI_city::add_mineral_production(Mineral_amount min_amt)
-{
-	add_mineral_production(min_amt.type, min_amt.amount);
-}
-
 void AI_city::add_mineral_production(Mineral min, int amount)
 {
 	if (mineral_production.count(min))

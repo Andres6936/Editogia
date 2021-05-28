@@ -98,8 +98,6 @@ private:
 
 	void add_resource_production(Resource res, int amount);
 
-	void add_mineral_production(Mineral_amount min_amt);
-
 	void add_mineral_production(Mineral min, int amount);
 
 	void init_demands();  // Looks at what we lack for recipes etc
