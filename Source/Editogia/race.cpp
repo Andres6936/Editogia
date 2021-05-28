@@ -421,20 +421,6 @@ std::string Race_datum::generate_help_text()
 	return ret.str();
 }
 
-Race_skill lookup_race_skill(std::string name)
-{
-	name = no_caps(trim(name));
-	for (int i = 0; i < SKILL_MAX; i++)
-	{
-		Race_skill ret = Race_skill(i);
-		if (name == no_caps(trim(race_skill_name(ret))))
-		{
-			return ret;
-		}
-	}
-	return SKILL_NULL;
-}
-
 std::string race_skill_name(Race_skill skill)
 {
 	switch (skill)

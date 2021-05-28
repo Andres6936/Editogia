@@ -86,8 +86,6 @@ enum Race_skill
 	SKILL_MAX
 };
 
-Race_skill lookup_race_skill(std::string name);
-
 std::string race_skill_name(Race_skill skill);
 
 struct Race_datum
