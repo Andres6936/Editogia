@@ -14,11 +14,6 @@ Path::~Path()
 {
 }
 
-std::vector<Point> Path::get_points()
-{
-	return path;
-}
-
 int Path::get_cost()
 {
 	return total_cost;
@@ -42,15 +37,6 @@ void Path::add_step(Point p, int cost)
 {
 	path.push_back(p);
 	total_cost += cost;
-}
-
-void Path::erase_step(int index)
-{
-	if (index < 0 || index >= path.size())
-	{
-		return;
-	}
-	path.erase(path.begin() + index);
 }
 
 void Path::clear()
@@ -149,11 +135,6 @@ void Generic_map::set_cost(int x, int y, int c)
 		return;
 	}
 	cost[x][y] = c;
-}
-
-void Generic_map::set_cost(Point p, int c)
-{
-	set_cost(p.x, p.y, c);
 }
 
 int Generic_map::get_size_x()
@@ -257,21 +238,6 @@ void Pathfinder::set_bounds(int x0, int y0, int x1, int y1)
 	y_max = y1;
 }
 
-void Pathfinder::set_bounds(Point p0, Point p1)
-{
-	set_bounds(p0.x, p0.y, p1.x, p1.y);
-}
-
-void Pathfinder::set_bounds(int b)
-{
-	border = b;
-}
-
-void Pathfinder::set_allow_diagonal(bool allow)
-{
-	allow_diag = allow;
-}
-
 bool Pathfinder::in_bounds(int x, int y)
 {
 	return (x >= x_min && x >= 0 && x <= x_max && x < map.get_size_x() &&
@@ -281,11 +247,6 @@ bool Pathfinder::in_bounds(int x, int y)
 bool Pathfinder::in_bounds(Point p)
 {
 	return in_bounds(p.x, p.y);
-}
-
-Path Pathfinder::get_path(Path_type type, int x0, int y0, int x1, int y1)
-{
-	return get_path(type, Point(x0, y0), Point(x1, y1));
 }
 
 Path Pathfinder::get_path(Path_type type, Point start, Point end)
@@ -304,11 +265,6 @@ Path Pathfinder::get_path(Path_type type, Point start, Point end)
 		return path_line(start, end);
 	}
 	return path_line(start, end);
-}
-
-Point Pathfinder::get_step(Path_type type, int x0, int y0, int x1, int y1)
-{
-	return get_step(type, Point(x0, y0), Point(x1, y1));
 }
 
 Point Pathfinder::get_step(Path_type type, Point start, Point end)

@@ -20,8 +20,6 @@ public:
 
 	~Path();
 
-	std::vector<Point> get_points();
-
 	int get_cost();
 
 	Point step(int n);
@@ -39,8 +37,6 @@ public:
 	}
 
 	void add_step(Point p, int cost);
-
-	void erase_step(int index);
 
 	void clear();
 
@@ -67,11 +63,7 @@ public:
 // set_size() also clears the map fully.
 	void set_size(int x, int y);
 
-	void set_offset(int x, int y);
-
 	void set_cost(int x, int y, int c);
-
-	void set_cost(Point p, int c);
 
 	int get_size_x();
 
@@ -104,25 +96,14 @@ public:
 
 	void set_bounds(int x0, int y0, int x1, int y1);
 
-	void set_bounds(Point p0, Point p1);
-
-	void set_bounds(int b); // As a "border" around the square formed by the
-	// start/end points
-
-	void set_allow_diagonal(bool allow = true);
-
 	bool in_bounds(int x, int y);
 
 	bool in_bounds(Point p);
 
-	Path get_path(Path_type type, int x0, int y0, int x1, int y1);
-
 	Path get_path(Path_type type, Point start, Point end);
 
-// Just returns the first step in the path; useful when the path is likely to
-// change often (e.g. for monster pathfinding)
-	Point get_step(Path_type type, int x0, int y0, int x1, int y1);
-
+	// Just returns the first step in the path; useful when the path is likely to
+	// change often (e.g. for monster pathfinding)
 	Point get_step(Path_type type, Point start, Point end);
 
 	Generic_map map;
