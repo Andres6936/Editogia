@@ -11,6 +11,11 @@ namespace Editogia
 
 	public:
 
+		/**
+		 * Definition public of Color.
+		 */
+		using Color = nc_color;
+
 		void writeChar(const std::int32_t x, const std::int32_t y, const std::int32_t _char,
 				const Color foreground, const Color background);
 
