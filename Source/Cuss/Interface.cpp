@@ -2,7 +2,7 @@
 
 #include <sstream>
 #include <fstream>
-#include "Editogia/stringfunc.h"
+#include "Editogia/Util/stringfunc.h"
 #include "Cuss/Interface.hpp"
 #include "Cuss/Elements/List.hpp"
 #include "Cuss/Elements/Menu.hpp"

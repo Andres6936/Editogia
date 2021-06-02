@@ -6,8 +6,8 @@
 #include <map>
 #include <string>
 #include <vector>
-#include "Editogia/window.h"
-#include "Editogia/geometry.h"
+#include "Editogia/Render/View/window.h"
+#include "Editogia/Math/geometry.h"
 #include "Cuss/Binding.hpp"
 #include "Cuss/ActionID.hpp"
 #include "Cuss/Elements/Type.hpp"

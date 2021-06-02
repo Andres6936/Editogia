@@ -9,8 +9,8 @@
 #include "Cuss/Elements/Drawing.hpp"
 #include "Cuss/Elements/TextBox.hpp"
 #include "Cuss/Elements/TextEntry.hpp"
-#include "Editogia/files.h"
-#include "Editogia/stringfunc.h"
+#include "Editogia/IO/File/files.h"
+#include "Editogia/Util/stringfunc.h"
 
 using namespace cuss;
 

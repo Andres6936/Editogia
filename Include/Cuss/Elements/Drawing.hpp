@@ -4,7 +4,7 @@
 #define EDITOGIA_DRAWING_HPP
 
 #include <map>
-#include "Editogia/geometry.h"
+#include "Editogia/Math/geometry.h"
 #include "Cuss/Elements/Element.hpp"
 
 namespace cuss

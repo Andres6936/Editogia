@@ -1,7 +1,7 @@
 // Joan Andrés (@Andres6936) Github.
 
 #include <sstream>
-#include "Editogia/stringfunc.h"
+#include "Editogia/Util/stringfunc.h"
 #include "Cuss/Elements/TextEntry.hpp"
 
 #define SELECTCOLOR c_blue

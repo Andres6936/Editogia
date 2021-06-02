@@ -9,7 +9,7 @@
 
 #include "Editogia/Render/View/Glyph.h"
 #include "Editogia/Render/View/color.h"
-#include "Editogia/window.h"
+#include "Editogia/Render/View/window.h"
 #include "Cuss/Elements/Type.hpp"
 #include "Cuss/Elements/Alignment.hpp"
 

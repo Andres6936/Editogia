@@ -1,6 +1,6 @@
 #include <sstream>
 #include "Editogia/Render/View/Glyph.h"
-#include "Editogia/window.h"
+#include "Editogia/Render/View/window.h"
 
 std::string Glyph::save_data()
 {
