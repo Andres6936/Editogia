@@ -5,14 +5,14 @@
 #include "Editogia/Gea/resource.h"
 #include "Editogia/Math/geometry.h"
 #include "Editogia/Entity/Org/city_achievement.h" // For unlockable buildings.
-#include "animal.h"
+#include "Editogia/Entity/animal.h"
 #include "Editogia/Entity/race.h" // For buildings with race restrictions.
 #include <string>
 #include <vector>
 #include <map>
 #include <istream>
 
-#include "Editogia/Recipe.hpp"
+#include "Editogia/Mechanism/Recipe.hpp"
 
 class City; // For use in Building::amount_built()
 

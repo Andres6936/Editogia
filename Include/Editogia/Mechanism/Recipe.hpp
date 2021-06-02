@@ -6,7 +6,7 @@
 #include <string>
 #include <vector>
 
-#include "Editogia/resource.h"
+#include "Editogia/Gea/resource.h"
 
 struct Recipe
 {

@@ -3,10 +3,10 @@
 
 #include <vector>
 #include <string>
-#include "Editogia/area.h"
+#include "Editogia/Entity/Org/area.h"
 #include "Editogia/game.h"
-#include "Editogia/world.h"
-#include "Editogia/window.h"
+#include "Editogia/Gea/world.h"
+#include "Editogia/Render/View/window.h"
 #include "Editogia/Scene/Menu.hpp"
 #include "Cuss/Interface.hpp"
 

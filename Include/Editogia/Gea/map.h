@@ -6,7 +6,7 @@
 #include "Editogia/Render/View/Glyph.h"    // For terrain Glyph
 #include "Editogia/Gea/resource.h" // Crops and minerals
 #include "Editogia/Entity/Org/area.h"
-#include "animal.h"
+#include "Editogia/Entity/animal.h"
 #include "Editogia/Entity/Org/ai.h"       // For City_role
 #include <vector>
 #include <string>

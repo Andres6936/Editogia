@@ -1,7 +1,7 @@
 #ifndef _GLYPH_H_
 #define _GLYPH_H_
 
-#include "Editogia/color.h"
+#include "Editogia/Render/View/color.h"
 #include <istream>
 
 #define HILITE_COLOR c_blue

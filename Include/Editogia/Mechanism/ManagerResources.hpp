@@ -6,7 +6,7 @@
 #include <map>
 #include <cstdint>
 
-#include "Editogia/resource.h"
+#include "Editogia/Gea/resource.h"
 
 namespace Editogia
 {

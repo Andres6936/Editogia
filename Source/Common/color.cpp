@@ -1,4 +1,4 @@
-#include "Editogia/color.h"
+#include "Editogia/Render/View/color.h"
 
 #if (defined _WIN32 || defined WINDOWS)
 #include "Editogia/catacurse.h"

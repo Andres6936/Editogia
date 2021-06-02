@@ -5,7 +5,7 @@
 #include "Editogia/Math/geometry.h"
 #include "Editogia/Render/View/window.h"
 #include "Editogia/Gea/resource.h"
-#include "pathfind.h" // We store several Generic_maps for different kinds of A*
+#include "Editogia/Math/pathfind.h" // We store several Generic_maps for different kinds of A*
 #include <vector>
 #include <map>
 #include <string>

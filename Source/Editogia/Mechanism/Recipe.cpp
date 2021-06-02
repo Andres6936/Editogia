@@ -2,7 +2,7 @@
 
 #include <sstream>
 #include "Editogia/Render/View/window.h"
-#include "Editogia/Recipe.hpp"
+#include "Editogia/Mechanism/Recipe.hpp"
 #include "ArduinoJson/ArduinoJson.hpp"
 
 
