@@ -113,9 +113,9 @@ public:
 		return ydim;
 	}
 
-	void write(const std::int32_t x, const std::int32_t y, const std::int32_t _char);
+	void writeChar(const std::int32_t x, const std::int32_t y, const std::int32_t _char);
 
-	void write(const std::int32_t x, const std::int32_t y, const std::int32_t _char,
+	void writeChar(const std::int32_t x, const std::int32_t y, const std::int32_t _char,
 			const Color foreground, const Color background);
 
 	void writeString(const std::int32_t x, const std::int32_t y, std::string_view _char);

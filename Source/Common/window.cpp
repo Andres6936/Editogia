@@ -357,12 +357,12 @@ void Window::refresh()
 	wrefresh(w);
 }
 
-void Window::write(const std::int32_t x, const std::int32_t y, const std::int32_t _char)
+void Window::writeChar(const std::int32_t x, const std::int32_t y, const std::int32_t _char)
 {
 
 }
 
-void Window::write(const std::int32_t x, const std::int32_t y, const std::int32_t _char,
+void Window::writeChar(const std::int32_t x, const std::int32_t y, const std::int32_t _char,
 		const Window::Color foreground, const Window::Color background)
 {
 
