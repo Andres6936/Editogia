@@ -1,44 +1,44 @@
 ADD_LIBRARY(Editogia.Lib
+        Entity/Org/ai_city.cpp
+        Entity/Org/area.cpp
+        Entity/Org/city.cpp
+        Entity/Org/city_achievement.cpp
+        Entity/Org/city_type.cpp
+        Entity/Org/combat.cpp
+        Entity/Org/kingdom.cpp
+        Entity/Org/military.cpp
+        Entity/Org/player_city.cpp
+        Entity/Org/trade.cpp
+        Entity/animal.cpp
+        Entity/citizen.cpp
+        Entity/race.cpp
+        Gea/map.cpp
+        Gea/resource.cpp
+        Gea/world.cpp
+        IO/User/keys.cpp
+        Math/geometry.cpp
+        Math/pathfind.cpp
+        Math/rng.cpp
+        Mechanism/building.cpp
+        Mechanism/ManagerResources.cpp
+        Mechanism/Recipe.cpp
+        Render/View/help.cpp
+        Render/View/Message.cpp
         Scene/Menu.cpp
         Scene/SceneManager.cpp
-        Time/Date.cpp
-        ai_city.cpp
+        Util/Time/Date.cpp
         ai_data.cpp
-        Entity/animal.cpp
         animal_data.cpp
-        area.cpp
         area_data.cpp
-        building.cpp
         building_data.cpp
-        citizen.cpp
-        city_achievement.cpp
-        city.cpp
-        city_type.cpp
-        combat.cpp
         game.cpp
-        geometry.cpp
         globals.cpp
-        help.cpp
         help_data.cpp
         init.cpp
-        keys.cpp
-        kingdom.cpp
-        ManagerResources.cpp
-        map.cpp
         map_data.cpp
         map_type_data.cpp
-        Message.cpp
-        Entity/Org/military.cpp
-        pathfind.cpp
-        Entity/Org/player_city.cpp
-        Entity/race.cpp
         race_data.cpp
-        Recipe.cpp
-        resource.cpp
         resource_data.cpp
-        rng.cpp
-        Entity/Org/trade.cpp
-        world.cpp
         )
 SET_TARGET_PROPERTIES(Editogia.Lib PROPERTIES CXX_STANDARD 17)
 TARGET_LINK_LIBRARIES(Editogia.Lib PRIVATE Editogia.Common)
