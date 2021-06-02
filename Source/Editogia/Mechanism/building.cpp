@@ -1,6 +1,6 @@
 #include "Editogia/Mechanism/building.h"
 #include "Editogia/Gea/resource.h"
-#include "Editogia/city.h" // Needed in Building::amount_built()
+#include "Editogia/Entity/Org/city.h" // Needed in Building::amount_built()
 #include "Editogia/Render/View/window.h" // For debugmsg
 #include "Editogia/Util/stringfunc.h" // Needed in lookup_building_category()
 #include "Editogia/Entity/Org/player_city.h"  // For close()

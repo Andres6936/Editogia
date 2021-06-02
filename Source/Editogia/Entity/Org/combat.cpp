@@ -1,4 +1,4 @@
-#include "Editogia/combat.h"
+#include "Editogia/Entity/Org/combat.h"
 #include "Editogia/Math/rng.h"
 
 // max_attacks defaults to 0 (no maximum)

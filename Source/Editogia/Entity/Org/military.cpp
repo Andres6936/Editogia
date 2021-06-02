@@ -1,4 +1,4 @@
-#include "Editogia/military.h"
+#include "Editogia/Entity/Org/military.h"
 #include <sstream>
 
 Military_unit::Military_unit()

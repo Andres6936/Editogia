@@ -1,5 +1,5 @@
-#include "Editogia/city_achievement.h"
-#include "Editogia/citizen.h"    // For citizen_type_name()
+#include "Editogia/Entity/Org/city_achievement.h"
+#include "Editogia/Entity/citizen.h"    // For citizen_type_name()
 #include "Editogia/Util/stringfunc.h" // For capitalize()
 #include <sstream>
 

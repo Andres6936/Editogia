@@ -3,7 +3,7 @@
 #include <sstream>
 
 #include "Editogia/Math/rng.h"
-#include "Editogia/combat.h" // For hunting
+#include "Editogia/Entity/Org/combat.h" // For hunting
 #include "Editogia/Render/View/window.h"
 #include "Editogia/globals.h"
 #include "Editogia/Entity/Org/kingdom.h"

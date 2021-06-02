@@ -1,6 +1,6 @@
 #include "Editogia/Entity/Org/area.h"
 #include "Editogia/Render/View/window.h"       // For debugmsg()
-#include "Editogia/city.h"         // For Area::close()
+#include "Editogia/Entity/Org/city.h"         // For Area::close()
 #include "Editogia/Entity/Org/player_city.h"  // For Area::close() and Area::reopen()
 #include "Editogia/Util/stringfunc.h"   // For no_caps() and trim()
 #include <map>

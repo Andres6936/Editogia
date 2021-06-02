@@ -1,5 +1,5 @@
-#include "Editogia/citizen.h"
-#include "Editogia/city.h"
+#include "Editogia/Entity/citizen.h"
+#include "Editogia/Entity/Org/city.h"
 #include "Editogia/Util/stringfunc.h"
 #include "Editogia/Math/rng.h"
 #include "Editogia/Render/View/window.h"     // For debugmsg()
