@@ -1,9 +1,9 @@
-#include "Editogia/help.h"
+#include "Editogia/Entity/Org/area.h"
+#include "Editogia/Entity/race.h"
+#include "Editogia/Mechanism/building.h"
+#include "Editogia/Render/View/help.h"
+#include "Editogia/Util/stringfunc.h" // For capitalize()
 #include "Editogia/globals.h"
-#include "Editogia/area.h"
-#include "Editogia/building.h"
-#include "Editogia/race.h"
-#include "Editogia/stringfunc.h" // For capitalize()
 #include <sstream>
 
 #define _article(n) \

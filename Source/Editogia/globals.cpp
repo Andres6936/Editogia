@@ -1,7 +1,7 @@
+#include "Editogia/IO/File/files.h"
+#include "Editogia/Render/View/window.h" // For debugmsg()
+#include "Editogia/Render/View/help.h"
 #include "Editogia/globals.h"
-#include "Editogia/files.h"
-#include "Editogia/help.h"
-#include "Editogia/window.h" // For debugmsg()
 
 Game* GAME;
 

@@ -1,4 +1,4 @@
-#include "Editogia/ai.h"
+#include "Editogia/Entity/Org/ai.h"
 
 #define _role(i) \
   cur_id = (i)

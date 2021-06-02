@@ -1,4 +1,4 @@
-#include "Editogia/area.h"
+#include "Editogia/Entity/Org/area.h"
 
 Area_datum* Area_data[AREA_MAX];
 
