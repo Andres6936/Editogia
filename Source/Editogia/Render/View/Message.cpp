@@ -5,7 +5,7 @@
 #include "Editogia/Render/View/Message.hpp"
 
 
-nc_color message_type_color(Message_type type)
+EColor message_type_color(Message_type type)
 {
 	switch (type)
 	{

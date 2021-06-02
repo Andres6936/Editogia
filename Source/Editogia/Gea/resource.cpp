@@ -188,7 +188,7 @@ std::string crop_type_name(Crop_type type)
 	return "BUG - Escaped crop_type_name() switch";
 }
 
-nc_color crop_type_color(Crop_type type)
+EColor crop_type_color(Crop_type type)
 {
 	switch (type)
 	{

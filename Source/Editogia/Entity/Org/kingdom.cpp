@@ -90,7 +90,7 @@ bool Kingdom::load_data(std::istream& data)
 				uid, tmpcol, c_null - 1);
 		return false;
 	}
-	color = nc_color(tmpcol);
+	color = EColor(tmpcol);
 
 	data >> most_west >> most_north >> most_east >> most_south;
 

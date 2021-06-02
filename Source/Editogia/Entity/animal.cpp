@@ -78,7 +78,7 @@ std::string animal_action_name(Animal_action action)
 	return "BUG - Escaped animal_action_name() switch!";
 }
 
-nc_color animal_action_color(Animal_action action)
+EColor animal_action_color(Animal_action action)
 {
 	switch (action)
 	{

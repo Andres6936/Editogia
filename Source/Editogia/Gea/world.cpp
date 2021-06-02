@@ -1713,9 +1713,9 @@ Point World::draw(Point start, Map_seen* seen)
 					crop_ss = &(crops_right_ss);
 				}
 				Crop_datum* crop_dat = Crop_data[crops_here[i]];
-				nc_color crop_color = crop_type_color(crop_dat->type);
+				EColor crop_color = crop_type_color(crop_dat->type);
 				(*crop_ss) << "<c=" << color_tag(crop_color) << ">" << crop_dat->name <<
-																					  "<c=/>" << std::endl;
+						   "<c=/>" << std::endl;
 			}
 			for (int i = 0; i < minerals_here.size(); i++)
 			{
@@ -1729,9 +1729,9 @@ Point World::draw(Point start, Map_seen* seen)
 					mineral_ss = &(minerals_right_ss);
 				}
 				Mineral_datum* mineral_dat = Mineral_data[minerals_here[i]];
-				nc_color mineral_color = mineral_dat->color;
+				EColor mineral_color = mineral_dat->color;
 				(*mineral_ss) << "<c=" << color_tag(mineral_color) << ">" <<
-																		  mineral_dat->name << "<c=/>" << std::endl;
+							  mineral_dat->name << "<c=/>" << std::endl;
 			}
 			i_legend.set_data("text_crops_here_left", crops_left_ss.str());
 			i_legend.set_data("text_crops_here_right", crops_right_ss.str());
@@ -2635,7 +2635,7 @@ std::string world_temperature_name(World_temperature temp)
 	return "BUG - Escaped world_temperature_name() switch";
 }
 
-nc_color world_temperature_color(World_temperature temp)
+EColor world_temperature_color(World_temperature temp)
 {
 	switch (temp)
 	{
@@ -2679,7 +2679,7 @@ std::string world_rainfall_name(World_rainfall rain)
 	return "BUG -Escaped world_rainfall_name() switch";
 }
 
-nc_color world_rainfall_color(World_rainfall rain)
+EColor world_rainfall_color(World_rainfall rain)
 {
 	switch (rain)
 	{
@@ -2723,7 +2723,7 @@ std::string world_mountain_name(World_mountain mountain)
 	return "BUG - Escaped world_mountain_name() switch";
 }
 
-nc_color world_mountain_color(World_mountain mountain)
+EColor world_mountain_color(World_mountain mountain)
 {
 	switch (mountain)
 	{
