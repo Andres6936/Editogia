@@ -4,7 +4,7 @@
 #include "map_type.h" // For enum Map_type
 #include "geometry.h" // For direction
 #include "Editogia/View/Glyph.h"    // For terrain Glyph
-#include "resource.h" // Crops and minerals
+#include "Editogia/Gea/resource.h" // Crops and minerals
 #include "area.h"
 #include "animal.h"
 #include "ai.h"       // For City_role

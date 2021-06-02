@@ -1,7 +1,7 @@
 #ifndef _CITIZEN_H_
 #define _CITIZEN_H_
 
-#include "resource.h"
+#include "Editogia/Gea/resource.h"
 #include <string>
 #include <vector>
 #include <map>

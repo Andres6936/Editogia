@@ -2,11 +2,11 @@
 #define _BUILDING_H_
 
 #include "citizen.h"
-#include "resource.h"
+#include "Editogia/Gea/resource.h"
 #include "geometry.h"
 #include "city_achievement.h" // For unlockable buildings.
 #include "animal.h"
-#include "race.h" // For buildings with race restrictions.
+#include "Editogia/Entity/race.h" // For buildings with race restrictions.
 #include <string>
 #include <vector>
 #include <map>

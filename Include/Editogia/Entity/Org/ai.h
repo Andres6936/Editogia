@@ -1,8 +1,8 @@
 #ifndef _AI_H_
 #define _AI_H_
 
-#include "resource.h"
-#include "race.h"
+#include "Editogia/Gea/resource.h"
+#include "Editogia/Entity/race.h"
 #include <vector>
 
 // City_role is an attempt to abstract what makes an AI city

@@ -1,8 +1,8 @@
 #ifndef _GAME_H_
 #define _GAME_H_
 
-#include "Editogia/Time/Date.h"
-#include "race.h"
+#include "Editogia/Util/Time/Date.h"
+#include "Editogia/Entity/race.h"
 #include <string>
 #include <vector>
 

@@ -1,7 +1,7 @@
 #ifndef _ANIMAL_H_
 #define _ANIMAL_H_
 
-#include "resource.h"
+#include "Editogia/Gea/resource.h"
 #include <string>
 #include <vector>
 #include <map>

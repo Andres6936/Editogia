@@ -10,7 +10,7 @@
 #include "Editogia/View/Glyph.h"
 #include "building.h"
 #include "geometry.h"
-#include "resource.h"
+#include "Editogia/Gea/resource.h"
 #include "city_achievement.h" // For unlockable areas.
 #include <string>
 #include <map>

@@ -4,7 +4,7 @@
 #include "map.h"
 #include "geometry.h"
 #include "window.h"
-#include "resource.h"
+#include "Editogia/Gea/resource.h"
 #include "pathfind.h" // We store several Generic_maps for different kinds of A*
 #include <vector>
 #include <map>

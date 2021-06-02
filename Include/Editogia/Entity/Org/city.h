@@ -7,7 +7,7 @@
 #include "map.h"
 #include "military.h"
 #include "game.h"
-#include "race.h"
+#include "Editogia/Entity/race.h"
 #include "city_type.h"
 #include "trade.h"
 
