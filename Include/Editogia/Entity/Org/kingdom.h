@@ -49,7 +49,7 @@ public:
 // Data
 	int uid;
 	Race race;
-	nc_color color;
+	EColor color;
 
 	City* capital;
 	std::vector<City*> dukes;

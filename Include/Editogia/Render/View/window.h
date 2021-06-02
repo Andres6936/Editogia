@@ -84,7 +84,7 @@ public:
 	/**
 	 * Definition public of Color.
 	 */
-	using Color = nc_color;
+	using Color = EColor;
 
 	Window();
 
@@ -124,34 +124,34 @@ public:
 			const Color foreground, const Color background);
 
 // The three essential output functions
-	void putch(int x, int y, nc_color fg, nc_color bg, long sym);
+	void putch(int x, int y, EColor fg, EColor bg, long sym);
 
 	void putglyph(int x, int y, Glyph gl);
 
 // Putstr places a string (unless we're designated as tiles-only)
-	void putstr(int x, int y, nc_color fg, nc_color bg, std::string str, ...);
+	void putstr(int x, int y, EColor fg, EColor bg, std::string str, ...);
 
 // Putstr_raw ignores color tags
-	void putstr_raw(int x, int y, nc_color fg, nc_color bg, std::string str, ...);
+	void putstr_raw(int x, int y, EColor fg, EColor bg, std::string str, ...);
 
 // Putstr_n limits the length to maxlength
-	void putstr_n(int x, int y, nc_color fg, nc_color bg, int maxlength,
+	void putstr_n(int x, int y, EColor fg, EColor bg, int maxlength,
 			std::string str, ...);
 
 // Putstr_r is like putstr_n, but right-aligned
-	void putstr_r(int x, int y, nc_color fg, nc_color bg, int maxlength,
+	void putstr_r(int x, int y, EColor fg, EColor bg, int maxlength,
 			std::string str, ...);
 
 // Putstr_c is like putstr_n, but center-aligned
-	void putstr_c(int x, int y, nc_color fg, nc_color bg, int maxlength,
+	void putstr_c(int x, int y, EColor fg, EColor bg, int maxlength,
 			std::string str, ...);
 
 // Special helper drawing functions
 	void clear_area(int x1, int y1, int x2, int y2);
 
-	void line_v(int x, nc_color fg = c_white, nc_color bg = c_black);
+	void line_v(int x, EColor fg = c_white, EColor bg = c_black);
 
-	void line_h(int y, nc_color fg = c_white, nc_color bg = c_black);
+	void line_h(int y, EColor fg = c_white, EColor bg = c_black);
 
 	void clear();
 

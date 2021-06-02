@@ -7,8 +7,8 @@
 #include "Editogia/Render/View/window.h"
 
 bool parse_color_tags(std::string text, std::vector<std::string>& segments,
-		std::vector<long>& color_pairs, nc_color fg = c_white,
-		nc_color bg = c_black);
+		std::vector<long>& color_pairs, EColor fg = c_white,
+		EColor bg = c_black);
 
 std::string strip_tags(std::string text);
 
@@ -80,7 +80,7 @@ Glyph Window::glyphat(int x, int y)
 	return ret;
 }
 
-void Window::putch(int x, int y, nc_color fg, nc_color bg, long sym)
+void Window::putch(int x, int y, EColor fg, EColor bg, long sym)
 {
 /*
  if (outlined) {
@@ -101,7 +101,7 @@ void Window::putglyph(int x, int y, Glyph gl)
 	putch(x, y, gl.fg, gl.bg, gl.symbol);
 }
 
-void Window::putstr(int x, int y, nc_color fg, nc_color bg, std::string str,
+void Window::putstr(int x, int y, EColor fg, EColor bg, std::string str,
 		...)
 {
 	if (type == WINDOW_TYPE_GLYPHS)
@@ -138,7 +138,7 @@ void Window::putstr(int x, int y, nc_color fg, nc_color bg, std::string str,
 
 }
 
-void Window::putstr_raw(int x, int y, nc_color fg, nc_color bg, std::string str,
+void Window::putstr_raw(int x, int y, EColor fg, EColor bg, std::string str,
 		...)
 {
 	if (type == WINDOW_TYPE_GLYPHS)
@@ -157,7 +157,7 @@ void Window::putstr_raw(int x, int y, nc_color fg, nc_color bg, std::string str,
 	wattroff(w, col);
 }
 
-void Window::putstr_n(int x, int y, nc_color fg, nc_color bg, int maxlength,
+void Window::putstr_n(int x, int y, EColor fg, EColor bg, int maxlength,
 		std::string str, ...)
 {
 	if (type == WINDOW_TYPE_GLYPHS)
@@ -204,7 +204,7 @@ void Window::putstr_n(int x, int y, nc_color fg, nc_color bg, int maxlength,
 
 }
 
-void Window::putstr_r(int x, int y, nc_color fg, nc_color bg, int maxlength,
+void Window::putstr_r(int x, int y, EColor fg, EColor bg, int maxlength,
 		std::string str, ...)
 {
 	if (type == WINDOW_TYPE_GLYPHS)
@@ -256,7 +256,7 @@ void Window::putstr_r(int x, int y, nc_color fg, nc_color bg, int maxlength,
 	} // We need to do color segments!
 }
 
-void Window::putstr_c(int x, int y, nc_color fg, nc_color bg, int maxlength,
+void Window::putstr_c(int x, int y, EColor fg, EColor bg, int maxlength,
 		std::string str, ...)
 {
 	if (type == WINDOW_TYPE_GLYPHS)
@@ -319,7 +319,7 @@ void Window::clear_area(int x1, int y1, int x2, int y2)
 	}
 }
 
-void Window::line_v(int x, nc_color fg, nc_color bg)
+void Window::line_v(int x, EColor fg, EColor bg)
 {
 	if (type != WINDOW_TYPE_GENERAL) // Only general (read: non-graphic) windows!
 		return;
@@ -333,7 +333,7 @@ void Window::line_v(int x, nc_color fg, nc_color bg)
 	}
 }
 
-void Window::line_h(int y, nc_color fg, nc_color bg)
+void Window::line_h(int y, EColor fg, EColor bg)
 {
 	if (type != WINDOW_TYPE_GENERAL) // Only general (read: non-graphic) windows!
 		return;
@@ -932,10 +932,10 @@ void popup_scrollable(const char* mes, ...)
 }
 
 bool parse_color_tags(std::string text, std::vector<std::string>& segments,
-		std::vector<long>& color_pairs, nc_color fg, nc_color bg)
+		std::vector<long>& color_pairs, EColor fg, EColor bg)
 {
 	size_t tag;
-	nc_color cur_fg = fg, cur_bg = bg;
+	EColor cur_fg = fg, cur_bg = bg;
 
 	while ((tag = text.find("<c=")) != std::string::npos)
 	{
@@ -975,7 +975,7 @@ bool parse_color_tags(std::string text, std::vector<std::string>& segments,
 			}
 			else
 			{
-				nc_color new_fg = color_string(tag.substr(0, comma)),
+				EColor new_fg = color_string(tag.substr(0, comma)),
 						new_bg = color_string(tag.substr(comma + 1));
 				if (new_fg == c_null && new_bg == c_null)
 				{

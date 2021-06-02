@@ -11,7 +11,7 @@ using namespace cuss;
 void ele_textbox::print_scrollbar(Window* win, int posx, int posy, int length, int offset,
 		int size, bool selected)
 {
-	nc_color barcol = (selected ? SELECTCOLOR : c_ltgray);
+	EColor barcol = (selected ? SELECTCOLOR : c_ltgray);
 	int barsize = (length >= size ? -1 : 1 + ((length * length) / size));
 
 	if (barsize == -1)

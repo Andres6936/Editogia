@@ -47,7 +47,7 @@ void set_pen_fg();
 
 void set_pen_bg();
 
-nc_color pick_color();
+EColor pick_color();
 
 bool parse_options(int argc, char* argv[]);
 
@@ -926,8 +926,8 @@ void bindings_window(interface& edited)
 						i_bindings.add_data("e_color_bg", "Unchanged");
 						for (int i = c_black; i < c_null; i++)
 						{
-							i_bindings.add_data("e_color_fg", color_name(nc_color(i)));
-							i_bindings.add_data("e_color_bg", color_name(nc_color(i)));
+							i_bindings.add_data("e_color_fg", color_name(EColor(i)));
+							i_bindings.add_data("e_color_bg", color_name(EColor(i)));
 						}
 						i_bindings.set_selectable("e_color_fg", true);
 						i_bindings.set_selectable("e_color_bg", true);
@@ -1747,27 +1747,27 @@ void set_pen_symbol()
 
 void set_pen_fg()
 {
-	nc_color tmp = pick_color();
+	EColor tmp = pick_color();
 	if (tmp != c_null)
 		pen.fg = tmp;
 }
 
 void set_pen_bg()
 {
-	nc_color tmp = pick_color();
+	EColor tmp = pick_color();
 	if (tmp != c_null)
 		pen.bg = tmp;
 }
 
-nc_color pick_color()
+EColor pick_color()
 {
 	std::stringstream text;
 	Window w_col(1, 1, 20, 6);
 	w_col.outline();
 	for (int i = 0; i < c_dkgray; i++)
 	{
-		w_col.putch(i + 1, 1, nc_color(i), c_black, '#');
-		w_col.putch(i + 1, 3, nc_color(i + 8), c_black, '#');
+		w_col.putch(i + 1, 1, EColor(i), c_black, '#');
+		w_col.putch(i + 1, 3, EColor(i + 8), c_black, '#');
 	}
 	w_col.putstr(1, 2, c_white, c_black, "12345678");
 	w_col.putstr(1, 4, c_white, c_black, "abcdefgh");
@@ -1776,9 +1776,9 @@ nc_color pick_color()
 	long ch = getch();
 
 	if (ch >= '1' && ch <= '8')
-		return nc_color(ch - '1');
+		return EColor(ch - '1');
 	if (ch >= 'a' && ch <= 'h')
-		return nc_color(ch - 'a' + c_dkgray);
+		return EColor(ch - 'a' + c_dkgray);
 
 	return c_null;
 }

@@ -52,7 +52,7 @@ bool ele_drawing::set_data(Glyph gl, int posx, int posy)
 	return true;
 }
 
-bool ele_drawing::set_data(nc_color FG, nc_color BG)
+bool ele_drawing::set_data(EColor FG, EColor BG)
 {
 	std::map<Point, Glyph>::iterator it;
 	for (it = drawing.begin(); it != drawing.end(); it++)

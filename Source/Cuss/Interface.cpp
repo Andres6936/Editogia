@@ -172,7 +172,7 @@ void interface::draw_prototype(Window* win)
 				{
 					element_type type = elements[i]->type();
 					win->putch(x, y, c_black,
-							type == ELE_DRAWING ? c_dkgray : nc_color(2 + type), ' ');
+							type == ELE_DRAWING ? c_dkgray : EColor(2 + type), ' ');
 				}
 			}
 // Draw the corner/side delineators
@@ -559,7 +559,7 @@ bool interface::set_data(std::string name, Glyph gl, int x, int y)
 }
 
 // bg defaults to c_null
-bool interface::set_data(std::string name, nc_color fg, nc_color bg)
+bool interface::set_data(std::string name, EColor fg, EColor bg)
 {
 	element* ele = find_by_name(name);
 	if (!ele)
@@ -662,8 +662,8 @@ std::vector <std::string> interface::binding_list()
 				 it->second.a << ")";
 		else if (it->second.act == ACT_SET_COLORS)
 			info << "(" << it->second.target << ", " <<
-				 color_name(nc_color(it->second.a)) << ", " <<
-				 color_name(nc_color(it->second.b)) << ")";
+				 color_name(EColor(it->second.a)) << ", " <<
+				 color_name(EColor(it->second.b)) << ")";
 		else if (it->second.act == ACT_TRANSLATE)
 			info << " (" << it->second.target << "; " << char(it->second.a) << " to " <<
 				 char(it->second.b) << ")";
@@ -822,7 +822,7 @@ bool interface::handle_action(long ch)
 	case ACT_SET_COLORS:
 		if (!found)
 			return false;
-		found->set_data(nc_color(used->a), nc_color(used->b));
+		found->set_data(EColor(used->a), EColor(used->b));
 		return true;
 
 	case ACT_TRANSLATE:

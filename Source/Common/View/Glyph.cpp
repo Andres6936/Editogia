@@ -14,14 +14,14 @@ void Glyph::load_data(std::istream& datastream)
 	int fgtmp, bgtmp;
 	datastream >> symbol >> fgtmp >> bgtmp;
 
-	fg = nc_color(fgtmp);
-	bg = nc_color(bgtmp);
+	fg = EColor(fgtmp);
+	bg = EColor(bgtmp);
 }
 
 Glyph Glyph::invert()
 {
 	Glyph ret = (*this);
-	nc_color tmp = ret.fg;
+	EColor tmp = ret.fg;
 	ret.fg = ret.bg;
 	ret.bg = tmp;
 	if (NO_BRIGHT_BG)
@@ -31,7 +31,7 @@ Glyph Glyph::invert()
 	return ret;
 }
 
-Glyph Glyph::hilite(nc_color back)
+Glyph Glyph::hilite(EColor back)
 {
 	if (fg == back)
 	{

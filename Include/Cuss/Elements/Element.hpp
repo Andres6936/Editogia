@@ -26,8 +26,8 @@ namespace cuss
 		bool selected;
 		bool selectable;
 		bool owns_data;
-		nc_color fg;
-		nc_color bg;
+		EColor fg;
+		EColor bg;
 		alignment align;
 		vertical_alignment v_align;
 
@@ -146,7 +146,7 @@ namespace cuss
 		}
 
 		// This is used to set fg & bg, and hence is defined for element!
-		virtual bool set_data(nc_color FG, nc_color BG = c_null);
+		virtual bool set_data(EColor FG, EColor BG = c_null);
 
 		virtual bool set_alignment(alignment al)
 		{

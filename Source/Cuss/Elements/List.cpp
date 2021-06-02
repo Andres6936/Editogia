@@ -11,7 +11,7 @@ using namespace cuss;
 void print_scrollbar(Window* win, int posx, int posy, int length, int offset,
 		int size, bool selected)
 {
-	nc_color barcol = (selected ? SELECTCOLOR : c_ltgray);
+	EColor barcol = (selected ? SELECTCOLOR : c_ltgray);
 	int barsize = (length >= size ? -1 : 1 + ((length * length) / size));
 
 	if (barsize == -1)
@@ -40,7 +40,7 @@ void ele_list::draw(Window* win)
 
 	for (int i = 0; i + offset < list->size() && i < sizey; i++)
 	{
-		nc_color hilite = (selection == i + offset ? SELECTCOLOR : bg);
+		EColor hilite = (selection == i + offset ? SELECTCOLOR : bg);
 		int ypos, index;
 		if (v_align == ALIGN_BOTTOM)
 		{

@@ -10,7 +10,7 @@ using namespace cuss;
 // *** NUMBER ELEMENT ***
 void ele_number::draw(Window* win)
 {
-	nc_color hilite = (selected ? SELECTCOLOR : bg);
+	EColor hilite = (selected ? SELECTCOLOR : bg);
 	if (align == ALIGN_RIGHT)
 	{
 		win->putstr_r(posx, posy, fg, hilite, sizex, "%d", (*value));

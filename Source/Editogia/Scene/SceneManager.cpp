@@ -2560,7 +2560,7 @@ void SceneManager::minister_hunt()
 						act = Animal_action(act + 1);
 					}
 				}
-				nc_color act_col = animal_action_color(act);
+				EColor act_col = animal_action_color(act);
 // If we're not using the default action, brighten the color.
 				std::stringstream action_text;
 				action_text << "<c=" << color_tag(act_col) << ">" <<

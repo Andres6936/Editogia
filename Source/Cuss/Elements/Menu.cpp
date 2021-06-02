@@ -95,7 +95,7 @@ void ele_menu::draw(Window* win)
 			{
 				win->putch(x, line, c_black, c_black, 'x');
 			}
-			nc_color back = (n == selection ? SELECTCOLOR : bg);
+			EColor back = (n == selection ? SELECTCOLOR : bg);
 			if (align == ALIGN_RIGHT)
 			{
 				win->putstr_r(posx + 1, line, fg, back, sizex - 2, (*list)[n]);

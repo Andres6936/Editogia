@@ -18,7 +18,7 @@ enum Message_type
 };
 
 // Color-coding for the different message types.
-nc_color message_type_color(Message_type type);
+EColor message_type_color(Message_type type);
 
 struct Message
 {

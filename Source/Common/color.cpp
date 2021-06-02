@@ -86,7 +86,7 @@ void init_colors()
 
 }
 
-long get_color_pair(nc_color fg, nc_color bg)
+long get_color_pair(EColor fg, EColor bg)
 {
 	if (fg == c_null)
 		fg = c_ltgray;
@@ -103,7 +103,7 @@ long get_color_pair(nc_color fg, nc_color bg)
 	return ret;
 }
 
-void extract_colors(long color, long attributes, nc_color& fg, nc_color& bg)
+void extract_colors(long color, long attributes, EColor& fg, EColor& bg)
 {
 // Run through all COLOR_PAIRs -- is there a better way to do this?
 	bool found = false;
@@ -111,8 +111,8 @@ void extract_colors(long color, long attributes, nc_color& fg, nc_color& bg)
 	{
 		if (color == COLOR_PAIR(i))
 		{
-			fg = nc_color((i - 1) % 8);
-			bg = nc_color((i - 1) / 8);
+			fg = EColor((i - 1) % 8);
+			bg = EColor((i - 1) / 8);
 			found = true;
 		}
 	}
@@ -122,12 +122,12 @@ void extract_colors(long color, long attributes, nc_color& fg, nc_color& bg)
 		bg = c_black;
 	}
 	if (attributes & A_BOLD)
-		fg = nc_color(int(fg) + 8);
+		fg = EColor(int(fg) + 8);
 	if (attributes & A_BLINK)
-		bg = nc_color(int(bg) + 8);
+		bg = EColor(int(bg) + 8);
 }
 
-nc_color color_string(std::string id)
+EColor color_string(std::string id)
 {
 	if (id == "black")
 		return c_black;
@@ -165,7 +165,7 @@ nc_color color_string(std::string id)
 	return c_null;
 }
 
-std::string color_name(nc_color color)
+std::string color_name(EColor color)
 {
 	switch (color)
 	{
@@ -209,7 +209,7 @@ std::string color_name(nc_color color)
 	return "???";
 }
 
-std::string color_tag(nc_color color)
+std::string color_tag(EColor color)
 {
 	switch (color)
 	{
@@ -254,15 +254,15 @@ std::string color_tag(nc_color color)
 }
 
 
-nc_color hilight(nc_color orig)
+EColor hilight(EColor orig)
 {
 	if (orig < c_dkgray)
-		return nc_color(int(orig) + 8);
+		return EColor(int(orig) + 8);
 	else
-		return nc_color(int(orig) - 8);
+		return EColor(int(orig) - 8);
 }
 
-nc_color non_bright(nc_color col)
+EColor non_bright(EColor col)
 {
 	switch (col)
 	{

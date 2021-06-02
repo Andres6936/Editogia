@@ -27,7 +27,7 @@ void element::load_data(std::istream& datastream)
 	v_align = vertical_alignment(tmpvalign);
 }
 
-bool element::set_data(nc_color FG, nc_color BG)
+bool element::set_data(EColor FG, EColor BG)
 {
 	if (fg != c_null)
 		fg = FG;

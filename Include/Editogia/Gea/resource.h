@@ -102,7 +102,7 @@ std::string luxury_type_name(Luxury_type type);
 
 struct Resource_datum
 {
-	Resource_datum(std::string N = "", nc_color C = c_white, int V = 0, int D = 0,
+	Resource_datum(std::string N = "", EColor C = c_white, int V = 0, int D = 0,
 			int M = 0, Luxury_type L = LUX_NULL, bool MT = false) :
 			name(N), color(C), value(V), demand(D), morale(M), luxury_type(L),
 			meta(MT)
@@ -110,7 +110,7 @@ struct Resource_datum
 	}
 
 	std::string name;
-	nc_color color;
+	EColor color;
 
 // The actual price we pay for a resource is determined by supply & demand, and
 // the price a city sets for it.  But the value property is a basic guide and
@@ -150,7 +150,7 @@ enum Crop_type
 
 std::string crop_type_name(Crop_type type);
 
-nc_color crop_type_color(Crop_type type);
+EColor crop_type_color(Crop_type type);
 
 enum Crop
 {
@@ -254,7 +254,7 @@ struct Mineral_datum
 	std::string name;
 	int percentage;
 	int value;  // Per 100 units
-	nc_color color;
+	EColor color;
 	bool hidden;
 
 	std::string description;

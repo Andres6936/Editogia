@@ -280,7 +280,7 @@ void Game::generate_kingdoms(World_design* design)
 		}
 		else
 		{
-			std::vector<nc_color> colors = race_dat->kingdom_colors;
+			std::vector<EColor> colors = race_dat->kingdom_colors;
 // Remove any already-used colors
 			for (int n = 0; n < colors.size(); n++)
 			{
@@ -292,18 +292,18 @@ void Game::generate_kingdoms(World_design* design)
 			}
 			if (colors.empty())
 			{ // Can't use official colors; use a random one
-				std::vector<nc_color> free_colors;
+				std::vector<EColor> free_colors;
 // Start at 1 to skip c_black; stop at c_dkgray to skip bright colors
 				for (int n = 1; n < c_dkgray; n++)
 				{
 					if (color_free[n])
 					{
-						free_colors.push_back(nc_color(n));
+						free_colors.push_back(EColor(n));
 					}
 				}
 				if (free_colors.empty())
 				{  // 8 kingdoms used already!
-					kingdom->color = nc_color(rng(1, c_dkgray - 1));
+					kingdom->color = EColor(rng(1, c_dkgray - 1));
 				}
 				else
 				{

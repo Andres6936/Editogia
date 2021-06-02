@@ -10,8 +10,8 @@
 struct Glyph
 {
 	long symbol;
-	nc_color fg;
-	nc_color bg;
+	EColor fg;
+	EColor bg;
 
 	Glyph()
 	{
@@ -20,13 +20,13 @@ struct Glyph
 		bg = c_white;
 	}
 
-	Glyph(long S, nc_color F, nc_color B) : symbol(S), fg(F), bg(B)
+	Glyph(long S, EColor F, EColor B) : symbol(S), fg(F), bg(B)
 	{
 	}
 
 	Glyph invert();
 
-	Glyph hilite(nc_color back = HILITE_COLOR);
+	Glyph hilite(EColor back = HILITE_COLOR);
 
 	std::string text_formatted();
 

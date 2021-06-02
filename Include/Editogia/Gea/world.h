@@ -104,15 +104,15 @@ std::string world_size_name(World_size size);
 
 std::string world_temperature_name(World_temperature temp);
 
-nc_color world_temperature_color(World_temperature temp);
+EColor world_temperature_color(World_temperature temp);
 
 std::string world_rainfall_name(World_rainfall rain);
 
-nc_color world_rainfall_color(World_rainfall rain);
+EColor world_rainfall_color(World_rainfall rain);
 
 std::string world_mountain_name(World_mountain mountain);
 
-nc_color world_mountain_color(World_mountain mountain);
+EColor world_mountain_color(World_mountain mountain);
 
 std::string get_random_world_name();
 

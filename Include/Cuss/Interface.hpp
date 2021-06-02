@@ -123,7 +123,7 @@ namespace cuss
 
 		bool set_data(std::string name, Glyph gl, int posx, int posy);
 
-		bool set_data(std::string name, nc_color fg, nc_color bg = c_null);
+		bool set_data(std::string name, EColor fg, EColor bg = c_null);
 
 		/* self_reference makes an element take control of its own data (meaning it will
 		 * delete the data when it is deleted).

@@ -41,7 +41,7 @@ namespace cuss
 
 		virtual bool set_data(Glyph gl, int posx, int posy);
 
-		virtual bool set_data(nc_color FG, nc_color BG = c_null);
+		virtual bool set_data(EColor FG, EColor BG = c_null);
 
 		virtual bool handle_keypress(long ch)
 		{

@@ -62,7 +62,7 @@ enum Animal_action
 
 std::string animal_action_name(Animal_action action);
 
-nc_color animal_action_color(Animal_action action);
+EColor animal_action_color(Animal_action action);
 
 struct Animal_amount
 {

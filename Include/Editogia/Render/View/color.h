@@ -5,7 +5,7 @@
 
 void init_colors();
 
-enum nc_color
+enum EColor
 {
 	c_black = 0,
 	c_ltgray,
@@ -27,19 +27,19 @@ enum nc_color
 	c_null
 };
 
-long get_color_pair(nc_color fg, nc_color bg);
+long get_color_pair(EColor fg, EColor bg);
 
 void extract_colors(long color, long attributes,
-		nc_color& fg, nc_color& bg);
+		EColor& fg, EColor& bg);
 
-nc_color color_string(std::string id);
+EColor color_string(std::string id);
 
-std::string color_name(nc_color color);
+std::string color_name(EColor color);
 
-std::string color_tag(nc_color color);
+std::string color_tag(EColor color);
 
-nc_color hilight(nc_color orig);
+EColor hilight(EColor orig);
 
-nc_color non_bright(nc_color col);
+EColor non_bright(EColor col);
 
 #endif

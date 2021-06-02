@@ -11,7 +11,7 @@ using namespace cuss;
 // *** TEXT ENTRY ELEMENT ***
 void ele_textentry::draw(Window* win)
 {
-	nc_color hilite = (selected ? SELECTCOLOR : bg);
+	EColor hilite = (selected ? SELECTCOLOR : bg);
 // Ensure we see the end of the word--and a blank space
 	int start = (selected ? text->size() + 1 - sizex : 0);
 	if (start < 0)
