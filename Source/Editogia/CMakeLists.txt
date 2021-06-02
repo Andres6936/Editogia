@@ -22,6 +22,7 @@ ADD_LIBRARY(Editogia.Lib
         Mechanism/building.cpp
         Mechanism/ManagerResources.cpp
         Mechanism/Recipe.cpp
+        Render/Backend/Curses/Curses.cpp
         Render/View/help.cpp
         Render/View/Message.cpp
         Scene/Menu.cpp
