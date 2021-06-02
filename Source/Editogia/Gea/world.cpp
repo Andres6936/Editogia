@@ -6,7 +6,7 @@
 #include "Editogia/keys.h" // for input_direction()
 #include "Editogia/world.h"
 #include "Editogia/window.h"
-#include "Editogia/animal.h"
+#include "Editogia/Entity/animal.h"
 #include "Editogia/ai_city.h"
 #include "Editogia/globals.h"
 #include "Editogia/kingdom.h"  // To color map based on Kingdom.

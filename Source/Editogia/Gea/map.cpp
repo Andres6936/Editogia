@@ -1,4 +1,4 @@
-#include "Editogia/map.h"
+#include "Editogia/Gea/map.h"
 #include "Editogia/rng.h"
 #include "Editogia/geometry.h" // For direction
 #include "Editogia/window.h" // For debugmsg

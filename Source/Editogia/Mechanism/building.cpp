@@ -1,5 +1,5 @@
-#include "Editogia/building.h"
-#include "Editogia/resource.h"
+#include "Editogia/Mechanism/building.h"
+#include "Editogia/Gea/resource.h"
 #include "Editogia/city.h" // Needed in Building::amount_built()
 #include "Editogia/window.h" // For debugmsg
 #include "Editogia/stringfunc.h" // Needed in lookup_building_category()

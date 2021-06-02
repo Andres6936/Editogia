@@ -1,4 +1,4 @@
-#include "Editogia/resource.h"
+#include "Editogia/Gea/resource.h"
 
 std::array<Resource_datum*, RES_MAX> Resource_data;
 Crop_datum* Crop_data[CROP_MAX];

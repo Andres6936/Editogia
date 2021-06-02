@@ -1,4 +1,4 @@
-#include "Editogia/area.h"
+#include "Editogia/Entity/Org/area.h"
 #include "Editogia/window.h"       // For debugmsg()
 #include "Editogia/city.h"         // For Area::close()
 #include "Editogia/player_city.h"  // For Area::close() and Area::reopen()

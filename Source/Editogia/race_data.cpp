@@ -1,4 +1,4 @@
-#include "Editogia/race.h"
+#include "Editogia/Entity/race.h"
 
 Race_datum* Race_data[RACE_MAX];
 

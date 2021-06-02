@@ -1,4 +1,4 @@
-#include "Editogia/map.h"
+#include "Editogia/Gea/map.h"
 
 Map_type_datum* Map_type_data[MAP_MAX];
 

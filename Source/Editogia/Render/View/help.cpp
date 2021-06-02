@@ -1,4 +1,4 @@
-#include "Editogia/help.h"
+#include "Editogia/Render/View/help.h"
 #include "Editogia/stringfunc.h" // For no_caps()
 #include "Editogia/window.h" // For debugmsg()
 

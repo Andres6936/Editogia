@@ -7,7 +7,7 @@
 #include "Editogia/window.h"
 #include "Editogia/globals.h"
 #include "Editogia/kingdom.h"
-#include "Editogia/building.h"
+#include "Editogia/Mechanism/building.h"
 #include "Editogia/geometry.h"
 #include "Editogia/stringfunc.h"
 #include "Editogia/player_city.h"

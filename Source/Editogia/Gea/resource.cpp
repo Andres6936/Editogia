@@ -1,4 +1,4 @@
-#include "Editogia/resource.h"
+#include "Editogia/Gea/resource.h"
 #include "Editogia/stringfunc.h"
 #include "Editogia/rng.h"
 

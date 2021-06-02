@@ -1,4 +1,4 @@
-#include "Editogia/race.h"
+#include "Editogia/Entity/race.h"
 #include "Editogia/stringfunc.h"
 #include "Editogia/rng.h"    // For Race_datum::get_city_name()
 #include "Editogia/window.h" // For debugmsg()

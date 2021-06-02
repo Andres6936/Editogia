@@ -1,4 +1,4 @@
-#include "Editogia/map.h"
+#include "Editogia/Gea/map.h"
 
 Terrain_datum* Terrain_data[TER_MAX];
 
