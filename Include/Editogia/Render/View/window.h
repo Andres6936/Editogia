@@ -2,6 +2,8 @@
 #define _WINDOW_H_
 
 #include "Editogia/Render/View/Glyph.h"
+#include <string_view>
+#include <cstdint>
 #include <vector>
 #include <list>
 
@@ -78,6 +80,12 @@ void popup_scrollable(const char* mes, ...);
 class Window
 {
 public:
+
+	/**
+	 * Definition public of Color.
+	 */
+	using Color = nc_color;
+
 	Window();
 
 	Window(int posx, int posy, int sizex, int sizey,
@@ -104,6 +112,16 @@ public:
 	{
 		return ydim;
 	}
+
+	void write(const std::int32_t x, const std::int32_t y, const std::int32_t _char);
+
+	void write(const std::int32_t x, const std::int32_t y, const std::int32_t _char,
+			const Color foreground, const Color background);
+
+	void writeString(const std::int32_t x, const std::int32_t y, std::string_view _char);
+
+	void writeString(const std::int32_t x, const std::int32_t y, std::string_view _char,
+			const Color foreground, const Color background);
 
 // The three essential output functions
 	void putch(int x, int y, nc_color fg, nc_color bg, long sym);
