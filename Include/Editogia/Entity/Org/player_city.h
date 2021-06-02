@@ -1,21 +1,21 @@
 #ifndef _PLAYER_CITY_H_
 #define _PLAYER_CITY_H_
 
-#include "city.h"
+#include "Editogia/Entity/Org/city.h"
 
-#include "area.h"
-#include "building.h"
+#include "Editogia/Entity/Org/area.h"
+#include "Editogia/Mechanism/building.h"
 #include "Editogia/Entity/citizen.h"
-#include "map.h"
-#include "military.h"
+#include "Editogia/Gea/map.h"
+#include "Editogia/Entity/Org/military.h"
 #include "Editogia/Entity/race.h"
 #include "Editogia/Gea/resource.h"
-#include "game.h"
+#include "Editogia/game.h"
 #include "Editogia/Time/Date.h"
-#include "city_achievement.h"
+#include "Editogia/Entity/Org/city_achievement.h"
 #include "Editogia/Entity/Org/city_type.h"
 #include "world.h"
-#include "window.h"
+#include "Editogia/Render/View/window.h"
 
 #include <map>
 #include <array>

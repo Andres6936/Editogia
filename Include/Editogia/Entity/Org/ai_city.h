@@ -2,9 +2,9 @@
 #define _AI_CITY_H_
 
 #include "Editogia/Entity/citizen.h"
-#include "city.h"
-#include "Editogia/View/Glyph.h"  // For AI_city::get_glyph()
-#include "ai.h"     // For City_role
+#include "Editogia/Entity/Org/city.h"
+#include "Editogia/Render/View/Glyph.h"  // For AI_city::get_glyph()
+#include "Editogia/Entity/Org/ai.h"     // For City_role
 #include <string>
 #include <istream>
 

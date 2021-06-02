@@ -7,7 +7,7 @@
 #include <vector>
 #include <cstdint>
 
-#include "Editogia/View/Glyph.h"
+#include "Editogia/Render/View/Glyph.h"
 #include "Editogia/color.h"
 #include "Editogia/window.h"
 #include "Cuss/Elements/Type.hpp"

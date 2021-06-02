@@ -3,8 +3,8 @@
 
 #include "Editogia/Entity/citizen.h"
 #include "Editogia/Gea/resource.h"
-#include "geometry.h"
-#include "city_achievement.h" // For unlockable buildings.
+#include "Editogia/Math/geometry.h"
+#include "Editogia/Entity/Org/city_achievement.h" // For unlockable buildings.
 #include "animal.h"
 #include "Editogia/Entity/race.h" // For buildings with race restrictions.
 #include <string>

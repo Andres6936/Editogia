@@ -2,12 +2,12 @@
 #define _MAP_H_
 
 #include "Editogia/Gea/map_type.h" // For enum Map_type
-#include "geometry.h" // For direction
-#include "Editogia/View/Glyph.h"    // For terrain Glyph
+#include "Editogia/Math/geometry.h" // For direction
+#include "Editogia/Render/View/Glyph.h"    // For terrain Glyph
 #include "Editogia/Gea/resource.h" // Crops and minerals
-#include "area.h"
+#include "Editogia/Entity/Org/area.h"
 #include "animal.h"
-#include "ai.h"       // For City_role
+#include "Editogia/Entity/Org/ai.h"       // For City_role
 #include <vector>
 #include <string>
 #include <istream>    // For data loading

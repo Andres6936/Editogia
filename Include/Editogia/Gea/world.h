@@ -1,9 +1,9 @@
 #ifndef _WORLD_H_
 #define _WORLD_H_
 
-#include "map.h"
-#include "geometry.h"
-#include "window.h"
+#include "Editogia/Gea/map.h"
+#include "Editogia/Math/geometry.h"
+#include "Editogia/Render/View/window.h"
 #include "Editogia/Gea/resource.h"
 #include "pathfind.h" // We store several Generic_maps for different kinds of A*
 #include <vector>

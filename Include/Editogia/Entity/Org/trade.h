@@ -1,7 +1,7 @@
 #ifndef _TRADE_H_
 #define _TRADE_H_
 
-#include "geometry.h" // for Point
+#include "Editogia/Math/geometry.h" // for Point
 #include <string>
 #include <istream>
 

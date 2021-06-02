@@ -1,7 +1,7 @@
 #ifndef _PATHFIND_H_
 #define _PATHFIND_H_
 
-#include "geometry.h"
+#include "Editogia/Math/geometry.h"
 #include <vector>
 #include <string> // For Generic_map::save_data()
 #include <istream> // For Generic_map::load_data()

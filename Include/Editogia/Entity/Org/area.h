@@ -7,11 +7,11 @@
  * Examples include living areas, farms, mines, etc.
  */
 
-#include "Editogia/View/Glyph.h"
-#include "building.h"
-#include "geometry.h"
+#include "Editogia/Render/View/Glyph.h"
+#include "Editogia/Mechanism/building.h"
+#include "Editogia/Math/geometry.h"
 #include "Editogia/Gea/resource.h"
-#include "city_achievement.h" // For unlockable areas.
+#include "Editogia/Entity/Org/city_achievement.h" // For unlockable areas.
 #include <string>
 #include <map>
 #include <istream>

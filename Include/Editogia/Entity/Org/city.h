@@ -1,18 +1,18 @@
 #ifndef _CITY_H_
 #define _CITY_H_
 
-#include "area.h"
-#include "building.h"
+#include "Editogia/Entity/Org/area.h"
+#include "Editogia/Mechanism/building.h"
 #include "Editogia/Entity/citizen.h"
-#include "map.h"
-#include "military.h"
-#include "game.h"
+#include "Editogia/Gea/map.h"
+#include "Editogia/Entity/Org/military.h"
+#include "Editogia/game.h"
 #include "Editogia/Entity/race.h"
 #include "Editogia/Entity/Org/city_type.h"
-#include "trade.h"
+#include "Editogia/Entity/Org/trade.h"
 
-#include "window.h"
-#include "Editogia/View/Glyph.h"    // For City::get_glyph()
+#include "Editogia/Render/View/window.h"
+#include "Editogia/Render/View/Glyph.h"    // For City::get_glyph()
 #include <map>
 
 #include <array>

@@ -1,7 +1,7 @@
 #ifndef _KINGDOM_H_
 #define _KINGDOM_H_
 
-#include "city.h"
+#include "Editogia/Entity/Org/city.h"
 #include "Editogia/Render/View/color.h"
 #include "Editogia/Entity/race.h"
 #include "world.h"
