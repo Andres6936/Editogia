@@ -1,7 +1,7 @@
 // Joan Andrés (@Andres6936) Github.
 
 #include <Levin/Log.hpp>
-#include "Editogia/ManagerResources.hpp"
+#include "Editogia/Mechanism/ManagerResources.hpp"
 
 using namespace Editogia;
 

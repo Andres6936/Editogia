@@ -1,7 +1,7 @@
 // Joan Andrés (@Andres6936) Github.
 
 #include <sstream>
-#include "Editogia/window.h"
+#include "Editogia/Render/View/window.h"
 #include "Editogia/Recipe.hpp"
 #include "ArduinoJson/ArduinoJson.hpp"
 

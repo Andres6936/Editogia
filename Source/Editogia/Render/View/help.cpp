@@ -1,6 +1,6 @@
 #include "Editogia/Render/View/help.h"
-#include "Editogia/stringfunc.h" // For no_caps()
-#include "Editogia/window.h" // For debugmsg()
+#include "Editogia/Util/stringfunc.h" // For no_caps()
+#include "Editogia/Render/View/window.h" // For debugmsg()
 
 // _type and _text default to ""
 Help_article::Help_article(std::string _name, std::string _type,

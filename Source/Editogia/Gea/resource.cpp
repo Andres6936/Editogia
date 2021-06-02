@@ -1,6 +1,6 @@
 #include "Editogia/Gea/resource.h"
-#include "Editogia/stringfunc.h"
-#include "Editogia/rng.h"
+#include "Editogia/Util/stringfunc.h"
+#include "Editogia/Math/rng.h"
 
 const char* toString(const Resource resource) noexcept
 {

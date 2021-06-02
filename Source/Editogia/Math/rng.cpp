@@ -1,4 +1,4 @@
-#include "Editogia/rng.h"
+#include "Editogia/Math/rng.h"
 
 long rng(long low, long high)
 {

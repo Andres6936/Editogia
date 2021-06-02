@@ -3,17 +3,17 @@
 #include <fstream>
 #include <cstdarg> // For the variadic function below
 #include <stdexcept>
-#include "Editogia/rng.h"
+#include "Editogia/Math/rng.h"
 #include "Editogia/city.h"
-#include "Editogia/keys.h"
+#include "Editogia/IO/User/keys.h"
 #include "Editogia/Render/View/help.h"
 #include "Editogia/files.h"
-#include "Editogia/window.h"
+#include "Editogia/Render/View/window.h"
 #include "Editogia/Entity/animal.h"
 #include "Editogia/globals.h"
 #include "Editogia/Mechanism/building.h"
-#include "Editogia/stringfunc.h"
-#include "Editogia/player_city.h"
+#include "Editogia/Util/stringfunc.h"
+#include "Editogia/Entity/Org/player_city.h"
 #include "Editogia/Scene/SceneManager.hpp"
 
 #include <Levin/Levin.hpp>

@@ -2,17 +2,17 @@
 #include <vector>
 #include <math.h> // for pow() and sqrt()
 #include <fstream>
-#include "Editogia/rng.h"
-#include "Editogia/keys.h" // for input_direction()
-#include "Editogia/world.h"
-#include "Editogia/window.h"
+#include "Editogia/Math/rng.h"
+#include "Editogia/IO/User/keys.h" // for input_direction()
+#include "Editogia/Gea/world.h"
+#include "Editogia/Render/View/window.h"
 #include "Editogia/Entity/animal.h"
-#include "Editogia/ai_city.h"
+#include "Editogia/Entity/Org/ai_city.h"
 #include "Editogia/globals.h"
-#include "Editogia/kingdom.h"  // To color map based on Kingdom.
-#include "Editogia/pathfind.h" // For road building, trade route finding, and more!
-#include "Editogia/geometry.h"
-#include "Editogia/stringfunc.h" // For capitalize()
+#include "Editogia/Entity/Org/kingdom.h"  // To color map based on Kingdom.
+#include "Editogia/Math/pathfind.h" // For road building, trade route finding, and more!
+#include "Editogia/Math/geometry.h"
+#include "Editogia/Util/stringfunc.h" // For capitalize()
 #include "Cuss/Interface.hpp"
 
 #include <Levin/Log.hpp>

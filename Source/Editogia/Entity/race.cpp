@@ -1,7 +1,7 @@
 #include "Editogia/Entity/race.h"
-#include "Editogia/stringfunc.h"
-#include "Editogia/rng.h"    // For Race_datum::get_city_name()
-#include "Editogia/window.h" // For debugmsg()
+#include "Editogia/Util/stringfunc.h"
+#include "Editogia/Math/rng.h"    // For Race_datum::get_city_name()
+#include "Editogia/Render/View/window.h" // For debugmsg()
 #include <cstdarg>  // For variadic function Race_datum::add_city_names()
 #include <sstream>  // For Race_datum::get_city_name()
 

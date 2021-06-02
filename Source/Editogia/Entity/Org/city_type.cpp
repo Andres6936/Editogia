@@ -1,3 +1,3 @@
 #include "Editogia/city_type.h"
-#include "Editogia/stringfunc.h"
+#include "Editogia/Util/stringfunc.h"
 

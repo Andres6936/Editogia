@@ -1,10 +1,10 @@
 #include "Editogia/Mechanism/building.h"
 #include "Editogia/Gea/resource.h"
 #include "Editogia/city.h" // Needed in Building::amount_built()
-#include "Editogia/window.h" // For debugmsg
-#include "Editogia/stringfunc.h" // Needed in lookup_building_category()
-#include "Editogia/player_city.h"  // For close()
-#include "Editogia/rng.h"
+#include "Editogia/Render/View/window.h" // For debugmsg
+#include "Editogia/Util/stringfunc.h" // Needed in lookup_building_category()
+#include "Editogia/Entity/Org/player_city.h"  // For close()
+#include "Editogia/Math/rng.h"
 #include <sstream>
 
 #include <ArduinoJson/ArduinoJson.hpp>

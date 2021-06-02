@@ -2,15 +2,15 @@
 #include <vector>
 #include <sstream>
 
-#include "Editogia/rng.h"
+#include "Editogia/Math/rng.h"
 #include "Editogia/combat.h" // For hunting
-#include "Editogia/window.h"
+#include "Editogia/Render/View/window.h"
 #include "Editogia/globals.h"
-#include "Editogia/kingdom.h"
+#include "Editogia/Entity/Org/kingdom.h"
 #include "Editogia/Mechanism/building.h"
-#include "Editogia/geometry.h"
-#include "Editogia/stringfunc.h"
-#include "Editogia/player_city.h"
+#include "Editogia/Math/geometry.h"
+#include "Editogia/Util/stringfunc.h"
+#include "Editogia/Entity/Org/player_city.h"
 #include "Editogia/Util/Container.hpp"
 #include "Cuss/Interface.hpp"
 

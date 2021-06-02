@@ -1,10 +1,10 @@
-#include "Editogia/player_city.h"
-#include "Editogia/window.h"
+#include "Editogia/Entity/Org/player_city.h"
+#include "Editogia/Entity/Org/kingdom.h"
+#include "Editogia/Render/View/window.h"
+#include "Editogia/Scene/SceneManager.hpp"
 #include "Editogia/game.h"
 #include "Editogia/init.h"
-#include "Editogia/kingdom.h"  // For init_kingdoms()
 #include "Editogia/globals.h"
-#include "Editogia/Scene/SceneManager.hpp"
 
 #include <Levin/Levin.hpp>
 

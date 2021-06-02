@@ -1,6 +1,6 @@
 #include "Editogia/city.h"
-#include "Editogia/rng.h"
-#include "Editogia/world.h"
+#include "Editogia/Math/rng.h"
+#include "Editogia/Gea/world.h"
 #include "Editogia/globals.h"
 #include "Editogia/Util/Container.hpp"
 

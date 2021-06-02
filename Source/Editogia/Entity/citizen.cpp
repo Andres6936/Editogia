@@ -1,8 +1,8 @@
 #include "Editogia/citizen.h"
 #include "Editogia/city.h"
-#include "Editogia/stringfunc.h"
-#include "Editogia/rng.h"
-#include "Editogia/window.h"     // For debugmsg()
+#include "Editogia/Util/stringfunc.h"
+#include "Editogia/Math/rng.h"
+#include "Editogia/Render/View/window.h"     // For debugmsg()
 #include <sstream>
 
 Citizens::Citizens()
