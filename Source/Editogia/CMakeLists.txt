@@ -4,7 +4,7 @@ ADD_LIBRARY(Editogia.Lib
         Time/Date.cpp
         ai_city.cpp
         ai_data.cpp
-        animal.cpp
+        Entity/animal.cpp
         animal_data.cpp
         area.cpp
         area_data.cpp
@@ -28,16 +28,16 @@ ADD_LIBRARY(Editogia.Lib
         map_data.cpp
         map_type_data.cpp
         Message.cpp
-        military.cpp
+        Entity/Org/military.cpp
         pathfind.cpp
-        player_city.cpp
-        race.cpp
+        Entity/Org/player_city.cpp
+        Entity/race.cpp
         race_data.cpp
         Recipe.cpp
         resource.cpp
         resource_data.cpp
         rng.cpp
-        trade.cpp
+        Entity/Org/trade.cpp
         world.cpp
         )
 SET_TARGET_PROPERTIES(Editogia.Lib PROPERTIES CXX_STANDARD 17)
