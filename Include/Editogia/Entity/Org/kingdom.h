@@ -4,7 +4,7 @@
 #include "Editogia/Entity/Org/city.h"
 #include "Editogia/Render/View/color.h"
 #include "Editogia/Entity/race.h"
-#include "world.h"
+#include "Editogia/Gea/world.h"
 #include <vector>
 #include <string>
 #include <istream>

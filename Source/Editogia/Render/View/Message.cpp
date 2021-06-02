@@ -2,7 +2,7 @@
 
 #include <sstream>
 #include "Editogia/Render/View/window.h"
-#include "Editogia/Message.hpp"
+#include "Editogia/Render/View/Message.hpp"
 
 
 nc_color message_type_color(Message_type type)

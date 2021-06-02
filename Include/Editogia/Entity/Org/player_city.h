@@ -11,10 +11,10 @@
 #include "Editogia/Entity/race.h"
 #include "Editogia/Gea/resource.h"
 #include "Editogia/game.h"
-#include "Editogia/Time/Date.h"
+#include "Editogia/Util/Time/Date.h"
 #include "Editogia/Entity/Org/city_achievement.h"
 #include "Editogia/Entity/Org/city_type.h"
-#include "world.h"
+#include "Editogia/Gea/world.h"
 #include "Editogia/Render/View/window.h"
 
 #include <map>
@@ -24,8 +24,8 @@
 #include <istream>
 
 #include "Cuss/Elements/Element.hpp"
-#include "Editogia/Message.hpp"
-#include "Editogia/ManagerResources.hpp"
+#include "Editogia/Render/View/Message.hpp"
+#include "Editogia/Mechanism/ManagerResources.hpp"
 
 
 class Player_city : public City
