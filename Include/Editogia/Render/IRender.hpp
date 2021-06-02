@@ -24,12 +24,6 @@ namespace Editogia
 				const std::int32_t _char,
 				const Color foreground,
 				const Color background) = 0;
-
-		virtual void writeString(const std::int32_t x, const std::int32_t y,
-				std::string_view _char,
-				const Color foreground,
-				const Color background) = 0;
-
 	};
 
 }

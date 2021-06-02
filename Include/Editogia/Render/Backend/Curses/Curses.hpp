@@ -3,6 +3,7 @@
 #ifndef EDITOGIA_CURSES_HPP
 #define EDITOGIA_CURSES_HPP
 
+#include <curses.h>
 #include "Editogia/Render/IRender.hpp"
 
 namespace Editogia
@@ -11,9 +12,17 @@ namespace Editogia
 	class Curses : public IRender
 	{
 
+	private:
+
+		/**
+		 * Context ncurses.
+		 */
+		WINDOW* window{ nullptr };
+
 	public:
 
-
+		void writeChar(const std::int32_t x, const std::int32_t y, const std::int32_t _char,
+				const Color foreground, const Color background) override;
 	};
 
 }
