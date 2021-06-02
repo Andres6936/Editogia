@@ -16,11 +16,15 @@ namespace Editogia
 		 */
 		using Color = nc_color;
 
-		void writeChar(const std::int32_t x, const std::int32_t y, const std::int32_t _char,
-				const Color foreground, const Color background);
+		virtual void writeChar(const std::int32_t x, const std::int32_t y,
+				const std::int32_t _char,
+				const Color foreground,
+				const Color background) = 0;
 
-		void writeString(const std::int32_t x, const std::int32_t y, std::string_view _char,
-				const Color foreground, const Color background);
+		virtual void writeString(const std::int32_t x, const std::int32_t y,
+				std::string_view _char,
+				const Color foreground,
+				const Color background) = 0;
 
 	};
 
