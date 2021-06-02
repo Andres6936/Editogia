@@ -1,7 +1,7 @@
 #ifndef _MAP_H_
 #define _MAP_H_
 
-#include "map_type.h" // For enum Map_type
+#include "Editogia/Gea/map_type.h" // For enum Map_type
 #include "geometry.h" // For direction
 #include "Editogia/View/Glyph.h"    // For terrain Glyph
 #include "Editogia/Gea/resource.h" // Crops and minerals

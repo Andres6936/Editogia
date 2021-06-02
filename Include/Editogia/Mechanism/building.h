@@ -1,7 +1,7 @@
 #ifndef _BUILDING_H_
 #define _BUILDING_H_
 
-#include "citizen.h"
+#include "Editogia/Entity/citizen.h"
 #include "Editogia/Gea/resource.h"
 #include "geometry.h"
 #include "city_achievement.h" // For unlockable buildings.

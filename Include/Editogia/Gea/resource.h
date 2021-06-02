@@ -1,7 +1,7 @@
 #ifndef _RESOURCE_H_
 #define _RESOURCE_H_
 
-#include "color.h"
+#include "Editogia/Render/View/color.h"
 #include <array>
 #include <string>
 #include <vector>

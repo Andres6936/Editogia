@@ -1,11 +1,11 @@
 #ifndef _RACE_H_
 #define _RACE_H_
 
-#include "citizen.h"    // Some race values are Citizen_type-dependent.
-#include "color.h"      // Race_datum stores the race's color.
-#include "map_type.h"   // For Map_type
-#include "city_type.h"  // We track population size for each City_type.
-#include "stringfunc.h"
+#include "Editogia/Entity/citizen.h"    // Some race values are Citizen_type-dependent.
+#include "Editogia/Render/View/color.h"      // Race_datum stores the race's color.
+#include "Editogia/Gea/map_type.h"   // For Map_type
+#include "Editogia/Entity/Org/city_type.h"  // We track population size for each City_type.
+#include "Editogia/Util/stringfunc.h"
 
 #include <map>
 #include <array>

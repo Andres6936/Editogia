@@ -3,12 +3,12 @@
 
 #include "area.h"
 #include "building.h"
-#include "citizen.h"
+#include "Editogia/Entity/citizen.h"
 #include "map.h"
 #include "military.h"
 #include "game.h"
 #include "Editogia/Entity/race.h"
-#include "city_type.h"
+#include "Editogia/Entity/Org/city_type.h"
 #include "trade.h"
 
 #include "window.h"

@@ -2,7 +2,7 @@
 #define _KINGDOM_H_
 
 #include "city.h"
-#include "color.h"
+#include "Editogia/Render/View/color.h"
 #include "Editogia/Entity/race.h"
 #include "world.h"
 #include <vector>

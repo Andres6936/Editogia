@@ -1,7 +1,7 @@
 #ifndef _AI_CITY_H_
 #define _AI_CITY_H_
 
-#include "citizen.h"
+#include "Editogia/Entity/citizen.h"
 #include "city.h"
 #include "Editogia/View/Glyph.h"  // For AI_city::get_glyph()
 #include "ai.h"     // For City_role

@@ -5,7 +5,7 @@
 
 #include "area.h"
 #include "building.h"
-#include "citizen.h"
+#include "Editogia/Entity/citizen.h"
 #include "map.h"
 #include "military.h"
 #include "Editogia/Entity/race.h"
@@ -13,7 +13,7 @@
 #include "game.h"
 #include "Editogia/Time/Date.h"
 #include "city_achievement.h"
-#include "city_type.h"
+#include "Editogia/Entity/Org/city_type.h"
 #include "world.h"
 #include "window.h"
 
