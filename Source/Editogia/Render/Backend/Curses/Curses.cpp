@@ -4,6 +4,16 @@
 
 using namespace Editogia;
 
+Curses::Curses() noexcept: IRender()
+{
+	window = newwin(0, 0, 0, 0);
+}
+
+Curses::~Curses() noexcept
+{
+	delwin(window);
+}
+
 void Curses::writeChar(const std::int32_t x, const std::int32_t y, const std::int32_t _char,
 		const IRender::Color foreground, const IRender::Color background)
 {

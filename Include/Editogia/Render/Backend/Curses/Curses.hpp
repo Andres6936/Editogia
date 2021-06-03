@@ -21,6 +21,10 @@ namespace Editogia
 
 	public:
 
+		Curses() noexcept;
+
+		virtual ~Curses() noexcept;
+
 		void writeChar(const std::int32_t x, const std::int32_t y, const std::int32_t _char,
 				const Color foreground, const Color background) override;
 	};
