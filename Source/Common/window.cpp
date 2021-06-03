@@ -100,10 +100,7 @@ void Window::putstr(int x, int y, EColor fg, EColor bg, std::string str,
 
 	if (prepped.find("<c=") == std::string::npos)
 	{
-// No need to do color segments, so just print!
-		wattron(w, col);
-		mvwprintw(w, y, x, buff);
-		wattroff(w, col);
+		writeString(x, y, buff, fg, bg);
 	}
 	else
 	{ // We need to do color segments!
@@ -132,12 +129,7 @@ void Window::putstr_raw(int x, int y, EColor fg, EColor bg, std::string str,
 	vsprintf(buff, str.c_str(), ap);
 	va_end(ap);
 
-	std::string prepped = buff;
-	long col = get_color_pair(fg, bg);
-
-	wattron(w, col);
-	mvwprintw(w, y, x, buff);
-	wattroff(w, col);
+	writeString(x, y, buff, fg, bg);
 }
 
 void Window::putstr_n(int x, int y, EColor fg, EColor bg, int maxlength,
@@ -156,10 +148,7 @@ void Window::putstr_n(int x, int y, EColor fg, EColor bg, int maxlength,
 
 	if (prepped.find("<c=") == std::string::npos)
 	{
-// No need to do color segments, so just print!
-		wattron(w, col);
-		mvwprintw(w, y, x, prepped.substr(0, maxlength).c_str());
-		wattroff(w, col);
+		writeString(x, y, prepped.substr(0, maxlength), fg, bg);
 	}
 	else
 	{ // We need to do color segments!
@@ -209,10 +198,7 @@ void Window::putstr_r(int x, int y, EColor fg, EColor bg, int maxlength,
 
 	if (prepped.find("<c=") == std::string::npos)
 	{
-// No need to do color segments, so just print!
-		wattron(w, col);
-		mvwprintw(w, y, x, prepped.substr(0, maxlength).c_str());
-		wattroff(w, col);
+		writeString(x, y, prepped.substr(0, maxlength), fg, bg);
 	}
 	else
 	{ // We need to do color segments!
@@ -261,10 +247,7 @@ void Window::putstr_c(int x, int y, EColor fg, EColor bg, int maxlength,
 
 	if (prepped.find("<c=") == std::string::npos)
 	{
-// No need to do color segments, so just print!
-		wattron(w, col);
-		mvwprintw(w, y, x, prepped.substr(0, maxlength).c_str());
-		wattroff(w, col);
+		writeString(x, y, prepped.substr(0, maxlength), fg, bg);
 	}
 	else
 	{ // We need to do color segments!
