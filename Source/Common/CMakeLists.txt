@@ -1,6 +1,7 @@
 ADD_LIBRARY(Editogia.Common
         Backend/Curses/Curses.cpp
         View/Glyph.cpp
+        View/TextColor.cpp
         color.cpp
         files.cpp
         stringfunc.cpp
