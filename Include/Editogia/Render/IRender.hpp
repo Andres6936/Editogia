@@ -20,6 +20,18 @@ namespace Editogia
 		 */
 		using Color = EColor;
 
+		/**
+		 * Constructor
+		 */
+		IRender() noexcept = default;
+
+		/**
+		 * Destructor
+		 */
+		virtual ~IRender() noexcept = default;
+
+		// Abstract methods
+
 		virtual void writeChar(const std::int32_t x, const std::int32_t y,
 				const std::int32_t _char,
 				const Color foreground,
