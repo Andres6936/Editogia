@@ -219,29 +219,16 @@ void Window::putstr_n(int x, int y, EColor fg, EColor bg, int maxlength,
 		writeString(x, y, prepped.substr(0, maxlength), fg, bg);
 	}
 	else
-	{ // We need to do color segments!
-//		wmove(w, y, x);
-		std::vector<std::string> segments;
-		std::vector<long> color_pairs;
-		parse_color_tags(prepped, segments, color_pairs, fg, bg);
-		for (int i = 0; i < segments.size(); i++)
-		{
-//			wattron(w, color_pairs[i]);
-//			if (segments[i].length() > maxlength)
-//			{
-//				wprintw(w, segments[i].substr(0, maxlength).c_str());
-//				wattroff(w, color_pairs[i]);
-//				return; // Stop; we've run out of space.
-//			}
-//			else
-//			{
-//				wprintw(w, segments[i].c_str());
-//				maxlength -= segments[i].length();
-//				wattroff(w, color_pairs[i]);
-//			}
-		}
-	} // We need to do color segments!
+	{
+		std::vector<Editogia::TextColor> textColors = parseText(prepped, fg, bg);
 
+		for (const auto textColor : textColors)
+		{
+			writeString(x, y, textColor.getText(), textColor.getForegroundColor(),
+					textColor.getBackgroundColor());
+			x += textColor.getText().size();
+		}
+	}
 }
 
 void Window::putstr_r(int x, int y, EColor fg, EColor bg, int maxlength,
@@ -269,28 +256,16 @@ void Window::putstr_r(int x, int y, EColor fg, EColor bg, int maxlength,
 		writeString(x, y, prepped.substr(0, maxlength), fg, bg);
 	}
 	else
-	{ // We need to do color segments!
-//		wmove(w, y, x);
-		std::vector<std::string> segments;
-		std::vector<long> color_pairs;
-		parse_color_tags(prepped, segments, color_pairs, fg, bg);
-		for (int i = 0; i < segments.size(); i++)
+	{
+		std::vector<Editogia::TextColor> textColors = parseText(prepped, fg, bg);
+
+		for (const auto textColor : textColors)
 		{
-//			wattron(w, color_pairs[i]);
-//			if (segments[i].length() > maxlength)
-//			{
-//				wprintw(w, segments[i].substr(0, maxlength).c_str());
-//				wattroff(w, color_pairs[i]);
-//				return; // Stop; we've run out of space.
-//			}
-//			else
-//			{
-//				wprintw(w, segments[i].c_str());
-//				maxlength -= segments[i].length();
-//				wattroff(w, color_pairs[i]);
-//			}
+			writeString(x, y, textColor.getText(), textColor.getForegroundColor(),
+					textColor.getBackgroundColor());
+			x += textColor.getText().size();
 		}
-	} // We need to do color segments!
+	}
 }
 
 void Window::putstr_c(int x, int y, EColor fg, EColor bg, int maxlength,
@@ -318,28 +293,16 @@ void Window::putstr_c(int x, int y, EColor fg, EColor bg, int maxlength,
 		writeString(x, y, prepped.substr(0, maxlength), fg, bg);
 	}
 	else
-	{ // We need to do color segments!
-//		wmove(w, y, x);
-		std::vector<std::string> segments;
-		std::vector<long> color_pairs;
-		parse_color_tags(prepped, segments, color_pairs, fg, bg);
-		for (int i = 0; i < segments.size(); i++)
+	{
+		std::vector<Editogia::TextColor> textColors = parseText(prepped, fg, bg);
+
+		for (const auto textColor : textColors)
 		{
-//			wattron(w, color_pairs[i]);
-//			if (segments[i].length() > maxlength)
-//			{
-//				wprintw(w, segments[i].substr(0, maxlength).c_str());
-//				wattroff(w, color_pairs[i]);
-//				return; // Stop; we've run out of space.
-//			}
-//			else
-//			{
-//				wprintw(w, segments[i].c_str());
-//				maxlength -= segments[i].length();
-//				wattroff(w, color_pairs[i]);
-//			}
+			writeString(x, y, textColor.getText(), textColor.getForegroundColor(),
+					textColor.getBackgroundColor());
+			x += textColor.getText().size();
 		}
-	} // We need to do color segments!
+	}
 }
 
 void Window::clear_area(int x1, int y1, int x2, int y2)
