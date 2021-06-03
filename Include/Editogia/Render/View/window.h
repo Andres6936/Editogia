@@ -93,8 +93,6 @@ public:
 	Window(int posx, int posy, int sizex, int sizey,
 			TypeWindow ntype = TypeWindow::General);
 
-	~Window();
-
 	void init(int posx, int posy, int sizex, int sizey,
 			TypeWindow ntype = TypeWindow::General);
 
@@ -160,7 +158,7 @@ public:
 	void refresh();
 
 private:
-	WINDOW* w;
+
 	bool outlined;
 	TypeWindow type;
 	int xdim, ydim;

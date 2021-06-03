@@ -16,31 +16,20 @@ std::string strip_tags(std::string text);
 
 std::list<Window*> WINDOWLIST;
 
-Window::Window()
+Window::Window() : Window(0, 0, 0, 0)
 {
-	render = std::make_unique<Editogia::Curses>();
-
-	w = newwin(0, 0, 0, 0);
-	outlined = false;
-	xdim = 0;
-	ydim = 0;
-	type = TypeWindow::General;
-	WINDOWLIST.push_back(this);
+	// Delegate the construction to another construct
 }
 
 Window::Window(int posx, int posy, int sizex, int sizey, TypeWindow ntype)
 {
-	w = newwin(sizey, sizex, posy, posx);
+	render = std::make_unique<Editogia::Curses>(posx, posy, sizex, sizey);
+
 	outlined = false;
 	xdim = sizex;
 	ydim = sizey;
 	type = ntype;
 	WINDOWLIST.push_back(this);
-}
-
-Window::~Window()
-{
-	delwin(w);
 }
 
 void Window::init(int posx, int posy, int sizex, int sizey, TypeWindow ntype)
@@ -85,10 +74,7 @@ Glyph Window::glyphat(int x, int y)
 
 void Window::putch(int x, int y, EColor fg, EColor bg, long sym)
 {
-	long col = get_color_pair(fg, bg);
-	wattron(w, col);
-	mvwaddch(w, y, x, sym);
-	wattroff(w, col);
+	render->writeChar(x, y, sym, fg, bg);
 }
 
 void Window::putglyph(int x, int y, Glyph gl)
