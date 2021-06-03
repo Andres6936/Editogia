@@ -4,9 +4,23 @@
 
 using namespace Editogia;
 
-Curses::Curses() noexcept: IRender()
+Curses::Curses() noexcept: Curses(0, 0)
 {
-	window = newwin(0, 0, 0, 0);
+	// Delegate the construction to parent construct
+}
+
+Curses::Curses(const std::int32_t width, const std::int32_t height) noexcept
+		: Curses(0, 0, width, height)
+{
+	// Delegate the construction to parent construct
+}
+
+Curses::Curses(const std::int32_t x, const std::int32_t y, const std::int32_t width,
+		const std::int32_t height) noexcept: IRender()
+{
+	// Call to construct of IRender
+
+	window = newwin(height, width, y, x);
 }
 
 Curses::~Curses() noexcept

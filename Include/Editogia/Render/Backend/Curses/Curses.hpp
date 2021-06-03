@@ -23,6 +23,11 @@ namespace Editogia
 
 		Curses() noexcept;
 
+		Curses(const std::int32_t width, const std::int32_t height) noexcept;
+
+		Curses(const std::int32_t x, const std::int32_t y,
+				const std::int32_t width, const std::int32_t height) noexcept;
+
 		virtual ~Curses() noexcept;
 
 		void writeChar(const std::int32_t x, const std::int32_t y, const std::int32_t _char,
