@@ -24,11 +24,11 @@ Window::Window()
 	outlined = false;
 	xdim = 0;
 	ydim = 0;
-	type = WINDOW_TYPE_GENERAL;
+	type = TypeWindow::General;
 	WINDOWLIST.push_back(this);
 }
 
-Window::Window(int posx, int posy, int sizex, int sizey, Window_type ntype)
+Window::Window(int posx, int posy, int sizex, int sizey, TypeWindow ntype)
 {
 	w = newwin(sizey, sizex, posy, posx);
 	outlined = false;
@@ -43,7 +43,7 @@ Window::~Window()
 	delwin(w);
 }
 
-void Window::init(int posx, int posy, int sizex, int sizey, Window_type ntype)
+void Window::init(int posx, int posy, int sizex, int sizey, TypeWindow ntype)
 {
 	delwin(w);
 	w = newwin(sizey, sizex, posy, posx);
@@ -72,7 +72,7 @@ void Window::outline()
 Glyph Window::glyphat(int x, int y)
 {
 	Glyph ret;
-	if (type == WINDOW_TYPE_TEXT || type == WINDOW_TYPE_OTHER ||
+	if (type == TypeWindow::Text || type == TypeWindow::Other ||
 		x < 0 || x >= xdim || y < 0 || y >= ydim)
 		return ret; // Whatever a default Glyph is
 
@@ -93,7 +93,7 @@ void Window::putch(int x, int y, EColor fg, EColor bg, long sym)
 
 void Window::putglyph(int x, int y, Glyph gl)
 {
-	if (type == WINDOW_TYPE_TEXT || type == WINDOW_TYPE_OTHER)
+	if (type == TypeWindow::Text || type == TypeWindow::Other)
 		return;
 	putch(x, y, gl.fg, gl.bg, gl.symbol);
 }
@@ -101,7 +101,7 @@ void Window::putglyph(int x, int y, Glyph gl)
 void Window::putstr(int x, int y, EColor fg, EColor bg, std::string str,
 		...)
 {
-	if (type == WINDOW_TYPE_GLYPHS)
+	if (type == TypeWindow::Glyphs)
 		return;
 	va_list ap;
 	va_start(ap, str);
@@ -138,7 +138,7 @@ void Window::putstr(int x, int y, EColor fg, EColor bg, std::string str,
 void Window::putstr_raw(int x, int y, EColor fg, EColor bg, std::string str,
 		...)
 {
-	if (type == WINDOW_TYPE_GLYPHS)
+	if (type == TypeWindow::Glyphs)
 		return;
 	va_list ap;
 	va_start(ap, str);
@@ -157,7 +157,7 @@ void Window::putstr_raw(int x, int y, EColor fg, EColor bg, std::string str,
 void Window::putstr_n(int x, int y, EColor fg, EColor bg, int maxlength,
 		std::string str, ...)
 {
-	if (type == WINDOW_TYPE_GLYPHS)
+	if (type == TypeWindow::Glyphs)
 		return;
 	va_list ap;
 	va_start(ap, str);
@@ -204,7 +204,7 @@ void Window::putstr_n(int x, int y, EColor fg, EColor bg, int maxlength,
 void Window::putstr_r(int x, int y, EColor fg, EColor bg, int maxlength,
 		std::string str, ...)
 {
-	if (type == WINDOW_TYPE_GLYPHS)
+	if (type == TypeWindow::Glyphs)
 		return;
 	va_list ap;
 	va_start(ap, str);
@@ -256,7 +256,7 @@ void Window::putstr_r(int x, int y, EColor fg, EColor bg, int maxlength,
 void Window::putstr_c(int x, int y, EColor fg, EColor bg, int maxlength,
 		std::string str, ...)
 {
-	if (type == WINDOW_TYPE_GLYPHS)
+	if (type == TypeWindow::Glyphs)
 		return;
 	va_list ap;
 	va_start(ap, str);
@@ -307,7 +307,7 @@ void Window::putstr_c(int x, int y, EColor fg, EColor bg, int maxlength,
 
 void Window::clear_area(int x1, int y1, int x2, int y2)
 {
-	if (type == WINDOW_TYPE_OTHER)
+	if (type == TypeWindow::Other)
 		return;
 	for (int x = x1; x <= x2; x++)
 	{
@@ -318,7 +318,7 @@ void Window::clear_area(int x1, int y1, int x2, int y2)
 
 void Window::line_v(int x, EColor fg, EColor bg)
 {
-	if (type != WINDOW_TYPE_GENERAL) // Only general (read: non-graphic) windows!
+	if (type != TypeWindow::General) // Only general (read: non-graphic) windows!
 		return;
 	for (int y = (outlined ? 1 : 0); y < (outlined ? ydim - 1 : ydim); y++)
 		putch(x, y, fg, bg, LINE_XOXO);
@@ -332,7 +332,7 @@ void Window::line_v(int x, EColor fg, EColor bg)
 
 void Window::line_h(int y, EColor fg, EColor bg)
 {
-	if (type != WINDOW_TYPE_GENERAL) // Only general (read: non-graphic) windows!
+	if (type != TypeWindow::General) // Only general (read: non-graphic) windows!
 		return;
 	for (int x = (outlined ? 1 : 0); x < (outlined ? xdim - 1 : xdim); x++)
 		putch(x, y, fg, bg, LINE_OXOX);

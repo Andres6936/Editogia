@@ -33,12 +33,12 @@
 #define KEY_ESC 27
 
 
-enum Window_type
+enum class TypeWindow
 {
-	WINDOW_TYPE_GENERAL,
-	WINDOW_TYPE_GLYPHS,
-	WINDOW_TYPE_TEXT,
-	WINDOW_TYPE_OTHER
+	General,
+	Glyphs,
+	Text,
+	Other
 };
 
 void init_display();
@@ -91,12 +91,12 @@ public:
 	Window();
 
 	Window(int posx, int posy, int sizex, int sizey,
-			Window_type ntype = WINDOW_TYPE_GENERAL);
+			TypeWindow ntype = WINDOW_TYPE_GENERAL);
 
 	~Window();
 
 	void init(int posx, int posy, int sizex, int sizey,
-			Window_type ntype = WINDOW_TYPE_GENERAL);
+			TypeWindow ntype = WINDOW_TYPE_GENERAL);
 
 	void close();
 
@@ -162,7 +162,7 @@ public:
 private:
 	WINDOW* w;
 	bool outlined;
-	Window_type type;
+	TypeWindow type;
 	int xdim, ydim;
 
 	std::unique_ptr<Editogia::IRender> render{ nullptr };
