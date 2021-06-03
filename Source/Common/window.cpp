@@ -34,28 +34,28 @@ Window::Window(int posx, int posy, int sizex, int sizey, TypeWindow ntype)
 
 void Window::init(int posx, int posy, int sizex, int sizey, TypeWindow ntype)
 {
-	delwin(w);
-	w = newwin(sizey, sizex, posy, posx);
-	xdim = sizex;
-	ydim = sizey;
-	type = ntype;
+//	delwin(w);
+//	w = newwin(sizey, sizex, posy, posx);
+//	xdim = sizex;
+//	ydim = sizey;
+//	type = ntype;
 }
 
 void Window::close()
 {
-	delwin(w);
-	WINDOWLIST.remove(this);
-	refresh_all(true);
+//	delwin(w);
+//	WINDOWLIST.remove(this);
+//	refresh_all(true);
 }
 
 void Window::outline()
 {
-	outlined = true;
-	long col = get_color_pair(c_white, c_black);
-	wattron(w, col);
-	wborder(w, LINE_XOXO, LINE_XOXO, LINE_OXOX, LINE_OXOX,
-			LINE_OXXO, LINE_OOXX, LINE_XXOO, LINE_XOOX);
-	wattroff(w, col);
+//	outlined = true;
+//	long col = get_color_pair(c_white, c_black);
+//	wattron(w, col);
+//	wborder(w, LINE_XOXO, LINE_XOXO, LINE_OXOX, LINE_OXOX,
+//			LINE_OXXO, LINE_OOXX, LINE_XXOO, LINE_XOOX);
+//	wattroff(w, col);
 }
 
 Glyph Window::glyphat(int x, int y)
@@ -65,10 +65,10 @@ Glyph Window::glyphat(int x, int y)
 		x < 0 || x >= xdim || y < 0 || y >= ydim)
 		return ret; // Whatever a default Glyph is
 
-	long wi = mvwinch(w, y, x);
-	//ret.symbol = wi - ((wi & A_COLOR) + (wi & A_ATTRIBUTES));
-	ret.symbol = wi & A_CHARTEXT;
-	extract_colors(wi & A_COLOR, wi & A_ATTRIBUTES, ret.fg, ret.bg);
+//	long wi = mvwinch(w, y, x);
+//	//ret.symbol = wi - ((wi & A_COLOR) + (wi & A_ATTRIBUTES));
+//	ret.symbol = wi & A_CHARTEXT;
+//	extract_colors(wi & A_COLOR, wi & A_ATTRIBUTES, ret.fg, ret.bg);
 	return ret;
 }
 
@@ -104,15 +104,15 @@ void Window::putstr(int x, int y, EColor fg, EColor bg, std::string str,
 	}
 	else
 	{ // We need to do color segments!
-		wmove(w, y, x);
+//		wmove(w, y, x);
 		std::vector<std::string> segments;
 		std::vector<long> color_pairs;
 		parse_color_tags(prepped, segments, color_pairs, fg, bg);
 		for (int i = 0; i < segments.size(); i++)
 		{
-			wattron(w, color_pairs[i]);
-			wprintw(w, segments[i].c_str());
-			wattroff(w, color_pairs[i]);
+//			wattron(w, color_pairs[i]);
+//			wprintw(w, segments[i].c_str());
+//			wattroff(w, color_pairs[i]);
 		}
 	}        // We need to do color segments!
 
@@ -152,25 +152,25 @@ void Window::putstr_n(int x, int y, EColor fg, EColor bg, int maxlength,
 	}
 	else
 	{ // We need to do color segments!
-		wmove(w, y, x);
+//		wmove(w, y, x);
 		std::vector<std::string> segments;
 		std::vector<long> color_pairs;
 		parse_color_tags(prepped, segments, color_pairs, fg, bg);
 		for (int i = 0; i < segments.size(); i++)
 		{
-			wattron(w, color_pairs[i]);
-			if (segments[i].length() > maxlength)
-			{
-				wprintw(w, segments[i].substr(0, maxlength).c_str());
-				wattroff(w, color_pairs[i]);
-				return; // Stop; we've run out of space.
-			}
-			else
-			{
-				wprintw(w, segments[i].c_str());
-				maxlength -= segments[i].length();
-				wattroff(w, color_pairs[i]);
-			}
+//			wattron(w, color_pairs[i]);
+//			if (segments[i].length() > maxlength)
+//			{
+//				wprintw(w, segments[i].substr(0, maxlength).c_str());
+//				wattroff(w, color_pairs[i]);
+//				return; // Stop; we've run out of space.
+//			}
+//			else
+//			{
+//				wprintw(w, segments[i].c_str());
+//				maxlength -= segments[i].length();
+//				wattroff(w, color_pairs[i]);
+//			}
 		}
 	} // We need to do color segments!
 
@@ -202,25 +202,25 @@ void Window::putstr_r(int x, int y, EColor fg, EColor bg, int maxlength,
 	}
 	else
 	{ // We need to do color segments!
-		wmove(w, y, x);
+//		wmove(w, y, x);
 		std::vector<std::string> segments;
 		std::vector<long> color_pairs;
 		parse_color_tags(prepped, segments, color_pairs, fg, bg);
 		for (int i = 0; i < segments.size(); i++)
 		{
-			wattron(w, color_pairs[i]);
-			if (segments[i].length() > maxlength)
-			{
-				wprintw(w, segments[i].substr(0, maxlength).c_str());
-				wattroff(w, color_pairs[i]);
-				return; // Stop; we've run out of space.
-			}
-			else
-			{
-				wprintw(w, segments[i].c_str());
-				maxlength -= segments[i].length();
-				wattroff(w, color_pairs[i]);
-			}
+//			wattron(w, color_pairs[i]);
+//			if (segments[i].length() > maxlength)
+//			{
+//				wprintw(w, segments[i].substr(0, maxlength).c_str());
+//				wattroff(w, color_pairs[i]);
+//				return; // Stop; we've run out of space.
+//			}
+//			else
+//			{
+//				wprintw(w, segments[i].c_str());
+//				maxlength -= segments[i].length();
+//				wattroff(w, color_pairs[i]);
+//			}
 		}
 	} // We need to do color segments!
 }
@@ -251,25 +251,25 @@ void Window::putstr_c(int x, int y, EColor fg, EColor bg, int maxlength,
 	}
 	else
 	{ // We need to do color segments!
-		wmove(w, y, x);
+//		wmove(w, y, x);
 		std::vector<std::string> segments;
 		std::vector<long> color_pairs;
 		parse_color_tags(prepped, segments, color_pairs, fg, bg);
 		for (int i = 0; i < segments.size(); i++)
 		{
-			wattron(w, color_pairs[i]);
-			if (segments[i].length() > maxlength)
-			{
-				wprintw(w, segments[i].substr(0, maxlength).c_str());
-				wattroff(w, color_pairs[i]);
-				return; // Stop; we've run out of space.
-			}
-			else
-			{
-				wprintw(w, segments[i].c_str());
-				maxlength -= segments[i].length();
-				wattroff(w, color_pairs[i]);
-			}
+//			wattron(w, color_pairs[i]);
+//			if (segments[i].length() > maxlength)
+//			{
+//				wprintw(w, segments[i].substr(0, maxlength).c_str());
+//				wattroff(w, color_pairs[i]);
+//				return; // Stop; we've run out of space.
+//			}
+//			else
+//			{
+//				wprintw(w, segments[i].c_str());
+//				maxlength -= segments[i].length();
+//				wattroff(w, color_pairs[i]);
+//			}
 		}
 	} // We need to do color segments!
 }
