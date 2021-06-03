@@ -6,6 +6,7 @@
 
 #include "Cuss/Interface.hpp"
 #include "Editogia/Render/View/window.h"
+#include "Editogia/Render/View/TextColor.hpp"
 #include "Editogia/Render/Backend/Curses/Curses.hpp"
 
 bool parse_color_tags(std::string text, std::vector<std::string>& segments,
@@ -873,6 +874,76 @@ void popup_scrollable(const char* mes, ...)
 			i_popup.add_data("text", -10);
 		}
 	} while (ch != '\n' && ch != KEY_ESC);
+}
+
+std::vector<Editogia::TextColor> parseText(
+		std::string text, const EColor foreground, const EColor background)
+{
+	using namespace Editogia;
+
+	std::size_t tag;
+	std::vector<TextColor> result;
+	EColor cur_fg = foreground, cur_bg = background;
+
+	while ((tag = text.find("<c=")) != std::string::npos)
+	{
+		// Everything before the tag is a segment, with the current colors
+		result.push_back({ text.substr(0, tag), cur_fg, cur_bg });
+
+		// Strip off everything up to and including "<c="
+		text = text.substr(tag + 3);
+		// Find the end of the tag
+		size_t tagend = text.find(">");
+		if (tagend == std::string::npos)
+		{
+			debugmsg("Unterminated color tag! %d:%s:", int(tag), text.c_str());
+			throw std::logic_error("Unterminated color tag!");
+		}
+
+		std::string tag = text.substr(0, tagend);
+		// Strip out the tag
+		text = text.substr(tagend + 1);
+
+		if (tag == "reset" || tag == "/")
+		{
+			// Reset the colors
+			cur_fg = foreground;
+			cur_bg = background;
+		}
+		else
+		{
+			// We're looking for the color!
+			size_t comma = tag.find(",");
+			if (comma == std::string::npos)
+			{
+				// No comma - just setting fg
+				cur_fg = color_string(tag);
+				if (cur_fg == c_null)
+				{
+					debugmsg("Malformed color tag: %s", tag.c_str());
+					throw std::logic_error("Malformed color tag:");
+				}
+			}
+			else
+			{
+				EColor new_fg = color_string(tag.substr(0, comma)),
+						new_bg = color_string(tag.substr(comma + 1));
+				if (new_fg == c_null && new_bg == c_null)
+				{
+					debugmsg("Malformed color tag: %s", tag.c_str());
+					throw std::logic_error("Malformed color tag:");
+				}
+				if (new_fg != c_null)
+					cur_fg = new_fg;
+				if (new_bg != c_null)
+					cur_bg = new_bg;
+			} // if comma was found
+		} // color needed to be found
+	} // while (tag != std::string::npos)
+
+	// There's a little string left over; push it into our vectors!
+	result.push_back({ text, cur_fg, cur_bg });
+	return result;
 }
 
 bool parse_color_tags(std::string text, std::vector<std::string>& segments,
