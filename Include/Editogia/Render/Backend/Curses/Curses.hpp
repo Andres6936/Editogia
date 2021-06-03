@@ -21,14 +21,32 @@ namespace Editogia
 
 	public:
 
+		/**
+		 * Constructor for default
+		 */
 		Curses() noexcept;
 
+		/**
+		 * @param width Width in characters of window.
+		 * @param height Height in characters of window.
+		 */
 		Curses(const std::int32_t width, const std::int32_t height) noexcept;
 
+		/**
+		 * @param x Coordinate at x of windows.
+		 * @param y Coordinate at y of windows.
+		 * @param width Width in characters of window.
+		 * @param height Height in characters of window.
+		 */
 		Curses(const std::int32_t x, const std::int32_t y,
 				const std::int32_t width, const std::int32_t height) noexcept;
 
+		/**
+		 * Destructor
+		 */
 		virtual ~Curses() noexcept;
+
+		// Implemented abstract methods
 
 		void writeChar(const std::int32_t x, const std::int32_t y, const std::int32_t _char,
 				const Color foreground, const Color background) override;
