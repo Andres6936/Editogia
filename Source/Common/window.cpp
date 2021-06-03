@@ -41,7 +41,6 @@ Window::Window(int posx, int posy, int sizex, int sizey, Window_type ntype)
 Window::~Window()
 {
 	delwin(w);
-	//WINDOWLIST.remove(this);
 }
 
 void Window::init(int posx, int posy, int sizex, int sizey, Window_type ntype)
@@ -86,12 +85,6 @@ Glyph Window::glyphat(int x, int y)
 
 void Window::putch(int x, int y, EColor fg, EColor bg, long sym)
 {
-/*
- if (outlined) {
-  x++;
-  y++;
- }
-*/
 	long col = get_color_pair(fg, bg);
 	wattron(w, col);
 	mvwaddch(w, y, x, sym);
@@ -473,21 +466,6 @@ bool is_backspace(long ch)
 {
 	return (ch == KEY_BACKSPACE || ch == 127 || ch == 8);
 }
-
-/*
-std::string file_selector(std::string start)
-{
- #if (defined _WIN32 || defined __WIN32__)
-  debugmsg("Sorry, file_selector() not yet coded for Windows.");
-  return;
- #endif
- int winx, winy;
- getmaxyx(stdscr, winx, winy); // Get window size
-
- Window w_select(0, 0, winx, winy);
- w_select.outline();
- 
-*/
 
 std::string string_input_popup(const char* mes, ...)
 {
@@ -897,19 +875,6 @@ void popup_scrollable(const char* mes, ...)
 	i_popup.add_element(cuss::ELE_TEXTBOX, "text", 0, 0, 80, 24, false);
 	i_popup.set_data("text", tmp);
 	i_popup.set_data("text", c_ltgray);
-/*
-  int pos = tmp.find('\n');
-  int line_num = 0;
-  while (pos != std::string::npos) {
-    std::string line = tmp.substr(0, pos);
-    line_num++;
-    w.putstr(1, line_num, c_white, c_black, line.c_str());
-    tmp = tmp.substr(pos + 1);
-    pos = tmp.find('\n');
-  }
-  line_num++;
-  w.putstr(1, line_num, c_white, c_black, tmp.c_str());
-*/
 
 	long ch;
 	do
