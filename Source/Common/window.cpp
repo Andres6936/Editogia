@@ -315,12 +315,12 @@ void Window::line_h(int y, EColor fg, EColor bg)
 
 void Window::clear()
 {
-	werase(w);
+	render->clear();
 }
 
 void Window::refresh()
 {
-	wrefresh(w);
+	render->draw();
 }
 
 void Window::writeChar(const std::int32_t x, const std::int32_t y, const std::int32_t _char)

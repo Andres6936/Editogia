@@ -32,6 +32,16 @@ namespace Editogia
 
 		// Abstract methods
 
+		/**
+		 * Draw the content in the render.
+		 */
+		virtual void draw() = 0;
+
+		/**
+		 * Clear the content in the render
+		 */
+		virtual void clear() = 0;
+
 		virtual void writeChar(const std::int32_t x, const std::int32_t y,
 				const std::int32_t _char,
 				const Color foreground,

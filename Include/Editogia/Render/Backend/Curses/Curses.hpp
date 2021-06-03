@@ -48,6 +48,16 @@ namespace Editogia
 
 		// Implemented abstract methods
 
+		/**
+		 * Draw th content of window.
+		 */
+		void draw() override;
+
+		/**
+		 * Clear the content of window.
+		 */
+		void clear() override;
+
 		void writeChar(const std::int32_t x, const std::int32_t y, const std::int32_t _char,
 				const Color foreground, const Color background) override;
 	};
