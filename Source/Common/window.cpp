@@ -74,7 +74,7 @@ Glyph Window::glyphat(int x, int y)
 
 void Window::putch(int x, int y, EColor fg, EColor bg, long sym)
 {
-	render->writeChar(x, y, sym, fg, bg);
+	writeChar(x, y, sym, fg, bg);
 }
 
 void Window::putglyph(int x, int y, Glyph gl)
