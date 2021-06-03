@@ -2,8 +2,10 @@
 #define _WINDOW_H_
 
 #include "Editogia/Render/View/Glyph.h"
+#include "Editogia/Render/IRender.hpp"
 #include <string_view>
 #include <cstdint>
+#include <memory>
 #include <vector>
 #include <list>
 
@@ -162,6 +164,8 @@ private:
 	bool outlined;
 	Window_type type;
 	int xdim, ydim;
+
+	std::unique_ptr<Editogia::IRender> render{ nullptr };
 };
 
 extern std::list<Window*> WINDOWLIST;

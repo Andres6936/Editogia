@@ -3,8 +3,10 @@
 #include <list>
 #include <cstring>
 #include <sstream>
+
 #include "Cuss/Interface.hpp"
 #include "Editogia/Render/View/window.h"
+#include "Editogia/Render/Backend/Curses/Curses.hpp"
 
 bool parse_color_tags(std::string text, std::vector<std::string>& segments,
 		std::vector<long>& color_pairs, EColor fg = c_white,
@@ -16,6 +18,8 @@ std::list<Window*> WINDOWLIST;
 
 Window::Window()
 {
+	render = std::make_unique<Editogia::Curses>();
+
 	w = newwin(0, 0, 0, 0);
 	outlined = false;
 	xdim = 0;
