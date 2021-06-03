@@ -91,12 +91,12 @@ public:
 	Window();
 
 	Window(int posx, int posy, int sizex, int sizey,
-			TypeWindow ntype = WINDOW_TYPE_GENERAL);
+			TypeWindow ntype = TypeWindow::General);
 
 	~Window();
 
 	void init(int posx, int posy, int sizex, int sizey,
-			TypeWindow ntype = WINDOW_TYPE_GENERAL);
+			TypeWindow ntype = TypeWindow::General);
 
 	void close();
 
