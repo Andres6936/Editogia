@@ -96,8 +96,6 @@ public:
 	void init(int posx, int posy, int sizex, int sizey,
 			TypeWindow ntype = TypeWindow::General);
 
-	void close();
-
 	void outline();
 
 // Info functions

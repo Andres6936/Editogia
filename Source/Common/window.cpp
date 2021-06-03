@@ -112,13 +112,6 @@ void Window::init(int posx, int posy, int sizex, int sizey, TypeWindow ntype)
 //	type = ntype;
 }
 
-void Window::close()
-{
-//	delwin(w);
-//	WINDOWLIST.remove(this);
-//	refresh_all(true);
-}
-
 void Window::outline()
 {
 //	outlined = true;
