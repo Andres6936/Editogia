@@ -342,24 +342,30 @@ void Window::refresh()
 
 void Window::writeChar(const std::int32_t x, const std::int32_t y, const std::int32_t _char)
 {
-
+	writeChar(x, y, _char, c_white, c_black);
 }
 
 void Window::writeChar(const std::int32_t x, const std::int32_t y, const std::int32_t _char,
 		const Window::Color foreground, const Window::Color background)
 {
-
+	render->writeChar(x, y, _char, foreground, background);
 }
 
 void Window::writeString(const std::int32_t x, const std::int32_t y, std::string_view _char)
 {
-
+	writeString(x, y, _char, c_white, c_black);
 }
 
 void Window::writeString(const std::int32_t x, const std::int32_t y, std::string_view _char,
 		const Window::Color foreground, const Window::Color background)
 {
+	std::int32_t offsetX = x;
 
+	for (const std::int32_t character : _char)
+	{
+		writeChar(offsetX, y, character, foreground, background);
+		offsetX += 1;
+	}
 }
 
 void init_display()
