@@ -44,8 +44,6 @@ bool SceneManager::init()
 		return false;
 	}
 
-	w_main.init(0, 0, 80, 24);
-
 // Menu setup!  Put menus here.
 	addMenu(TypeMenu::Game,
 			"Save & Quit",

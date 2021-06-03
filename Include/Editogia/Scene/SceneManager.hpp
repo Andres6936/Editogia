@@ -68,8 +68,8 @@ private:
 
 // Windows and cuss interfaces.
 	cuss::interface i_main;
-	Window w_main;
 
+	Window w_main{ 0, 0, 80, 24 };
 
 public:
 	SceneManager();

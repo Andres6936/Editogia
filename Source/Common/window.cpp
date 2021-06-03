@@ -103,15 +103,6 @@ Window::Window(int posx, int posy, int sizex, int sizey, TypeWindow ntype)
 	WINDOWLIST.push_back(this);
 }
 
-void Window::init(int posx, int posy, int sizex, int sizey, TypeWindow ntype)
-{
-//	delwin(w);
-//	w = newwin(sizey, sizex, posy, posx);
-//	xdim = sizex;
-//	ydim = sizey;
-//	type = ntype;
-}
-
 void Window::outline()
 {
 //	outlined = true;
