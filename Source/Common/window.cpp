@@ -108,11 +108,13 @@ void Window::outline()
 	for (std::size_t startX = 0; startX < xdim; ++startX)
 	{
 		writeChar(startX, 0, 4194417);
+		writeChar(startX, ydim - 1, 4194417);
 	}
 
 	for (std::size_t startY = 0; startY < ydim; ++startY)
 	{
 		writeChar(0, startY, 4194424);
+		writeChar(xdim - 1, startY, 4194424);
 	}
 
 	writeChar(0, 0, 4194412);
