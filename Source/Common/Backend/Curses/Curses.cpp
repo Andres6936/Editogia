@@ -66,7 +66,23 @@ const IRender::Color Curses::getForegroundColorAt(const std::int32_t x, const st
 
 const IRender::Color Curses::getBackgroundColorAt(const std::int32_t x, const std::int32_t y)
 {
-	return c_cyan;
+	const std::uint64_t backgroundColor = mvwinch(window, y, x) & A_COLOR;
+	const std::uint64_t backgroundAttributes = mvwinch(window, y, x) & A_ATTRIBUTES;
+
+	for (std::size_t index = 1; index < 256; ++index)
+	{
+		if (backgroundColor == COLOR_PAIR(index))
+		{
+			if (backgroundAttributes & A_BLINK)
+			{
+				return EColor(((index - 1) / 8) + 8);
+			}
+
+			return EColor((index - 1) / 8);
+		}
+	}
+
+	return c_black;
 }
 
 void Curses::writeChar(const std::int32_t x, const std::int32_t y, const std::int32_t _char,
