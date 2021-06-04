@@ -103,30 +103,6 @@ long get_color_pair(EColor fg, EColor bg)
 	return ret;
 }
 
-void extract_colors(long color, long attributes, EColor& fg, EColor& bg)
-{
-// Run through all COLOR_PAIRs -- is there a better way to do this?
-	bool found = false;
-	for (int i = 1; i <= 64 && !found; i++)
-	{
-		if (color == COLOR_PAIR(i))
-		{
-			fg = EColor((i - 1) % 8);
-			bg = EColor((i - 1) / 8);
-			found = true;
-		}
-	}
-	if (!found)
-	{
-		fg = c_black;
-		bg = c_black;
-	}
-	if (attributes & A_BOLD)
-		fg = EColor(int(fg) + 8);
-	if (attributes & A_BLINK)
-		bg = EColor(int(bg) + 8);
-}
-
 EColor color_string(std::string id)
 {
 	if (id == "black")

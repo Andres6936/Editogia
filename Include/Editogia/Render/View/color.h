@@ -29,9 +29,6 @@ enum EColor
 
 long get_color_pair(EColor fg, EColor bg);
 
-void extract_colors(long color, long attributes,
-		EColor& fg, EColor& bg);
-
 EColor color_string(std::string id);
 
 std::string color_name(EColor color);
