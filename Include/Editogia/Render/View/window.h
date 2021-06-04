@@ -75,8 +75,6 @@ void popup_nowait(const char* mes, ...);
 
 void popup_fullscreen(const char* mes, ...);
 
-void popup_scrollable(const char* mes, ...);
-
 class Window
 {
 public:
