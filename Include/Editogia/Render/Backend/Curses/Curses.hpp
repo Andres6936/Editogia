@@ -20,6 +20,11 @@ namespace Editogia
 		 */
 		WINDOW* window{ nullptr };
 
+		/**
+		 * @param x Coordinate at x of cell.
+		 * @param y Coordinate at y of cell.
+		 * @return Tuple with the values of color and attributes in the cell.
+		 */
 		const std::pair<std::uint64_t, std::uint64_t>
 		getColorAt(const std::int32_t x, const std::int32_t y);
 
