@@ -79,10 +79,6 @@ std::vector<Editogia::TextColor> parseText(
 	return result;
 }
 
-bool parse_color_tags(std::string text, std::vector<std::string>& segments,
-		std::vector<long>& color_pairs, EColor fg = c_white,
-		EColor bg = c_black);
-
 std::string strip_tags(std::string text);
 
 std::list<Window*> WINDOWLIST;
@@ -890,78 +886,6 @@ void popup_scrollable(const char* mes, ...)
 			i_popup.add_data("text", -10);
 		}
 	} while (ch != '\n' && ch != KEY_ESC);
-}
-
-bool parse_color_tags(std::string text, std::vector<std::string>& segments,
-		std::vector<long>& color_pairs, EColor fg, EColor bg)
-{
-	size_t tag;
-	EColor cur_fg = fg, cur_bg = bg;
-
-	while ((tag = text.find("<c=")) != std::string::npos)
-	{
-// Everything before the tag is a segment, with the current colors
-		segments.push_back(text.substr(0, tag));
-		color_pairs.push_back(get_color_pair(cur_fg, cur_bg));
-// Strip off everything up to and including "<c="
-		text = text.substr(tag + 3);
-// Find the end of the tag
-		size_t tagend = text.find(">");
-		if (tagend == std::string::npos)
-		{
-			debugmsg("Unterminated color tag! %d:%s:",
-					int(tag), text.c_str());
-			return false;
-		}
-		std::string tag = text.substr(0, tagend);
-// Strip out the tag
-		text = text.substr(tagend + 1);
-
-		if (tag == "reset" || tag == "/")
-		{ // Reset the colors
-			cur_fg = fg;
-			cur_bg = bg;
-		}
-		else
-		{ // We're looking for the color!
-			size_t comma = tag.find(",");
-			if (comma == std::string::npos)
-			{ // No comma - just setting fg
-				cur_fg = color_string(tag);
-				if (cur_fg == c_null)
-				{
-					debugmsg("Malformed color tag: %s", tag.c_str());
-					return false;
-				}
-			}
-			else
-			{
-				EColor new_fg = color_string(tag.substr(0, comma)),
-						new_bg = color_string(tag.substr(comma + 1));
-				if (new_fg == c_null && new_bg == c_null)
-				{
-					debugmsg("Malformed color tag: %s", tag.c_str());
-					return false;
-				}
-				if (new_fg != c_null)
-					cur_fg = new_fg;
-				if (new_bg != c_null)
-					cur_bg = new_bg;
-			} // if comma was found
-		} // color needed to be found
-	} // while (tag != std::string::npos)
-// There's a little string left over; push it into our vectors!
-	segments.push_back(text);
-	color_pairs.push_back(get_color_pair(cur_fg, cur_bg));
-
-	if (segments.size() != color_pairs.size())
-	{
-		debugmsg("Segments.size() = %d, color_pairs.size() = %d",
-				segments.size(), color_pairs.size());
-		return false;
-	}
-
-	return true;
 }
 
 std::string strip_tags(std::string text)
