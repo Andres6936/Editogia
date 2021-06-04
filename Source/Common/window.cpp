@@ -228,7 +228,6 @@ void Window::putstr_r(int x, int y, EColor fg, EColor bg, int maxlength,
 	{
 		x += maxlength - tagless.length();
 	}
-	long col = get_color_pair(fg, bg);
 
 	if (prepped.find("<c=") == std::string::npos)
 	{
