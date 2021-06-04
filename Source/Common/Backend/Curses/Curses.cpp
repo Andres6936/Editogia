@@ -38,6 +38,37 @@ void Curses::clear()
 	werase(window);
 }
 
+const std::int32_t Curses::getCharacterAt(const std::int32_t x, const std::int32_t y)
+{
+	return mvwinch(window, y, x) & A_CHARTEXT;
+}
+
+const IRender::Color Curses::getForegroundColorAt(const std::int32_t x, const std::int32_t y)
+{
+	const std::uint64_t foregroundColor = mvwinch(window, y, x) & A_COLOR;
+	const std::uint64_t foregroundAttributes = mvwinch(window, y, x) & A_ATTRIBUTES;
+
+	for (std::size_t index = 1; index < 256; ++index)
+	{
+		if (foregroundColor == COLOR_PAIR(index))
+		{
+			if (foregroundAttributes & A_BOLD)
+			{
+				return EColor(((index - 1) % 8) + 8);
+			}
+
+			return EColor((index - 1) % 8);
+		}
+	}
+
+	return c_black;
+}
+
+const IRender::Color Curses::getBackgroundColorAt(const std::int32_t x, const std::int32_t y)
+{
+	return c_cyan;
+}
+
 void Curses::writeChar(const std::int32_t x, const std::int32_t y, const std::int32_t _char,
 		const IRender::Color foreground, const IRender::Color background)
 {

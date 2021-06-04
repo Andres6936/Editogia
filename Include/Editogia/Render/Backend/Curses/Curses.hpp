@@ -58,6 +58,12 @@ namespace Editogia
 		 */
 		void clear() override;
 
+		const std::int32_t getCharacterAt(const std::int32_t x, const std::int32_t y) override;
+
+		const Color getForegroundColorAt(const std::int32_t x, const std::int32_t y) override;
+
+		const Color getBackgroundColorAt(const std::int32_t x, const std::int32_t y) override;
+
 		void writeChar(const std::int32_t x, const std::int32_t y, const std::int32_t _char,
 				const Color foreground, const Color background) override;
 	};
