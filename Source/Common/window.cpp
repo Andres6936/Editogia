@@ -410,16 +410,6 @@ void debugmsg(const char* mes, ...)
 	attroff(COLOR_PAIR(3));
 }
 
-void refresh_all(bool erase) // erase defaults to false
-{
-	if (erase)
-		clear();
-
-	for (std::list<Window*>::iterator it = WINDOWLIST.begin();
-		 it != WINDOWLIST.end(); it++)
-		(*it)->refresh();
-}
-
 void get_screen_dims(int& xdim, int& ydim)
 {
 	getmaxyx(stdscr, ydim, xdim);
