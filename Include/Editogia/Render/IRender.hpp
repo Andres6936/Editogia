@@ -42,6 +42,15 @@ namespace Editogia
 		 */
 		virtual void clear() = 0;
 
+		virtual const std::int32_t getCharacterAt(const std::int32_t x,
+				const std::int32_t y) = 0;
+
+		virtual const Color getForegroundColorAt(const std::int32_t x,
+				const std::int32_t y) = 0;
+
+		virtual const Color getBackgroundColorAt(const std::int32_t x,
+				const std::int32_t y) = 0;
+
 		virtual void writeChar(const std::int32_t x, const std::int32_t y,
 				const std::int32_t _char,
 				const Color foreground,
