@@ -77,12 +77,20 @@ void popup_fullscreen(const char* mes, ...);
 
 class Window
 {
+
 public:
 
 	/**
 	 * Definition public of Color.
 	 */
 	using Color = EColor;
+
+private:
+
+	void writeColorText(std::int32_t x, std::int32_t y, std::string_view text,
+			const Color foreground, const Color background);
+
+public:
 
 	Window();
 

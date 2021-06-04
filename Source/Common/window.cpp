@@ -147,6 +147,27 @@ void Window::putglyph(int x, int y, Glyph gl)
 	putch(x, y, gl.fg, gl.bg, gl.symbol);
 }
 
+void Window::writeColorText(std::int32_t x, std::int32_t y, std::string_view text,
+		const Window::Color foreground, const Window::Color background)
+{
+	if (text.find("<c=") == std::string::npos)
+	{
+		writeString(x, y, text, foreground, background);
+	}
+	else
+	{
+		std::vector<Editogia::TextColor> textColors = parseText(
+				std::string(text), foreground, background);
+
+		for (const auto textColor : textColors)
+		{
+			writeString(x, y, textColor.getText(), textColor.getForegroundColor(),
+					textColor.getBackgroundColor());
+			x += textColor.getText().size();
+		}
+	}
+}
+
 void Window::putstr(int x, int y, EColor fg, EColor bg, std::string str,
 		...)
 {
@@ -158,23 +179,7 @@ void Window::putstr(int x, int y, EColor fg, EColor bg, std::string str,
 	vsprintf(buff, str.c_str(), ap);
 	va_end(ap);
 
-	std::string prepped = buff;
-
-	if (prepped.find("<c=") == std::string::npos)
-	{
-		writeString(x, y, buff, fg, bg);
-	}
-	else
-	{
-		std::vector<Editogia::TextColor> textColors = parseText(prepped, fg, bg);
-
-		for (const auto textColor : textColors)
-		{
-			writeString(x, y, textColor.getText(), textColor.getForegroundColor(),
-					textColor.getBackgroundColor());
-			x += textColor.getText().size();
-		}
-	}
+	writeColorText(x, y, buff, fg, bg);
 }
 
 void Window::putstr_raw(int x, int y, EColor fg, EColor bg, std::string str,
@@ -202,23 +207,7 @@ void Window::putstr_n(int x, int y, EColor fg, EColor bg, int maxlength,
 	vsprintf(buff, str.c_str(), ap);
 	va_end(ap);
 
-	std::string prepped = buff;
-
-	if (prepped.find("<c=") == std::string::npos)
-	{
-		writeString(x, y, prepped.substr(0, maxlength), fg, bg);
-	}
-	else
-	{
-		std::vector<Editogia::TextColor> textColors = parseText(prepped, fg, bg);
-
-		for (const auto textColor : textColors)
-		{
-			writeString(x, y, textColor.getText(), textColor.getForegroundColor(),
-					textColor.getBackgroundColor());
-			x += textColor.getText().size();
-		}
-	}
+	writeColorText(x, y, buff, fg, bg);
 }
 
 void Window::putstr_r(int x, int y, EColor fg, EColor bg, int maxlength,
