@@ -15,6 +15,7 @@ ADD_LIBRARY(Editogia.Lib
         Gea/map.cpp
         Gea/resource.cpp
         Gea/world.cpp
+        IO/User/Key.cpp
         IO/User/keys.cpp
         Math/geometry.cpp
         Math/pathfind.cpp
