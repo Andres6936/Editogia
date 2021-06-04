@@ -203,7 +203,6 @@ void Window::putstr_n(int x, int y, EColor fg, EColor bg, int maxlength,
 	va_end(ap);
 
 	std::string prepped = buff;
-	long col = get_color_pair(fg, bg);
 
 	if (prepped.find("<c=") == std::string::npos)
 	{
