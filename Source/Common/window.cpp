@@ -118,14 +118,9 @@ void Window::outline()
 	}
 
 	writeChar(0, 0, 4194412);
+	writeChar(0, ydim - 1, 4194413);
+	writeChar(xdim - 1, 0, 4194411);
 	writeChar(xdim - 1, ydim - 1, 4194410);
-
-//	outlined = true;
-//	long col = get_color_pair(c_white, c_black);
-//	wattron(w, col);
-//	wborder(w, LINE_XOXO, LINE_XOXO, LINE_OXOX, LINE_OXOX,
-//			LINE_OXXO, LINE_OOXX, LINE_XXOO, LINE_XOOX);
-//	wattroff(w, col);
 }
 
 Glyph Window::glyphat(int x, int y)
