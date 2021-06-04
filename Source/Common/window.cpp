@@ -126,14 +126,16 @@ void Window::outline()
 Glyph Window::glyphat(int x, int y)
 {
 	Glyph ret;
-	if (type == TypeWindow::Text || type == TypeWindow::Other ||
-		x < 0 || x >= xdim || y < 0 || y >= ydim)
+	if (type == TypeWindow::Text || type == TypeWindow::Other
+		|| x < 0 || x >= xdim || y < 0 || y >= ydim)
+	{
 		return ret; // Whatever a default Glyph is
+	}
 
-//	long wi = mvwinch(w, y, x);
-//	//ret.symbol = wi - ((wi & A_COLOR) + (wi & A_ATTRIBUTES));
-//	ret.symbol = wi & A_CHARTEXT;
-//	extract_colors(wi & A_COLOR, wi & A_ATTRIBUTES, ret.fg, ret.bg);
+	ret.symbol = render->getCharacterAt(x, y);
+	ret.fg = render->getForegroundColorAt(x, y);
+	ret.bg = render->getBackgroundColorAt(x, y);
+
 	return ret;
 }
 
