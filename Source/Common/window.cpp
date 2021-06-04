@@ -159,7 +159,6 @@ void Window::putstr(int x, int y, EColor fg, EColor bg, std::string str,
 	va_end(ap);
 
 	std::string prepped = buff;
-	long col = get_color_pair(fg, bg);
 
 	if (prepped.find("<c=") == std::string::npos)
 	{
