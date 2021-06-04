@@ -19,6 +19,9 @@ namespace Editogia
 		 */
 		WINDOW* window{ nullptr };
 
+		std::pair<std::uint64_t, std::uint64_t>
+		getColorAt(const std::int32_t x, const std::int32_t y);
+
 	public:
 
 		/**

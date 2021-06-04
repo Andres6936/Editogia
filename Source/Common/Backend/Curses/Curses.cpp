@@ -28,6 +28,16 @@ Curses::~Curses() noexcept
 	delwin(window);
 }
 
+// Private methods
+
+std::pair<std::uint64_t, std::uint64_t>
+Curses::getColorAt(const std::int32_t x, const std::int32_t y)
+{
+	return { mvwinch(window, y, x) & A_COLOR, mvwinch(window, y, x) & A_ATTRIBUTES };
+}
+
+// Public methods
+
 void Curses::draw()
 {
 	wrefresh(window);
@@ -45,14 +55,13 @@ const std::int32_t Curses::getCharacterAt(const std::int32_t x, const std::int32
 
 const IRender::Color Curses::getForegroundColorAt(const std::int32_t x, const std::int32_t y)
 {
-	const std::uint64_t foregroundColor = mvwinch(window, y, x) & A_COLOR;
-	const std::uint64_t foregroundAttributes = mvwinch(window, y, x) & A_ATTRIBUTES;
+	const auto[color, attributes] = getColorAt(x, y);
 
-	for (std::size_t index = 1; index < 256; ++index)
+	for (std::size_t index = 1; index < 64; ++index)
 	{
-		if (foregroundColor == COLOR_PAIR(index))
+		if (color == COLOR_PAIR(index))
 		{
-			if (foregroundAttributes & A_BOLD)
+			if (attributes & A_BOLD)
 			{
 				return EColor(((index - 1) % 8) + 8);
 			}
@@ -66,14 +75,13 @@ const IRender::Color Curses::getForegroundColorAt(const std::int32_t x, const st
 
 const IRender::Color Curses::getBackgroundColorAt(const std::int32_t x, const std::int32_t y)
 {
-	const std::uint64_t backgroundColor = mvwinch(window, y, x) & A_COLOR;
-	const std::uint64_t backgroundAttributes = mvwinch(window, y, x) & A_ATTRIBUTES;
+	const auto[color, attributes] = getColorAt(x, y);
 
-	for (std::size_t index = 1; index < 256; ++index)
+	for (std::size_t index = 1; index < 64; ++index)
 	{
-		if (backgroundColor == COLOR_PAIR(index))
+		if (color == COLOR_PAIR(index))
 		{
-			if (backgroundAttributes & A_BLINK)
+			if (attributes & A_BLINK)
 			{
 				return EColor(((index - 1) / 8) + 8);
 			}
