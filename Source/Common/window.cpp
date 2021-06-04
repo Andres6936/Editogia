@@ -229,21 +229,7 @@ void Window::putstr_r(int x, int y, EColor fg, EColor bg, int maxlength,
 		x += maxlength - tagless.length();
 	}
 
-	if (prepped.find("<c=") == std::string::npos)
-	{
-		writeString(x, y, prepped.substr(0, maxlength), fg, bg);
-	}
-	else
-	{
-		std::vector<Editogia::TextColor> textColors = parseText(prepped, fg, bg);
-
-		for (const auto textColor : textColors)
-		{
-			writeString(x, y, textColor.getText(), textColor.getForegroundColor(),
-					textColor.getBackgroundColor());
-			x += textColor.getText().size();
-		}
-	}
+	writeColorText(x, y, prepped, fg, bg);
 }
 
 void Window::putstr_c(int x, int y, EColor fg, EColor bg, int maxlength,
@@ -264,23 +250,8 @@ void Window::putstr_c(int x, int y, EColor fg, EColor bg, int maxlength,
 	{
 		x += (maxlength - tagless.length()) / 2;
 	}
-	long col = get_color_pair(fg, bg);
 
-	if (prepped.find("<c=") == std::string::npos)
-	{
-		writeString(x, y, prepped.substr(0, maxlength), fg, bg);
-	}
-	else
-	{
-		std::vector<Editogia::TextColor> textColors = parseText(prepped, fg, bg);
-
-		for (const auto textColor : textColors)
-		{
-			writeString(x, y, textColor.getText(), textColor.getForegroundColor(),
-					textColor.getBackgroundColor());
-			x += textColor.getText().size();
-		}
-	}
+	writeColorText(x, y, prepped, fg, bg);
 }
 
 void Window::clear_area(int x1, int y1, int x2, int y2)
