@@ -30,7 +30,7 @@ Curses::~Curses() noexcept
 
 // Private methods
 
-std::pair<std::uint64_t, std::uint64_t>
+const std::pair<std::uint64_t, std::uint64_t>
 Curses::getColorAt(const std::int32_t x, const std::int32_t y)
 {
 	return { mvwinch(window, y, x) & A_COLOR, mvwinch(window, y, x) & A_ATTRIBUTES };
