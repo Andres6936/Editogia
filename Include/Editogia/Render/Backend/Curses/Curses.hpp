@@ -4,6 +4,7 @@
 #define EDITOGIA_CURSES_HPP
 
 #include <curses.h>
+#include <utility>
 #include "Editogia/Render/IRender.hpp"
 
 namespace Editogia
