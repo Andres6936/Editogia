@@ -256,6 +256,10 @@ const Key Curses::getKeyEvent()
 	{
 		key.setKeyCode(KeyCode::KP_SUB);
 	}
+	else if (keyPressed == '.')
+	{
+		key.setKeyCode(KeyCode::DOT);
+	}
 	else if (keyPressed == '<')
 	{
 		key.setKeyCode(KeyCode::LESS_THAN);

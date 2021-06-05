@@ -28,6 +28,7 @@ namespace Editogia
 		PRINT_SCREEN,
 		DELETE,
 		SPACE,
+		DOT,
 		LESS_THAN,
 		GREATER_THAN,
 		OPEN_BRACKET,
