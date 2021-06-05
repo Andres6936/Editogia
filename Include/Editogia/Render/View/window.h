@@ -85,6 +85,16 @@ public:
 
 private:
 
+	int xdim;
+
+	int ydim;
+
+	bool outlined;
+
+	TypeWindow type;
+
+	std::unique_ptr<Editogia::IRender> render{ nullptr };
+
 	void writeColorText(std::int32_t x, std::int32_t y, std::string_view text,
 			const Color foreground, const Color background);
 
@@ -153,14 +163,6 @@ public:
 	void clear();
 
 	void refresh();
-
-private:
-
-	bool outlined;
-	TypeWindow type;
-	int xdim, ydim;
-
-	std::unique_ptr<Editogia::IRender> render{ nullptr };
 };
 
 extern std::list<Window*> WINDOWLIST;
