@@ -587,7 +587,24 @@ void SceneManager::handle_key(const KeyCode key)
 
 		case IMODE_VIEW_MAP:
 		{
-			Point p = input_direction(ch);
+			Point p;
+
+			if (key == KeyCode::UP)
+			{
+				p = Point(0, -1);
+			}
+			else if (key == KeyCode::DOWN)
+			{
+				p = Point(0, 1);
+			}
+			else if (key == KeyCode::LEFT)
+			{
+				p = Point(-1, 0);
+			}
+			else if (key == KeyCode::RIGHT)
+			{
+				p = Point(1, 0);
+			}
 
 			// Move the cursor
 			if (p.x != -2 && (p.x != 0 || p.y != 0))
