@@ -29,6 +29,8 @@ namespace Editogia
 		 */
 		WINDOW* window{ nullptr };
 
+		void startUpColorSchema();
+
 		/**
 		 * @param x Coordinate at x of cell.
 		 * @param y Coordinate at y of cell.
