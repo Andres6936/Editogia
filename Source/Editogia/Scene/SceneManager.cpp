@@ -761,7 +761,7 @@ resources spent to build it.", area_selected->get_name().c_str()))
 
 				// Move time forward by 1 day
 			}
-			else if (ch == '.')
+			else if (key == KeyCode::DOT)
 			{
 				GAME->advance_time(1, pl_city);
 
