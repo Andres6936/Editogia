@@ -244,6 +244,14 @@ const Key Curses::getKeyEvent()
 	{
 		key.setKeyCode(KeyCode::Z);
 	}
+	else if (keyPressed == '<')
+	{
+		key.setKeyCode(KeyCode::LESS_THAN);
+	}
+	else if (keyPressed == '>')
+	{
+		key.setKeyCode(KeyCode::GREATER_THAN);
+	}
 
 	// For avoid write a key.setPressed(true) in each if block,
 	// if the user press a key, set the boolean in the key interface
