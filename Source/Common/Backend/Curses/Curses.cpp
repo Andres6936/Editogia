@@ -244,6 +244,10 @@ const Key Curses::getKeyEvent()
 	{
 		key.setKeyCode(KeyCode::Z);
 	}
+	else if (keyPressed == '*')
+	{
+		key.setKeyCode(KeyCode::KP_MUL);
+	}
 	else if (keyPressed == '<')
 	{
 		key.setKeyCode(KeyCode::LESS_THAN);
