@@ -50,7 +50,76 @@ void Curses::clear()
 
 const Key Curses::getKeyEvent()
 {
-	return Key();
+	Key key{};
+
+	const std::int64_t keyPressed = getch();
+
+	if (keyPressed == 'a' || keyPressed == 'A')
+	{
+		key.setKeyCode(KeyCode::A);
+	}
+	else if (keyPressed == 'b' || keyPressed == 'B')
+	{
+		key.setKeyCode(KeyCode::B);
+	}
+	else if (keyPressed == 'c' || keyPressed == 'C')
+	{
+		key.setKeyCode(KeyCode::C);
+	}
+	else if (keyPressed == 'd' || keyPressed == 'D')
+	{
+		key.setKeyCode(KeyCode::D);
+	}
+	else if (keyPressed == 'e' || keyPressed == 'E')
+	{
+		key.setKeyCode(KeyCode::E);
+	}
+	else if (keyPressed == 'f' || keyPressed == 'F')
+	{
+		key.setKeyCode(KeyCode::F);
+	}
+	else if (keyPressed == 'g' || keyPressed == 'G')
+	{
+		key.setKeyCode(KeyCode::G);
+	}
+	else if (keyPressed == 'h')
+	{
+
+	}
+	else if (keyPressed == 'a')
+	{
+
+	}
+	else if (keyPressed == 'a')
+	{
+
+	}
+	else if (keyPressed == 'a')
+	{
+
+	}
+	else if (keyPressed == 'a')
+	{
+
+	}
+	else if (keyPressed == 'a')
+	{
+
+	}
+	else if (keyPressed == 'a')
+	{
+
+	}
+	else if (keyPressed == 'a')
+	{
+
+	}
+	else if (keyPressed == 'a')
+	{
+
+	}
+
+	return key;
 }
 
 const std::int32_t Curses::getCharacterAt(const std::int32_t x, const std::int32_t y)
