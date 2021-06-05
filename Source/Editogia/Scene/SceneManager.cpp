@@ -750,12 +750,12 @@ resources spent to build it.", area_selected->get_name().c_str()))
 				}
 
 			}
-			else if (ch == '[')
+			else if (key == KeyCode::OPEN_BRACKET)
 			{
 				shift_data_mode(-1);
 
 			}
-			else if (ch == ']')
+			else if (key == KeyCode::CLOSED_BRACKET)
 			{
 				shift_data_mode(1);
 
