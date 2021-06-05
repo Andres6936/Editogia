@@ -5,6 +5,7 @@
 
 #include <curses.h>
 #include <utility>
+#include "Editogia/IO/User/Key.hpp"
 #include "Editogia/Render/IRender.hpp"
 
 namespace Editogia
@@ -66,6 +67,8 @@ namespace Editogia
 		 * Clear the content of window.
 		 */
 		void clear() override;
+
+		const Key getKeyEvent() override;
 
 		const std::int32_t getCharacterAt(const std::int32_t x, const std::int32_t y) override;
 

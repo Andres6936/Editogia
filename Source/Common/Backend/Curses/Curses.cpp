@@ -48,6 +48,11 @@ void Curses::clear()
 	werase(window);
 }
 
+const Key Curses::getKeyEvent()
+{
+	return Key();
+}
+
 const std::int32_t Curses::getCharacterAt(const std::int32_t x, const std::int32_t y)
 {
 	return mvwinch(window, y, x) & A_CHARTEXT;

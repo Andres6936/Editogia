@@ -3,6 +3,7 @@
 #ifndef EDITOGIA_IRENDER_HPP
 #define EDITOGIA_IRENDER_HPP
 
+#include "Editogia/IO/User/Key.hpp"
 #include "Editogia/Render/View/color.h"
 #include <string_view>
 #include <cstdint>
@@ -41,6 +42,8 @@ namespace Editogia
 		 * Clear the content in the render
 		 */
 		virtual void clear() = 0;
+
+		virtual const Key getKeyEvent() = 0;
 
 		virtual const std::int32_t getCharacterAt(const std::int32_t x,
 				const std::int32_t y) = 0;
