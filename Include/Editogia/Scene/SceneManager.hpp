@@ -92,7 +92,7 @@ private:
  * mode we're in.  Esc and ! are unique; Esc always sets mode/menu to NULL, and
  * ! always sets mode to Menu and menu to NULL.
  */
-	void handle_key(long ch);
+	void handle_key(const Editogia::KeyCode key);
 
 
 // *** Modes ***

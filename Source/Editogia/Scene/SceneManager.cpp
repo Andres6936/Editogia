@@ -18,6 +18,8 @@
 
 #include <Levin/Levin.hpp>
 
+using namespace Editogia;
+
 SceneManager::SceneManager()
 {
 	cur_menu = TypeMenu::None;
@@ -504,24 +506,25 @@ void SceneManager::main_loop()
 
 		i_main.draw(&w_main);
 		w_main.refresh();
-		long ch = input();
+
+		const KeyCode key = w_main.getKeyEvent().getKeyCode();
 
 // Mark all but 10 most recent messages as read if we're on the message tab
 		if (cur_data_mode == DATA_MODE_MESSAGES &&
-				pl_city->unread_messages >= 10)
+			pl_city->unread_messages >= 10)
 		{
 			pl_city->unread_messages = 10;
 		}
 
 		restore_info_text();  // Undo temporary change to text_map_info
 
-		if (ch == KEY_ESC)
+		if (key == KeyCode::ESCAPE)
 		{
 			set_menu(TypeMenu::None);
 			set_mode(IMODE_VIEW_MAP);
 
 		}
-		else if (ch == '!')
+		else if (key == KeyCode::EXCLAMATION_MARK)
 		{
 			set_mode(IMODE_MENU);
 			set_menu(TypeMenu::None);
@@ -529,7 +532,7 @@ void SceneManager::main_loop()
 		}
 		else
 		{
-			handle_key(ch);
+			handle_key(key);
 		}
 
 		if (game_state == GAME_QUIT)
@@ -539,15 +542,15 @@ void SceneManager::main_loop()
 	}
 }
 
-void SceneManager::handle_key(long ch)
+void SceneManager::handle_key(const KeyCode key)
 {
-//debugmsg("handle_key");
-	if (ch >= '1' && ch <= '9')
-	{ // Accessing or using a menu!
+	if (key >= KeyCode::KP_1 and key <= KeyCode::KP_9)
+	{
+		// Accessing or using a menu!
 
-/* We start counting at 1 because this is tied to the interface.  All menus and
- * items in menus start counting at 1, so we do too.
- */
+		/* We start counting at 1 because this is tied to the interface.  All menus and
+		 * items in menus start counting at 1, so we do too.
+		 */
 		int menu_index = ch - '0';
 
 		if (cur_menu == TypeMenu::None)
@@ -565,7 +568,7 @@ void SceneManager::handle_key(long ch)
 	else
 	{  // Not a menu; thus, the action taken depends on our mode.
 
-		if (ch == '*')
+		if (key == KeyCode::KP_MUL)
 		{
 			debugmsg("mode %d", cur_mode);
 		}
@@ -574,8 +577,8 @@ void SceneManager::handle_key(long ch)
 		{
 
 		case IMODE_MENU:
-// Most menu stuff is handled above (keys '1' - '9').  But Q can close the menu.
-			if (ch == 'q' || ch == 'Q')
+			// Most menu stuff is handled above (keys '1' - '9').  But Q can close the menu.
+			if (key == KeyCode::Q)
 			{
 				set_menu(TypeMenu::None);
 				set_mode(IMODE_VIEW_MAP);
@@ -586,7 +589,7 @@ void SceneManager::handle_key(long ch)
 		{
 			Point p = input_direction(ch);
 
-// Move the cursor
+			// Move the cursor
 			if (p.x != -2 && (p.x != 0 || p.y != 0))
 			{
 				sel += p;
@@ -607,9 +610,9 @@ void SceneManager::handle_key(long ch)
 					sel.y = CITY_MAP_SIZE - 1;
 				}
 
-// Get info on currently-selected tile
+				// Get info on currently-selected tile
 			}
-			else if (ch == '\n')
+			else if (key == KeyCode::ENTER)
 			{
 				if (current_area != AREA_NULL)
 				{
@@ -627,29 +630,29 @@ void SceneManager::handle_key(long ch)
 					popup(pl_city->get_map_info(sel).c_str());
 				}
 
-// Revert to normal mode (not building an area, VIEW_MAP mode)
+				// Revert to normal mode (not building an area, VIEW_MAP mode)
 			}
-			else if (ch == 'q' || ch == 'Q')
+			else if (key == KeyCode::Q)
 			{
 				current_area = AREA_NULL;
 				set_mode(IMODE_VIEW_MAP);
 				i_main.clear_data("text_data");
 
-// Toggle hiding areas (i.e. only show terrain)
+				// Toggle hiding areas (i.e. only show terrain)
 			}
-			else if (ch == 't' || ch == 'T')
+			else if (key == KeyCode::T)
 			{
 				show_terrain = !show_terrain;
 
-// Toggled grayed-out tiles outside of our city's radius
+				// Toggled grayed-out tiles outside of our city's radius
 			}
-			else if (ch == 'r' || ch == 'R')
+			else if (key == KeyCode::R)
 			{
 				city_radius = !city_radius;
 
-// Build a new area
+				// Build a new area
 			}
-			else if (ch == 'a' || ch == 'A')
+			else if (key == KeyCode::A)
 			{
 				current_area = pick_area();
 				display_area_stats(current_area);
@@ -660,9 +663,9 @@ void SceneManager::handle_key(long ch)
 					i_main.set_data("text_data", build->get_short_description());
 				}
 
-// Close an area
+				// Close an area
 			}
-			else if (ch == 'c' || ch == 'C')
+			else if (key == KeyCode::C)
 			{
 				Area* area_selected = pl_city->area_at(sel);
 				if (!area_selected)
@@ -679,9 +682,9 @@ void SceneManager::handle_key(long ch)
 					area_selected->close(pl_city);
 				}
 
-// Open a closed area
+				// Open a closed area
 			}
-			else if (ch == 'o' || ch == 'O')
+			else if (key == KeyCode::O)
 			{
 				Area* area_selected = pl_city->area_at(sel);
 				if (!area_selected)
@@ -712,9 +715,9 @@ void SceneManager::handle_key(long ch)
 					}
 				}
 
-// Destroy an area
+				// Destroy an area
 			}
-			else if (ch == 'd' || ch == 'D')
+			else if (key == KeyCode::D)
 			{
 				Area* area_selected = pl_city->area_at(sel);
 				if (area_selected)
@@ -722,8 +725,8 @@ void SceneManager::handle_key(long ch)
 					int cost = area_selected->get_destroy_cost();
 					int gold = pl_city->get_resource_amount(RES_GOLD);
 
-// Areas under construction are free to "destroy" (but we won't get the build
-// costs back).
+					// Areas under construction are free to "destroy" (but we won't get the build
+					// costs back).
 					if (area_selected->under_construction())
 					{
 						if (query_yn("Cancel %s construction? You will lose all \
@@ -756,15 +759,15 @@ resources spent to build it.", area_selected->get_name().c_str()))
 			{
 				shift_data_mode(1);
 
-// Move time forward by 1 day
+				// Move time forward by 1 day
 			}
 			else if (ch == '.')
 			{
 				GAME->advance_time(1, pl_city);
 
-// Move time forward by 1 week
+				// Move time forward by 1 week
 			}
-			else if (ch == '>')
+			else if (key == KeyCode::GREATER_THAN)
 			{
 				GAME->advance_time(7, pl_city);
 			}
