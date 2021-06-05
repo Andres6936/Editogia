@@ -252,6 +252,10 @@ const Key Curses::getKeyEvent()
 	{
 		key.setKeyCode(KeyCode::GREATER_THAN);
 	}
+	else if (keyPressed == '!')
+	{
+		key.setKeyCode(KeyCode::EXCLAMATION_MARK);
+	}
 	else if (keyPressed == KEY_UP)
 	{
 		key.setKeyCode(KeyCode::UP);
@@ -267,6 +271,10 @@ const Key Curses::getKeyEvent()
 	else if (keyPressed == KEY_RIGHT)
 	{
 		key.setKeyCode(KeyCode::RIGHT);
+	}
+	else if (keyPressed == 27)
+	{
+		key.setKeyCode(KeyCode::ESCAPE);
 	}
 
 	// For avoid write a key.setPressed(true) in each if block,
