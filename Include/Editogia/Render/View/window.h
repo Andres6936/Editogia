@@ -165,6 +165,4 @@ public:
 	void refresh();
 };
 
-extern std::list<Window*> WINDOWLIST;
-
 #endif

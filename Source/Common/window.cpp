@@ -81,8 +81,6 @@ std::vector<Editogia::TextColor> parseText(
 
 std::string strip_tags(std::string text);
 
-std::list<Window*> WINDOWLIST;
-
 Window::Window() : Window(0, 0, 0, 0)
 {
 	// Delegate the construction to another construct
@@ -96,7 +94,6 @@ Window::Window(int posx, int posy, int sizex, int sizey, TypeWindow ntype)
 	xdim = sizex;
 	ydim = sizey;
 	type = ntype;
-	WINDOWLIST.push_back(this);
 }
 
 void Window::outline()
