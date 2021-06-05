@@ -1,5 +1,7 @@
 ADD_LIBRARY(Editogia.Common
         Backend/Curses/Curses.cpp
+        IO/User/Key.cpp
+        IO/User/keys.cpp
         View/Glyph.cpp
         View/TextColor.cpp
         color.cpp
