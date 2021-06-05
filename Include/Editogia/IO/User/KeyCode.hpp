@@ -30,6 +30,8 @@ namespace Editogia
 		SPACE,
 		LESS_THAN,
 		GREATER_THAN,
+		OPEN_BRACKET,
+		CLOSED_BRACKET,
 		EXCLAMATION_MARK,
 
 		A,

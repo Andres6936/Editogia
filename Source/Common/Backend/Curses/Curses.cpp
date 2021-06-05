@@ -264,6 +264,14 @@ const Key Curses::getKeyEvent()
 	{
 		key.setKeyCode(KeyCode::GREATER_THAN);
 	}
+	else if (keyPressed == '[')
+	{
+		key.setKeyCode(KeyCode::OPEN_BRACKET);
+	}
+	else if (keyPressed == ']')
+	{
+		key.setKeyCode(KeyCode::CLOSED_BRACKET);
+	}
 	else if (keyPressed == '!')
 	{
 		key.setKeyCode(KeyCode::EXCLAMATION_MARK);
