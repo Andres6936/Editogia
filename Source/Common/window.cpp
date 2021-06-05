@@ -333,19 +333,6 @@ void Window::writeString(const std::int32_t x, const std::int32_t y, std::string
 	}
 }
 
-void init_display()
-{
-	initscr();
-	noecho();
-	cbreak();
-	keypad(stdscr, true);
-	init_colors();
-	curs_set(0);
-	timeout(1);
-	getch();
-	timeout(-1);
-}
-
 long input()
 {
 	flushinp();

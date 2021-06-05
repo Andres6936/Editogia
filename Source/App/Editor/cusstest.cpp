@@ -3,7 +3,6 @@
 
 int main(int argc, char** argv)
 {
-	init_display();
 	cuss::interface cint;
 	if (argc < 2)
 	{

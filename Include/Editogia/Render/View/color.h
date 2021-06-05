@@ -3,8 +3,6 @@
 
 #include <string>
 
-void init_colors();
-
 enum EColor
 {
 	c_black = 0,

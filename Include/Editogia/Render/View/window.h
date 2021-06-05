@@ -42,8 +42,6 @@ enum class TypeWindow
 	Other
 };
 
-void init_display();
-
 long input();
 
 void debugmsg(const char* mes, ...);
