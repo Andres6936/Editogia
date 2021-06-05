@@ -276,6 +276,10 @@ const Key Curses::getKeyEvent()
 	{
 		key.setKeyCode(KeyCode::RIGHT);
 	}
+	else if (keyPressed == KEY_ENTER)
+	{
+		key.setKeyCode(KeyCode::ENTER);
+	}
 	else if (keyPressed == 27)
 	{
 		key.setKeyCode(KeyCode::ESCAPE);
