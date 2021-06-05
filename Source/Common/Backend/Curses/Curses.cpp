@@ -106,6 +106,30 @@ const Key Curses::getKeyEvent()
 	{
 		key.setKeyCode(KeyCode::M);
 	}
+	else if (keyPressed == 'n' || keyPressed == 'N')
+	{
+		key.setKeyCode(KeyCode::N);
+	}
+	else if (keyPressed == 'o' || keyPressed == 'O')
+	{
+		key.setKeyCode(KeyCode::O);
+	}
+	else if (keyPressed == 'p' || keyPressed == 'P')
+	{
+		key.setKeyCode(KeyCode::P);
+	}
+	else if (keyPressed == 'q' || keyPressed == 'Q')
+	{
+		key.setKeyCode(KeyCode::Q);
+	}
+	else if (keyPressed == 'r' || keyPressed == 'R')
+	{
+		key.setKeyCode(KeyCode::R);
+	}
+	else if (keyPressed == 's' || keyPressed == 'S')
+	{
+		key.setKeyCode(KeyCode::S);
+	}
 
 	return key;
 }
