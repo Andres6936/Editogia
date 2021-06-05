@@ -252,6 +252,22 @@ const Key Curses::getKeyEvent()
 	{
 		key.setKeyCode(KeyCode::GREATER_THAN);
 	}
+	else if (keyPressed == KEY_UP)
+	{
+		key.setKeyCode(KeyCode::UP);
+	}
+	else if (keyPressed == KEY_DOWN)
+	{
+		key.setKeyCode(KeyCode::DOWN);
+	}
+	else if (keyPressed == KEY_LEFT)
+	{
+		key.setKeyCode(KeyCode::LEFT);
+	}
+	else if (keyPressed == KEY_RIGHT)
+	{
+		key.setKeyCode(KeyCode::RIGHT);
+	}
 
 	// For avoid write a key.setPressed(true) in each if block,
 	// if the user press a key, set the boolean in the key interface
