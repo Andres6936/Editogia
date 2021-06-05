@@ -300,6 +300,10 @@ const Key Curses::getKeyEvent()
 	{
 		key.setKeyCode(KeyCode::ENTER);
 	}
+	else if (keyPressed == '\'')
+	{
+		key.setKeyCode(KeyCode::APOSTROPHE);
+	}
 	else if (keyPressed == 27)
 	{
 		key.setKeyCode(KeyCode::ESCAPE);

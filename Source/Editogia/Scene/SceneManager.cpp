@@ -775,7 +775,7 @@ resources spent to build it.", area_selected->get_name().c_str()))
 			if (cur_data_mode == DATA_MODE_MESSAGES)
 			{  // It has a few special keys
 
-				if (ch == '\'' && cur_data_mode == DATA_MODE_MESSAGES)
+				if (key == KeyCode::APOSTROPHE and cur_data_mode == DATA_MODE_MESSAGES)
 				{
 					pl_city->unread_messages = 0;
 					message_offset = 0;
