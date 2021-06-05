@@ -300,6 +300,11 @@ void Window::refresh()
 	render->draw();
 }
 
+const Editogia::Key Window::getKeyEvent()
+{
+	return render->getKeyEvent();
+}
+
 void Window::writeChar(const std::int32_t x, const std::int32_t y, const std::int32_t _char)
 {
 	writeChar(x, y, _char, c_white, c_black);
@@ -627,8 +632,7 @@ bool query_yn(const char* mes, ...)
 	w.putstr(1, line_num, c_white, c_black, std::string(tmp));
 
 	w.refresh();
-	long ch = getch();
-	return (ch == 'y' || ch == 'Y');
+	return w.getKeyEvent().getKeyCode() == Editogia::KeyCode::Y;
 }
 
 int menu_vec(const char* mes, std::vector<std::string> options)

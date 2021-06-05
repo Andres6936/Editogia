@@ -3,6 +3,7 @@
 
 #include "Editogia/Render/View/Glyph.h"
 #include "Editogia/Render/IRender.hpp"
+#include "Editogia/IO/User/Key.hpp"
 #include <string_view>
 #include <cstdint>
 #include <memory>
@@ -119,6 +120,8 @@ public:
 	{
 		return ydim;
 	}
+
+	const Editogia::Key getKeyEvent();
 
 	void writeChar(const std::int32_t x, const std::int32_t y, const std::int32_t _char);
 
