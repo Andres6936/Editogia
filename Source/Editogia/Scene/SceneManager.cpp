@@ -551,7 +551,32 @@ void SceneManager::handle_key(const KeyCode key)
 		/* We start counting at 1 because this is tied to the interface.  All menus and
 		 * items in menus start counting at 1, so we do too.
 		 */
-		int menu_index = ch - '0';
+		int menu_index = 0;
+
+		if (key == KeyCode::KP_1)
+		{
+			menu_index = 1;
+		}
+		else if (key == KeyCode::KP_2)
+		{
+			menu_index = 2;
+		}
+		else if (key == KeyCode::KP_3)
+		{
+			menu_index = 3;
+		}
+		else if (key == KeyCode::KP_4)
+		{
+			menu_index = 4;
+		}
+		else if (key == KeyCode::KP_5)
+		{
+			menu_index = 5;
+		}
+		else if (key == KeyCode::KP_6)
+		{
+			menu_index = 6;
+		}
 
 		if (cur_menu == TypeMenu::None)
 		{ // We're not in a menu - so open one
