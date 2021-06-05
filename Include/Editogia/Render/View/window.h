@@ -53,8 +53,6 @@ std::string key_name(long ch);
 
 bool is_backspace(long ch);
 
-std::string file_selector(std::string start = ".");
-
 std::string string_edit_popup(std::string orig, const char* mes, ...);
 
 std::string string_input_popup(const char* mes, ...);
