@@ -16,9 +16,6 @@ int main()
 	// seed the RNG.
 	//srand(time(NULL));
 
-	// Start up our display (e.g. ncurses)
-	init_display();
-
 	// Init the game data!
 	if (!init_all_data())
 	{

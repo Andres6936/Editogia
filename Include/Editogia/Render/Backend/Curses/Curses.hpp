@@ -17,6 +17,14 @@ namespace Editogia
 	private:
 
 		/**
+		 * Determine if the Backend (in this case NCurses has been initialized),
+		 * the variable will be false while there aren't window created, with
+		 * the first window created the backend will be initialized and this
+		 * variable set to true.
+		 */
+		inline static bool startUp = false;
+
+		/**
 		 * Context ncurses.
 		 */
 		WINDOW* window{ nullptr };

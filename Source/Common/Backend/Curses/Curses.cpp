@@ -20,6 +20,23 @@ Curses::Curses(const std::int32_t x, const std::int32_t y, const std::int32_t wi
 {
 	// Call to construct of IRender
 
+	// Lazy initialization of Backend, this block of code is execute only once
+	if (not startUp)
+	{
+		initscr();
+		noecho();
+		cbreak();
+		keypad(stdscr, true);
+		init_colors();
+		curs_set(0);
+		timeout(1);
+		getch();
+		timeout(-1);
+
+		// Avoid call this block code more of once more
+		startUp = true;
+	}
+
 	window = newwin(height, width, y, x);
 }
 
