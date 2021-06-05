@@ -248,6 +248,14 @@ const Key Curses::getKeyEvent()
 	{
 		key.setKeyCode(KeyCode::KP_MUL);
 	}
+	else if (keyPressed == '+')
+	{
+		key.setKeyCode(KeyCode::KP_ADD);
+	}
+	else if (keyPressed == '-')
+	{
+		key.setKeyCode(KeyCode::KP_SUB);
+	}
 	else if (keyPressed == '<')
 	{
 		key.setKeyCode(KeyCode::LESS_THAN);

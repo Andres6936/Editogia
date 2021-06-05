@@ -781,12 +781,12 @@ resources spent to build it.", area_selected->get_name().c_str()))
 					message_offset = 0;
 
 				}
-				else if (ch == '+' || ch == '=')
+				else if (key == KeyCode::KP_ADD)
 				{
 					message_offset++;
 
 				}
-				else if (ch == '-')
+				else if (key == KeyCode::KP_SUB)
 				{
 					message_offset--;
 				}
