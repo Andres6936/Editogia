@@ -244,6 +244,42 @@ const Key Curses::getKeyEvent()
 	{
 		key.setKeyCode(KeyCode::Z);
 	}
+	else if (keyPressed == '1')
+	{
+		key.setKeyCode(KeyCode::KP_1);
+	}
+	else if (keyPressed == '2')
+	{
+		key.setKeyCode(KeyCode::KP_2);
+	}
+	else if (keyPressed == '3')
+	{
+		key.setKeyCode(KeyCode::KP_3);
+	}
+	else if (keyPressed == '4')
+	{
+		key.setKeyCode(KeyCode::KP_4);
+	}
+	else if (keyPressed == '5')
+	{
+		key.setKeyCode(KeyCode::KP_5);
+	}
+	else if (keyPressed == '6')
+	{
+		key.setKeyCode(KeyCode::KP_6);
+	}
+	else if (keyPressed == '7')
+	{
+		key.setKeyCode(KeyCode::KP_7);
+	}
+	else if (keyPressed == '8')
+	{
+		key.setKeyCode(KeyCode::KP_8);
+	}
+	else if (keyPressed == '9')
+	{
+		key.setKeyCode(KeyCode::KP_9);
+	}
 	else if (keyPressed == '*')
 	{
 		key.setKeyCode(KeyCode::KP_MUL);
