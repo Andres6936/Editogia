@@ -82,41 +82,29 @@ const Key Curses::getKeyEvent()
 	{
 		key.setKeyCode(KeyCode::G);
 	}
-	else if (keyPressed == 'h')
+	else if (keyPressed == 'h' || keyPressed == 'H')
 	{
-
+		key.setKeyCode(KeyCode::H);
 	}
-	else if (keyPressed == 'a')
+	else if (keyPressed == 'i' || keyPressed == 'I')
 	{
-
+		key.setKeyCode(KeyCode::I);
 	}
-	else if (keyPressed == 'a')
+	else if (keyPressed == 'j' || keyPressed == 'J')
 	{
-
+		key.setKeyCode(KeyCode::J);
 	}
-	else if (keyPressed == 'a')
+	else if (keyPressed == 'k' || keyPressed == 'K')
 	{
-
+		key.setKeyCode(KeyCode::K);
 	}
-	else if (keyPressed == 'a')
+	else if (keyPressed == 'l' || keyPressed == 'L')
 	{
-
+		key.setKeyCode(KeyCode::L);
 	}
-	else if (keyPressed == 'a')
+	else if (keyPressed == 'm' || keyPressed == 'M')
 	{
-
-	}
-	else if (keyPressed == 'a')
-	{
-
-	}
-	else if (keyPressed == 'a')
-	{
-
-	}
-	else if (keyPressed == 'a')
-	{
-
+		key.setKeyCode(KeyCode::M);
 	}
 
 	return key;
