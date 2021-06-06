@@ -106,7 +106,7 @@ TypeScene MenuScene::handle()
 
 	if (key == KeyCode::H)
 	{
-
+		return TypeScene::Help;
 	}
 	else if (key == KeyCode::L)
 	{

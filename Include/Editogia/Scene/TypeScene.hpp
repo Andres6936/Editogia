@@ -12,6 +12,7 @@ namespace Editogia
 		Play,
 		Menu,
 		Exit,
+		Help,
 	};
 
 }
