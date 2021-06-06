@@ -3,7 +3,6 @@
 #include <math.h> // for pow() and sqrt()
 #include <fstream>
 #include "Editogia/Math/rng.h"
-#include "Editogia/IO/User/keys.h" // for input_direction()
 #include "Editogia/Gea/world.h"
 #include "Editogia/Render/View/window.h"
 #include "Editogia/Entity/animal.h"
