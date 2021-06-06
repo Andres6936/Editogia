@@ -102,5 +102,28 @@ void MenuScene::update()
 
 TypeScene MenuScene::handle()
 {
+	const KeyCode key = w_start.getKeyEvent().getKeyCode();
+
+	if (key == KeyCode::H)
+	{
+
+	}
+	else if (key == KeyCode::L)
+	{
+
+	}
+	else if (key == KeyCode::N)
+	{
+
+	}
+	else if (key == KeyCode::G)
+	{
+
+	}
+	else if (key == KeyCode::Q)
+	{
+		return TypeScene::Exit;
+	}
+
 	return TypeScene::None;
 }
