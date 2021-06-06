@@ -11,7 +11,7 @@ std::string element::save_data()
 {
 	std::stringstream ret;
 	ret << name << " " << STD_DELIM << " " << posx << " " << posy << " " <<
-		sizex << " " << sizey << " " << selectable << " " << align << " " <<
+		sizex << " " << sizey << " " << selectable << " " << int(align) << " " <<
 		v_align;
 	return ret.str();
 }
