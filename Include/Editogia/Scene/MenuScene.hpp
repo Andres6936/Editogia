@@ -3,6 +3,8 @@
 #ifndef EDITOGIA_MENUSCENE_HPP
 #define EDITOGIA_MENUSCENE_HPP
 
+#include <Cuss/Interface.hpp>
+#include <Editogia/Render/View/window.h>
 #include "Editogia/Scene/IScene.hpp"
 
 namespace Editogia
@@ -11,7 +13,15 @@ namespace Editogia
 	class MenuScene : public IScene
 	{
 
+	private:
+
+		cuss::interface i_start;
+
+		Window w_start{ 0, 0, 80, 24 };
+
 	public:
+
+		MenuScene();
 
 		void draw() override;
 
