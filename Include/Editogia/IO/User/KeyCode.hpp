@@ -25,6 +25,7 @@ namespace Editogia
 		LEFT,
 		RIGHT,
 		DOWN,
+		QUESTION,
 		APOSTROPHE,
 		PRINT_SCREEN,
 		DELETE,

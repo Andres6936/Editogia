@@ -320,6 +320,10 @@ const Key Curses::getKeyEvent()
 	{
 		key.setKeyCode(KeyCode::EXCLAMATION_MARK);
 	}
+	else if (keyPressed == '?')
+	{
+		key.setKeyCode(KeyCode::QUESTION);
+	}
 	else if (keyPressed == KEY_UP)
 	{
 		key.setKeyCode(KeyCode::UP);
