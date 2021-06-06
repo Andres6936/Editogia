@@ -19,19 +19,20 @@ namespace cuss
 	struct element
 	{
 		std::string name;
-		int posx;
-		int posy;
-		int sizex;
-		int sizey;
-		bool selected;
-		bool selectable;
-		bool owns_data;
-		EColor fg;
-		EColor bg;
+		std::int32_t posx{ 0 };
+		std::int32_t posy{ 0 };
+		std::int32_t sizex{ 0 };
+		std::int32_t sizey{ 0 };
+
+		bool selected{ false };
+		bool selectable{ false };
+		bool owns_data{ true };
+		bool recently_selected{ false };
+
+		EColor fg = c_ltgray;
+		EColor bg = c_black;
 		alignment align;
 		vertical_alignment v_align;
-
-		bool recently_selected;
 
 		// Setters
 
