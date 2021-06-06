@@ -9,10 +9,13 @@ namespace Editogia
 	enum class TypeScene
 	{
 		None,
+		New,
 		Play,
 		Menu,
 		Exit,
 		Help,
+		Load,
+		CreateWorld,
 	};
 
 }

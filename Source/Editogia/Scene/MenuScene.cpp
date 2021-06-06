@@ -110,15 +110,15 @@ TypeScene MenuScene::handle()
 	}
 	else if (key == KeyCode::L)
 	{
-
+		return TypeScene::Load;
 	}
 	else if (key == KeyCode::N)
 	{
-
+		return TypeScene::New;
 	}
 	else if (key == KeyCode::G)
 	{
-
+		return TypeScene::CreateWorld;
 	}
 	else if (key == KeyCode::Q)
 	{
