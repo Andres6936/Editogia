@@ -34,9 +34,11 @@ int main()
 
 	SceneManager interface{};
 
-	if (interface.starting_screen())
+	while (interface.isRunning())
 	{
-		interface.main_loop();
+		interface.draw();
+		interface.update();
+		interface.handle();
 	}
 
 	endwin();
