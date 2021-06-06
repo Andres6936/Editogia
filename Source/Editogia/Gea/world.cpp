@@ -1816,170 +1816,162 @@ Point World::draw(Point start, Map_seen* seen)
 		{
 			pos += move_dir;
 		}
-		else
+
+		switch (key)
 		{
-			switch (key)
+		case KeyCode::KP_0:
+			pos = start;
+			pos.x -= (xdim / 2); // Pos is in the upper-left corner of our screen
+			pos.y -= (ydim / 2); // So we need to move it from the center to there
+			break;
+
+		case KeyCode::GREATER_THAN:
+			if (cur_cont >= continents.size() - 1)
 			{
-			case KeyCode::KP_0:
-				pos = start;
-				pos.x -= (xdim / 2); // Pos is in the upper-left corner of our screen
-				pos.y -= (ydim / 2); // So we need to move it from the center to there
-				break;
-
-			case KeyCode::GREATER_THAN:
-				if (cur_cont >= continents.size() - 1)
-				{
-					cur_cont = 0;
-				}
-				else
-				{
-					cur_cont++;
-				}
-				pos.x = continents[cur_cont].x - (xdim / 2);
-				pos.y = continents[cur_cont].y - (ydim / 2);
-				break;
-
-			case KeyCode::LESS_THAN:
-				if (cur_cont <= 0)
-				{
-					cur_cont = continents.size() - 1;
-				}
-				else
-				{
-					cur_cont--;
-				}
-				pos.x = continents[cur_cont].x - (xdim / 2);
-				pos.y = continents[cur_cont].y - (ydim / 2);
-				break;
-
-			case KeyCode::C:
+				cur_cont = 0;
+			}
+			else
 			{
-				std::string crop_name = string_input_popup("hilite crop:");
-				Crop hilited = CROP_NULL;
-				bool do_hilite = true;
-				if (!crop_name.empty())
+				cur_cont++;
+			}
+			pos.x = continents[cur_cont].x - (xdim / 2);
+			pos.y = continents[cur_cont].y - (ydim / 2);
+			break;
+
+		case KeyCode::LESS_THAN:
+			if (cur_cont <= 0)
+			{
+				cur_cont = continents.size() - 1;
+			}
+			else
+			{
+				cur_cont--;
+			}
+			pos.x = continents[cur_cont].x - (xdim / 2);
+			pos.y = continents[cur_cont].y - (ydim / 2);
+			break;
+
+		case KeyCode::C:
+		{
+			std::string crop_name = string_input_popup("hilite crop:");
+			Crop hilited = CROP_NULL;
+			bool do_hilite = true;
+			if (!crop_name.empty())
+			{
+				hilited = search_for_crop(crop_name);
+				if (hilited == CROP_NULL)
 				{
-					hilited = search_for_crop(crop_name);
-					if (hilited == CROP_NULL)
-					{
-						popup("%s not found.");
-						do_hilite = false;
-					}
-				}
-				if (do_hilite)
-				{
-					hilite_crops = true;
-					//hilite_minerals = false;
-					crop_hilited = hilited;
-				}
-				else
-				{
-					hilite_crops = false;
+					popup("%s not found.");
+					do_hilite = false;
 				}
 			}
-				break;
-
-			case KeyCode::M:
+			if (do_hilite)
 			{
-				std::string mineral_name = string_input_popup("hilite mineral:");
-				Mineral hilited = MINERAL_NULL;
-				bool do_hilite = true;
-				if (!mineral_name.empty())
-				{
-					hilited = search_for_mineral(mineral_name);
-					if (hilited == MINERAL_NULL)
-					{
-						popup("%s not found.");
-						do_hilite = false;
-					}
-				}
-				if (do_hilite)
-				{
-					hilite_minerals = true;
-					//hilite_crops = false;
-					mineral_hilited = hilited;
-				}
-				else
-				{
-					hilite_minerals = false;
-				}
+				hilite_crops = true;
+				//hilite_minerals = false;
+				crop_hilited = hilited;
 			}
-				break;
-
-			case KeyCode::A:
+			else
 			{
-				std::string animal_name = string_input_popup("hilite animal:");
-				Animal hilited = ANIMAL_NULL;
-				bool do_hilite = true;
-				if (!animal_name.empty())
-				{
-					hilited = search_for_animal(animal_name);
-					if (hilited == ANIMAL_NULL)
-					{
-						popup("%s not found.");
-						do_hilite = false;
-					}
-				}
-				if (do_hilite)
-				{
-					hilite_animals = true;
-					//hilite_crops = false;
-					animal_hilited = hilited;
-				}
-				else
-				{
-					hilite_animals = false;
-				}
-			}
-				break;
-
-			case KeyCode::T:
 				hilite_crops = false;
-				hilite_minerals = false;
-				hilite_animals = false;
-				break;
-
-			case KeyCode::QUESTION:
-			{
-				City* city_checked = get_city(center);
-				if (city_checked)
-				{
-					AI_city* ai_city = static_cast<AI_city*>(city_checked);
-					popup_fullscreen(ai_city->list_production().c_str());
-				}
-				else
-				{
-					std::stringstream debug_info;
-					debug_info << "Altitude: " << altitude[center.x][center.y] <<
-																			   std::endl <<
-																			   "Rainfall: " << rainfall[center.x][center.y] <<
-																			   std::endl <<
-																			   "Temperature: " << temperature[center.x][center.y];
-					popup_fullscreen(debug_info.str().c_str());
-				}
-
-/*
-          debugmsg("%s\nRiver Start: %s\nRiver End:   %s",
-                   (is_river(center) ? "River" : "Not River"),
-                   Direction_name(river_start_for(center)).c_str(),
-                   Direction_name(river_end_for  (center)).c_str());
-*/
 			}
-				break;
+		}
+			break;
 
-			case KeyCode::Q:
-			case KeyCode::ENTER:
-			case KeyCode::ESCAPE:
-				if (key == KeyCode::ENTER)
+		case KeyCode::M:
+		{
+			std::string mineral_name = string_input_popup("hilite mineral:");
+			Mineral hilited = MINERAL_NULL;
+			bool do_hilite = true;
+			if (!mineral_name.empty())
+			{
+				hilited = search_for_mineral(mineral_name);
+				if (hilited == MINERAL_NULL)
 				{
-					pos.x += (xdim / 2);
-					pos.y += (ydim / 2);
-					return pos;
+					popup("%s not found.");
+					do_hilite = false;
 				}
-				return Point(-1, -1);
-			} // switch (ch)
-		} // if (move_dir.x == -2)
-	} // while (true)
+			}
+			if (do_hilite)
+			{
+				hilite_minerals = true;
+				//hilite_crops = false;
+				mineral_hilited = hilited;
+			}
+			else
+			{
+				hilite_minerals = false;
+			}
+		}
+			break;
+
+		case KeyCode::A:
+		{
+			std::string animal_name = string_input_popup("hilite animal:");
+			Animal hilited = ANIMAL_NULL;
+			bool do_hilite = true;
+			if (!animal_name.empty())
+			{
+				hilited = search_for_animal(animal_name);
+				if (hilited == ANIMAL_NULL)
+				{
+					popup("%s not found.");
+					do_hilite = false;
+				}
+			}
+			if (do_hilite)
+			{
+				hilite_animals = true;
+				//hilite_crops = false;
+				animal_hilited = hilited;
+			}
+			else
+			{
+				hilite_animals = false;
+			}
+		}
+			break;
+
+		case KeyCode::T:
+			hilite_crops = false;
+			hilite_minerals = false;
+			hilite_animals = false;
+			break;
+
+		case KeyCode::QUESTION:
+		{
+			City* city_checked = get_city(center);
+			if (city_checked)
+			{
+				AI_city* ai_city = static_cast<AI_city*>(city_checked);
+				popup_fullscreen(ai_city->list_production().c_str());
+			}
+			else
+			{
+				std::stringstream debug_info;
+				debug_info << "Altitude: " << altitude[center.x][center.y] <<
+						   std::endl <<
+						   "Rainfall: " << rainfall[center.x][center.y] <<
+						   std::endl <<
+						   "Temperature: " << temperature[center.x][center.y];
+				popup_fullscreen(debug_info.str().c_str());
+			}
+		}
+			break;
+
+		case KeyCode::Q:
+		case KeyCode::ENTER:
+		case KeyCode::ESCAPE:
+			if (key == KeyCode::ENTER)
+			{
+				pos.x += (xdim / 2);
+				pos.y += (ydim / 2);
+				return pos;
+			}
+			return Point(-1, -1);
+		}
+
+	}
 }
 
 std::string World::get_name()
