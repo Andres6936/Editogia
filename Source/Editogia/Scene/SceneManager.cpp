@@ -31,18 +31,10 @@ SceneManager::SceneManager()
 	show_terrain = false;
 	current_area = AREA_NULL;
 	temp_text = false;
-}
 
-SceneManager::~SceneManager()
-{
-}
-
-bool SceneManager::init()
-{
 	if (!i_main.load_from_file("cuss/interface.cuss"))
 	{
 		Levin::Log::Critical("Failed to load critical interface file cuss/interface.cuss!");
-		return false;
 	}
 
 // Menu setup!  Put menus here.
@@ -79,8 +71,10 @@ bool SceneManager::init()
 	set_menu_str();
 
 	pl_city = GAME->city;
+}
 
-	return true;
+SceneManager::~SceneManager()
+{
 }
 
 bool SceneManager::starting_screen()

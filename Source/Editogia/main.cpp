@@ -32,8 +32,7 @@ int main()
 	// Set up a game.
 	GAME = new Game;
 
-	SceneManager interface;
-	interface.init();
+	SceneManager interface{};
 
 	if (interface.starting_screen())
 	{

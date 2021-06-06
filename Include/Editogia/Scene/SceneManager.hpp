@@ -76,8 +76,6 @@ public:
 
 	~SceneManager();
 
-	bool init();
-
 // returns false if we quit - this should exit the program
 	bool starting_screen();
 
