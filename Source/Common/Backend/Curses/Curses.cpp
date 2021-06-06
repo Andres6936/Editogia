@@ -244,6 +244,10 @@ const Key Curses::getKeyEvent()
 	{
 		key.setKeyCode(KeyCode::Z);
 	}
+	else if (keyPressed == '0')
+	{
+		key.setKeyCode(KeyCode::KP_0);
+	}
 	else if (keyPressed == '1')
 	{
 		key.setKeyCode(KeyCode::KP_1);
