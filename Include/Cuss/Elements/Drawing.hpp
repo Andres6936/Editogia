@@ -10,7 +10,7 @@
 namespace cuss
 {
 
-	struct ele_drawing : public element
+	struct ele_drawing : public Element
 	{
 		std::map<Point, Glyph, Pointcomp> drawing;
 
@@ -54,7 +54,7 @@ namespace cuss
 		};
 
 		/* Translate is breaking a rule here; it's a function that isn't inherited from
-		 * element.  I'm not sure I'm okay with this, but for now I think that translate
+		 * Element.  I'm not sure I'm okay with this, but for now I think that translate
 		 * is really drawing-specific; it looks for all instances of "from", and moves
 		 * them to "to".  While things like textbox could probably use this, I'm holding
 		 * off for now.

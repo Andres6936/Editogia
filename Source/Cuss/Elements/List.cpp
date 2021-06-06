@@ -87,7 +87,7 @@ void ele_list::draw(Window* win)
 std::string ele_list::save_data()
 {
 	std::stringstream ret;
-	ret << element::save_data() << " " << list->size() << " ";
+	ret << Element::save_data() << " " << list->size() << " ";
 	for (int i = 0; i < list->size(); i++)
 		ret << (*list)[i] << " " << STD_DELIM << " ";
 
@@ -96,7 +96,7 @@ std::string ele_list::save_data()
 
 void ele_list::load_data(std::istream& datastream)
 {
-	element::load_data(datastream);
+	Element::load_data(datastream);
 	int tmpsize;
 	datastream >> tmpsize;
 	for (int i = 0; i < tmpsize; i++)

@@ -113,7 +113,7 @@ void interface::add_element(element_type type, std::string name, int posx,
 		break;
 
 	default:
-		debugmsg("Unknown element type %d", type);
+		debugmsg("Unknown Element type %d", type);
 		return;
 	}
 
@@ -127,7 +127,7 @@ bool interface::erase_element(std::string name)
 	{
 		if (elements[i]->name == name)
 		{
-			element* el = elements[i];
+			Element* el = elements[i];
 			elements.erase(elements.begin() + i);
 			delete el;
 			if (active_element == i)
@@ -141,7 +141,7 @@ bool interface::erase_element(std::string name)
 void interface::draw(Window* win)
 {
 	win->clear();
-	std::vector < element * > draw_last; // Menus need to be layered at the top
+	std::vector < Element * > draw_last; // Menus need to be layered at the top
 	for (int i = 0; i < elements.size(); i++)
 	{
 		if (elements[i]->type() == ELE_MENU && elements[i]->selected)
@@ -244,7 +244,7 @@ void interface::load_data(std::istream& datastream)
 		{
 
 		case ELE_NULL:
-			debugmsg("Loaded NULL element!");
+			debugmsg("Loaded NULL Element!");
 			break;
 
 		case ELE_DRAWING:
@@ -335,7 +335,7 @@ std::vector <std::string> interface::element_names()
 	return ret;
 }
 
-element* interface::selected()
+Element* interface::selected()
 {
 	if (active_element < 0 || active_element >= elements.size())
 		return NULL;
@@ -343,7 +343,7 @@ element* interface::selected()
 	return elements[active_element];
 }
 
-element* interface::find_by_name(std::string name)
+Element* interface::find_by_name(std::string name)
 {
 	for (int i = 0; i < elements.size(); i++)
 	{
@@ -353,7 +353,7 @@ element* interface::find_by_name(std::string name)
 	return NULL;
 }
 
-element* interface::select_next(bool force)
+Element* interface::select_next(bool force)
 {
 	if (elements.empty())
 	{
@@ -390,7 +390,7 @@ element* interface::select_next(bool force)
 	return NULL;
 }
 
-element* interface::select_last(bool force)
+Element* interface::select_last(bool force)
 {
 	if (elements.empty())
 	{
@@ -427,7 +427,7 @@ element* interface::select_last(bool force)
 	return NULL;
 }
 
-element* interface::select(std::string name)
+Element* interface::select(std::string name)
 {
 	for (int i = 0; i < elements.size(); i++)
 	{
@@ -454,12 +454,12 @@ void interface::select_none()
 
 bool interface::move_element_up(std::string name)
 {
-// Check all except the last element
+// Check all except the last Element
 	for (int i = 0; i < elements.size() - 1; i++)
 	{
 		if (elements[i]->name == name)
 		{
-			element* tmp = elements[i + 1];
+			Element* tmp = elements[i + 1];
 			elements[i + 1] = elements[i];
 			elements[i] = tmp;
 			return true;
@@ -470,12 +470,12 @@ bool interface::move_element_up(std::string name)
 
 bool interface::move_element_down(std::string name)
 {
-// Check all except the first element
+// Check all except the first Element
 	for (int i = 1; i < elements.size(); i++)
 	{
 		if (elements[i]->name == name)
 		{
-			element* tmp = elements[i - 1];
+			Element* tmp = elements[i - 1];
 			elements[i - 1] = elements[i];
 			elements[i] = tmp;
 			return true;
@@ -487,7 +487,7 @@ bool interface::move_element_down(std::string name)
 
 bool interface::set_selectable(std::string name, bool setting)
 {
-	element* el = find_by_name(name);
+	Element* el = find_by_name(name);
 	if (!el)
 		return false;
 
@@ -497,7 +497,7 @@ bool interface::set_selectable(std::string name, bool setting)
 
 bool interface::set_data(std::string name, std::string data)
 {
-	element* ele = find_by_name(name);
+	Element* ele = find_by_name(name);
 	if (!ele)
 		return false;
 
@@ -506,7 +506,7 @@ bool interface::set_data(std::string name, std::string data)
 
 bool interface::add_data(std::string name, std::string data)
 {
-	element* ele = find_by_name(name);
+	Element* ele = find_by_name(name);
 	if (!ele)
 		return false;
 
@@ -515,7 +515,7 @@ bool interface::add_data(std::string name, std::string data)
 
 bool interface::set_data(std::string name, std::vector <std::string> data)
 {
-	element* ele = find_by_name(name);
+	Element* ele = find_by_name(name);
 	if (!ele)
 		return false;
 
@@ -524,7 +524,7 @@ bool interface::set_data(std::string name, std::vector <std::string> data)
 
 bool interface::add_data(std::string name, std::vector <std::string> data)
 {
-	element* ele = find_by_name(name);
+	Element* ele = find_by_name(name);
 	if (!ele)
 		return false;
 
@@ -533,7 +533,7 @@ bool interface::add_data(std::string name, std::vector <std::string> data)
 
 bool interface::set_data(std::string name, int data)
 {
-	element* ele = find_by_name(name);
+	Element* ele = find_by_name(name);
 	if (!ele)
 		return false;
 
@@ -542,7 +542,7 @@ bool interface::set_data(std::string name, int data)
 
 bool interface::add_data(std::string name, int data)
 {
-	element* ele = find_by_name(name);
+	Element* ele = find_by_name(name);
 	if (!ele)
 		return false;
 
@@ -551,7 +551,7 @@ bool interface::add_data(std::string name, int data)
 
 bool interface::set_data(std::string name, Glyph gl, int x, int y)
 {
-	element* ele = find_by_name(name);
+	Element* ele = find_by_name(name);
 	if (!ele)
 		return false;
 
@@ -561,7 +561,7 @@ bool interface::set_data(std::string name, Glyph gl, int x, int y)
 // bg defaults to c_null
 bool interface::set_data(std::string name, EColor fg, EColor bg)
 {
-	element* ele = find_by_name(name);
+	Element* ele = find_by_name(name);
 	if (!ele)
 		return false;
 
@@ -570,7 +570,7 @@ bool interface::set_data(std::string name, EColor fg, EColor bg)
 
 bool interface::self_reference(std::string name)
 {
-	element* ele = find_by_name(name);
+	Element* ele = find_by_name(name);
 	if (!ele)
 		return false;
 
@@ -579,7 +579,7 @@ bool interface::self_reference(std::string name)
 
 bool interface::ref_data(std::string name, std::string* data)
 {
-	element* ele = find_by_name(name);
+	Element* ele = find_by_name(name);
 	if (!ele)
 		return false;
 
@@ -588,7 +588,7 @@ bool interface::ref_data(std::string name, std::string* data)
 
 bool interface::ref_data(std::string name, std::vector <std::string>* data)
 {
-	element* ele = find_by_name(name);
+	Element* ele = find_by_name(name);
 	if (!ele)
 		return false;
 
@@ -597,7 +597,7 @@ bool interface::ref_data(std::string name, std::vector <std::string>* data)
 
 bool interface::ref_data(std::string name, int* data)
 {
-	element* ele = find_by_name(name);
+	Element* ele = find_by_name(name);
 	if (!ele)
 		return false;
 
@@ -606,7 +606,7 @@ bool interface::ref_data(std::string name, int* data)
 
 bool interface::clear_data(std::string name)
 {
-	element* ele = find_by_name(name);
+	Element* ele = find_by_name(name);
 	if (!ele)
 		return false;
 
@@ -616,7 +616,7 @@ bool interface::clear_data(std::string name)
 
 std::string interface::get_str(std::string name)
 {
-	element* ele = find_by_name(name);
+	Element* ele = find_by_name(name);
 	if (!ele)
 	{
 		std::string ret;
@@ -628,7 +628,7 @@ std::string interface::get_str(std::string name)
 
 int interface::get_int(std::string name)
 {
-	element* ele = find_by_name(name);
+	Element* ele = find_by_name(name);
 	if (!ele)
 		return 0;
 
@@ -637,7 +637,7 @@ int interface::get_int(std::string name)
 
 int interface::element_width(std::string name)
 {
-	element* ele = find_by_name(name);
+	Element* ele = find_by_name(name);
 	if (!ele)
 	{
 		return -1;
@@ -683,7 +683,7 @@ bool interface::add_binding(long ch, action_id act, std::string target,
 	}
 	if (action_needs_element(act) && target != "<S>" && !find_by_name(target))
 	{
-		debugmsg("Couldn't find element \"%s\"!", target.c_str());
+		debugmsg("Couldn't find Element \"%s\"!", target.c_str());
 		return false;
 	}
 
@@ -784,7 +784,7 @@ bool interface::handle_action(long ch)
 		return false;
 
 	binding* used = &(bindings[ch]);
-	element* found = (used->target == "" || used->target == "<S>" ? selected() :
+	Element* found = (used->target == "" || used->target == "<S>" ? selected() :
 					  find_by_name(used->target));
 
 	switch (used->act)

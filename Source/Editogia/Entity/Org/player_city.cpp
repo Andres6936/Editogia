@@ -501,7 +501,7 @@ void Player_city::mark_nearby_tiles_seen(int range)
 }
 
 // radius_limited and only_terrain default to false.
-void Player_city::draw_map(cuss::element* e_draw, Point sel, bool radius_limited,
+void Player_city::draw_map(cuss::Element* e_draw, Point sel, bool radius_limited,
 		bool only_terrain)
 {
 	if (!e_draw)
@@ -1749,7 +1749,7 @@ void Player_city::birth_citizens(int num)
 		{
 			new_cit_type = CIT_PEASANT; // Birth peasants by default.
 		}
-// Add to born, either an existing element or a new one
+// Add to born, either an existing Element or a new one
 		bool found = false;
 		for (int i = 0; !found && i < born.size(); i++)
 		{

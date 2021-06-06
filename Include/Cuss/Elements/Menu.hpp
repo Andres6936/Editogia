@@ -10,7 +10,7 @@
 namespace cuss
 {
 
-	struct ele_menu : public element
+	struct ele_menu : public Element
 	{
 		std::string title;
 		std::vector<std::string>* list;

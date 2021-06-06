@@ -93,14 +93,14 @@ void ele_textbox::draw(Window* win)
 std::string ele_textbox::save_data()
 {
 	std::stringstream ret;
-	ret << element::save_data() << " " << (*text) << " " << STD_DELIM;
+	ret << Element::save_data() << " " << (*text) << " " << STD_DELIM;
 
 	return ret.str();
 }
 
 void ele_textbox::load_data(std::istream& datastream)
 {
-	element::load_data(datastream);
+	Element::load_data(datastream);
 	(*text) = load_to_delim(datastream, STD_DELIM);
 }
 

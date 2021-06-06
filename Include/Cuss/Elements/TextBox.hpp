@@ -10,7 +10,7 @@
 namespace cuss
 {
 
-	struct ele_textbox : public element
+	struct ele_textbox : public Element
 	{
 		std::string* text;
 		int offset;

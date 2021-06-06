@@ -9,7 +9,7 @@
 namespace cuss
 {
 
-	struct ele_textentry : public element
+	struct ele_textentry : public Element
 	{
 		std::string* text;
 

@@ -115,7 +115,7 @@ void ele_menu::draw(Window* win)
 std::string ele_menu::save_data()
 {
 	std::stringstream ret;
-	ret << element::save_data() << " " << title << " " << STD_DELIM << " " <<
+	ret << Element::save_data() << " " << title << " " << STD_DELIM << " " <<
 		list->size() << " ";
 	for (int i = 0; i < list->size(); i++)
 		ret << (*list)[i] << " " << STD_DELIM << " ";
@@ -125,7 +125,7 @@ std::string ele_menu::save_data()
 
 void ele_menu::load_data(std::istream& datastream)
 {
-	element::load_data(datastream);
+	Element::load_data(datastream);
 	title = load_to_delim(datastream, STD_DELIM);
 	int tmpsize;
 	datastream >> tmpsize;

@@ -7,7 +7,7 @@
 using namespace cuss;
 
 // Base save/load functions.
-std::string element::save_data()
+std::string Element::save_data()
 {
 	std::stringstream ret;
 	ret << name << " " << STD_DELIM << " " << posx << " " << posy << " " <<
@@ -16,7 +16,7 @@ std::string element::save_data()
 	return ret.str();
 }
 
-void element::load_data(std::istream& datastream)
+void Element::load_data(std::istream& datastream)
 {
 	name = load_to_delim(datastream, STD_DELIM);
 	int tmpalign, tmpvalign;
@@ -27,7 +27,7 @@ void element::load_data(std::istream& datastream)
 	v_align = vertical_alignment(tmpvalign);
 }
 
-bool element::set_data(EColor FG, EColor BG)
+bool Element::set_data(EColor FG, EColor BG)
 {
 	if (fg != c_null)
 		fg = FG;
@@ -39,47 +39,47 @@ bool element::set_data(EColor FG, EColor BG)
 
 // Setters
 
-void element::setName(const std::string& _name) noexcept
+void Element::setName(const std::string& _name) noexcept
 {
 	name = _name;
 }
 
-void element::setWidth(const std::int32_t width) noexcept
+void Element::setWidth(const std::int32_t width) noexcept
 {
 	sizex = width;
 }
 
-void element::setHeight(const std::int32_t height) noexcept
+void Element::setHeight(const std::int32_t height) noexcept
 {
 	sizey = height;
 }
 
-void element::setSelected(const bool isSelected) noexcept
+void Element::setSelected(const bool isSelected) noexcept
 {
 	selected = isSelected;
 }
 
-void element::setSelectable(const bool isSelectable) noexcept
+void Element::setSelectable(const bool isSelectable) noexcept
 {
 	selectable = isSelectable;
 }
 
-void element::setCoordinateX(const std::int32_t x) noexcept
+void Element::setCoordinateX(const std::int32_t x) noexcept
 {
 	posx = x;
 }
 
-void element::setCoordinateY(const std::int32_t y) noexcept
+void Element::setCoordinateY(const std::int32_t y) noexcept
 {
 	posy = y;
 }
 
-void element::setHAlignment(const alignment HAlignment) noexcept
+void Element::setHAlignment(const alignment HAlignment) noexcept
 {
 	align = HAlignment;
 }
 
-void element::setVAlignment(const vertical_alignment VAlignment) noexcept
+void Element::setVAlignment(const vertical_alignment VAlignment) noexcept
 {
 	v_align = VAlignment;
 }

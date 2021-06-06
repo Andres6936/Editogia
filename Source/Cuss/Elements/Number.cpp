@@ -28,13 +28,13 @@ void ele_number::draw(Window* win)
 std::string ele_number::save_data()
 {
 	std::stringstream ret;
-	ret << element::save_data() << " " << (*value);
+	ret << Element::save_data() << " " << (*value);
 	return ret.str();
 }
 
 void ele_number::load_data(std::istream& datastream)
 {
-	element::load_data(datastream);
+	Element::load_data(datastream);
 	datastream >> (*value);
 }
 

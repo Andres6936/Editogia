@@ -10,7 +10,7 @@
 namespace cuss
 {
 
-	struct ele_list : public element
+	struct ele_list : public Element
 	{
 		std::vector<std::string>* list;
 		int offset;

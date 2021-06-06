@@ -16,7 +16,7 @@ void ele_drawing::draw(Window* win)
 std::string ele_drawing::save_data()
 {
 	std::stringstream ret;
-	ret << element::save_data() << " " << drawing.size() << " ";
+	ret << Element::save_data() << " " << drawing.size() << " ";
 	std::map<Point, Glyph>::iterator it;
 	for (it = drawing.begin(); it != drawing.end(); it++)
 		ret << it->first.x << " " << it->first.y << " " << it->second.save_data() <<
@@ -26,7 +26,7 @@ std::string ele_drawing::save_data()
 
 void ele_drawing::load_data(std::istream& datastream)
 {
-	element::load_data(datastream);
+	Element::load_data(datastream);
 	int tmpsize;
 	datastream >> tmpsize;
 	for (int i = 0; i < tmpsize; i++)

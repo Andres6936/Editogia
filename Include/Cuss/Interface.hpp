@@ -28,7 +28,7 @@ namespace cuss
 
 		int active_element = -1;
 
-		std::vector<element*> elements;
+		std::vector<Element*> elements;
 
 		std::map<long, binding> bindings;
 
@@ -87,15 +87,15 @@ namespace cuss
 
 		std::vector <std::string> element_names();
 
-		element* selected();
+		Element* selected();
 
-		element* find_by_name(std::string name);
+		Element* find_by_name(std::string name);
 
-		element* select_next(bool force = false);
+		Element* select_next(bool force = false);
 
-		element* select_last(bool force = false);
+		Element* select_last(bool force = false);
 
-		element* select(std::string name);
+		Element* select(std::string name);
 
 		void select_none();
 
@@ -105,9 +105,9 @@ namespace cuss
 
 		bool set_selectable(std::string name, bool setting);
 
-		// set_data replaces the element's data with whatever is passed
-		// add_data appends whatever is passed to the element's data
-		// These are all defined for each element type; if they're invalid, the type
+		// set_data replaces the Element's data with whatever is passed
+		// add_data appends whatever is passed to the Element's data
+		// These are all defined for each Element type; if they're invalid, the type
 		//  just returns false.
 		bool set_data(std::string name, std::string data);
 
@@ -125,11 +125,11 @@ namespace cuss
 
 		bool set_data(std::string name, EColor fg, EColor bg = c_null);
 
-		/* self_reference makes an element take control of its own data (meaning it will
+		/* self_reference makes an Element take control of its own data (meaning it will
 		 * delete the data when it is deleted).
-		 * ref_data makes an element reference some external set of data.  Note that if
+		 * ref_data makes an Element reference some external set of data.  Note that if
 		 * a function is not appropriate, it will not change the reference and will
-		 * return false (e.g. telling a number element to reference a vector of strings)
+		 * return false (e.g. telling a number Element to reference a vector of strings)
 		 */
 		bool self_reference(std::string name);
 
@@ -141,7 +141,7 @@ namespace cuss
 
 		bool clear_data(std::string name);
 
-		// These will return empty data if inappropriate to the element.
+		// These will return empty data if inappropriate to the Element.
 		std::string get_str(std::string name);
 
 		int get_int(std::string name);

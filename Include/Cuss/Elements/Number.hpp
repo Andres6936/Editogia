@@ -9,7 +9,7 @@
 namespace cuss
 {
 
-	struct ele_number : public element
+	struct ele_number : public Element
 	{
 		int* value;
 

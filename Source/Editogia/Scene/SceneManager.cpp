@@ -1252,7 +1252,7 @@ void SceneManager::set_menu(TypeMenu item)
 	if (cur_menu != TypeMenu::None)
 	{
 		get_menu_info(cur_menu, menu_name, posx);
-		i_main.erase_element(menu_name);  // Delete the element created for old menu
+		i_main.erase_element(menu_name);  // Delete the Element created for old menu
 		i_main.erase_element("menu_border");  // Delete the border created for "
 	}
 // Add in the new menu.
@@ -5511,7 +5511,7 @@ void SceneManager::help_search()
 			if (entry)
 			{  // We were entering a search term, now we're searching!
 				results = HELP->search(search_term, non_exact_search, content_search);
-// Fill the search results element
+// Fill the search results Element
 				if (results.empty())
 				{
 					i_help.set_data("text_search_results", "<c=ltred>No results.<c=/>");
@@ -5779,7 +5779,7 @@ bool SceneManager::help_article(std::string name)
  * @param container The container that store the values, the
  * container must meet the requirement of Iterable.
  *
- * @throw std::domain_error If none element is found in the container.
+ * @throw std::domain_error If none Element is found in the container.
  *
  * @return The Menu that coincide with the type.
  */

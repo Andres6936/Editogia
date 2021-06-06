@@ -56,7 +56,7 @@ public:
 
 	void mark_nearby_tiles_seen(int range);
 
-	void draw_map(cuss::element* e_draw, Point sel = Point(-1, -1),
+	void draw_map(cuss::Element* e_draw, Point sel = Point(-1, -1),
 			bool radius_limited = false, bool only_terrain = false);
 
 // Standard turn functions
@@ -100,7 +100,7 @@ public:
 
 // Message-related functions
 
-// The vector returned always has one element for each message type
+// The vector returned always has one Element for each message type
 // It goes through the unread messages and adds 1 for each messages of that type
 	std::vector<int> get_unread_message_count();
 

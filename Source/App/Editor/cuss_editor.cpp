@@ -114,7 +114,7 @@ int main(int argc, char* argv[])
 
 			edited.draw_prototype(&w);
 			Glyph gl_orig = w.glyphat(posx, posy);
-			element* sel = edited.selected();
+			Element* sel = edited.selected();
 
 			if (blink)
 			{
@@ -561,7 +561,7 @@ int main(int argc, char* argv[])
 								for (int y = bufy; y <= posy; y++)
 								{
 									Point p(x, y);
-									element* tmp = edited.find_by_name("BG");
+									Element* tmp = edited.find_by_name("BG");
 									if (!tmp)
 									{
 										debugmsg("Couldn't find BG for cutting");
@@ -623,7 +623,7 @@ int main(int argc, char* argv[])
 									y1 = bufy;
 								else
 									y1 = posy;
-								std::string name = string_input_popup("Name element:");
+								std::string name = string_input_popup("Name Element:");
 								char selch = popup_getkey("Selectable?");
 								bool selectable = (selch == 'y' || selch == 'Y');
 								edited.add_element(type, name, x1, y1, sizex, sizey, selectable);
@@ -1045,8 +1045,8 @@ void elements_window(interface& edited)
 	}
 
 	i_ele.set_data("e_elelist", edited.element_names());
-	element* cur = i_ele.select("e_elelist");
-	element* selected = edited.select("BG");
+	Element* cur = i_ele.select("e_elelist");
+	Element* selected = edited.select("BG");
 
 	bool done = false;
 /*
@@ -1295,7 +1295,7 @@ void elements_window(interface& edited)
 
 void update_elements_window(interface& editor, interface& edited)
 {
-	element* selected = edited.selected();
+	Element* selected = edited.selected();
 
 	if (selected)
 	{
@@ -1609,7 +1609,7 @@ void fix_lines(interface& edited, std::string name,
 		x2 = edited.width;
 		y2 = edited.height;
 	}
-	element* ele = edited.find_by_name(name);
+	Element* ele = edited.find_by_name(name);
 	ele_drawing* bg = static_cast<ele_drawing*>(ele);
 	if (!bg)
 		return;
@@ -1712,19 +1712,19 @@ void help()
 {
 	popup("\
 S     Save & quit\n\
--     Open element browser\n\
+-     Open Element browser\n\
 _     Open binding browser\n\
-Enter Create element\n\
-<>    Select last / next element\n\
-m     Move element\n\
-r     Resize element\n\
+Enter Create Element\n\
+<>    Select last / next Element\n\
+m     Move Element\n\
+r     Resize Element\n\
 i     Enter typing mode\n\
 ,     Enter drawing mode\n\
 ;     Draw line\n\
 :     Draw box\n\
-Esc   Cancel drawing, unselect element, exist typing/drawing mode\n\
+Esc   Cancel drawing, unselect Element, exist typing/drawing mode\n\
 .     place current symbol\n\
-x     delete drawing under cursor OR delete selected element\n\
+x     delete drawing under cursor OR delete selected Element\n\
 d     delete a range (by drawing a square)\n\
 /     Fix lines\n\
 '     Set pen symbol\n\

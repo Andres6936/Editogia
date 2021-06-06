@@ -16,7 +16,7 @@
 namespace cuss
 {
 
-	struct element
+	struct Element
 	{
 		std::string name;
 		std::int32_t posx{ 0 };
@@ -54,7 +54,7 @@ namespace cuss
 
 		void setVAlignment(const vertical_alignment VAlignment) noexcept;
 
-		element()
+		Element()
 		{
 			name = "";
 			posx = 0;
@@ -69,7 +69,7 @@ namespace cuss
 			recently_selected = false;
 		}
 
-		virtual ~element()
+		virtual ~Element()
 		{
 		}
 
@@ -146,7 +146,7 @@ namespace cuss
 			return false;
 		}
 
-		// This is used to set fg & bg, and hence is defined for element!
+		// This is used to set fg & bg, and hence is defined for Element!
 		virtual bool set_data(EColor FG, EColor BG = c_null);
 
 		virtual bool set_alignment(alignment al)
