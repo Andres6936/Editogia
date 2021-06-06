@@ -74,6 +74,8 @@ private:
 
 	Window w_main{ 0, 0, 80, 24 };
 
+	bool running{ true };
+
 	std::shared_ptr<Editogia::IScene> menuScene;
 
 	std::shared_ptr<Editogia::IScene> currentScene;
@@ -88,6 +90,8 @@ public:
 	void update();
 
 	void handle();
+
+	bool isRunning();
 
 // returns false if we quit - this should exit the program
 	bool starting_screen();

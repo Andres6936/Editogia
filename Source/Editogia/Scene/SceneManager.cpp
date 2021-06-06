@@ -99,6 +99,12 @@ void SceneManager::handle()
 	if (typeScene == TypeScene::None) return;
 }
 
+bool SceneManager::isRunning()
+{
+	return running;
+}
+
+
 bool SceneManager::starting_screen()
 {
 	Window w_start(0, 0, 80, 24);
