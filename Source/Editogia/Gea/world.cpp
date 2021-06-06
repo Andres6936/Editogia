@@ -17,6 +17,8 @@
 
 #include <Levin/Log.hpp>
 
+using namespace Editogia;
+
 Map_seen::Map_seen()
 {
 }
@@ -1783,12 +1785,30 @@ Point World::draw(Point start, Map_seen* seen)
 		w_legend.refresh();
 		w_map.refresh();
 
-		long ch = getch();
-// true in input_direction() means we accept capital letters
-		Point move_dir = input_direction(ch, true);
-// ...but we want capital letters to move TEN tiles in the given direction.
-// If ch was not a movement key, move_dir.x will equal -2.
-		if (move_dir.x != -2 && ch >= 'A' && ch <= 'Z')
+		const KeyCode key = w_map.getKeyEvent().getKeyCode();
+
+		Point move_dir;
+
+		if (key == KeyCode::UP)
+		{
+			move_dir = Point(0, -1);
+		}
+		else if (key == KeyCode::DOWN)
+		{
+			move_dir = Point(0, 1);
+		}
+		else if (key == KeyCode::LEFT)
+		{
+			move_dir = Point(-1, 0);
+		}
+		else if (key == KeyCode::RIGHT)
+		{
+			move_dir = Point(1, 0);
+		}
+
+		// ...but we want capital letters to move TEN tiles in the given direction.
+		// If ch was not a movement key, move_dir.x will equal -2.
+		if (move_dir.x != -2 && key >= KeyCode::A && key <= KeyCode::Z)
 		{
 			move_dir.x *= 10;
 			move_dir.y *= 10;
@@ -1799,15 +1819,15 @@ Point World::draw(Point start, Map_seen* seen)
 		}
 		else
 		{
-			switch (ch)
+			switch (key)
 			{
-			case '0':
+			case KeyCode::KP_0:
 				pos = start;
 				pos.x -= (xdim / 2); // Pos is in the upper-left corner of our screen
 				pos.y -= (ydim / 2); // So we need to move it from the center to there
 				break;
 
-			case '>':
+			case KeyCode::GREATER_THAN:
 				if (cur_cont >= continents.size() - 1)
 				{
 					cur_cont = 0;
@@ -1820,7 +1840,7 @@ Point World::draw(Point start, Map_seen* seen)
 				pos.y = continents[cur_cont].y - (ydim / 2);
 				break;
 
-			case '<':
+			case KeyCode::LESS_THAN:
 				if (cur_cont <= 0)
 				{
 					cur_cont = continents.size() - 1;
@@ -1833,8 +1853,7 @@ Point World::draw(Point start, Map_seen* seen)
 				pos.y = continents[cur_cont].y - (ydim / 2);
 				break;
 
-			case 'c':
-			case 'C':
+			case KeyCode::C:
 			{
 				std::string crop_name = string_input_popup("hilite crop:");
 				Crop hilited = CROP_NULL;
@@ -1861,8 +1880,7 @@ Point World::draw(Point start, Map_seen* seen)
 			}
 				break;
 
-			case 'm':
-			case 'M':
+			case KeyCode::M:
 			{
 				std::string mineral_name = string_input_popup("hilite mineral:");
 				Mineral hilited = MINERAL_NULL;
@@ -1889,8 +1907,7 @@ Point World::draw(Point start, Map_seen* seen)
 			}
 				break;
 
-			case 'a':
-			case 'A':
+			case KeyCode::A:
 			{
 				std::string animal_name = string_input_popup("hilite animal:");
 				Animal hilited = ANIMAL_NULL;
@@ -1917,8 +1934,7 @@ Point World::draw(Point start, Map_seen* seen)
 			}
 				break;
 
-			case 't':
-			case 'T':
+			case KeyCode::T:
 				hilite_crops = false;
 				hilite_minerals = false;
 				hilite_animals = false;
@@ -1952,11 +1968,10 @@ Point World::draw(Point start, Map_seen* seen)
 			}
 				break;
 
-			case KEY_ESC:
-			case 'q':
-			case 'Q':
-			case '\n':
-				if (ch == '\n')
+			case KeyCode::Q:
+			case KeyCode::ENTER:
+			case KeyCode::ESCAPE:
+				if (key == KeyCode::ENTER)
 				{
 					pos.x += (xdim / 2);
 					pos.y += (ydim / 2);
