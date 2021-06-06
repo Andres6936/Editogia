@@ -13,6 +13,7 @@
 #include "Editogia/Mechanism/building.h"
 #include "Editogia/Util/stringfunc.h"
 #include "Editogia/Entity/Org/player_city.h"
+#include "Editogia/Scene/MenuScene.hpp"
 #include "Editogia/Scene/SceneManager.hpp"
 
 #include <Levin/Levin.hpp>
@@ -71,10 +72,31 @@ SceneManager::SceneManager()
 	set_menu_str();
 
 	pl_city = GAME->city;
+
+	menuScene = std::make_shared<Editogia::MenuScene>();
+	currentScene = menuScene;
 }
 
 SceneManager::~SceneManager()
 {
+}
+
+
+void SceneManager::draw()
+{
+	currentScene->draw();
+}
+
+void SceneManager::update()
+{
+	currentScene->update();
+}
+
+void SceneManager::handle()
+{
+	const TypeScene typeScene = currentScene->handle();
+
+	if (typeScene == TypeScene::None) return;
 }
 
 bool SceneManager::starting_screen()

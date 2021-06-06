@@ -3,11 +3,14 @@
 
 #include <vector>
 #include <string>
+#include <memory>
+
 #include "Editogia/Entity/Org/area.h"
 #include "Editogia/game.h"
 #include "Editogia/Gea/world.h"
 #include "Editogia/Render/View/window.h"
 #include "Editogia/Scene/Menu.hpp"
+#include "Editogia/Scene/IScene.hpp"
 #include "Cuss/Interface.hpp"
 
 
@@ -71,10 +74,20 @@ private:
 
 	Window w_main{ 0, 0, 80, 24 };
 
+	std::shared_ptr<Editogia::IScene> menuScene;
+
+	std::shared_ptr<Editogia::IScene> currentScene;
+
 public:
 	SceneManager();
 
 	~SceneManager();
+
+	void draw();
+
+	void update();
+
+	void handle();
 
 // returns false if we quit - this should exit the program
 	bool starting_screen();
