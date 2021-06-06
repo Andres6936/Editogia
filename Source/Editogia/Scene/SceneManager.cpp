@@ -97,6 +97,11 @@ void SceneManager::handle()
 	const TypeScene typeScene = currentScene->handle();
 
 	if (typeScene == TypeScene::None) return;
+
+	if (typeScene == TypeScene::Exit)
+	{
+		running = false;
+	}
 }
 
 bool SceneManager::isRunning()
