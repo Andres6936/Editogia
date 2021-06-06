@@ -54,20 +54,12 @@ namespace cuss
 
 		void setVAlignment(const vertical_alignment VAlignment) noexcept;
 
-		Element()
-		{
-			name = "";
-			posx = 0;
-			posy = 0;
-			sizex = 0;
-			sizey = 0;
-			selected = false;
-			selectable = false;
-			fg = c_ltgray;
-			bg = c_black;
-			owns_data = true;
-			recently_selected = false;
-		}
+		// Constructor
+
+		/**
+		 * Default Constructor
+		 */
+		Element() noexcept = default;
 
 		virtual ~Element()
 		{
