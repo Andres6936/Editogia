@@ -191,12 +191,12 @@ void interface::draw_prototype(Window* win)
 				win->putch(x1, y1, c_white, c_black, LINE_OXXO);
 				win->putch(x2, y2, c_white, c_black, LINE_XOOX);
 			}
-			if (elements[i]->align == ALIGN_RIGHT)
+			if (elements[i]->align == alignment::ALIGN_RIGHT)
 			{
 				win->putstr_r(x1 + 1, y1, (elements[i]->selected ? c_magenta : c_yellow),
 						c_black, elements[i]->sizex - 2, elements[i]->name);
 			}
-			else if (elements[i]->align == ALIGN_CENTER)
+			else if (elements[i]->align == alignment::ALIGN_CENTER)
 			{
 				win->putstr_c(x1 + 1, y1, (elements[i]->selected ? c_magenta : c_yellow),
 						c_black, elements[i]->sizex - 2, elements[i]->name);

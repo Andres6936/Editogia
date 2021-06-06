@@ -70,11 +70,11 @@ void ele_textbox::draw(Window* win)
 		}
 		if (index >= 0 && index < broken.size())
 		{
-			if (align == ALIGN_RIGHT)
+			if (align == alignment::ALIGN_RIGHT)
 			{
 				win->putstr_r(posx, ypos, fg, bg, sizex, broken[index]);
 			}
-			else if (align == ALIGN_CENTER)
+			else if (align == alignment::ALIGN_CENTER)
 			{
 				win->putstr_c(posx, ypos, fg, bg, sizex, broken[index]);
 			}

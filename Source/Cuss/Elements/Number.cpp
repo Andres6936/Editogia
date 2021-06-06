@@ -11,11 +11,11 @@ using namespace cuss;
 void ele_number::draw(Window* win)
 {
 	EColor hilite = (selected ? SELECTCOLOR : bg);
-	if (align == ALIGN_RIGHT)
+	if (align == alignment::ALIGN_RIGHT)
 	{
 		win->putstr_r(posx, posy, fg, hilite, sizex, "%d", (*value));
 	}
-	else if (align == ALIGN_CENTER)
+	else if (align == alignment::ALIGN_CENTER)
 	{
 		win->putstr_c(posx, posy, fg, hilite, sizex, "%d", (*value));
 	}

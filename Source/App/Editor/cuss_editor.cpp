@@ -329,12 +329,12 @@ int main(int argc, char* argv[])
 					}
 					else if (ch == '{' && sel)
 					{
-						sel->align = ALIGN_LEFT;
+						sel->align = alignment::ALIGN_LEFT;
 
 					}
 					else if (ch == '}' && sel)
 					{
-						sel->align = ALIGN_RIGHT;
+						sel->align = alignment::ALIGN_RIGHT;
 
 					}
 					else if (ch == '(' && sel)
@@ -349,7 +349,7 @@ int main(int argc, char* argv[])
 					}
 					else if (ch == '|' && sel)
 					{
-						sel->align = ALIGN_CENTER;
+						sel->align = alignment::ALIGN_CENTER;
 
 					}
 					else if (ch == 'm' && sel)
@@ -1101,15 +1101,15 @@ void elements_window(interface& edited)
 			if (ch == '[')
 				cur = i_ele.select_last();
 			if (selected && ch == '{')
-				selected->align = ALIGN_LEFT;
+				selected->align = alignment::ALIGN_LEFT;
 			if (selected && ch == '}')
-				selected->align = ALIGN_RIGHT;
+				selected->align = alignment::ALIGN_RIGHT;
 			if (selected && ch == '(')
 				selected->v_align = ALIGN_TOP;
 			if (selected && ch == ')')
 				selected->v_align = ALIGN_BOTTOM;
 			if (selected && ch == '|')
-				selected->align = ALIGN_CENTER;
+				selected->align = alignment::ALIGN_CENTER;
 			if (selected && ch == '!')
 				selected->selectable = !(selected->selectable);
 
@@ -1117,15 +1117,15 @@ void elements_window(interface& edited)
 		else
 		{ // else if (cur && cur->name == "e_elelist")
 			if (selected && ch == '{')
-				selected->align = ALIGN_LEFT;
+				selected->align = alignment::ALIGN_LEFT;
 			else if (selected && ch == '}')
-				selected->align = ALIGN_RIGHT;
+				selected->align = alignment::ALIGN_RIGHT;
 			else if (selected && ch == '(')
 				selected->v_align = ALIGN_TOP;
 			else if (selected && ch == ')')
 				selected->v_align = ALIGN_BOTTOM;
 			else if (selected && ch == '|')
-				selected->align = ALIGN_CENTER;
+				selected->align = alignment::ALIGN_CENTER;
 			else if (ch == '!')
 				selected->selectable = !(selected->selectable);
 			else if (ch == '\t')
@@ -1302,11 +1302,11 @@ void update_elements_window(interface& editor, interface& edited)
 		editor.set_data("e_elename", selected->name);
 		editor.set_data("e_eletype", element_type_name(selected->type()));
 		editor.set_data("e_editable", (selected->selectable ? "Yes" : "No"));
-		if (selected->align == ALIGN_LEFT)
+		if (selected->align == alignment::ALIGN_LEFT)
 			editor.set_data("e_alignment", "Left");
-		else if (selected->align == ALIGN_RIGHT)
+		else if (selected->align == alignment::ALIGN_RIGHT)
 			editor.set_data("e_alignment", "Right");
-		else if (selected->align == ALIGN_CENTER)
+		else if (selected->align == alignment::ALIGN_CENTER)
 			editor.set_data("e_alignment", "Center");
 		if (selected->v_align == ALIGN_TOP)
 			editor.set_data("e_v_alignment", "Top");

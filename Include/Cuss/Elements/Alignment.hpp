@@ -5,12 +5,11 @@
 
 namespace cuss
 {
-	enum alignment
+	enum class alignment
 	{
-		ALIGN_LEFT = 0,
-		ALIGN_RIGHT = 1,
-		ALIGN_CENTER = 2,
-		ALIGN_MAX
+		ALIGN_LEFT,
+		ALIGN_RIGHT,
+		ALIGN_CENTER,
 	};
 
 	enum vertical_alignment

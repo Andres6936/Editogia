@@ -19,12 +19,12 @@ void ele_menu::draw(Window* win)
 
 	if (!selected || !open)
 	{
-		if (align == ALIGN_RIGHT)
+		if (align == alignment::ALIGN_RIGHT)
 		{
 			win->putstr_r(posx + 1, posy, fg, (selected ? SELECTCOLOR : bg),
 					sizex - 2, text);
 		}
-		else if (align == ALIGN_CENTER)
+		else if (align == alignment::ALIGN_CENTER)
 		{
 			win->putstr_c(posx + 1, posy, fg, (selected ? SELECTCOLOR : bg),
 					sizex - 2, text);
@@ -64,11 +64,11 @@ void ele_menu::draw(Window* win)
 	win->putch(posx + sizex - 2, posy + tmpsizey - 1, fg, bg, LINE_XOOX);
 
 // Then draw menu items
-	if (align == ALIGN_RIGHT)
+	if (align == alignment::ALIGN_RIGHT)
 	{
 		win->putstr_r(posx + 1, posy, fg, bg, sizex - 2, title);
 	}
-	else if (align == ALIGN_CENTER)
+	else if (align == alignment::ALIGN_CENTER)
 	{
 		win->putstr_c(posx + 1, posy, fg, bg, sizex - 2, title);
 	}
@@ -96,11 +96,11 @@ void ele_menu::draw(Window* win)
 				win->putch(x, line, c_black, c_black, 'x');
 			}
 			EColor back = (n == selection ? SELECTCOLOR : bg);
-			if (align == ALIGN_RIGHT)
+			if (align == alignment::ALIGN_RIGHT)
 			{
 				win->putstr_r(posx + 1, line, fg, back, sizex - 2, (*list)[n]);
 			}
-			else if (align == ALIGN_CENTER)
+			else if (align == alignment::ALIGN_CENTER)
 			{
 				win->putstr_c(posx + 1, line, fg, back, sizex - 2, (*list)[n]);
 			}
