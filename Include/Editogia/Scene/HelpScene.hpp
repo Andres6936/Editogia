@@ -13,6 +13,11 @@ namespace Editogia
 
 	public:
 
+		void draw() override;
+
+		void update() override;
+
+		TypeScene handle() override;
 
 	};
 

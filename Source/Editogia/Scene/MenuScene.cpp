@@ -4,3 +4,17 @@
 
 using namespace Editogia;
 
+void MenuScene::draw()
+{
+
+}
+
+void MenuScene::update()
+{
+
+}
+
+TypeScene MenuScene::handle()
+{
+	return TypeScene::None;
+}

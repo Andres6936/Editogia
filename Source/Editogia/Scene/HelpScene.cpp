@@ -4,3 +4,17 @@
 
 using namespace Editogia;
 
+void HelpScene::draw()
+{
+
+}
+
+void HelpScene::update()
+{
+
+}
+
+TypeScene HelpScene::handle()
+{
+	return TypeScene::None;
+}
