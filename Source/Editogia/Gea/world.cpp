@@ -1959,15 +1959,13 @@ Point World::draw(Point start, Map_seen* seen)
 		}
 			break;
 
-		case KeyCode::Q:
 		case KeyCode::ENTER:
+			pos.x += (xdim / 2);
+			pos.y += (ydim / 2);
+			return pos;
+
+		case KeyCode::Q:
 		case KeyCode::ESCAPE:
-			if (key == KeyCode::ENTER)
-			{
-				pos.x += (xdim / 2);
-				pos.y += (ydim / 2);
-				return pos;
-			}
 			return Point(-1, -1);
 		}
 
