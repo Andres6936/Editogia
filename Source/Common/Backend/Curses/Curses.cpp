@@ -344,6 +344,10 @@ const Key Curses::getKeyEvent()
 	{
 		key.setKeyCode(KeyCode::ENTER);
 	}
+	else if (keyPressed == '\n')
+	{
+		key.setKeyCode(KeyCode::ENTER);
+	}
 	else if (keyPressed == '\'')
 	{
 		key.setKeyCode(KeyCode::APOSTROPHE);
