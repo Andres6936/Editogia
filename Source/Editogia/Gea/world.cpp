@@ -1940,7 +1940,7 @@ Point World::draw(Point start, Map_seen* seen)
 				hilite_animals = false;
 				break;
 
-			case '?':
+			case KeyCode::QUESTION:
 			{
 				City* city_checked = get_city(center);
 				if (city_checked)
