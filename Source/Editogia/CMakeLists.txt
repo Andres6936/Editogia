@@ -23,7 +23,9 @@ ADD_LIBRARY(Editogia.Lib
         Mechanism/Recipe.cpp
         Render/View/help.cpp
         Render/View/Message.cpp
+        Scene/HelpScene.cpp
         Scene/Menu.cpp
+        Scene/MenuScene.cpp
         Scene/SceneManager.cpp
         Util/Time/Date.cpp
         ai_data.cpp
